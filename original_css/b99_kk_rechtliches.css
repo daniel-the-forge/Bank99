@@ -1,0 +1,436 @@
+.rechtliches-container {
+    margin-bottom: 40px;
+}
+ 
+.margin-btm-fix {
+    margin-bottom: 20px !important;
+}
+ 
+.rechtliches-container > .econ-section-content {
+    display: flex;
+    flex-direction: column;
+}
+ 
+.rechtliches-sub-container {
+    margin-right: 152px !important;
+    margin-left: unset !important;
+}
+ 
+.rechtliches-sub-container .econ-section-content {
+    display: block;
+    background-color: #dfe3ec;
+    border-radius: 6px;
+    padding: 15px 12px 12px 15px !important;
+}
+ 
+.rechtliches-sub-container-one {
+    display: block;
+    background-color: #dfe3ec;
+    border-radius: 6px;
+    padding: 0px 12px 12px 15px !important;
+    margin: 0px 350px 0px 300px;
+}
+ 
+.rechtliches-sub-container .econ-section__header {
+    display: none;
+}
+ 
+.rechtliches-sub-container .econ-section-content .econ-fragment div .row .col-xs-12 {
+    padding-right: unset !important;
+}
+ 
+.b99-btn-as-link-container {
+    padding-left: 8px;
+    margin-top: -10px;
+}
+ 
+.container-negative-margin {
+    margin-top: -12px;
+}
+ 
+.b99-option-gray-bg div.econ-control__label.col-xs-12.col-sm-4 {
+    margin-top: 8px !important;
+}
+ 
+.b99-option-gray-bg.rechtliches-container-label {
+    text-align: left;
+    padding: unset;
+}
+ 
+.b99-option-gray-bg label.control-label {
+    font-weight: normal !important;
+}
+ 
+.form-group.b99-option-no-label {
+    margin-bottom: unset !important;
+}
+ 
+.form-horizontal:has(.b99-option-no-label) {
+    margin-top: unset !important;
+}
+ 
+.econ-section-content:has(.b99-option-no-label) {
+    padding-top: 5px !important;
+}
+ 
+.b99-option-no-label .econ-control__label {
+    display: none;
+}
+ 
+.b99-option-gray-bg .econ-control__label,
+.b99-option-gray-bg .econ-control__label .control-label {
+    text-align: left !important;
+}
+ 
+.rechtliches-container-label .col-xs-12 {
+    padding-left: unset !important;
+    padding-right: unset !important;    
+}
+ 
+.collapsible-no-bg {
+    margin-left: 5px;
+    margin-right: 108px;
+    margin-bottom: 50px !important;
+}
+ 
+.collapsible-no-bg .econ-section__header {
+    padding-top: 2px !important;
+}
+ 
+.collapsible-no-bg .econ-section__header {
+    margin-bottom: 5px;
+}
+ 
+.collapsible-no-bg i.econ-collapsible-icon {
+    margin-top: -11px !important;
+}
+ 
+.b99-option-gray-bg{
+    margin-top: 1rem;
+}
+ 
+.b99-option-gray-bg .checkbox {
+    background-color: #dfe3ec;
+    border-radius: 6px;
+    position: relative;
+    padding: 10px 12px 12px 10px !important;
+}
+ 
+.rechtliches-text-block {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}  
+ 
+.rechtliches-text-block-two {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 28px;
+    padding-right: 10px;
+}
+ 
+.rechtliches-sub-checkbox .rechtliches-sub-container {
+    margin-top: -40px;
+}
+ 
+.rechtliches-more-info{
+    margin-top: 25px !important;
+    margin-left: 32px !important;
+}
+ 
+.rechtliches-sub-checkbox{
+    margin-top: -12px !important;
+}
+ 
+.econ-fragment.form-horizontal:has(.rechtliches-sub-checkbox) {
+    margin-top: unset !important;
+}
+ 
+.rechtliches-sub-checkbox .econ-control__label{
+    display: none;
+}
+ 
+.b99-rechtliches-grey-info{
+    margin: unset !important;
+    left: unset !important;
+    padding-right: 2px !important;
+ 
+}
+
+@media only screen and (min-width: 300px) {
+    .rechtliches-container-label .row {
+        padding-left: 25px;
+    }
+}
+ 
+@media only screen and (min-width: 380px){
+    .b99-rechtliches-grey-info{
+        margin-left: 15px !important;
+        margin-right: 78px !important;
+    }
+}
+
+
+ 
+@media only screen and (min-width: 492px){
+
+    .rechtliches-container-label .row {
+        padding-left: 8px;
+    }
+
+    .rechtliches-nested-container .econ-section-content{
+        width: 100% !important;
+    }
+
+    .rechtliches-sub-container .econ-section-content {
+        width: 100% !important;
+    }
+ 
+    .b99-option-gray-bg.rechtliches-container-label {
+        width: auto;
+        padding-left: 17px;
+    }
+   
+    .rechtliches-container-label .col-xs-12 {
+        padding-left: 120px;
+        padding-right: unset !important;
+    }
+   
+    .rechtliches-sub-container {
+        margin-right: 152px !important;
+        margin-left: unset !important;
+        min-width: 338px;
+    }
+ 
+    .collapsible-no-bg {
+        margin-left: 5px;
+        margin-right: 148px;
+        min-width: 335px;
+    }
+}
+ 
+@media only screen and (min-width: 768px) {
+
+    .rechtliches-container .rechtliches-nested-container .econ-section-content {
+        width: 100% !important;
+    }
+
+    .rechtliches-container-label .row {
+        text-align: left;
+        padding-left: 25px;
+    }
+
+    .econ-container .form-horizontal .b99-gray-option-box .control-label {
+        text-align: left !important;
+        padding-bottom: 5px;
+    }
+
+    .b99-gray-option-box .col-xs-10.col-sm-6:has(.checkbox) {
+        width: 97% !important;
+    }
+
+    .page-rechtliches .b99-gray-option-box .control-label {
+        text-align: left !important;
+    }
+
+    .page-rechtliches .rechtliches-sub-container {
+        width: 100% !important;
+    }
+
+    .rechtliches-nested-container .econ-section-content{
+        width: 96% !important;
+    }
+ 
+    .b99-option-gray-bg.rechtliches-container-label {
+        padding-left: unset;
+        width: 235px;
+    }
+ 
+    .rechtliches-sub-container {
+        margin-right: 20px !important;
+        margin-left: 15px !important;
+        padding-right: 23px;
+    }
+ 
+    .rechtliches-sub-checkbox .econ-icon--error {
+        margin-top: -64px !important;
+        margin-left: 471px !important;
+    }
+ 
+    .collapsible-no-bg {
+        margin-left: 252px;
+        margin-right: 154px;
+    }
+ 
+    .b99-option-gray-bg .econ-control__label,
+    .b99-option-gray-bg .econ-control__label .control-label {
+        text-align: right !important;
+    }
+ 
+    .b99-rechtliches-grey-info {
+        margin-left: 250px !important;
+        margin-right: 36px !important;
+    }
+ 
+    .b99-gray-option-box-mandatory .econ-control-icon .econ-icon--error {
+        margin-top: -81px !important;
+        margin-left: 736px !important;
+    }
+ 
+    .b99-gray-option-box-mandatory .econ-tooltip--feedback {
+        margin-left: 270px !important;
+        margin-right: 60px !important;
+    }
+ 
+    .rechtliches-sub-checkbox .econ-icon--error {
+        margin-top: -64px !important;
+        margin-left: 471px !important;
+    }
+ 
+    .rechtliches-sub-checkbox .col-xs-12.econ-tooltip--feedback {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+}
+ 
+ 
+@media only screen and (min-width: 867px){
+    .rechtliches-sub-container {
+        margin-left: 16px !important;
+        padding-right: 23px !important;
+    }
+}
+ 
+@media only screen and (min-width: 992px){
+
+    .b99-gray-option-box .econ-controls.col-xs-10.col-sm-6 {
+        width: 73% !important;
+    }
+
+    .b99-option-gray-bg.rechtliches-container-label {
+        width:  308px;
+    }
+ 
+    .rechtliches-sub-container {
+        margin-right: 192px !important;
+        padding-right: unset !important;
+    }
+ 
+    .collapsible-no-bg {
+        margin-left: 326px;
+        margin-right: 192px;
+    }
+ 
+    .b99-rechtliches-grey-info {
+        margin-left: 325px !important;
+        margin-right: 192px !important;
+    }
+ 
+    .b99-gray-option-box-mandatory .econ-control-icon .econ-icon--error {
+        margin-top: unset !important;
+        margin-left: unset !important;
+    }
+ 
+    .b99-gray-option-box-mandatory .econ-tooltip--feedback {
+        margin-left: 340px !important;
+        margin-right: 210px !important;
+    }
+ 
+    .rechtliches-sub-checkbox .econ-icon--error {
+        margin-top: -64px !important;
+        margin-left: 471px !important;
+    }
+ 
+    .rechtliches-sub-checkbox .col-xs-12.econ-tooltip--feedback {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+
+    .form-horizontal .b99-gray-option-box .econ-controls.col-xs-10.col-sm-6 {
+        width: 48.5% !important;
+    }
+
+    .rechtliches-container .rechtliches-nested-container .econ-section-content {
+        width: 68% !important;
+    }
+
+    .econ-container .form-horizontal .b99-gray-option-box .control-label {
+        text-align: right !important;
+    }
+
+    .rechtliches-container-label .row {
+        text-align: right;
+    }
+
+    .rechtliches-sub-container .econ-section-content {
+        width: 97% !important;
+    }
+
+    .rechtliches-container > .econ-section-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .page-rechtliches .rechtliches-container .rechtliches-sub-container {
+        width: 69% !important;
+    }
+}
+
+@media only screen and (min-width: 1200px){
+
+    .form-horizontal .b99-gray-option-box .econ-controls.col-xs-10.col-sm-6 {
+        width: 50% !important;
+    }
+
+    .rechtliches-container .rechtliches-nested-container .econ-section-content {
+        width: 87% !important;
+    }
+
+    .rechtliches-sub-container .econ-section-content {
+        width: 100% !important;
+    }
+
+    .rechtliches-nested-container .econ-section-content{
+        width: 87% !important;
+    }
+ 
+    .b99-option-gray-bg.rechtliches-container-label {
+        width: 375px;
+    }
+ 
+    .rechtliches-sub-container {
+        margin-right: 225px !important;
+        margin-left: 15px !important;
+    }
+ 
+    .b99-gray-option-box-mandatory .econ-tooltip--feedback {
+        margin-left: 405px !important;
+        margin-right: 242px !important;
+    }
+ 
+    .rechtliches-sub-checkbox .econ-icon--error {
+        margin-top: -64px !important;
+        margin-left: 570px !important;
+    }
+ 
+    .rechtliches-sub-checkbox .col-xs-12.econ-tooltip--feedback {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+ 
+    .collapsible-no-bg {
+        margin-left: 395px;
+        margin-right: 230px;
+    }
+ 
+    .b99-rechtliches-grey-info {
+        margin-left: 390px !important;
+        margin-right: 223px !important;
+    }
+}
+ 
+.hidden-btn {
+    display: none !important;
+}

@@ -1,0 +1,63 @@
+@media only screen and (min-width: 380px) {
+
+    .bo-econ-container .econ-tooltip--feedback,
+    .bo-econ-container .econ-tooltip--info {
+        float: none;
+        min-height: 0;
+        padding-left: 0;
+        padding-right: 0;
+        clear: left;
+        font-size: 12px;
+        margin-left: 14px!important;
+        margin-right: 124px !important;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 867px) {
+
+    .bo-econ-container .econ-tooltip--feedback,
+    .bo-econ-container .econ-tooltip--info {
+        float: none;
+        min-height: 0;
+        padding-left: 0;
+        padding-right: 0;
+        clear: left;
+        font-size: 12px;
+        margin-left: 205px!important;
+        margin-right: 230px!important;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+
+    .bo-econ-container .econ-tooltip--feedback,
+    .bo-econ-container .econ-tooltip--info {
+        float: none;
+        min-height: 0;
+        padding-left: 0;
+        padding-right: 0;
+        clear: left;
+        font-size: 12px;
+        margin-left: 260px!important;
+        margin-right: 290px!important;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+
+    .bo-econ-container .econ-tooltip--feedback,
+    .bo-econ-container .econ-tooltip--info {
+        float: none;
+        min-height: 0;
+        padding-left: 0;
+        padding-right: 0;
+        clear: left;
+        font-size: 12px;
+        margin-left: 310px!important;
+        margin-right: 335px!important;
+        width: auto;
+    }
+}

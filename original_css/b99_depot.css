@@ -1,0 +1,11 @@
+.econ-container .depot .econ-tooltip--info,
+.econ-container .depot .econ-tooltip--feedback {
+	margin-left: 405px !important;
+	margin-right: 240px  !important;
+}
+
+.econ-container .depot .depot-email-confirmation-box .econ-tooltip--feedback,
+.econ-container .depot .depot-email-confirmation-box .econ-tooltip--info {
+	margin-left: 388px !important;
+	margin-right: 247px !important;
+}

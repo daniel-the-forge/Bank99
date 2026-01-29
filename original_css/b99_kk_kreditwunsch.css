@@ -1,0 +1,554 @@
+/* Kreditwunsch specific styles */
+
+.box--lightgray{
+	background-color: #F5F5F5;
+	border-radius: 8px 8px 0 0;
+	padding: 20px 20px 30px 20px;
+	width: 100%;
+	margin: auto;
+	z-index: 0;
+	position: relative;
+}
+
+.wunschbetrag-input{
+	margin-bottom: 5px !important;
+	width: 100%;
+}
+
+.wunschbetrag-input .form-control{
+	width: 100%;
+	font-weight: 600 !important;
+	text-align: right !important;
+	font-size: 18px !important;
+}
+
+.wunschbetrag-input .econ-slider .econ-control__label {
+	display: none;
+}
+
+.econ-container .econ-radio-knobs input[type="radio"] {
+	opacity: 0 !important;
+	z-index: -1;
+}
+
+.verwendungszweck-dropdown .econ-control__label .control-label span {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.verzinsung-radio-input .econ-radio__label {
+	font-size: 22px;
+	height: 59px;
+	padding: 15px 10px 10px 10px !important;
+}
+
+.verzinsung-radio-input .econ-control-icon {
+	top: -135px !important;
+	left: 170px !important;
+}
+
+.wunschbetrag-input .econ-control-icon {
+	top: -135px !important;
+	left: 180px !important;
+}
+
+.verzinsung-radio-input .econ-tooltip--info,
+.wunschbetrag-input .econ-tooltip--feedback {
+	top: -15px !important;
+}
+
+.verzinsung-radio-input .econ-control__label {
+	display: none;
+}
+
+.verzinsung-radio-input .econ-tooltip--info .econ-tooltip__inner,
+.wunschbetrag-input .econ-tooltip--feedback .econ-tooltip__inner {
+	margin-top: 0 !important;
+}
+
+.verzinsung-radio-input .econ-radio-knobs .radio {
+	margin-top: 5px;
+}
+
+.verzinsung-radio-input .econ-radio-knobs input[type="radio"]:checked ~ .econ-radio__label {
+	color: #fff;
+	background-color: #ffdc00;
+	height: 59px;
+}
+
+.container--html-output {
+	display: flex;
+	justify-content: space-between;
+}
+
+.summary-text {
+	font-weight: bold;
+}
+
+.kreditwunsch-summary-line {
+	border-top: 1px solid #ccc;
+	margin: 5px 30px 5px 30px;
+	text-align: center;
+}
+
+.b99-kreditwunsch-checkbox-container {
+	background-color: #dfe3ec !important;
+	border-radius: 8px !important;
+	display: flex;
+	flex-direction: column;
+}
+
+.b99-kreditwunsch-checkbox-container .form-horizontal {
+	margin-top: 0;
+}
+
+.b99-kreditwunsch-checkbox-container .econ-section__header {
+	display: none;
+}
+
+.b99-kreditwunsch-checkbox-info {
+	margin-bottom: -5px !important;
+	margin-left: 40px;
+}
+
+.b99-mb-minus-15 {
+	margin-bottom: -15px !important;
+}
+
+@media only screen and (min-width: 360px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+	.verwendungszweck-dropdown .econ-control__label {
+		text-align: left !important;
+		margin-bottom: 20px;
+	}
+
+	.b99-kreditwunsch-checkbox-container {
+		margin-left: 15px;
+		width: 91.5%;
+		padding-top: 8px;
+	}
+}
+
+@media only screen and (min-width: 375px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+
+	.kreditwunsch-field .econ-tooltip--info {
+		margin-left: 278px !important;
+		margin-right: 175px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-controls .row .col-xs-12 {
+		width: 122% !important;
+		padding-left: 18px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control__label {
+		margin-left: 3px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control-icon {
+		left: 50px;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--feedback {
+		top: -8px;
+		margin-left: 19px;
+		margin-right: 45px;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--info .econ-tooltip--feedback {
+		top: 5px;
+		margin-right: 50px;
+	}
+
+	.verzinsung-radio-input .econ-tooltip--info,
+	.wunschbetrag-input .econ-tooltip--feedback {
+		margin-left: 14px !important;
+		margin-right: 45px !important;
+	}
+
+	.verzinsung-radio-input {
+		padding-left: 20px !important;
+		margin-top: 20px;
+	}
+
+	.verzinsung-radio-input .econ-radio {
+		width: 100% !important;
+	}
+
+	.right-column {
+		padding-left: 20px !important;
+		width: 96%;
+	}
+
+	.left-column {
+		padding-left: 25px !important;
+		padding-right: 5px !important;
+		margin-left: 0 !important;
+	}
+
+	.line {
+		width: 80%;
+	}
+}
+
+@media only screen and (min-width: 430px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+
+	.kreditwunsch-field .econ-tooltip--info {
+		margin-left: 275px !important;
+		margin-right: 175px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control__label {
+		margin-left: 5px !important;
+	}
+	.verwendungszweck-dropdown .econ-control-icon {
+		left: 50px;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--info .econ-tooltip--feedback {
+		top: 5px;
+		left: 5px;
+		margin-right: 50px;
+	}
+
+	.line {
+		width: 83%;
+		margin: 5px 30px 5px 30px;
+	}
+
+	.container--html-output {
+		margin: 20px 40px 10px 30px;
+	}
+
+	.b99-kreditwunsch-checkbox-container {
+		width: 92.5%;
+		padding-top: 10px;
+	}
+}
+
+@media only screen and (min-width: 540px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+
+	.line {
+		width: 85%;
+		margin: 5px 30px 5px 30px;
+	}
+
+	.container--html-output {
+		margin: 20px 40px 10px 30px;
+	}
+
+	.b99-kreditwunsch-checkbox-container {
+		width: 94.5%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+
+	.kreditwunsch-field .econ-tooltip--info {
+		margin-left: 275px !important;
+		margin-right: 176px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-controls .row .col-xs-12 {
+		width: 153% !important;
+		padding-left: 26px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control__label {
+		margin-left: 13px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control-icon {
+		left: 230px;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--feedback {
+		margin-left: 26px;
+		margin-right: 47px;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--info .econ-tooltip--feedback {
+		top: 5px;
+		margin-left: 25px;
+		margin-right: 50px;
+	}
+
+	.verzinsung-radio-input .econ-tooltip--info,
+	.wunschbetrag-input .econ-tooltip--feedback {
+		margin-left: 16px !important;
+		margin-right: 45px !important;
+	}
+
+	.verzinsung-radio-input {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	.verzinsung-radio-input .econ-radio .row {
+		width: 98%;
+	}
+
+	.right-column {
+		padding-left: 20px !important;
+		width: 96%;
+	}
+
+	.left-column {
+		padding-left: 25px !important;
+		padding-right: 5px !important;
+		margin-left: 0 !important;
+	}
+
+	.line {
+		width: 90%;
+	}
+
+	.container--html-output {
+		margin: 20px 40px 10px 30px;
+	}
+
+	.b99-kreditwunsch-checkbox-container {
+		margin-left: 15px;
+		width: 93%;
+		padding-top: 5px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+
+	.kreditwunsch-field .econ-tooltip--info {
+		margin-left: 348px !important;
+		margin-right: 212px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-controls .row .col-xs-12 {
+		width: 106% !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control__label {
+		margin-left: -35px !important;
+		text-align: right !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control-icon {
+		left: 650px !important;
+		top: -45px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--feedback {
+		top: -32px !important;
+		margin-left: 300px !important;
+		margin-right: 45px !important;
+	}
+
+	.verzinsung-radio-input .econ-tooltip--info,
+	.wunschbetrag-input .econ-tooltip--feedback {
+		margin-left: 10px !important;
+		margin-right: 40px !important;
+	}
+
+	.verzinsung-radio-input .econ-tooltip--info .econ-tooltip__inner {
+		margin-right: 5px !important;
+		margin-left: 5px !important;
+	}
+	.wunschbetrag-input .econ-tooltip--feedback .econ-tooltip__inner {
+		margin-right: 15px !important;
+		margin-left: 5px !important;
+	}
+
+	.verzinsung-radio-input {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	.verzinsung-radio-input .econ-radio {
+		width: 100% !important;
+	}
+
+	.right-column {
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.left-column {
+		padding-left: 30px !important;
+		padding-right: 5px !important;
+		margin-left: 0 !important;
+		width: 100%;
+	}
+
+	.line {
+		width: 92%;
+	}
+
+	.container--html-output {
+		margin: 20px 40px 10px 30px;
+	}
+
+	.b99-kreditwunsch-checkbox-container {
+		margin-left: 15px;
+		margin-top: 5px;
+		width: 70% !important;
+		padding-top: 12px;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+
+	.kreditwunsch-field .econ-tooltip--info {
+		margin-left: 415px !important;
+		margin-right: 245px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-controls .row .col-xs-12 {
+		width: 113% !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control__label {
+		margin-left: -93px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control-icon {
+		top: 20px !important;
+		left: 85px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--feedback {
+		top: -19px !important;
+		margin-left: 310px !important;
+		margin-right: 44px !important;
+	}
+
+	.b99-kreditwunsch-checkbox-container {
+		margin-left: 25px;
+		margin-top: 5px;
+		width: 68% !important;
+		padding-top: 10px;
+	}
+}
+
+
+@media only screen and (min-width: 1280px) {
+	.error-icon-email .econ-icon--error {
+		margin-left: 200px;
+	}
+
+	.verwendungszweck-dropdown .econ-controls .row .col-xs-12 {
+		width: 115% !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control__label {
+		margin-left: -100px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-control-icon {
+		left: 100px !important;
+		top: 15px !important;
+	}
+
+	.verwendungszweck-dropdown .econ-tooltip--feedback {
+		top: -20px !important;
+		margin-left: 302px !important;
+		margin-right: 37px !important;
+	}
+
+	.verzinsung-radio-input .econ-tooltip--info,
+	.wunschbetrag-input .econ-tooltip--feedback {
+		margin-left: 10px !important;
+		margin-right: 30px !important;
+	}
+
+	.verzinsung-radio-input {
+		margin-left: 0;
+		margin-top: 0;
+		padding-left: 15px !important;
+		padding-right: 20px !important;
+	}
+
+	.verzinsung-radio-input .econ-radio {
+		width: 102% !important;
+	}
+
+	.left-column {
+		padding-left: 30px !important;
+		padding-right: 5px !important;
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.right-column {
+		padding-left: 30px !important;
+		padding-right: 10px !important;
+	}
+
+	.line {
+		width: 94.5%;
+	}
+
+	.container--html-output {
+		margin: 20px 30px 10px 30px;
+	}
+}
+
+.b99-field_hide{
+	display: none;
+}
+
+.personal-basicdata-container .form-horizontal .econ-control__label{
+	margin-top: 20px !important;
+}
+
+.personal-basicdata-container .form-horizontal .econ-control__label .control-label{
+	font-weight: normal;
+}
+
+.personal-basicdata-container .form-horizontal .b99-gray-option-box .econ-control__label{
+	margin-top: 7px !important;
+}
+
+.input-no-border {
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	outline: none;
+	background-color: white;
+	text-align: right;
+	text-wrap: balance;
+}
+
+.container--html-output h2 {
+	font-family: "Post Sans", "Open Sans", sans-serif !important;
+	color: black !important;
+}
+
+.error-icon-email .econ-icon--error {
+	margin-left: 200px;
+}
+
+.econ-container .b99-radio-full .col-xs-6 {
+	width: 100%;
+}
+
+.slider-tick-label {
+	color: #707070 !important;
+}

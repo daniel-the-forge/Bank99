@@ -1,0 +1,429 @@
+.title-no-border {
+  font-family: "Post Sans", "Open Sans", sans-serif !important;
+  color: black !important;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  background-color: white;
+  text-align: left;
+}
+ 
+.b99-summary-box {
+  background-color: rgb(255, 255, 2555);
+  border-radius: 8px;
+  padding: 10px 10px 10px;
+  width: 100%;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  top: 30px;
+}
+ 
+.summary-line {
+  border-top: 1px solid #ccc;
+  margin: 5px 10px 5px 30px;
+  width: 94.5%;
+  text-align: center;
+}
+ 
+.ergebnis-field .econ-control__label {
+  text-align: left !important;
+}
+ 
+.ergebnis-green-box {
+  background-color: rgb(255, 255, 2555);
+  border: 4px solid rgb(41, 151, 85);
+  border-radius: 8px;
+  padding: 50px 25px 15px;
+  width: 100%;
+  margin: auto;
+  z-index: 2;
+  position: relative;
+  top: 10px;
+}
+
+.updownselling-info-container .econ-section-content {
+  display: flex !important;
+  }
+  
+  .idea-icon_svg {
+  margin-top: 25px !important;
+  }
+  
+  .downsell-info-container {
+  max-width: 65% !important;
+  margin: 10px auto !important;
+  }
+  
+  .downsellTable th,
+  .downsellTable td {
+  padding: 8px !important;
+  text-align: left !important;
+  }
+  
+  .downsellTable td {
+  text-align: right !important;
+  }
+  
+  .downsellTable {
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 8px !important;
+  padding: 15px !important;
+  margin: 10px auto !important;
+  width: 100% !important;
+  border-collapse: separate !important;
+  }
+  
+  .downsellTable th {
+  font-weight: normal;
+  }
+  
+  .downsellTable tr:first-child td {
+  padding-right: 30px !important;
+  padding-left: unset !important;
+  }
+  
+  input.downsellOption {
+  height: 18px !important;
+  width: 18px !important;
+  accent-color: rgb(0, 0, 0);
+  }
+  
+  .downsellTable tbody {
+  padding: 20px !important;
+  display: table-row-group;
+  }
+  
+  .econ-html-output:has(.downsellTable) {
+  padding-top: 30px !important;
+  padding-bottom: 50px !important;
+  }
+
+  .amount-big-text{
+      font-size: 1.5em;
+  }
+
+  .b99-summary-box .container--html-output h2{
+      font-size: 1.5em;
+  }
+
+  .b99-summary-box .container--html-output h3{
+      font-size: 1.125em;
+      line-height: inherit;
+  }
+ 
+@media only screen and (min-width: 380px) {
+  .ergebnis-green-box {
+    width: 100%;
+    padding: 40px 30px 15px;
+  }
+ 
+  .b99-collapse-center > .econ-section__header {
+    margin-left: 0px !important;
+  }
+ 
+  .b99-summary-box {
+    width: 100%;
+  }
+ 
+  .summary-line {
+    width: 90%;
+  }
+}
+ 
+@media only screen and (min-width: 492px) {
+  .rechtliches-sub-container .econ-section-content {
+    width: 98% !important;
+  }
+ 
+  .ergebnis-field .col-sm-3 {
+    width: 20% !important;
+  }
+  .ergebnis-field .col-sm-6 {
+    width: 80% !important;
+    padding-left: 2px !important;
+    padding-right: unset !important;
+  }
+ 
+  .ergebnis-field .col-sm-6 .row .col-xs-6 {
+    width: 50% !important;
+    padding-right: 2px !important;
+    padding-right: unset !important;
+  }
+ 
+  .ergebnis-field .col-sm-6 .row .col-xs-4 {
+    padding-right: unset !important;
+  }
+ 
+  .ergebnis-field .col-xs-12 .col-xs-12 {
+    padding-right: unset !important;
+  }
+  .ergebnis-field .econ-control__label {
+    text-align: right !important;
+  }
+  .ergebnis-field .econ-control__label label {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .idea-icon_svg {
+    margin-top: unset !important;
+  }
+}
+ 
+@media only screen and (min-width: 768px) {
+  .b99-collapse-center {
+    padding-left: 35px;
+  }
+ 
+  .b99-collapse-center > .econ-section__header {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+ 
+  .ergebnis-active-field .econ-tooltip--info,
+  .ergebnis-active-field .econ-tooltip--feedback {
+    margin-left: 133px !important;
+    margin-right: 220px !important;
+  }
+ 
+  .ergebnis-field .col-sm-3 {
+    width: 30% !important;
+  }
+  .ergebnis-field .col-sm-6 {
+    width: 65% !important;
+    padding-left: 20px !important;
+    padding-right: 2px !important;
+  }
+ 
+  .ergebnis-field .col-sm-6 .row .col-xs-4 {
+    padding-right: 15px !important;
+  }
+ 
+  .ergebnis-field .col-sm-6 .row .col-xs-6 {
+    width: 50% !important;
+    padding-right: unset !important;
+  }
+ 
+  .ergebnis-radio-tooltip .econ-control-icon {
+    margin-left: -5px !important;
+  }
+
+  .downsellTable{
+    max-width: 65% !important;
+  }
+}
+ 
+@media only screen and (min-width: 867px) {
+  .b99-collapse-center {
+    padding-left: 25px;
+  }
+ 
+  .ergebnis-green-box {
+    padding: 40px 50px 25px;
+    width: 75%;
+  }
+ 
+  .ergebnis-active-field .econ-tooltip--info,
+  .ergebnis-active-field .econ-tooltip--feedback {
+    margin-left: 127px !important;
+    margin-right: 108px !important;
+  }
+ 
+  .ergebnis-radio-tooltip .econ-tooltip--info,
+  .ergebnis-radio-tooltip .econ-tooltip--feedback {
+    margin-left: 174px !important;
+    margin-right: 136px !important;
+  }
+ 
+  .ergebnis-field .col-sm-3 {
+    width: 31% !important;
+  }
+  .ergebnis-field .col-sm-6 {
+    width: 65% !important;
+    padding-left: 15px !important;
+    padding-right: unset !important;
+  }
+  .ergebnis-field .col-sm-6 .row .col-xs-6 {
+    padding-right: 15px !important;
+  }
+  .ergebnis-field .col-xs-12 .col-xs-12 {
+    padding-right: 15px !important;
+  }
+ 
+  .ergebnis-active-field {
+    margin-left: 15px !important;
+  }
+  .ergebnis-active-field .col-sm-7 {
+    width: 74% !important;
+  }
+ 
+  .b99-summary-box {
+    width: 60%;
+  }
+ 
+  .summary-line {
+    width: 82.5%;
+  }
+ 
+  .ergebnis-radio-tooltip .econ-control-icon {
+    margin-left: unset !important;
+  }
+
+  .amount-big-text{
+      font-size: 1.875em;
+  }
+}
+ 
+@media only screen and (min-width: 992px) {
+  .b99-collapse-center {
+    padding-left: 45px;
+  }
+ 
+  .b99-collapse-center > .econ-section__header {
+    margin-left: 205px !important;
+    margin-right: 180px !important;
+  }
+ 
+  .ergebnis-field .col-sm-3 {
+    width: 26.5% !important;
+  }
+  .ergebnis-field .col-sm-6 {
+    width: 53% !important;
+  }
+ 
+  .ergebnis-active-field {
+    margin-left: 25px !important;
+  }
+  .ergebnis-active-field .col-sm-7 {
+    width: 71% !important;
+  }
+ 
+  .summary-line {
+    width: 86.5%;
+  }
+}
+ 
+@media only screen and (min-width: 1024px) {
+  .rechtliches-sub-container .econ-section-content {
+    width: 97% !important;
+  }
+ 
+  .b99-collapse-center > .econ-section__header {
+    margin-left: 246px !important;
+    margin-right: 180px !important;
+  }
+ 
+  .ergebnis-active-field .econ-tooltip--info,
+  .ergebnis-active-field .econ-tooltip--feedback {
+    margin-left: 153px !important;
+    margin-right: 196px !important;
+  }
+ 
+  .ergebnis-radio-tooltip .econ-tooltip--info,
+  .ergebnis-radio-tooltip .econ-tooltip--feedback {
+    margin-left: 153px !important;
+    margin-right: 248px !important;
+  }
+ 
+  .b99-collapse-center {
+    padding-left: 45px;
+  }
+ 
+  .ergebnis-green-box {
+    padding: 40px 50px 25px;
+    width: 60%;
+  }
+ 
+  .ergebnis-field .col-sm-3 {
+    margin-left: 25px !important;
+    width: 30.5% !important;
+  }
+  .ergebnis-field .col-sm-6 {
+    width: 50% !important;
+  }
+ 
+  .ergebnis-active-field {
+    margin-left: 80px !important;
+  }
+  .ergebnis-active-field .col-sm-7 {
+    width: 65% !important;
+  }
+ 
+  .b99-summary-box {
+    width: 50%;
+  }
+ 
+  .summary-line {
+    width: 85%;
+  }
+ 
+  .ergebnis-radio-tooltip .econ-control-icon {
+    margin-left: -70px !important;
+  }
+}
+ 
+@media only screen and (min-width: 1200px) {
+  .rechtliches-sub-container .econ-section-content {
+    width: 99% !important;
+  }
+ 
+  .b99-collapse-center > .econ-section__header {
+    margin-left: 306px !important;
+    margin-right: 180px !important;
+  }
+ 
+  .ergebnis-active-field .econ-tooltip--info,
+  .ergebnis-active-field .econ-tooltip--feedback {
+    margin-left: 183px !important;
+    margin-right: 240px !important;
+  }
+ 
+  .ergebnis-radio-tooltip .econ-tooltip--info,
+  .ergebnis-radio-tooltip .econ-tooltip--feedback {
+    margin-left: 183px !important;
+    margin-right: 291px !important;
+  }
+ 
+  .b99-collapse-center {
+    padding-left: 70px;
+  }
+ 
+  .ergebnis-field .col-sm-3 {
+    margin-left: 25px !important;
+    width: 27% !important;
+  }
+  .ergebnis-field .col-sm-6 {
+    width: 52% !important;
+  }
+ 
+  .ergebnis-active-field {
+    margin-left: 100px !important;
+  }
+  .ergebnis-active-field .col-sm-7 {
+    width: 64% !important;
+  }
+ 
+  .summary-line {
+    width: 87%;
+  }
+}
+ 
+@media only screen and (min-width: 1280px) {
+  .ergebnis-field .col-sm-3 {
+    width: 28% !important;
+  }
+ 
+  .ergebnis-field .col-sm-6 {
+    width: 51% !important;
+  }
+ 
+  .summary-line {
+    width: 88.5%;
+  }
+ 
+  .b99-collapse-center {
+    padding-left: 54px;
+  }
+}

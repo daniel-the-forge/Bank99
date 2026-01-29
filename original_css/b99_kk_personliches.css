@@ -1,0 +1,56 @@
+.unser-tipp-box {
+	border-radius: 8px !important;
+}
+
+.unser-tipp-box .econ-section__header {
+	text-align: center;
+}
+
+.unser-tipp-box .btn {
+	font-size: 14px;
+}
+.unser-tipp-text .row{
+	margin-left: unset !important;
+	margin-right: unset !important;
+	max-width: unset !important;
+}
+
+.unser-tipp-text .row{
+	margin-left: unset !important;
+	margin-right: unset !important;
+	max-width: unset !important;
+}
+
+@media only screen and (min-width: 767px){
+	.center-field {
+		margin-left: 90px !important;
+	}
+
+	.center-field .col-sm-4 {
+		width: 40%;
+	}
+
+	.center-field .col-sm-6 {
+		width: 60%;
+	}
+}
+
+@media only screen and (min-width: 992px){
+	.center-field {
+		margin-left: 200px !important;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	.center-field {
+		margin-left: 250px !important;
+	}
+	
+	.center-field .col-sm-4 {
+		width: 33.33333333%;
+	}
+
+	.center-field .col-sm-6 {
+		width: 50%;
+	}
+}

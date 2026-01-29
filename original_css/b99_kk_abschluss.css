@@ -1,0 +1,292 @@
+.dokumente-und-unterschrift-section .econ-section__header > span{
+    padding-bottom: 15px;
+    border-bottom: 1px solid #c6cfde;
+}
+
+.abcschluss-info-box-fix {
+    background-color: rgb(217, 217, 217);
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: unset;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.form-group.b99-upload-field {
+ margin-left: auto !important;
+ margin-right: auto !important;
+ width: 100%;
+ margin-bottom: 18px !important;
+}
+
+.b99-upload-field .econ-form-control.econ-form-control__upload {
+ background-color: unset;
+ margin-top: 4px;
+}
+
+.b99-upload-field .file-input .fileinput-remove-button {
+ display: none;
+}
+
+.b99-upload-field .econ-form-control__upload .btn-file {
+ background-color: #757575 !important;
+ border-color: #757575 !important;
+ color: rgb(255, 255, 255) !important;
+ text-transform: none !important;
+ font-weight: 600 !important;
+ font-size: 0.875em !important;
+}
+
+.b99-upload-field .econ-form-control__upload .btn-file:active{
+ color: rgb(255, 255, 255) !important;
+}
+
+.b99-radio .econ-radio--active .econ-radio__label{
+ background-color: unset !important;
+}
+
+.b99-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+ width: 550px;
+ margin-bottom: unset;
+ display: unset;
+ background-color: #f8f8f8 !important;
+}
+
+.b99-upload-field .file-input {
+ column-gap: 15px;
+ align-items: center;
+}
+
+.b99-upload-field .econ-icon--info {
+ padding: unset !important;
+}
+
+.b99-upload-field .econ-icon--error {
+ padding: unset !important;
+}
+
+.b99-upload-field .econ-control-icon .econ-icon--info::before {
+ margin-left: unset !important;
+}
+
+.b99-upload-field .econ-icon--error::before {
+ margin-right: 5px !important;
+}
+
+.b99-upload-field .econ-control-icon {
+ width: auto !important;
+ top: 12px !important;
+ left: 13px !important;
+ padding-right: unset !important;
+}
+
+.b99-upload-field .col-sm-6 {
+ width: 90% !important;
+ padding-right: unset !important;
+}
+
+.b99-upload-field .econ-tooltip--info .econ-tooltip__inner{
+ color: rgb(255, 255, 255);
+}
+
+/* econ-tooltip--info */
+
+.b99-upload-field .econ-tooltip--info {
+ top: unset !important;
+ margin-left: 14px !important;
+ margin-right: 208px !important;
+}
+
+.b99-upload-field .econ-control__label{
+ text-align: left !important;
+ margin-bottom: 8px !important;
+}
+
+.b99-upload-field .econ-control__label {
+ top: 6px !important;
+}
+
+@media only screen and (min-width: 492px) {
+ .b99-upload-field .econ-control-icon,
+ .b99-upload-radio .econ-control-icon {
+  top: 24px !important;
+  left: 28px !important;
+ }
+
+ .b99-upload-field .econ-tooltip--info,
+ .b99-upload-field .econ-tooltip--feedback {
+  margin-left: 15px !important;
+  margin-right: 217px !important;
+ }
+}
+
+@media only screen and (min-width: 768px) {
+ .b99-upload-field .col-sm-6 {
+  width: 57% !important;
+  padding-right: unset !important;
+ }
+
+ .b99-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+  width: 280px;
+ }
+
+ .b99-upload-field .econ-control-icon,
+ .b99-upload-radio .econ-control-icon {
+  left: 60px !important;
+  top: 24px !important;
+ }
+
+ .b99-upload-field .econ-tooltip--info,
+ .b99-upload-field .econ-tooltip--feedback {
+  margin-left: 253px !important;
+  margin-right: 187px !important;
+ }
+
+ .b99-upload-field .econ-control__label{
+  text-align: right !important;
+  margin-bottom: unset !important;
+ }
+}
+
+@media only screen and (min-width: 992px) {
+ .b99-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+  width: 422px;
+ }
+
+ .b99-upload-field .econ-tooltip--info,
+ .b99-upload-field .econ-tooltip--feedback {
+  top: unset !important;
+  margin-left: 325px !important;
+  margin-right: 190px !important;
+ }
+}
+
+@media only screen and (min-width: 1024px) {
+ .b99-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+  width: 422px;
+ }
+
+ .b99-upload-field .econ-tooltip--info,
+ .b99-upload-field .econ-tooltip--feedback {
+  top: unset !important;
+  margin-left: 326px !important;
+  margin-right: 268px !important;
+ }
+}
+
+@media only screen and (min-width: 1200px) {
+ .b99-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+  width: 552px;
+ }
+
+ .b99-upload-field .econ-tooltip--info,
+ .b99-upload-field .econ-tooltip--feedback {
+  top: unset !important;
+  margin-left: 392px !important;
+  margin-right: 286px !important;
+ }
+
+ .sign-modal .econ-fragment .signature-wrapper .signature-pad canvas{
+  width: 500px;
+  height: 500px;
+ }
+}
+
+.speichern-box{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin: 40px 0;
+    z-index: 0;
+    position: relative;
+}
+
+.speichern-box .econ-section__header{
+ display: none;
+}
+
+.speichern-box .econ-section-content p{
+ margin-left: 20px;
+}
+
+.sign-box {
+ border-radius: 7px;
+ width: 65%;
+ text-align: center;
+ margin-top: 40px;
+}
+
+.sign-box .econ-section-content {
+ margin-left: 20px !important;
+}
+
+.sign-box .econ-section-content .btn {
+ font-size: 14px;
+}
+
+.sign-modal .signature-wrapper .signature-pad {
+ background-color: #F2F3F5;
+}
+
+.sign-container {
+ margin-left: -40px !important;
+ margin-top: 30px;
+}
+
+.sign-container .signature-button-wrapper {
+ margin-top: 20px;
+}
+
+.signature-clear {
+ border-radius: 999999px !important;
+}
+
+.video-chat-container{
+ background-color: white !important;
+ border-radius: 5px !important;
+ padding: 30px !important;
+ box-shadow: 1px 4px 4px -1px darkgray;
+ margin-top: 20px !important;
+}
+
+.video-chat-container .econ-section__header{
+ display: none !important;
+}
+
+.flex-row .econ-section-content{
+ display: flex;
+ width: 100% !important;
+ column-gap: 30px !important;
+ margin-top: 15px !important;
+ padding-left: 50px !important;
+ padding-right: 50px !important;
+}
+
+.col-xs-12:has(p.video-chat-title){
+ display: flex;
+}
+
+p.video-chat-title{
+ font-size: 20px !important;
+ margin-left: auto !important;
+ margin-right: auto !important;
+}
+
+.econ-fragment:has(.video-chat-text){
+ width: 100% !important;
+ margin-top: auto !important;
+ margin-bottom: auto !important;
+}
+
+.font-size-15{
+ font-size: 15px !important;
+}
+
+.standard-font-size{
+ font-size: 1em !important;
+}
+
+.video-chat-collapse .econ-section__header{
+ margin-bottom: 0px !important;
+}

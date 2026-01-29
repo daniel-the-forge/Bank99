@@ -1,0 +1,50 @@
+.psd2-container {
+	background-color: white;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	padding: 10px 50px;
+	margin-top: 25px;
+   }
+   
+   #XS2A-Form-Container {
+	margin-bottom: unset !important;
+   }
+   
+   .econ-xsa2-btnrow.econ-button-bar.row.econ-button-navbar {
+	margin-top: unset !important;
+   }
+   
+   #XS2A-privacy_policy {
+	visibility: hidden;
+   }
+   
+   #XS2A-Form .xs2a-description{
+	   font-size: 1em;
+	   line-height: inherit;
+   }
+   
+   #XS2A-Form .xs2a-logo .xs2a-note a,
+   #XS2A-Form .xs2a-checkbox label[for=XS2A-privacy_policy]{
+	   font-size: 0.875em;
+	   line-height: inherit;
+   }
+   
+   #XS2A-Form input:not([type=checkbox]):not([type=radio]){
+	   font-size: 1em;
+   }
+   
+   @media (min-width: 768px) {
+	#XS2A-Form .xs2a-description {
+	 margin-left: 0 !important;
+	 padding-left: 15px
+	}
+   }
+   
+   @media (max-width: 768px) {
+	.xs2a-submit {
+	 min-width: 100px;
+	}
+   }

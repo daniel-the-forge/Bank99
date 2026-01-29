@@ -1,0 +1,63 @@
+.bo-checkbox .econ-control-icon {
+    top: 3px !important;
+}
+
+.b99-gray-info-text {
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    padding: 15px;
+    position: relative;
+    margin: 0 225px 20px 390px;
+}
+
+.b99-gray-info-text .row {
+    margin-right: unset !important;
+    width: unset !important;
+}
+
+.download-section {
+    background-color: rgb(217, 217, 217) !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+    width: 70% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+	margin-bottom: 15px !important;
+}
+
+.download-section .row {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.download-section .table-functions,
+.download-section .table__cell--type {
+    display: none !important;
+}
+
+.hidden-input .econ-controls.col-xs-10.col-sm-6 {
+display: none;
+}
+
+.transparent-input .econ-controls .row .col-xs-12 .econ-form-control{
+	border: unset !important;
+}
+
+.transparent-input .econ-controls .row .col-xs-12 .econ-form-control:hover{
+	box-shadow: unset !important;
+}
+
+.transparent-input .econ-controls .row .col-xs-12 .econ-form-control .form-control{
+	background: transparent !important;
+}
+
+.b99-bo-trafficlight-text .col-xs-12 {
+	margin-top: -37px;
+	margin-left: 350px;
+}
+
+@media only screen and (min-width: 1200px) {
+	.b99-bo-trafficlight-text .col-xs-12 {
+		margin-left: 400px;
+	}
+}

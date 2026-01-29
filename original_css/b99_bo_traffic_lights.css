@@ -1,0 +1,53 @@
+.b99-rot .econ-icon--info::before {
+    content: none !important;
+}
+
+.b99-rot .econ-icon--info {
+    background-color: var(--color-red) !important;
+    border-radius: 50%;
+    content: none;
+    height: 35px;
+    width: 35px;
+}
+
+.b99-gelb .econ-icon--info::before {
+    content: none !important;
+}
+
+.b99-gelb .econ-icon--info {
+    background-color: var(--color-yellow) !important;
+    border-radius: 50%;
+    content: none;
+    height: 35px;
+    width: 35px;
+}
+
+.b99-gruen .econ-icon--info::before {
+    content: none !important;
+}
+
+.b99-gruen .econ-icon--info {
+    background-color: var(--color-green) !important;
+    border-radius: 50%;
+    content: none;
+    height: 35px;
+    width: 35px;
+}
+
+.b99-rot .econ-controls.col-xs-10.col-sm-6,
+.b99-gelb .econ-controls.col-xs-10.col-sm-6,
+.b99-gruen .econ-controls.col-xs-10.col-sm-6,
+.b99-rot .econ-tooltip--info,
+.b99-gelb .econ-tooltip--info,
+.b99-gruen .econ-tooltip--info,
+.b99-rot .econ-tooltip--feedback,
+.b99-gelb .econ-tooltip--feedback,
+.b99-gruen .econ-tooltip--feedback {
+    display: none;
+}
+
+.b99-rot .econ-control-icon,
+.b99-gelb .econ-control-icon,
+.b99-gruen .econ-control-icon {
+    margin-left: 18px !important;
+}

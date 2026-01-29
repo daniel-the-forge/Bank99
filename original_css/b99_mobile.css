@@ -1,0 +1,458 @@
+.b99-gray-option-box .econ-control-icon,
+.rechtliches-nested-container .econ-control-icon {
+ display: none;
+}
+
+
+
+@media (min-width: 1025px) {
+ .rechtliches-nested-container .econ-section-content {
+  width: 70% !important;
+ }
+}
+
+@media (max-width: 1024px) {
+
+ .rechtliches-sub-container {
+  width: 70% !important;
+ }
+
+ .rechtliches-sub-checkbox .econ-controls.col-sm-10{
+  padding-right: 0;
+ }
+
+ .rechtliches-nested-container .col-xs-12:has(.checkbox) {
+  padding-left: 0px;
+ }
+
+ .rechtliches-sub-container .econ-section-content {
+  padding: 15px 12px 12px 10px !important;
+ }
+
+ .econ-container .btn {
+  text-wrap: unset;
+ }
+
+ .psd2-container {
+  padding: 10px 20px !important;
+ }
+
+ .econ-xsa2-btnrow button {
+  min-width: 0px;
+  width: 100%;
+ }
+
+ .econ-container .econ-xsa2-btnrow.econ-button-navbar {
+  margin-left: 0;
+  margin-right: 0;
+ }
+
+ .econ-container .econ-xsa2-btnrow.econ-button-navbar .econ-button__wrapper {
+  padding-left: 0;
+  padding-right: 0;
+ }
+
+ .rechtliches-sub-container {
+  margin-right: 0px !important;
+  margin-left: unset !important;;
+ }
+
+ .plz-ort .col-xs-4 {
+  width: 34% !important;
+ }
+
+ .plz-ort .col-xs-8 {
+  width: 66% !important;
+ }
+
+ .file-input-new,
+ .file-input {
+  width: 92%;
+ }
+
+ .b99-upload-field .econ-control-icon {
+  left: -10px !important;
+ }
+
+ .video-chat-container .flex-row .econ-section-content {
+  display: block;
+  padding: 0 !important;
+  width: 100%;
+ }
+
+ .video-chat-container .flex-row .econ-section-content div {
+  text-align: center;
+ }
+
+ .rechtliches-sub-container-one {
+  margin: auto;
+ }
+
+ .depot-email-confirmation-box .col-xs-12.col-xs-offset-4 {
+  margin-left: 0;
+ }
+
+ .modal-dialog {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0px !important;
+ }
+
+ .rechtliches-sub-container-one {
+  margin-left: 0;
+ }
+
+ .speichern-box .b99-back-btn {
+  margin-left: 15px;
+ }
+
+ .video-chat-container .b99-next-btn {
+  margin-left: 25px;
+ }
+
+ .b99-gray-option-box .econ-controls.col-xs-10.col-sm-6 {
+  width: 100%;
+ }
+
+ .modal-dialog {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0px !important;
+ }
+
+ .econ-container {
+  font-size: 14px !important;
+ }
+
+ .econ-container .form-horizontal .econ-control__label {
+  margin-top: 20px !important;
+  text-align: left !important;
+ }
+
+ .econ-form-control:has(.text-sonstige) {
+  width: 200px !important;
+  margin-left: 30px !important;
+ }
+
+ .text-sonstige {
+  height: 30px !important;
+  min-height: 30px !important;
+ }
+
+ .econ-button__wrapper {
+  width: 90% !important;
+ }
+
+ .econ-container .econ-button-navbar .econ-button__1 .btn {
+  margin-bottom: 15px !important;
+ }
+
+ .rechtliches-sub-container .b99-btn-as-link button.btn-default:hover {
+  background-color: transparent;
+  padding-left: 10px;
+ }
+
+ .rechtliches-sub-container .b99-btn-as-link button.btn-default {
+  background-color: transparent;
+  padding-left: 10px;
+ }
+
+ .econ-container .econ-mr-50 {
+  margin-right: -35px !important;
+ }
+
+ .econ-container {
+  margin-bottom: 0px !important;
+ }
+
+ .econ-container .form-horizontal .form-group {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+ }
+
+ .card-table--has-no-header .econ-controls.col-xs-10,
+ .b99-anlageklasse-radios {
+  width: 100% !important;
+ }
+
+ .b99-anlageklasse-radios .econ-control__label.col-xs-12.col-sm-4 {
+  width: 42% !important;
+  padding-right: 0px !important;
+ }
+
+ .b99-anlageklasse-radios .econ-controls.col-xs-10.col-sm-6,
+ .b99-anlageklasse-radios .econ-control__label.col-xs-10.col-sm-6 {
+  width: 55% !important;
+  padding-right: 0px !important;
+ }
+
+ .b99-anlageklasse-radios .econ-control__label.col-xs-10.col-sm-6 {
+  padding-left: 0px !important;
+ }
+
+ .b99-anlageklasse-radios .econ-controls.col-xs-10.col-sm-6 .econ-radio.row {
+  margin-left: 0px !important;
+ }
+
+ .b99-anlageklasse-radios .radio.col-xs-6 {
+  padding-right: 0px !important;
+ }
+
+ .b99-anlageklasse-radios .label-center {
+  margin-left: 0px !important;
+ }
+
+ .page-rechtliches .econ-controls.col-xs-10.col-sm-6 {
+  width: 100% !important;
+ }
+
+ .page-rechtliches .content-main {
+  width: 100% !important;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+ }
+
+ .page-rechtliches .econ-control-icon.col-xs-2.col-sm-2 {
+  margin-left: 21px !important;
+ }
+
+ .sign-box {
+  width: 100% !important;
+ }
+
+ .box--white.sign-box .econ-button__wrapper {
+  width: 100% !important;
+ }
+
+ .modal-dialog {
+  width: 90% !important;
+ }
+
+ .modal-backdrop.fade.in {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+ }
+
+ .econ-container .modal-body {
+  margin: 0 !important;
+ }
+
+ .econ-fragment.modal.fade.in {
+  width: 100% !important;
+ }
+
+ .page-personlichen .econ-controls.col-xs-10,
+ .page-finanz .econ-controls.col-xs-10 {
+  width: 90% !important;
+  padding-right: 0px;
+ }
+
+ .page-personlichen .econ-container.econ-control-icon,
+ .page-finanz .econ-container.econ-control-icon {
+  padding-left: 15px !important;
+ }
+
+ html, body {
+  overflow-x: hidden;
+ }
+
+ body {
+  position: relative
+ }
+
+ .kreditwunsch-field .econ-tooltip--info {
+  margin-left: 14px !important;
+  margin-right: 124px !important;
+ }
+
+ .econ-button-bar.row.econ-button-navbar.b99-page-nav-btns {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+ }
+
+ /*
+  .econ-container .col-xs-10,
+  .econ-container .col-xs-12,
+  .econ-container .col-xs-2 {
+   float: none;
+  }
+  */
+ .col-xs-6:has(.econ-radio) {
+  width: 75% !important;
+ }
+
+ .transform-0 {
+  display: none;
+ }
+
+ .b99-collapse-center > .econ-section__header {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+ }
+
+ .econ-container .econ-pl-50 {
+  padding-left: 0px !important;
+ }
+
+ .econ-container .econ-ml-50 {
+  margin-left: 0px !important;
+ }
+
+ .form-group.b99-gray-option-box .econ-controls.col-xs-10.col-sm-6,
+ .b99-option-gray-bg .econ-controls.col-xs-10.col-sm-6 {
+     /* width: 100%; */
+  padding-right: 0px;
+ }
+
+ .form-group.b99-gray-option-box .checkbox,
+ .b99-option-gray-bg .checkbox {
+  padding-left: 10px;
+  padding-right: 10px;
+ }
+
+ .form-group.b99-gray-option-box .col-xs-12,
+ .b99-option-gray-bg .col-xs-12 {
+  padding-right: 0px;
+ }
+
+ .rechtliches-sub-container .econ-section-content {
+  margin-left: 15px;
+  margin-right: 10px;
+ }
+
+ .rechtliches-container-label {
+  margin-left: 5px;
+ }
+
+ .collapsible-no-bg {
+  margin-right: 0px;
+ }
+
+ .kv-fileinput-caption {
+  width: 100% !important;
+ }
+
+
+ .econ-icon--error {
+  margin-left: 15px;
+ }
+
+ .econ-icon--info {
+  margin-left: 5px;
+ }
+
+ .econ-tooltip--feedback .feedbackPanel.alert.alert-danger .feedbackPanelERROR {
+  text-align: left !important;
+ }
+
+ .econ-container h3 {
+  font-size: 15px;
+ }
+
+ .col-xs-12.econ-tooltip--info,
+ .col-xs-12.econ-tooltip--feedback {
+  width: 68%;
+ }
+
+ .verwendungszweck-dropdown .col-xs-12.econ-tooltip--feedback {
+  width: unset;
+ }
+
+ .econ-container .econ-tooltip--info .econ-tooltip__inner {
+  padding: 10px;
+ }
+
+ select {
+  font-size: 14px !important;
+  white-space: pre-wrap !important;
+ }
+
+ .abcschluss-info-box-fix .econ-icon--error,
+ .abcschluss-info-box-fix .econ-icon--info {
+  margin-top: 0;
+ }
+
+ .speichern-box .econ-button-bar {
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ .speichern-box .b99-yellow-btn {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+ }
+
+ .signature-submit {
+  margin-top: 15px !important;
+ }
+}
+
+#client-feedback {
+ position: fixed;
+ top: 0;
+ width: 100%;
+}
+
+#client-feedback .feedbackPanel.alert.alert-danger {
+ background-color: var(--color-primary) !important;
+ border: 1px solid red;
+ padding-left: 15px;
+}
+
+#client-feedback .feedbackPanelERROR {
+ text-align: center;
+}
+
+#client-feedback .econ-container .feedbackPanel {
+ padding-left: 0 !important;
+}
+
+@media (min-width: 1200px) {
+ .rechtliches-nested-container .econ-section-content {
+  width: 87% !important;
+ }
+}
+
+@media (max-width: 991px) {
+ .rechtliches-sub-container {
+  width: 96% !important;
+ }
+
+ .rechtliches-nested-container .econ-section-content {
+  width: 70% !important;
+ }
+}
+
+@media (max-width: 767px) {
+ .rechtliches-nested-container .econ-section-content {
+  width: 99% !important;
+ }
+}
+
+@media (max-width: 491px) {
+ .rechtliches-sub-container {
+  width: 99% !important;
+ }
+
+ .rechtliches-nested-container .econ-section-content {
+  width: 94% !important;
+ }
+
+ .abcschluss-info-box-fix .econ-icon--error, .abcschluss-info-box-fix .econ-icon--info {
+  margin-top: 13px;
+ }
+}
+
+@media (max-width: 386px) {
+ .rechtliches-sub-container {
+  width: 99% !important;
+ }
+
+ .rechtliches-nested-container .econ-section-content {
+  width: 92% !important;
+ }
+}

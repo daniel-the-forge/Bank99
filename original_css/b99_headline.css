@@ -1,0 +1,6 @@
+.b99-headline h3 {
+  color: var(--color-black-100) !important;
+  font-weight: 700 !important;
+  font-size: 1.5625rem !important;
+  line-height: 1.4 !important;
+}

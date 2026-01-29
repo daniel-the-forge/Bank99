@@ -1,0 +1,22 @@
+.b99-gray-option-box li,
+.b99-list-file-download li {
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.econ-container .b99-upload-field .econ-form-control__upload .btn-file {
+    background-color: #FFDC00 !important;
+    border: 1px solid #FFDC00 !important;
+    color: black !important;
+    transition: 1s;
+    font-weight: bold !important;
+}
+
+a:focus,
+input[type="radio"]:focus,
+button:focus,
+.econ-radio__icon:focus,
+.form-control:focus,
+.form-control:focus-visible {
+    outline: 4px solid #00538a !important;
+}

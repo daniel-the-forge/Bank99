@@ -1,0 +1,103 @@
+@media only screen and (min-width: 380px){
+  .b99-BO-erfassung-box {
+      background-color: rgb(217, 217, 217);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem .3125rem;
+      position: relative;
+      margin: 3rem 160px 2rem 130px;
+    }
+
+   .b99-rechtiliches-box {
+    background-color: #dfe3ec;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem .3125rem;
+    position: relative;
+    left: 60px;
+    margin: 3rem 330px 2rem 170px;
+}
+  }
+  
+  @media only screen and (min-width: 867px){
+  .b99-BO-erfassung-box {
+      FONT-WEIGHT: 400;
+      background-color: rgb(217, 217, 217);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem .3125rem;
+      position: relative;
+      margin: 3rem 220px 2rem 180px;
+    }
+
+   .b99-rechtiliches-box {
+    background-color: #dfe3ec;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem .3125rem;
+    position: relative;
+    left: 60px;
+    margin: 3rem 270px 2rem 270px;
+}
+  }
+  
+  @media only screen and (min-width: 1024px){
+  .b99-BO-erfassung-box {
+      background-color: rgb(217, 217, 217);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem .3125rem;
+      position: relative;
+      left: 60px;
+      margin: 3rem 260px 2rem 100px;
+    }
+
+   .b99-rechtiliches-box {
+    background-color: #dfe3ec;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem .3125rem;
+    position: relative;
+    left: 60px;
+    margin: 3rem 300px 2rem 300px;
+}
+  }
+  
+  @media only screen and (min-width: 1280px){
+  .b99-BO-erfassung-box {
+      background-color: rgb(217, 217, 217);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem .3125rem;
+      position: relative;
+      left: 60px;
+      margin: 3rem 330px 2rem 170px;
+    }
+
+   .b99-rechtiliches-box {
+    background-color: #dfe3ec;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem .3125rem;
+    position: relative;
+    left: 60px;
+    margin: 3rem 285px 2rem 330px;
+    }
+  }
+
+  .b99-BO-upload-field {
+  background-color: rgb(217, 217, 217);
+  margin-bottom: 18px !important;
+
+  }
+
+  .b99-BO-checkbox{
+    min-height: 18px !important;
+    padding-left: 20px !important;
+    margin-bottom: 50px !important;
+     font-weight: bolder !important;
+     cursor: pointer;
+  }
+
+  .b99-bo-checkbox-label {
+    color: black !important;
+    font-weight: bolder !important;
+  }
+
+  .bo-checkbox .form-horizontal .checkbox, .bo-checkbox .form-horizontal .checkbox-inline, .bo-checkbox .form-horizontal .radio, .bo-checkbox .form-horizontal .radio-inline {
+    padding-top: 6px;
+    padding-bottom: 7px;
+    padding-top:13px !important;
+}

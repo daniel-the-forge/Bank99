@@ -1,0 +1,44 @@
+@media (min-width: 768px){
+    .modal-dialog:has(.b99-modal) {
+        width: 820px !important;
+    }
+}
+
+.modal-dialog:has(.b99-modal) {
+    margin-top: 35vh !important;
+}
+
+.modal-content:has(.b99-modal) {
+    background-color: #D3D3D3;
+}
+
+.modal-content:has(.b99-modal) .modal-header {
+    box-shadow: unset !important;
+    border-bottom: unset !important;
+    padding-top: 35px !important;
+    padding-bottom: 10px !important;
+    background-color: #D3D3D3 !important;
+}
+
+.modal-content:has(.b99-modal) .modal-title {
+    color: var(--color-black-100) !important;
+    font-family: inherit !important;
+}
+
+.modal-body:has(.b99-modal) {
+    padding-top: unset !important;
+	padding-bottom: 15px !important;
+    background-color: #D3D3D3 !important;
+    border-radius: 5px !important;
+}
+
+.modal-content:has(.b99-modal) .modal-header .close::after {
+    background-color: var(--color-black-100);
+    border-radius: 50% !important;
+    height: 26px !important;
+    width: 26px !important;
+    color: var(--color-white) !important;
+	padding: 7px !important;
+    font-weight: 600 !important;
+    font-size: 12px !important;
+}

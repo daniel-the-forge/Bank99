@@ -1,0 +1,267 @@
+.b99-rejection-info-section{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	margin: auto;
+   }
+   
+   .b99-rejection-info-section .row{
+	margin-left: auto;
+	margin-right: auto;
+   }
+   
+   .rejection-icon {
+	width: 70px;
+	height: 70px;
+	display: flex;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(25, 126, 202);
+	border-radius: 50%;
+	text-align: center;
+	z-index: 3;
+	position: relative;
+	top: 50px;
+   }
+   
+   svg.frown-face {
+	   height: 35px;
+	   width: 35px;
+	   position: relative;
+	   top: 5px;
+	left: 1px;
+   }
+   
+   .yellow-icon-container {
+	width: 70px;
+	height: 70px;
+	display: flex;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	background-color: rgb(255, 220, 0);
+	border-radius: 50%;
+	color: white;
+	z-index: 2;
+	text-align: center;
+   }
+   
+   .b99-blue-rejection-box{
+	background-color: rgb(255, 255, 2555);
+	border: 4px solid rgb(25, 126, 202);
+	border-radius: 8px;
+	padding: 50px 25px 15px;
+	width: 100%;
+	margin: auto;
+	z-index: 2;
+	position: relative;
+	top: 10px;
+   }
+   
+   .rejection-header{
+	text-align: center;
+	width: auto;
+	max-width: 100%;
+	margin: auto;
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(25, 126, 202);
+	overflow-wrap: break-word;
+   }
+   
+   .rejection-text, .ko-kriteria{
+	text-align: center;
+	width: auto;
+	font-size: 14px;
+	font-weight: 800;
+	overflow-wrap: break-word;
+   }
+   
+   .ko-kriteria{
+	margin-top: 20px !important;
+   }
+   
+   .wunschbetrag-field-value{
+	font-size: 20px !important;
+   }
+   
+   .scheduling-text{
+	font-weight: 600;
+	margin: 25px 8px 8px 8px;
+	overflow-wrap: break-word;
+   }
+   
+   .scheduling-text a{
+	 color: rgb(0,0,0) !important;
+   }
+   
+   .b99-gray-scheduling-box{
+	background-color: rgb(217, 217, 217);
+	border-radius: 8px;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 100%;
+	height: fit-content;
+	margin: auto;
+	z-index: 1;
+	position: relative;
+   }
+   
+   .b99-gray-scheduling-box .econ-section__header{
+	 display: none;
+   }
+   
+   .scheduling-link{
+	font-weight: 800 !important;
+   }
+   
+   .b99-gray-scheduling-box .econ-section-content .econ-fragment{
+	margin: auto;
+   }
+   
+   .posticon-post-filiale-image{
+	height: 30px;
+	width: 50px;
+   }
+   
+   .hidden-result{
+	display: none;
+   }
+   
+   .amount-big-tex{
+	   font-weight: 700;
+	   font-size: 1.827em;
+   }
+   
+   @media only screen and (min-width: 380px) {
+	   .b99-gray-scheduling-box{
+	 padding-top: 20px;
+	 padding-left: 25px;
+	 padding-right: 25px;
+	   }
+   
+	   .b99-gray-scheduling-box .econ-section-content{
+		   display: flex;
+	   }
+   
+	   .scheduling-text{
+	 font-size: 14px;
+	 margin-left: 20px;
+	   }
+   
+	   .b99-blue-rejection-box{
+	 width: 100%;
+	 padding: 40px 30px 15px;
+	   }
+   
+	   .rejection-icon {
+	 width: 75px;
+	 height: 75px;
+	   }
+   
+	   .rejection-header{
+	 font-size: 24px;
+	 margin: auto;
+	   }
+   
+	   .rejection-text, .ko-kriteria{
+	 font-size: 1em;
+	 margin-top: 2px;
+	   }
+   
+	   .wunschbetrag-field-value{
+		 font-size: 30px !important;
+	   }
+   
+	   .yellow-icon-container{
+	 width: 80px;
+	 height: 80px;
+	   }
+   
+	   .posticon-post-filiale-image{
+		 height: 30px;
+		 width: 50px;
+	   }
+   }
+   
+   @media only screen and (min-width: 867px) {
+	svg.frown-face {
+	 height: 40px;
+	 width: 40px;
+	 left: 1px;
+	}
+   
+	   .b99-gray-scheduling-box{
+	 padding-left: 30px;
+	 padding-right: 30px;
+	 width: 60%;
+	   }
+   
+	   .b99-blue-rejection-box{
+	 padding: 40px 50px 25px;
+	 width: 60%;
+	   }
+   
+	.wider-rejection-box{
+	 width: 65% !important;
+	}
+   
+	   .rejection-icon {
+	 width: 85px;
+	 height: 85px;
+	   }
+   
+	   .rejection-header{
+	 font-size: 24px;
+	   }
+   
+	   .rejection-text, .ko-kriteria{
+	 font-size: 1.125em;
+	 margin-top: 5px;
+	   }
+   
+	   .yellow-icon-container{
+	 width: 90px;
+	 height: 90px;
+	   }
+   }
+   
+   @media only screen and (min-width: 1024px) {
+	   .b99-gray-scheduling-box{
+	  padding-left: 30px;
+	  padding-right: 30px;
+	  width: 50%;
+	   }
+   
+	   .scheduling-text{
+	  font-size: 14px;
+	  margin-left: 25px;
+	   }
+   
+	   .b99-blue-rejection-box{
+	  padding: 40px 50px 25px;
+	  width: 50%;
+	   }
+   
+	.wider-rejection-box{
+	 width: 55% !important;
+	}
+   
+	   .rejection-icon {
+	  width: 100px;
+	  height: 100px;
+	   }
+   
+	   .rejection-header{
+	  font-size: 30px;
+	   }
+   
+	   .posticon-post-filiale-image{
+		 height: 35px;
+		 width: 55px;
+	   }
+   }

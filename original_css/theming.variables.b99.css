@@ -1,0 +1,353 @@
+/* ************************************************ */
+/* ING/B99 FORMULARE THEMING VARIABLES */
+/* ************************************************ */
+/* ***************************************************
+ * ***************************************************
+ * ***************************************************
+ * 
+ * WARNING, THIS IS AN AUTOMATIC GENERATED STYLESHEET!
+ *
+ * Don't try to change anything here, it will be overwritten.
+ * Do you need a change in this specific stylesheet? Ask the OnLions-Squad for help.
+ * Do you need to add some new styles to the Online-Banking? Ask the OnLions-Squad for help.
+ *
+ * ***************************************************
+ * ***************************************************
+ * ***************************************************/
+/* PLACEHOLDER */ /* THEME OF BANK99 */
+/* THEME DEFAULT == LIGHT MODE */
+:root {
+    --color-black-100: #000000;
+    --color-black-71: #494949;
+    --color-black-59: #494949;
+    --color-black-34: #8E8E93;
+    --color-black-15: #C6CFDE;
+    --color-black-9: #D2D8E4;
+    --color-black-6: #DFE3EC;
+    --color-black-3: #ECEFF4;
+    --color-white: #FFFFFF;
+    --color-primary-suppressed: #000000;
+    --color-transparent-background-default: rgba(236, 239, 244, 0.1);
+    --color-transparent-black-6: rgba(240, 240, 240, 0.1);
+    --color-blue: #0078C8;
+    --color-blue-hover: #005FA0;
+    --color-yellow: #FFDC00;
+    --color-yellow-hover: #FAC800;
+    --color-red: #D20019;
+    --color-green: #2D8700;
+    --color-b99-grey-500: #ECEFF4;
+    --color-b99-grey-600: #DFE3EC;
+    --color-b99-grey-640: #D2D8E4;
+    --color-button-secondary: #DFE3EC;
+    --color-button-secondary-hover: #C6CFDE;
+    --body-background-color: #ECEFF4;
+    --title-bar-background-color: #C6CFDE;
+    --cards-background: #FFFFFF;
+    --cards-box-shadow-md: rgba(198, 207, 222, 0.4);
+    --color-primary-font: var(--color-blue);
+    --color-primary: #FFDC00;
+    --color-primary-hover: #FAC800;
+    --color-on-primary: #000000;
+    --color-secondary: #0078C8;
+    --color-secondary-hover: #005FA0;
+    --color-thirdy: #0078C8;
+    --link-default-color: var(--color-blue);
+    --link-default-color-hover: var(--color-blue-hover);
+    --form-content-background-color: var(--color-b99-grey-500);
+    --form-footer-background-color: var(--color-b99-grey-600);
+    --button-primary-background-color: var(--color-primary);
+    --button-primary-background-color-hover: var(--color-primary-hover);
+    --button-primary-color: var(--color-on-primary);
+    --button-secondary-color: #000000;
+    --button-secondary-color-hover: #000000;
+    --button-secondary-border-color: var(--color-button-secondary);
+    --button-secondary-border-color-hover: var(--color-button-secondary-hover);
+    --button-secondary-background-color: var(--color-button-secondary);
+    --button-secondary-background-color-hover: var(--color-button-secondary-hover);
+    --button-secondary-disabled-background-color: transparent;
+    --button-default-color: var(--color-black-100);
+    --button-default-color-hover: var(--color-black-100);
+    --button-default-border-color: var(--color-black-100);
+    --button-default-border-color-hover: #8E8E93;
+    --button-default-border-radius: 1000px;
+    --table-header-color: var(--color-black-71);
+    --table-header-background-color: var(--color-b99-grey-640);
+    --recommendation-background: var(--color-blue);
+    --recommendation-color: var(--color-white);
+    --checkable-checked-color: var(--color-black-100);
+    --checkable-focused-color: var(--color-blue);
+    --color-plus: var(--color-green);
+    --color-minus: var(--color-red);
+    --color-warning: #FF9500;
+  }
+  
+  /* THEME LIGHT MODE */
+  .theme--lightmode {
+    --color-black-100: #000000;
+    --color-black-71: #494949;
+    --color-black-59: #494949;
+    --color-black-34: #8E8E93;
+    --color-black-15: #C6CFDE;
+    --color-black-9: #D2D8E4;
+    --color-black-6: #DFE3EC;
+    --color-black-3: #ECEFF4;
+    --color-white: #FFFFFF;
+    --color-primary-suppressed: #000000;
+    --color-transparent-background-default: rgba(236, 239, 244, 0.1);
+    --color-transparent-black-6: rgba(240, 240, 240, 0.1);
+    --color-blue: #0078C8;
+    --color-blue-hover: #005FA0;
+    --color-yellow: #FFDC00;
+    --color-yellow-hover: #FAC800;
+    --color-red: #D20019;
+    --color-green: #2D8700;
+    --color-b99-grey-500: #ECEFF4;
+    --color-b99-grey-600: #DFE3EC;
+    --color-b99-grey-640: #D2D8E4;
+    --color-button-secondary: #DFE3EC;
+    --color-button-secondary-hover: #C6CFDE;
+    --body-background-color: #ECEFF4;
+    --title-bar-background-color: #C6CFDE;
+    --cards-background: #FFFFFF;
+    --cards-box-shadow-md: rgba(198, 207, 222, 0.4);
+    --color-primary-font: var(--color-blue);
+    --color-primary: #FFDC00;
+    --color-primary-hover: #FAC800;
+    --color-on-primary: #000000;
+    --color-secondary: #0078C8;
+    --color-secondary-hover: #005FA0;
+    --color-thirdy: #0078C8;
+    --link-default-color: var(--color-blue);
+    --link-default-color-hover: var(--color-blue-hover);
+    --form-content-background-color: var(--color-b99-grey-500);
+    --form-footer-background-color: var(--color-b99-grey-600);
+    --button-primary-background-color: var(--color-primary);
+    --button-primary-background-color-hover: var(--color-primary-hover);
+    --button-primary-color: var(--color-on-primary);
+    --button-secondary-color: #000000;
+    --button-secondary-color-hover: #000000;
+    --button-secondary-border-color: var(--color-button-secondary);
+    --button-secondary-border-color-hover: var(--color-button-secondary-hover);
+    --button-secondary-background-color: var(--color-button-secondary);
+    --button-secondary-background-color-hover: var(--color-button-secondary-hover);
+    --button-secondary-disabled-background-color: transparent;
+    --button-default-color: var(--color-black-100);
+    --button-default-color-hover: var(--color-black-100);
+    --button-default-border-color: var(--color-black-100);
+    --button-default-border-color-hover: #8E8E93;
+    --button-default-border-radius: 1000px;
+    --table-header-color: var(--color-black-71);
+    --table-header-background-color: var(--color-b99-grey-640);
+    --recommendation-background: var(--color-blue);
+    --recommendation-color: var(--color-white);
+    --checkable-checked-color: var(--color-black-100);
+    --checkable-focused-color: var(--color-blue);
+    --color-plus: var(--color-green);
+    --color-minus: var(--color-red);
+    --color-warning: #FF9500;
+  }
+  
+  /* THEME DARK MODE */
+  .theme--darkmode {
+    --color-black-100: #EAEAEA;
+    --color-black-71: #C3C3C3;
+    --color-black-59: #C3C3C3;
+    --color-black-34: #A8A8A8;
+    --color-black-15: #494949;
+    --color-black-9: #414141;
+    --color-black-6: #3f3f3f;
+    --color-black-3: #3c3c3c;
+    --color-white: #333333;
+    --color-primary-suppressed: #FFFFFF;
+    --color-transparent-background-default: rgba(51, 51, 51, 0.1);
+    --color-transparent-black-6: rgba(63, 63, 63, 0.1);
+    --color-blue: #FAC800;
+    --color-blue-hover: #FFDC00;
+    --color-yellow: #0078C8;
+    --color-yellow-hover: #0078C8;
+    --color-red: rgba(255, 45, 85, 0.9);
+    --color-green: #4CD964;
+    --color-b99-grey-500: #333333;
+    --color-b99-grey-600: #3c3c3c;
+    --color-b99-grey-640: #3f3f3f;
+    --color-button-secondary: #C6CFDE;
+    --color-button-secondary-hover: #DFE3EC;
+    --body-background-color: #333333;
+    --title-bar-background-color: #3c3c3c;
+    --cards-background: #3f3f3f;
+    --cards-box-shadow-md: rgba(37, 40, 44, 0.4);
+    --color-primary-font: var(--color-blue);
+    --color-primary: #FFDC00;
+    --color-primary-hover: #FAC800;
+    --color-on-primary: #000000;
+    --color-secondary: #0078C8;
+    --color-secondary-hover: #005FA0;
+    --color-thirdy: #0078C8;
+    --link-default-color: var(--color-blue);
+    --link-default-color-hover: var(--color-blue-hover);
+    --form-content-background-color: var(--color-b99-grey-500);
+    --form-footer-background-color: var(--color-b99-grey-600);
+    --button-primary-background-color: var(--color-primary);
+    --button-primary-background-color-hover: var(--color-primary-hover);
+    --button-primary-color: var(--color-on-primary);
+    --button-secondary-color: #000000;
+    --button-secondary-color-hover: #000000;
+    --button-secondary-border-color: var(--color-button-secondary);
+    --button-secondary-border-color-hover: var(--color-button-secondary-hover);
+    --button-secondary-background-color: var(--color-button-secondary);
+    --button-secondary-background-color-hover: var(--color-button-secondary-hover);
+    --button-secondary-disabled-background-color: transparent;
+    --button-default-color: var(--color-black-100);
+    --button-default-color-hover: var(--color-black-100);
+    --button-default-border-color: var(--color-black-100);
+    --button-default-border-color-hover: #8E8E93;
+    --button-default-border-radius: 1000px;
+    --table-header-color: var(--color-black-71);
+    --table-header-background-color: var(--color-b99-grey-640);
+    --recommendation-background: var(--color-blue);
+    --recommendation-color: var(--color-white);
+    --checkable-checked-color: var(--color-black-100);
+    --checkable-focused-color: var(--color-blue);
+    --color-plus: var(--color-green);
+    --color-minus: var(--color-red);
+    --color-warning: #FF9500;
+  }
+  
+  /* THEME OS BASED DARK MODE */
+  @media (prefers-color-scheme: dark) {
+    .theme--os-based-darkmode {
+      --color-black-100: #EAEAEA;
+      --color-black-71: #C3C3C3;
+      --color-black-59: #C3C3C3;
+      --color-black-34: #A8A8A8;
+      --color-black-15: #494949;
+      --color-black-9: #414141;
+      --color-black-6: #3f3f3f;
+      --color-black-3: #3c3c3c;
+      --color-white: #333333;
+      --color-primary-suppressed: #FFFFFF;
+      --color-transparent-background-default: rgba(51, 51, 51, 0.1);
+      --color-transparent-black-6: rgba(63, 63, 63, 0.1);
+      --color-blue: #FAC800;
+      --color-blue-hover: #FFDC00;
+      --color-yellow: #0078C8;
+      --color-yellow-hover: #0078C8;
+      --color-red: rgba(255, 45, 85, 0.9);
+      --color-green: #4CD964;
+      --color-b99-grey-500: #333333;
+      --color-b99-grey-600: #3c3c3c;
+      --color-b99-grey-640: #3f3f3f;
+      --color-button-secondary: #C6CFDE;
+      --color-button-secondary-hover: #DFE3EC;
+      --body-background-color: #333333;
+      --title-bar-background-color: #3c3c3c;
+      --cards-background: #3f3f3f;
+      --cards-box-shadow-md: rgba(37, 40, 44, 0.4);
+      --color-primary-font: var(--color-blue);
+      --color-primary: #FFDC00;
+      --color-primary-hover: #FAC800;
+      --color-on-primary: #000000;
+      --color-secondary: #0078C8;
+      --color-secondary-hover: #005FA0;
+      --color-thirdy: #0078C8;
+      --link-default-color: var(--color-blue);
+      --link-default-color-hover: var(--color-blue-hover);
+      --form-content-background-color: var(--color-b99-grey-500);
+      --form-footer-background-color: var(--color-b99-grey-600);
+      --button-primary-background-color: var(--color-primary);
+      --button-primary-background-color-hover: var(--color-primary-hover);
+      --button-primary-color: var(--color-on-primary);
+      --button-secondary-color: #000000;
+      --button-secondary-color-hover: #000000;
+      --button-secondary-border-color: var(--color-button-secondary);
+      --button-secondary-border-color-hover: var(--color-button-secondary-hover);
+      --button-secondary-background-color: var(--color-button-secondary);
+      --button-secondary-background-color-hover: var(--color-button-secondary-hover);
+      --button-secondary-disabled-background-color: transparent;
+      --button-default-color: var(--color-black-100);
+      --button-default-color-hover: var(--color-black-100);
+      --button-default-border-color: var(--color-black-100);
+      --button-default-border-color-hover: #8E8E93;
+      --button-default-border-radius: 1000px;
+      --table-header-color: var(--color-black-71);
+      --table-header-background-color: var(--color-b99-grey-640);
+      --recommendation-background: var(--color-blue);
+      --recommendation-color: var(--color-white);
+      --checkable-checked-color: var(--color-black-100);
+      --checkable-focused-color: var(--color-blue);
+      --color-plus: var(--color-green);
+      --color-minus: var(--color-red);
+      --color-warning: #FF9500;
+    }
+  }
+  @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+    .theme--os-based-darkmode {
+      --color-black-100: #000000;
+      --color-black-71: #494949;
+      --color-black-59: #494949;
+      --color-black-34: #8E8E93;
+      --color-black-15: #C6CFDE;
+      --color-black-9: #D2D8E4;
+      --color-black-6: #DFE3EC;
+      --color-black-3: #ECEFF4;
+      --color-white: #FFFFFF;
+      --color-primary-suppressed: #000000;
+      --color-transparent-background-default: rgba(236, 239, 244, 0.1);
+      --color-transparent-black-6: rgba(240, 240, 240, 0.1);
+      --color-blue: #0078C8;
+      --color-blue-hover: #005FA0;
+      --color-yellow: #FFDC00;
+      --color-yellow-hover: #FAC800;
+      --color-red: #D20019;
+      --color-green: #2D8700;
+      --color-b99-grey-500: #ECEFF4;
+      --color-b99-grey-600: #DFE3EC;
+      --color-b99-grey-640: #D2D8E4;
+      --color-button-secondary: #DFE3EC;
+      --color-button-secondary-hover: #C6CFDE;
+      --body-background-color: #ECEFF4;
+      --title-bar-background-color: #C6CFDE;
+      --cards-background: #FFFFFF;
+      --cards-box-shadow-md: rgba(198, 207, 222, 0.4);
+      --color-primary-font: var(--color-blue);
+      --color-primary: #FFDC00;
+      --color-primary-hover: #FAC800;
+      --color-on-primary: #000000;
+      --color-secondary: #0078C8;
+      --color-secondary-hover: #005FA0;
+      --color-thirdy: #0078C8;
+      --link-default-color: var(--color-blue);
+      --link-default-color-hover: var(--color-blue-hover);
+      --form-content-background-color: var(--color-b99-grey-500);
+      --form-footer-background-color: var(--color-b99-grey-600);
+      --button-primary-background-color: var(--color-primary);
+      --button-primary-background-color-hover: var(--color-primary-hover);
+      --button-primary-color: var(--color-on-primary);
+      --button-secondary-color: #000000;
+      --button-secondary-color-hover: #000000;
+      --button-secondary-border-color: var(--color-button-secondary);
+      --button-secondary-border-color-hover: var(--color-button-secondary-hover);
+      --button-secondary-background-color: var(--color-button-secondary);
+      --button-secondary-background-color-hover: var(--color-button-secondary-hover);
+      --button-secondary-disabled-background-color: transparent;
+      --button-default-color: var(--color-black-100);
+      --button-default-color-hover: var(--color-black-100);
+      --button-default-border-color: var(--color-black-100);
+      --button-default-border-color-hover: #8E8E93;
+      --button-default-border-radius: 1000px;
+      --table-header-color: var(--color-black-71);
+      --table-header-background-color: var(--color-b99-grey-640);
+      --recommendation-background: var(--color-blue);
+      --recommendation-color: var(--color-white);
+      --checkable-checked-color: var(--color-black-100);
+      --checkable-focused-color: var(--color-blue);
+      --color-plus: var(--color-green);
+      --color-minus: var(--color-red);
+      --color-warning: #FF9500;
+    }
+  }
+  
+  html,
+  body {
+    background-color: var(--body-background-color);
+  }

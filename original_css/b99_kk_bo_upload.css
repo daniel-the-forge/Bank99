@@ -1,0 +1,193 @@
+.form-group.b99-bo-upload-field {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	width: 100% !important;
+	margin-bottom: 20px !important;
+}
+
+.b99-bo-upload-field .econ-form-control.econ-form-control__upload {
+	    background-color: unset;
+	    margin-top: 4px;
+}
+.b99-bo-upload-field .file-input .fileinput-remove-button {
+	    display: none;
+}
+.b99-bo-upload-field .econ-form-control__upload .btn-file {
+	    background-color: rgb(142, 142, 147) !important;
+	    border-color: rgb(142, 142, 147) !important;
+	    color: rgb(255, 255, 255) !important;
+	    text-transform: none !important;
+	    font-weight: 400 !important;
+	    font-size: 14px !important;
+}
+.b99-bo-upload-field .econ-form-control__upload .btn-file:active{
+	    color: rgb(255, 255, 255) !important;
+	}
+	.b99-radio .econ-radio--active .econ-radio__label{
+	    background-color: unset  !important;
+}
+.b99-bo-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+	    width: 550px;
+	    margin-bottom: unset;
+	    display: unset;
+	    background-color: #f8f8f8 !important;
+	}
+	.b99-bo-upload-field .file-input {     
+	    column-gap: 15px;   
+	    align-items: center;
+}
+.b99-bo-upload-field .econ-icon--info {
+    padding: unset !important;
+	}
+	.b99-bo-upload-field .econ-icon--error {
+	    padding: unset !important;
+	}
+	.b99-bo-upload-field .econ-control-icon .econ-icon--info::before {
+	    margin-left: unset !important;
+	}
+	.b99-bo-upload-field .econ-icon--error::before {
+	    margin-right: 5px !important;
+	}
+	.b99-bo-upload-field .econ-control-icon {
+	    width: auto !important;
+	    top: 12px !important;
+	    left: 13px !important;
+	    padding-right: unset !important;
+	}
+	.b99-bo-upload-field .col-sm-6 {
+	    width: 90% !important;
+	    padding-right: unset !important;
+	}
+	.b99-bo-upload-field .econ-tooltip--info .econ-tooltip__inner{
+	    color: rgb(255, 255, 255);
+	}
+	/* econ-tooltip--info */
+
+	.b99-bo-upload-field .econ-tooltip--info {
+	    top: unset !important;
+	    margin-left: 14px !important;
+	    margin-right: 208px !important;
+	}
+	.b99-bo-upload-field .econ-control__label{
+	    text-align: left !important;
+	    margin-bottom: 8px !important;
+	}
+	.b99-bo-upload-field .econ-control__label {
+	    top: 6px !important;
+	}
+
+
+
+@media only screen and (min-width: 380px){
+    .b99-bo-upload-container {
+        background-color: rgb(217, 217, 217);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem .3125rem;
+        position: relative;
+        margin: 0 160px 3rem 130px;
+      }
+    }
+
+@media only screen and (min-width: 492px) {
+	    .b99-bo-upload-field .econ-control-icon,
+	    .b99-upload-radio .econ-control-icon {
+	        top: 24px !important;
+	        left: 28px !important;
+	    }
+	    .b99-bo-upload-field .econ-tooltip--info,
+	    .b99-bo-upload-field .econ-tooltip--feedback {
+	        margin-left: 15px !important;
+	        margin-right: 238px !important; 
+	    }
+	}
+
+	@media only screen and (min-width: 768px) {
+	    .b99-bo-upload-field .col-sm-6 {
+	        width: 65% !important;
+	        padding-right: unset !important;
+	    }
+	    .b99-bo-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+	        width: 280px;
+	    }
+	    .b99-bo-upload-field .econ-control-icon,
+	    .b99-upload-radio .econ-control-icon {
+	        left: 60px !important;
+	        top: 24px !important;
+	    }
+	    .b99-bo-upload-field .econ-tooltip--info,
+	    .b99-bo-upload-field .econ-tooltip--feedback {
+	        margin-left: 248px !important;
+	        margin-right: 187px !important; 
+	    }
+	    .b99-bo-upload-field .econ-control__label{
+	        text-align: right !important;
+	        margin-bottom: unset !important;
+	    }
+	}
+    
+@media only screen and (min-width: 867px){
+    .b99-bo-upload-container {
+        FONT-WEIGHT: 400;
+        background-color: rgb(217, 217, 217);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem .3125rem;
+        position: relative;
+        margin: 0 0px 3rem 20px;
+      }
+    }
+
+@media only screen and (min-width: 992px) {
+	    .b99-bo-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+	        width: 422px;
+	    }
+	    .b99-bo-upload-field .econ-tooltip--info,
+	    .b99-bo-upload-field .econ-tooltip--feedback {
+	        top: unset !important;
+	        margin-left: 321px !important;
+	        margin-right: 190px !important; 
+	    }
+}
+    
+@media only screen and (min-width: 1024px){
+    .b99-bo-upload-container {
+        background-color: rgb(217, 217, 217);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem .3125rem;
+        position: relative;
+        left: 60px;
+        margin: 0px 120px 3em 0px;
+    }
+		.b99-bo-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+	        width: 422px;
+	  }
+	  .b99-bo-upload-field .econ-tooltip--info,
+	  .b99-bo-upload-field .econ-tooltip--feedback {
+	        margin-left: 322px !important;
+	        margin-right: 189px !important;
+	  }
+}
+
+    
+@media only screen and (min-width: 1200px) {
+	    .b99-bo-upload-field input.file-caption-name.form-control.kv-fileinput-caption {
+	        width: 552px;
+	    }
+	    .b99-bo-upload-field .econ-tooltip--info,
+	    .b99-bo-upload-field .econ-tooltip--feedback {
+	        margin-left: 388px !important;
+	        margin-right: 192px !important;
+	    }
+}
+@media only screen and (min-width: 1280px){
+    .b99-bo-upload-container {
+        background-color: rgb(217, 217, 217);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem .3125rem;
+        position: relative;
+        left: 60px;
+        margin: 0 150px 3rem 10px;
+      }
+    }
+
+
+	
