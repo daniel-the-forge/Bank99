@@ -1,0 +1,26 @@
+/**
+ * Header layout – .top-bar (injected into #header)
+ * 2-column structure: left = logos, right = slot for future titles + progress
+ * Uses design tokens
+ */
+
+.top-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding-top: var(--header-padding-top);
+  padding-bottom: var(--header-padding-bottom);
+  box-shadow: var(--header-shadow);
+}
+
+/* Left column: logos (existing content) */
+.top-bar > *:first-child {
+  grid-column: 1;
+  flex-shrink: 0;
+}
+
+/* Right column: slot for future titles + progress */
+.top-bar > *:nth-child(2) {
+  grid-column: 2;
+}
