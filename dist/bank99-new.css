@@ -1,6 +1,6 @@
 /**
  * Bank99 Design System Tokens
- * From Figma - mobile-first
+ * From Figma
  * CSS custom properties only (no selectors)
  */
 
@@ -10,10 +10,10 @@
   --color-text-opacity-100: rgba(0, 0, 0, 1);
 
   --color-primary: #FFDC00;
-  --color-primary-100: #FFDC00;
+  --color-primary-100: rgba(255, 220, 0, 1);
 
   --color-background: #FFFFFF;
-  --color-background-100: #FFFFFF;
+  --color-background-100: rgba(255, 255, 255, 1);
 
   --color-border: #C6CFDE;
   --color-border-70: rgba(198, 207, 222, 0.7);
@@ -22,10 +22,10 @@
   --color-transparent: rgba(255, 255, 255, 0);
 
   --color-icon: #7B8390;
-  --color-icon-100: #7B8390;
+  --color-icon-100: rgba(123, 131, 144, 1);
 
   --color-link: #005FA0;
-  --color-link-100: #005FA0;
+  --color-link-100: rgba(0, 95, 160, 1);
 
   /* Gradient stop colors (for body background) */
   --color-gradient-start: #c6cfde;
@@ -62,7 +62,7 @@
   --input-color: #000000;
 
   /* ========== Box shadow ========== */
-  --shadow-default: 0px 4px 4px #000000;
+  --shadow-default: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /* ========== Spacing – containers (mobile) ========== */
   --container-margin-horizontal: 10px;
@@ -73,11 +73,16 @@
   /* ========== Header ========== */
   --header-padding-top: 65px;
   --header-padding-bottom: 8px;
-  --header-shadow: 0px 4px 4px #000000;
+  --header-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /* ========== Footer ========== */
   --footer-margin-bottom: 26px;
   --footer-padding-horizontal: 12px;
+
+  /* ========== Form sections ========== */
+  --form-section-header-padding-top: 7px;
+  --form-section-header-padding-bottom: 7px;
+  --form-section-header-radius: 3px;
 
   /* ========== Form fields ========== */
   --input-margin-between: 6px;
@@ -94,8 +99,8 @@
 
 /**
  * Post Sans font faces
- * Uses Bank99 hosted fonts for development and when our CSS is the only loader.
- * When the page already loads Post Sans (e.g. from main site), the browser reuses the cached font.
+ * Local fonts for development (src/fonts/)
+ * Path is relative to built CSS at dist/bank99-new.css
  */
 
 @font-face {
@@ -104,7 +109,7 @@
   font-weight: 400;
   font-display: swap;
   src: local("Post Sans Regular"),
-    url("https://bank99.at/fonts/PostSans-Regular.woff2") format("woff2");
+    url("../src/fonts/PostSans-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -113,7 +118,7 @@
   font-weight: 700;
   font-display: swap;
   src: local("Post Sans Bold"),
-    url("https://bank99.at/fonts/PostSans-Bold.woff2") format("woff2");
+    url("../src/fonts/PostSans-Bold.woff2") format("woff2");
 }
 
 /**
@@ -130,6 +135,10 @@ body {
   margin: 0;
   font-family: var(--font-family);
   color: var(--color-text);
+}
+
+.econ-container {
+  background: transparent;
 }
 
 /**
@@ -186,4 +195,62 @@ select {
 .econ-form-group + .econ-form-group,
 .econ-fragment-form-row + .econ-fragment-form-row {
   margin-top: var(--input-margin-between);
+}
+
+/**
+ * Form section components
+ * Section headers, collapsible sections, dividers
+ */
+
+/* Section header bar (yellow title bar) */
+
+@supports selector(:has(h3)) {
+  .econ-section-header.econ-collapse-header:has(h3) {
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-default);
+    border-radius: var(--form-section-header-radius);
+    padding-top: var(--form-section-header-padding-top);
+    padding-bottom: var(--form-section-header-padding-bottom);
+    margin-inline: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
+  }
+  
+  /* Section header title */
+  .econ-section-header.econ-collapse-header h3 {
+    font-size: var(--font-size-18);
+    font-family: var(--font-family);
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0;
+  }
+}
+
+/**
+ * Header layout – .top-bar (injected into #header)
+ * 2-column structure: left = logos, right = slot for future titles + progress
+ * Uses design tokens
+ */
+
+.top-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding-top: var(--header-padding-top);
+  padding-bottom: var(--header-padding-bottom);
+  box-shadow: var(--header-shadow);
+}
+
+/* Left column: logos (existing content) */
+
+.top-bar > *:first-child {
+  grid-column: 1;
+  flex-shrink: 0;
+}
+
+/* Right column: slot for future titles + progress */
+
+.top-bar > *:nth-child(2) {
+  grid-column: 2;
 }
