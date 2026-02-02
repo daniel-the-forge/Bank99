@@ -2,3 +2,4 @@
 .cursor/plans/*.plan.md
 node_modules/
 *.css.map
+fonts/
