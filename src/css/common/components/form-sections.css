@@ -1,0 +1,28 @@
+/**
+ * Form section components
+ * Section headers, collapsible sections, dividers
+ */
+
+/* Section header bar (yellow title bar) */
+@supports selector(:has(h3)) {
+  .econ-section-header.econ-collapse-header:has(h3) {
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-default);
+    border-radius: var(--form-section-header-radius);
+    padding-top: var(--form-section-header-padding-top);
+    padding-bottom: var(--form-section-header-padding-bottom);
+    margin-inline: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
+  }
+  
+  /* Section header title */
+  .econ-section-header.econ-collapse-header h3 {
+    font-size: var(--font-size-18);
+    font-family: var(--font-family);
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0;
+    text-align: center;
+    margin: 0;
+  }
+}
+
