@@ -1,0 +1,51 @@
+/**
+ * Form field styles – labels and inputs
+ * Uses design tokens – requires design-system.css
+ */
+
+/* Labels (always on top) */
+.econ-form-label label,
+.form-label {
+  font-size: var(--label-font-size);
+  font-family: var(--font-family);
+  color: var(--label-color);
+  font-weight: var(--label-font-weight);
+  letter-spacing: var(--letter-spacing-default);
+  margin-left: var(--label-margin-left);
+  display: block;
+}
+
+/* Input fields */
+.econ-form-control,
+.form-control,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select {
+  background-color: var(--input-background);
+  border-color: var(--input-border-color);
+  border-width: var(--input-border-width);
+  border-style: solid;
+  border-radius: var(--input-border-radius);
+  font-size: var(--input-font-size);
+  font-family: var(--font-family);
+  color: var(--input-color);
+  font-weight: var(--input-font-weight);
+  letter-spacing: var(--letter-spacing-default);
+}
+
+/* Caret / dropdown indicator (gray box with white chevron – for custom dropdowns) */
+.econ-caret,
+.econ-dropdown-caret {
+  background-color: var(--caret-background);
+  border-radius: var(--caret-border-radius);
+  color: var(--caret-color);
+}
+
+/* Spacing between form fields */
+.econ-form-group + .econ-form-group,
+.econ-fragment-form-row + .econ-fragment-form-row {
+  margin-top: var(--input-margin-between);
+}

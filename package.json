@@ -1,0 +1,22 @@
+{
+  "name": "bank99-css",
+  "version": "1.0.0",
+  "description": "Bank99 new customer and existing customer CSS",
+  "scripts": {
+    "css:build": "postcss src/css/main.css -o dist/bank99-new.css",
+    "css:build:prod": "NODE_ENV=production postcss src/css/main.css -o dist/bank99-new.css",
+    "css:watch": "postcss src/css/main.css -o dist/bank99-new.css --watch"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 0.5%",
+    "not dead"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0"
+  }
+}

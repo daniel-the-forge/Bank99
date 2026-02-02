@@ -1,0 +1,22 @@
+/**
+ * Post Sans font faces
+ * Uses Bank99 hosted fonts for development and when our CSS is the only loader.
+ * When the page already loads Post Sans (e.g. from main site), the browser reuses the cached font.
+ */
+@font-face {
+  font-family: "Post Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Post Sans Regular"),
+    url("https://bank99.at/fonts/PostSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Post Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Post Sans Bold"),
+    url("https://bank99.at/fonts/PostSans-Bold.woff2") format("woff2");
+}
