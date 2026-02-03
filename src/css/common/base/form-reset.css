@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background: var(--body-background);
+  /* background: var(--body-background); */
   margin: 0;
   font-family: var(--font-family);
   color: var(--color-text);
@@ -15,4 +15,16 @@ body {
 
 .econ-container {
   background: transparent;
+}
+
+.content-main.container {
+  background: var(--body-background);
+}
+
+#econ-container.page-content {
+  padding-top: var(--form-section-header-margin-top);
+} 
+
+.econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
+  width: 100%;
 }
