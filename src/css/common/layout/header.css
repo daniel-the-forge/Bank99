@@ -11,7 +11,12 @@
   align-items: start;
   padding-top: var(--header-padding-top);
   padding-bottom: var(--header-padding-bottom);
+  padding-left: var(--header-padding-left);
+  padding-right: var(--header-padding-right);
+  background-color: var(--color-background-secondary-70);
   box-shadow: var(--header-shadow);
+  position: relative;
+  z-index: 2;
 }
 
 /* Left column: logos (existing content) */
