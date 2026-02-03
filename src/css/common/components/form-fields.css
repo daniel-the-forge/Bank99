@@ -5,25 +5,20 @@
 
 /* Labels (always on top) */
 .econ-form-label label,
-.form-label {
+.econ-form-label .form-label {
   font-size: var(--label-font-size);
   font-family: var(--font-family);
   color: var(--label-color);
   font-weight: var(--label-font-weight);
   letter-spacing: var(--letter-spacing-default);
   margin-left: var(--label-margin-left);
+  margin-bottom: var(--label-margin-bottom);
   display: block;
 }
 
 /* Input fields */
-.econ-form-control,
-.form-control,
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="date"],
-select {
+.econ-container .form-control,
+.econ-container .form-select {
   background-color: var(--input-background);
   border-color: var(--input-border-color);
   border-width: var(--input-border-width);
@@ -36,12 +31,39 @@ select {
   letter-spacing: var(--letter-spacing-default);
 }
 
+/* Select – remove native caret */
+.econ-form-control-select .form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  padding-right: 2.5rem; /* space for custom caret */
+}
+
 /* Caret / dropdown indicator (gray box with white chevron – for custom dropdowns) */
-.econ-caret,
-.econ-dropdown-caret {
+.econ-form-control-select {
+  position: relative;
+}
+
+.econ-form-control-select::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+
+  top: 50%;
+  right: 0;
+  width: 29px;
+  height: 100%;
+
   background-color: var(--caret-background);
+  transform: translateY(-50%);
+
   border-radius: var(--caret-border-radius);
-  color: var(--caret-color);
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
 }
 
 /* Spacing between form fields */
