@@ -20,3 +20,19 @@
   src: local("Post Sans Bold"),
     url("../src/fonts/PostSans-Bold.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Open Sans"),
+    url("../src/fonts/open-sans-v18-latin-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: block;
+  font-family: bootstrap-icons;
+  src: local("bootstrap-icons"),
+    url("../src/fonts/bootstrap-icons.woff") format("woff");
+}
