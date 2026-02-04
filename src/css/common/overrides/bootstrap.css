@@ -1,3 +1,23 @@
 /**
  * Bootstrap overrides
+ * Uses design tokens – requires design-system.css and font-faces.css
  */
+
+
+.top-bar > .row {
+  all: unset;
+  margin: 0;
+}
+
+.top-bar > .row > * {
+  all: unset;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+.top-bar > .row a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
