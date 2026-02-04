@@ -7,24 +7,56 @@ html {
 }
 
 body {
-  /* background: var(--body-background); */
-  margin: 0;
-  font-family: var(--font-family);
   color: var(--color-text);
+  font-family: var(--font-family);
+  margin: 0;
 }
 
+/* Replace the default background color of the container */
 .econ-container {
+  all: unset;
   background: transparent;
+  color: var(--bs-body-color);
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  text-align: var(--bs-body-text-align);
 }
 
+/* Remove padding from the columns */
+.econ-container form .col-10,
+.econ-container form .col-12 {
+  padding: 0;
+}
+
+/* Remove the default row styling */
+.econ-container form .row {
+  all: unset;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 6px;
+
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Reset the default column styling */
+.econ-container .row .col-6 {
+  all: unset;
+  /* flex: 0 0 calc(50% - 3px); */
+  /* flex: 0 0 calc(50% - 13.5px); */
+  flex: 0 0 calc(50% - 25px);
+  width: 50%;
+}
+
+/* Set the background color of the container */
 .content-main.container {
   background: var(--body-background);
 }
 
+/* Set the padding top of the container */
 #econ-container.page-content {
   padding-top: var(--form-section-header-margin-top);
-} 
-
-.econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
-  width: 100%;
 }
