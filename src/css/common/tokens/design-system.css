@@ -61,8 +61,8 @@
   --label-margin-bottom: 0px;
 
   /* Input text styles */
-  --input-font-size: 0.75rem;  /* 12px */
-  --input-font-weight: 700;
+  --input-font-size: 0.875rem;  /* 14px */
+  --input-font-weight: 400;
   --input-color: #000000;
 
   /* ========== Box shadow ========== */
@@ -72,7 +72,7 @@
   --container-margin-horizontal: 10px;
 
   /* Forms – inner margin */
-  --form-margin-horizontal: 28px;
+  --form-margin-horizontal: 16px;
 
   /* ========== Header ========== */
   --header-padding-top: 65px;
@@ -94,7 +94,7 @@
   
 
   /* ========== Form fields ========== */
-  --input-margin-between: 6px;
+  --input-margin-between: 8px;
   --input-background: #FFFFFF;
   --input-border-color: #C6CFDE;
   --input-border-width: 2px;
