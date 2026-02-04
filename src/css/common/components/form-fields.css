@@ -60,14 +60,136 @@
 
   border-radius: var(--caret-border-radius);
 
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 12px;
 }
 
 /* Spacing between form fields */
 .econ-form-group + .econ-form-group,
-.econ-fragment-form-row + .econ-fragment-form-row {
+.econ-fragment-form-row {
   margin-top: var(--input-margin-between);
+  position: relative;
+}
+
+
+/* Ensure icon button is properly sized */
+.econ-control-icon .btn.econ-icon-info {
+  width: 37px;
+  height: 37px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.econ-control-icon .btn.econ-icon-info::before{
+  background: var(--color-icon);
+  color: var(--color-background);
+  
+  border-radius: 50%;
+
+  height: 100%;
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  content: "i";
+  font-family: 'Post Sans' !important;
+  font-weight: 700 !important;
+  vertical-align: middle;
+  font-size: 1.5rem;
+
+  padding-top: 2px;
+}
+
+/* Set the width of the form control outer */
+.econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
+  width: 100%;
+}
+
+/* Override .econ-container .pb-3 { padding-bottom: 1rem !important } from external stylesheet */
+form .econ-form-group.pb-3 {
+  padding-bottom: 0 !important;
+}
+
+/* Remove the default margin left of the input group */
+.econ-container .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: 0;
+}
+
+/* Override Bootstrap column spacing and alignment */
+.econ-input-group.input-group.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Input field column - take most space, align to left edge */
+.econ-input-group .econ-form-control-outer {
+  flex: 1;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Icon column - fixed width, align to right edge */
+.econ-input-group .econ-control-icon {
+  flex: 0 0 37px;
+  padding-left: 0px;
+  padding-right: 0;
+  display: flex;
+  align-items: flex-start; /* Align with input top */
+}
+
+/* Ensure input field uses full width of its container */
+.econ-form-control-outer .econ-form-control-input-text {
+  width: 100%;
+}
+
+.econ-form-control-outer .form-control {
+  width: 100%;
+}
+
+/* Remove Bootstrap's default column padding */
+.econ-input-group .econ-form-control-outer .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.econ-input-group .econ-form-control-outer .row > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Hide calendar icon and reset border-radius*/
+.bi.bi-calendar {
+  display: none;
+}
+
+.econ-container .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-top-right-radius: var(--input-border-radius);
+  border-bottom-right-radius: var(--input-border-radius);
+}
+
+
+/* Set the position of the tooltip */
+/* Tooltip styles (always present, but hidden when display:none) */
+.econ-sliding-tooltip.econ-tooltip {
+  position: absolute;
+  background: var(--color-background);
+  border: 2px solid var(--color-text);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: var(--shadow-default);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* When visible (display:none is removed, element becomes visible) */
+.econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
