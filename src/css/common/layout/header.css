@@ -5,6 +5,8 @@
  */
 
 .top-bar {
+  all: unset;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
