@@ -1,101 +1,172 @@
 /**
+ * Main CSS entry point
+ * Imports all CSS files in the correct order for proper cascade
+ * This file is processed by PostCSS and compiled to dist/bank99-new.css
+ */
+
+/* ========== Design tokens (must be first) ========== */
+
+/**
  * Bank99 Design System Tokens
- * From Figma
- * CSS custom properties only (no selectors)
+ * CSS custom properties (design tokens) sourced from Figma
+ * These tokens define the visual design language and should be used throughout the application
+ * No selectors - only variable definitions
  */
 
 :root {
   /* ========== Colors ========== */
+  /* Text colors */
   --color-text: #000000;
   --color-text-opacity-100: rgba(0, 0, 0, 1);
 
+  /* Primary brand color - yellow used for buttons, headers, progress bars */
   --color-primary: #FFDC00;
   --color-primary-100: rgba(255, 220, 0, 1);
 
+  /* Background colors */
   --color-background: #FFFFFF;
   --color-background-100: rgba(255, 255, 255, 1);
+  --color-background-secondary: #C6CFDE;
+  --color-background-secondary-70: rgba(198, 207, 222, 0.7);
+  --color-background-secondary-80: rgba(198, 207, 222, 0.8);
 
+  /* Border colors */
   --color-border: #C6CFDE;
   --color-border-70: rgba(198, 207, 222, 0.7);
   --color-border-100: rgba(198, 207, 222, 1);
 
+  /* Transparent color */
   --color-transparent: rgba(255, 255, 255, 0);
 
+  /* Icon colors - gray for info icons, etc. */
   --color-icon: #7B8390;
   --color-icon-100: rgba(123, 131, 144, 1);
 
+  /* Link colors - blue for expandable sections */
   --color-link: #005FA0;
   --color-link-100: rgba(0, 95, 160, 1);
 
   /* Gradient stop colors (for body background) */
-  --color-gradient-start: #c6cfde;
+  --color-gradient-start: var(--color-background-secondary-80);
   --color-gradient-end: #eceff4;
 
   /* ========== Body background ========== */
-  --body-background: linear-gradient(90deg, #c6cfde 0%, #eceff4 50%, #eceff4 100%);
+  /* Main page background gradient - diagonal gradient from gray to light gray */
+  --body-background: linear-gradient(120deg, var(--color-background-secondary-80) 0%, var(--color-gradient-end) 50%, var(--color-gradient-end) 100%);
 
   /* ========== Typography ========== */
+  /* Font family stack - Post Sans primary, fallbacks for compatibility */
   --font-family: "Post Sans", "Open Sans", Helvetica, sans-serif;
 
+  /* Font weights available in Post Sans */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  /* Base: 16px on html */
+  /* Font sizes - rem units based on 16px root font size */
   --font-size-12: 0.75rem;   /* 12px */
   --font-size-14: 0.875rem;  /* 14px */
   --font-size-16: 1rem;      /* 16px */
   --font-size-18: 1.125rem;  /* 18px */
 
+  /* Letter spacing */
   --letter-spacing-default: 0%;
 
-  /* Label styles */
+  /* ========== Form labels ========== */
+  /* Label typography and spacing */
   --label-font-size: 0.875rem;  /* 14px */
   --label-font-weight: 700;
   --label-color: #000000;
   --label-margin-left: 9px;
+  --label-margin-bottom: 0px;
 
-  /* Input text styles */
-  --input-font-size: 0.75rem;  /* 12px */
-  --input-font-weight: 700;
+  /* ========== Input fields ========== */
+  /* Input text typography */
+  --input-font-size: 0.875rem;  /* 14px */
+  --input-font-weight: 400;
   --input-color: #000000;
 
   /* ========== Box shadow ========== */
+  /* Default shadow used for headers, sections, tooltips */
   --shadow-default: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /* ========== Spacing – containers (mobile) ========== */
+  /* Horizontal margin for main containers */
   --container-margin-horizontal: 10px;
 
   /* Forms – inner margin */
-  --form-margin-horizontal: 28px;
+  /* Horizontal padding for form content */
+  --form-margin-horizontal: 16px;
 
   /* ========== Header ========== */
+  /* Header padding and shadow */
   --header-padding-top: 65px;
   --header-padding-bottom: 8px;
+  --header-padding-left: 10px;
+  --header-padding-right: 10px;
   --header-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /* ========== Footer ========== */
+  /* Footer spacing */
   --footer-margin-bottom: 26px;
   --footer-padding-horizontal: 12px;
 
+  /* ========== Buttons ========== */
+  /* Primary button (Weiter) - yellow with rounded corners */
+  --btn-primary-background: rgba(255, 220, 0, 0.9);
+  --btn-primary-color: #000000;
+  --btn-primary-border-radius: 30px;
+  --btn-primary-padding-vertical: 10px;
+  --btn-primary-padding-horizontal: 50px;
+
+  /* Secondary/text buttons (Zurück, Speichern) - text-only with icons */
+  --btn-text-color: #000000;
+  --btn-icon-size: 22px;
+
   /* ========== Form sections ========== */
+  /* Section header (yellow title bar) spacing and styling */
   --form-section-header-padding-top: 7px;
   --form-section-header-padding-bottom: 7px;
+  --form-section-header-margin-top: 22px;
+  --form-section-header-margin-bottom: 20px;
   --form-section-header-radius: 3px;
+  
 
   /* ========== Form fields ========== */
-  --input-margin-between: 6px;
+  /* Vertical spacing between form fields */
+  --input-margin-between: 8px;
+  /* Input field styling */
   --input-background: #FFFFFF;
   --input-border-color: #C6CFDE;
+  --input-border-color-focus: #6A83AC;
+  --input-box-shadow-focus: 0 0 0 0.25rem rgba(143, 163, 196, 0.25);
   --input-border-width: 2px;
   --input-border-radius: 5px;
+  --input-padding: 8px;
 
-  /* Caret / dropdown indicator */
+  /* ========== Dropdown caret ========== */
+  /* Custom dropdown indicator styling */
   --caret-background: #7b8390;
   --caret-color: #fff;
   --caret-border-radius: 5px;
+
+  /* ========== Bootstrap compatibility ========== */
+  /* Variables required for Bootstrap component overrides */
+  /* These maintain compatibility with Bootstrap's grid system */
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  /* Spinner component variables */
+  --bs-spinner-width: 1rem;
+  --bs-spinner-height: 1rem;
+  --bs-spinner-vertical-align: -.125em;
+  --bs-spinner-border-width: .1em;
+  --bs-spinner-animation-speed: .75s;
+  --bs-spinner-animation-name: spinner-border;
+
 }
+
+/* ========== Base styles ========== */
 
 /**
  * Post Sans font faces
@@ -121,24 +192,544 @@
     url("../src/fonts/PostSans-Bold.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Open Sans"),
+    url("../src/fonts/open-sans-v18-latin-700.woff2") format("woff2");
+}
+
+@font-face {
+  font-display: block;
+  font-family: bootstrap-icons;
+  src: local("bootstrap-icons"),
+    url("../src/fonts/bootstrap-icons.woff") format("woff");
+}
+
 /**
  * Base reset and body styles
  * Uses design tokens – requires design-system.css and font-faces.css
  */
 
+/* ========== Root HTML element ========== */
+
+/* Set base font size for rem calculations (16px = 1rem) */
+
 html {
   font-size: 16px;
 }
 
+/* ========== Body element ========== */
+
+/* Apply base typography and remove default margins */
+
 body {
-  background: var(--body-background);
-  margin: 0;
-  font-family: var(--font-family);
   color: var(--color-text);
+  font-family: var(--font-family);
+  margin: 0;
+  min-height: 100vh;
 }
 
+/* ========== Main container reset ========== */
+
+/* Reset all styles and apply body variables for consistency */
+
 .econ-container {
-  background: transparent;
+  all: unset;
+  color: var(--bs-body-color);
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  text-align: var(--bs-body-text-align);
+}
+
+/* Paragraph spacing within econ-container */
+
+.econ-container p {
+  margin-bottom: 1rem;
+}
+
+/* ========== Content main container ========== */
+
+/* Main content wrapper with background gradient and gutter padding based on Bootstrap gutter */
+
+.content-main.container {
+  background: var(--body-background);
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+/* ========== Page content container ========== */
+
+/* Add top padding to create space for the first form section header */
+
+#econ-container.page-content {
+  padding-top: var(--form-section-header-margin-top);
+}
+
+/* ========== Hidden elements ========== */
+
+/* Ensure elements with [hidden] attribute are not displayed */
+
+.econ-container [hidden] {
+  display: none !important;
+}
+
+/* ========== Media queries ========== */
+
+/* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
+
+/* Mobile-first approach: base styles are for mobile, these add desktop styles */
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+  .content-main.container {
+    max-width: 100%;
+  }
+
+  /* Center page content with max-width constraint */
+  #econ-container.page-content {
+    max-width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  /* Increase max-width for tablet screens */
+  #econ-container.page-content {
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  /* Increase max-width for desktop screens */
+  #econ-container.page-content {
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  /* Increase max-width for large desktop screens */
+  #econ-container.page-content {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Extra extra large devices (larger desktops, 1400px and up) */
+
+@media (min-width: 1400px) {
+  /* Maximum width for very large screens */
+  #econ-container.page-content {
+    max-width: 1320px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* ========== Bootstrap overrides ========== */
+
+/**
+ * Bootstrap overrides
+ * Override Bootstrap's default grid system and component styles
+ * Uses design tokens – requires design-system.css and font-faces.css
+ */
+
+/* ========== Top Bar resets ========== */
+
+/* Reset Bootstrap row styles within top-bar */
+
+.top-bar > .row {
+  all: unset;
+  margin: 0;
+}
+
+/* Reset all direct children of top-bar rows */
+
+.top-bar > .row > * {
+  all: unset;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Links within top-bar rows */
+
+.top-bar > .row a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ========== Column resets ========== */
+
+/* Full-width column (12/12) */
+
+.econ-container .col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: var(--bs-gutter-y);
+  padding: 0;
+}
+
+/* 10/12 width column - remove Bootstrap padding */
+
+.econ-container .col-10 {
+  padding: 0;
+}
+
+/* 4/12 width column (1/3) - maintain proportions, account for gap */
+
+.econ-container .col-4 {
+  flex: 0 0 auto;
+  width: calc(33.333% - 3px);
+  padding: 0;
+}
+
+/* 8/12 width column (2/3) - maintain proportions, account for gap */
+
+.econ-container .col-8 {
+  flex: 0 0 auto;
+  width: calc(66.666% - 3px);
+  padding: 0;
+}
+
+/* ========== Row resets ========== */
+
+/* Form rows - flexbox layout with custom gap instead of Bootstrap gutters */
+
+.econ-container form .row {
+  /* all: unset; */
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 6px;
+       column-gap: 6px;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  align-items: stretch;
+}
+
+/* 6/12 width column (1/2) - account for gap between columns */
+
+.econ-container .row .col-6 {
+  all: unset;
+  /* flex: 0 0 calc(50% - 3px); */
+  /* flex: 0 0 calc(50% - 13.5px); */
+  flex: 0 0 calc(50% - 25px);
+  width: 50%;
+}
+
+/* ========== Input group overrides ========== */
+
+/* Remove Bootstrap's default left margin on input-group children */
+
+/* Exclude dropdown menus and validation tooltips/feedback */
+
+.econ-container .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* ========== Econ input group layout ========== */
+
+/* Reset Bootstrap row margins for econ-input-group */
+
+.econ-input-group.input-group.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Input field column - flexible width, takes remaining space */
+
+.econ-input-group .econ-form-control-outer {
+  flex: 1;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Icon column - fixed 37px width for info buttons */
+
+.econ-input-group .econ-control-icon {
+  flex: 0 0 37px;
+  padding-left: 0px;
+  padding-right: 0;
+  display: flex;
+  align-items: flex-start; /* Align with input top */
+}
+
+/* ========== Form control width ========== */
+
+/* Ensure input fields use full width of their container */
+
+.econ-form-control-outer .econ-form-control-input-text {
+  width: 100%;
+}
+
+.econ-form-control-outer .form-control {
+  width: 100%;
+}
+
+/* ========== Nested row/column resets ========== */
+
+/* Remove Bootstrap's default column padding within input groups */
+
+.econ-input-group .econ-form-control-outer .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.econ-input-group .econ-form-control-outer .row > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ========== Input group border radius ========== */
+
+/* Apply border radius to input-group elements (except last child) */
+
+/* Exclude validation elements, dropdowns, and floating labels */
+
+.econ-container .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-top-right-radius: var(--input-border-radius);
+  border-bottom-right-radius: var(--input-border-radius);
+}
+
+/* ========== Components ========== */
+
+/**
+ * Button styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Button appearance resets ========== */
+
+/* Remove text transformation from buttons and selects */
+
+.econ-container button, .econ-container select {
+  text-transform: none;
+}
+
+/* Ensure native button appearance is maintained */
+
+.econ-container button, 
+.econ-container [type=button], 
+.econ-container [type=reset], 
+.econ-container [type=submit] {
+  -webkit-appearance: button;
+}
+
+/* Pointer cursor for interactive buttons */
+
+.econ-container button:not(:disabled), 
+.econ-container [type=button]:not(:disabled), 
+.econ-container [type=reset]:not(:disabled), 
+.econ-container [type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+
+/* ========== Footer Navigation Bar ========== */
+
+/* Container for footer navigation buttons - flexbox layout, no wrapping */
+
+.econ-button-bar.b99-page-nav-btns {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 0 var(--footer-padding-horizontal);
+  margin-bottom: var(--footer-margin-bottom);
+}
+
+/* Reset Bootstrap row styles */
+
+.econ-button-bar.b99-page-nav-btns.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Button wrappers - reset Bootstrap columns and create equal flex containers */
+
+.econ-button-bar .econ-button-wrapper {
+  all: unset;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* ========== Button wrapper positioning ========== */
+
+/* Zurück (back) - first in visual order, left aligned */
+
+.econ-button-bar .b99-back-btn {
+  order: 1;
+  justify-content: flex-start;
+}
+
+/* Weiter (next) - second in visual order (center) */
+
+.econ-button-bar .b99-next-btn {
+  order: 2;
+  justify-content: center;
+}
+
+/* Speichern (save) - third in visual order, right aligned */
+
+.econ-button-bar .b99-save-btn {
+  order: 3;
+  justify-content: flex-end;
+}
+
+/* ========== Text Buttons (Zurück, Speichern) ========== */
+
+/* Style for text-only buttons with icons - no background or border */
+
+.econ-button-bar .b99-back-btn .econ-button,
+.econ-button-bar .b99-save-btn .econ-button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--btn-text-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+/* Zurück icon (arrow left) - SVG embedded as background image */
+
+.econ-button-bar .b99-back-btn .econ-button::before {
+  content: "";
+  display: inline-block;
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23' height='23' viewBox='0 0 23 23' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.2444 0C5.01754 0 0 5.04327 0 11.2444C0 17.4456 5.04327 22.4889 11.2444 22.4889C17.4456 22.4889 22.4889 17.4456 22.4889 11.2444C22.4889 5.04327 17.4713 0 11.2444 0ZM11.2445 21.022C5.8667 21.022 1.49243 16.6477 1.49243 11.27C1.49243 5.89219 5.8667 1.49219 11.2445 1.49219C16.6223 1.49219 21.0223 5.86646 21.0223 11.27C21.0223 16.6735 16.648 21.022 11.2445 21.022ZM11.0643 4.47754L12.1193 5.53251L7.20468 10.4986H17.883V11.991H7.20468L12.145 16.9828L11.0901 18.0378L4.37427 11.2705L11.0643 4.47754Z' fill='black'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Speichern icon (diskette) - SVG embedded as background image */
+
+.econ-button-bar .b99-save-btn .econ-button::before {
+  content: "";
+  display: inline-block;
+  width: var(--btn-icon-size);
+  height: var(--btn-icon-size);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'%3E%3Cpath d='M18.375 0H2.625C1.17525 0 0 1.17525 0 2.625V18.375C0 19.8247 1.17525 21 2.625 21H18.375C19.8247 21 21 19.8247 21 18.375V2.625C21 1.17525 19.8247 0 18.375 0ZM6.5625 1.3125H14.4375V5.25H6.5625V1.3125ZM19.6875 18.375C19.6875 19.0994 19.0994 19.6875 18.375 19.6875H2.625C1.90062 19.6875 1.3125 19.0994 1.3125 18.375V2.625C1.3125 1.90062 1.90062 1.3125 2.625 1.3125H5.25V5.90625C5.25 6.26869 5.54381 6.5625 5.90625 6.5625H15.0938C15.4562 6.5625 15.75 6.26869 15.75 5.90625V1.3125H18.375C19.0994 1.3125 19.6875 1.90062 19.6875 2.625V18.375Z' fill='black'/%3E%3Cpath d='M10.5 9.1875C8.32687 9.1875 6.5625 10.9519 6.5625 13.125C6.5625 15.2981 8.32687 17.0625 10.5 17.0625C12.6731 17.0625 14.4375 15.2981 14.4375 13.125C14.4375 10.9519 12.6731 9.1875 10.5 9.1875ZM10.5 15.75C9.05175 15.75 7.875 14.5733 7.875 13.125C7.875 11.6767 9.05175 10.5 10.5 10.5C11.9483 10.5 13.125 11.6767 13.125 13.125C13.125 14.5733 11.9483 15.75 10.5 15.75Z' fill='black'/%3E%3Crect x='11.8125' y='2.625' width='1.3125' height='2.625' fill='black'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ========== Primary Button (Weiter) ========== */
+
+/* Yellow primary button with rounded corners and opacity */
+
+.econ-button-bar .b99-next-btn .econ-button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--btn-primary-background);
+  color: var(--btn-primary-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  border-radius: var(--btn-primary-border-radius);
+  padding: var(--btn-primary-padding-vertical) var(--btn-primary-padding-horizontal);
+  cursor: pointer;
+  border: none;
+}
+
+/* ========== Button spinner ========== */
+
+/* Hide spinner icons by default (shown via JS when loading) */
+
+.econ-button-bar .econ-button-spinner {
+  display: none;
+}
+
+/**
+ * Icon styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Info icon button ========== */
+
+/* Circular info button displayed next to form inputs */
+
+.econ-control-icon .btn.econ-icon-info {
+  width: 37px;
+  height: 37px;
+  padding: 0;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Focus state - shows border and shadow for accessibility */
+
+.econ-control-icon .btn.econ-icon-info:focus {
+  border: var(--input-border-width) solid var(--input-border-color);
+  outline: 0;
+  box-shadow: var(--input-box-shadow-focus);
+}
+
+/* Info icon "i" letter - created using ::before pseudo-element */
+
+.econ-control-icon .btn.econ-icon-info::before{
+  background: var(--color-icon);
+  color: var(--color-background);
+  
+  border-radius: 50%;
+
+  height: 100%;
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  content: "i";
+  font-family: 'Post Sans' !important;
+  font-weight: 700 !important;
+  vertical-align: middle;
+  font-size: 1.5rem;
+
+  padding-top: 2px;
+}
+
+/* ========== Bootstrap icon overrides ========== */
+
+/* Hide Bootstrap's default calendar icon (we use custom datepicker) */
+
+.bi.bi-calendar {
+  display: none;
 }
 
 /**
@@ -146,30 +737,37 @@ body {
  * Uses design tokens – requires design-system.css
  */
 
-/* Labels (always on top) */
+/* ========== Labels ========== */
+
+/* Form labels always appear above inputs */
 
 .econ-form-label label,
-.form-label {
+.econ-form-label .form-label {
+  color: var(--label-color);
+  display: block;
   font-size: var(--label-font-size);
   font-family: var(--font-family);
-  color: var(--label-color);
   font-weight: var(--label-font-weight);
   letter-spacing: var(--letter-spacing-default);
   margin-left: var(--label-margin-left);
-  display: block;
+  margin-bottom: var(--label-margin-bottom);
 }
 
-/* Input fields */
+/* ========== Input fields ========== */
 
-.econ-form-control,
-.form-control,
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[type="date"],
-select {
+/* Base styles for text inputs and select dropdowns */
+
+.econ-container .form-control,
+.econ-container .form-select {
+  box-sizing: border-box;
+  /* Remove Bootstrap's default background images (caret icons, etc.) */
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: unset;
+  background-size: unset;
+  
   background-color: var(--input-background);
+  border: unset;
   border-color: var(--input-border-color);
   border-width: var(--input-border-width);
   border-style: solid;
@@ -179,70 +777,396 @@ select {
   color: var(--input-color);
   font-weight: var(--input-font-weight);
   letter-spacing: var(--letter-spacing-default);
+  text-transform: none;
+  padding: var(--input-padding);
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  word-wrap: normal;
 }
 
-/* Caret / dropdown indicator (gray box with white chevron – for custom dropdowns) */
+/* Focus state - darker border and subtle shadow */
 
-.econ-caret,
-.econ-dropdown-caret {
+.econ-container .form-control:focus,
+.econ-container .form-select:focus {
+  border-color: var(--input-border-color-focus);
+  outline: 0;
+  box-shadow: var(--input-box-shadow-focus);
+}
+
+/* ========== Select dropdowns ========== */
+
+/* Remove native browser dropdown caret */
+
+.econ-form-control-select .form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  width: 100%;
+}
+
+/* Select wrapper - positioned relative for custom caret */
+
+.econ-form-control-select {
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Custom dropdown caret - gray box with white chevron icon */
+
+.econ-form-control-select::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+
+  top: 50%;
+  right: 0;
+  width: 29px;
+  height: 100%;
+
   background-color: var(--caret-background);
+  transform: translateY(-50%);
+
   border-radius: var(--caret-border-radius);
-  color: var(--caret-color);
+
+  /* White chevron down icon */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* Spacing between form fields */
+/* ========== Form field spacing ========== */
+
+/* Vertical spacing between form groups and form rows */
 
 .econ-form-group + .econ-form-group,
-.econ-fragment-form-row + .econ-fragment-form-row {
+.econ-fragment-form-row {
   margin-top: var(--input-margin-between);
+  position: relative;
+}
+
+/* ========== Form control width ========== */
+
+/* Ensure form control outer takes full width when using col-10 */
+
+.econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
+  width: 100%;
+}
+
+/* ========== Bootstrap overrides ========== */
+
+/* Override external stylesheet's padding-bottom on form groups */
+
+form .econ-form-group.pb-3 {
+  padding-bottom: 0 !important;
+}
+
+/* ========== Checkbox labels ========== */
+
+/* Checkbox label container */
+
+.econ-checkbox-label {
+  display: block;
+}
+
+/* Paragraph text within checkbox labels */
+
+.econ-checkbox-label p {
+  font-size: var(--font-size-12);
+}
+
+/* Second paragraph - truncated with fade effect for long text */
+
+.econ-checkbox-label p:nth-of-type(2) {
+  position: relative;
+  max-height: 3.75em; /* ~2.5 lines at 1.5em line-height */
+  line-height: 1.5em;
+  overflow: hidden;
+}
+
+/* Fade gradient overlay at bottom of truncated paragraph */
+
+.econ-checkbox-label p:nth-of-type(2)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3.5em;
+  background: linear-gradient(180deg, transparent 0%, var(--color-gradient-end) 100%);
+  pointer-events: none;
+}
+
+/* Hide third paragraph initially (shown via JS when expanded) */
+
+.econ-checkbox-label p:nth-of-type(3) {
+  display: none;
+}
+
+/* ========== Checkbox inputs ========== */
+
+/* Valid checkbox label text color */
+
+.econ-container .form-check-input.is-valid~.form-check-label {
+  color: var(--color-text);
+}
+
+/* Base checkbox input styles - fixed 25x25px size */
+
+.econ-container .form-check-input {
+  width: 1.5625rem; /* 25px */
+  height: 1.5625rem; /* 25px */
+  min-width: 1.5625rem; /* prevent shrinking in flex containers */
+  flex-shrink: 0;
+  margin-top: 0;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: var(--input-border-width) solid var(--color-text);
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+}
+
+/* Reset Bootstrap's float and margin */
+
+.econ-container .form-check .form-check-input {
+  float: unset;
+  margin-left: 0;
+}
+
+/* Valid checkbox border color */
+
+.econ-container .form-check-input.is-valid {
+  border-color: var(--color-text);
+}
+
+/* Checkbox border radius */
+
+.econ-container .form-check-input[type=checkbox] {
+  border-radius: var(--input-border-radius);
+}
+
+/* Checkbox focus state */
+
+.econ-container .form-check-input:focus {
+  border-color: var(--input-border-color-focus);
+  outline: 0;
+  box-shadow: var(--input-box-shadow-focus);
 }
 
 /**
  * Form section components
  * Section headers, collapsible sections, dividers
+ * Uses design tokens – requires design-system.css
  */
 
-/* Section header bar (yellow title bar) */
+/* ========== Form container padding ========== */
+
+/* Horizontal padding for form content (left and right margins) */
+
+.econ-container form {
+  padding-left: var(--form-margin-horizontal);
+  padding-right: var(--form-margin-horizontal);
+}
+
+/* ========== Section headers ========== */
+
+/* Yellow title bar for collapsible sections */
+
+/* Uses @supports to check for :has() selector support (modern browsers) */
 
 @supports selector(:has(h3)) {
+  /* Section header bar - yellow background with shadow */
   .econ-section-header.econ-collapse-header:has(h3) {
     background-color: var(--color-primary);
     box-shadow: var(--shadow-default);
     border-radius: var(--form-section-header-radius);
+    /* margin-top: var(--form-section-header-margin-top); */
+    margin-bottom: var(--form-section-header-margin-bottom);
+    /* Negative margin to extend header to form edges, accounting for Bootstrap gutter */
+    margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
     padding-top: var(--form-section-header-padding-top);
     padding-bottom: var(--form-section-header-padding-bottom);
-    margin-inline: calc(var(--bs-gutter-x, 1.5rem) * -0.5);
   }
   
-  /* Section header title */
+  /* Section header title text styling */
   .econ-section-header.econ-collapse-header h3 {
     font-size: var(--font-size-18);
     font-family: var(--font-family);
     color: var(--color-text);
     font-weight: var(--font-weight-bold);
     letter-spacing: 0;
+    line-height: 1;
     text-align: center;
     margin: 0;
   }
 }
 
+/* ========== Fragment content ========== */
+
+/* Paragraph text within fragment content rows */
+
+.econ-fragment-content-row p {
+  font-size: var(--font-size-12);
+  margin-left: calc(var(--bs-gutter-x) * .5);
+}
+
+/* ========== Section spacing ========== */
+
+/* Sections with bottom separation line get extra margin */
+
+.econ-section.with-bottom-separation-line {
+  margin-bottom: 38px;
+}
+
+/* ========== Media queries ========== */
+
+/* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
+
+/* Mobile-first approach: base styles are for mobile, these add desktop styles */
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+  @supports selector(:has(h3)) {
+    /* Section header extends to viewport edges - breaks out of centered container */
+    /* Uses 50% - 50vw to extend from container center to viewport edges */
+    .econ-section-header.econ-collapse-header:has(h3) {
+      margin-inline: calc(50% - 50vw);
+      margin-inline: unset;
+    }
+  }
+}
+
+/**
+ * Form spinner styles
+ * Loading indicators for form fields (e.g., during async validation)
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Spinner container ========== */
+
+/* Spinner wrapper - positioned absolutely within form row */
+
+/* Hidden by default, shown via JS when loading */
+
+.econ-container .econ-fragment-form-row .econ-spinner{
+  display: none;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+/* ========== Spinner base styles ========== */
+
+/* Common styles for both spinner types (grow and border) */
+
+.econ-container .spinner-grow, 
+.econ-container .spinner-border {
+  display: inline-block;
+  width: var(--bs-spinner-width);
+  height: var(--bs-spinner-height);
+  vertical-align: var(--bs-spinner-vertical-align);
+  border-radius: 50%;
+  animation: var(--bs-spinner-animation-speed) linear infinite var(--bs-spinner-animation-name);
+}
+
+/* ========== Border spinner ========== */
+
+/* Spinning border effect - border on three sides, transparent on right */
+
+.econ-container .spinner-border {
+  border: var(--bs-spinner-border-width) solid currentcolor;
+  border-right-color: transparent;
+}
+
+/**
+ * Tooltip styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Tooltip base styles ========== */
+
+/* Tooltip container - always present in DOM but hidden by default */
+
+/* Visibility controlled via inline style (display:none) and opacity */
+
+.econ-sliding-tooltip.econ-tooltip {
+  position: absolute;
+  background: var(--color-background);
+  border: 2px solid var(--color-text);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: var(--shadow-default);
+  z-index: 1000;
+  /* Hidden state - transparent and slightly offset upward */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* ========== Tooltip visible state ========== */
+
+/* When display:none is removed via JS, tooltip becomes visible */
+
+/* Uses attribute selector to detect when inline style is removed */
+
+.econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ========== Tooltip content ========== */
+
+/* Remove default paragraph margins within tooltip content */
+
+.econ-tooltip-info p {
+  margin-bottom: 0;
+}
+
+/* ========== Layout ========== */
+
 /**
  * Header layout – .top-bar (injected into #header)
  * 2-column structure: left = logos, right = slot for future titles + progress
- * Uses design tokens
+ * Uses design tokens – requires design-system.css
  */
 
+/* ========== Top bar container ========== */
+
+/* Main header bar - dynamically injected into empty #header div by backend */
+
+/* CSS Grid layout: left column auto-sized (logos), right column flexible (titles/progress) */
+
 .top-bar {
+  all: unset;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
   align-items: start;
   padding-top: var(--header-padding-top);
   padding-bottom: var(--header-padding-bottom);
+  padding-left: var(--header-padding-left);
+  padding-right: var(--header-padding-right);
+  background-color: var(--color-background-secondary-70);
   box-shadow: var(--header-shadow);
+  position: relative;
+  z-index: 2;
 }
 
+/* ========== Grid column assignments ========== */
+
 /* Left column: logos (existing content) */
+
+/* First child element goes into column 1 */
 
 .top-bar > *:first-child {
   grid-column: 1;
@@ -251,6 +1175,79 @@ select {
 
 /* Right column: slot for future titles + progress */
 
+/* Second child element goes into column 2 */
+
 .top-bar > *:nth-child(2) {
   grid-column: 2;
+}
+
+/**
+ * Form footer layout styles
+ * Form footer navigation bar and button row
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Footer button row container ========== */
+
+/* Negative margin to extend footer to form edges, accounting for Bootstrap gutter and form margin */
+
+.econ-fragment.econ-fragment-button-row{
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal) + 7px);
+}
+
+/* ========== Footer navigation bar ========== */
+
+/* Base styles for footer button bar */
+
+.econ-button-bar.b99-page-nav-btns {
+  padding: 0 var(--footer-padding-horizontal);
+  margin-bottom: var(--footer-margin-bottom);
+}
+
+/* ========== Bootstrap row override ========== */
+
+/* Reset Bootstrap row styles and apply flexbox layout for button alignment */
+
+.econ-button-bar.b99-page-nav-btns.row {
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 26px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  margin-bottom: 0 !important;
+}
+
+/* ========== Process-specific styles ========== */
+
+/**
+ * Neukunde (New Customer) process-specific styles
+ * Styles specific to the new customer registration flow
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Email confirmation checkbox ========== */
+
+/* Large top margin for email confirmation checkbox section */
+
+.depot-email-confirmation-box {
+  margin-top: 100px;
+}
+
+/* Form check layout - flexbox with checkbox and label side-by-side */
+
+/* Negative margin to extend checkbox to form edge */
+
+.depot-email-confirmation-box .form-check {
+  display: flex;
+  align-items: flex-start;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+  margin-left: calc(var(--form-margin-horizontal) * -1);
+  padding-left: 0;
+  margin-bottom: 0;
+  min-height: unset;
 }
