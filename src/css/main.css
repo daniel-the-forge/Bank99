@@ -1,13 +1,33 @@
+/**
+ * Main CSS entry point
+ * Imports all CSS files in the correct order for proper cascade
+ * This file is processed by PostCSS and compiled to dist/bank99-new.css
+ */
+
+/* ========== Design tokens (must be first) ========== */
 @import "common/tokens/design-system.css";
+
+/* ========== Base styles ========== */
 @import "common/base/font-faces.css";
 @import "common/base/form-reset.css";
+
+/* ========== Bootstrap overrides ========== */
 @import "common/overrides/bootstrap.css";
+
+/* ========== Components ========== */
 @import "common/components/buttons.css";
+@import "common/components/icons.css";
 @import "common/components/form-fields.css";
 @import "common/components/form-sections.css";
+@import "common/components/form-spinner.css";
 @import "common/components/progress-indicator.css";
 @import "common/components/tooltips.css";
+
+/* ========== Layout ========== */
 @import "common/layout/header.css";
 @import "common/layout/footer.css";
+
+/* ========== Process-specific styles ========== */
 @import "neukunde/main.css";
+@import "neukunde/mittelherkunft-icons.css";
 @import "bestehender_kunde/main.css";
