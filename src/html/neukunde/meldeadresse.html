@@ -17,6 +17,8 @@
 <!-- Production: minified (run npm run css:build:prod) -->
 <!-- <link rel="stylesheet" href="../../../dist/bank99-new.css"> -->
 
+<script src="../../js/main.js"></script>
+
 <title id="id1ff">Meldeadresse</title>
 <script type="text/javascript">
 		var globalConfig = {
@@ -26,6 +28,22 @@
 		pageTitle: "Kundereise"
 		};
 </script>
+
+<style>
+	.content-header.content,
+	.hr,
+	label[for="id341"],
+	label[for="id347"],
+	label[for="id349"],
+	label[for="id34e"],
+	label[for="id354"],
+	label[for="id35b"],
+	#id3aa,
+	footer#footer,
+	#contact-nav {
+		display: none !important;
+	}
+</style>
 </head>
 <body class="no-skin">
 
@@ -33,7 +51,7 @@
 <div class="content-main container">
 <div id="header"></div>
 <div id="econ-container" class="page-content">
-<section class="content-header content">
+<section class="content-header content" >
 <div id="id201">
 <nav class="econ-breadcrumb-wrapper">
 <ol class="econ-breadcrumb breadcrumb">
@@ -553,7 +571,7 @@ vertraglicher Informationen benötigt.</p></div>
 <div class="econ-form-group form-group pb-3 b99-gray-option-box b99-email-confirmation-box depot-email-confirmation-box">
 <div class="econ-input-group input-group row">
 <div class="econ-form-label col-12 col-sm-4 " id="id3a5">
-<label class="form-label">Probleme beim Abschluss</label>
+<label style="display: none;" class="form-label">Probleme beim Abschluss</label>
 </div>
 <div class="econ-form-control-outer col-10 col-sm-6 ">
 <div class="row">
@@ -639,7 +657,7 @@ Zurück
 <div class="econ-button-wrapper econ-button-wrapper-default b99-save-btn econ-button-1 col-4 " id="id3df">
 <button class="econ-button btn btn-secondary" name="container:view:5:fragment:container:buttons:1:buttonWrapper:button" id="id3ba" type="button">
 <i class="econ-button-spinner" id="id3b9"></i>
-Speichern und später fortfahren
+Speichern
 </button>
 </div>
 
