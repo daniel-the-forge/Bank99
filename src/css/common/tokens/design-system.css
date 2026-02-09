@@ -1,32 +1,40 @@
 /**
  * Bank99 Design System Tokens
- * From Figma
- * CSS custom properties only (no selectors)
+ * CSS custom properties (design tokens) sourced from Figma
+ * These tokens define the visual design language and should be used throughout the application
+ * No selectors - only variable definitions
  */
 
 :root {
   /* ========== Colors ========== */
+  /* Text colors */
   --color-text: #000000;
   --color-text-opacity-100: rgba(0, 0, 0, 1);
 
+  /* Primary brand color - yellow used for buttons, headers, progress bars */
   --color-primary: #FFDC00;
   --color-primary-100: rgba(255, 220, 0, 1);
 
+  /* Background colors */
   --color-background: #FFFFFF;
   --color-background-100: rgba(255, 255, 255, 1);
   --color-background-secondary: #C6CFDE;
   --color-background-secondary-70: rgba(198, 207, 222, 0.7);
   --color-background-secondary-80: rgba(198, 207, 222, 0.8);
 
+  /* Border colors */
   --color-border: #C6CFDE;
   --color-border-70: rgba(198, 207, 222, 0.7);
   --color-border-100: rgba(198, 207, 222, 1);
 
+  /* Transparent color */
   --color-transparent: rgba(255, 255, 255, 0);
 
+  /* Icon colors - gray for info icons, etc. */
   --color-icon: #7B8390;
   --color-icon-100: rgba(123, 131, 144, 1);
 
+  /* Link colors - blue for expandable sections */
   --color-link: #005FA0;
   --color-link-100: rgba(0, 95, 160, 1);
 
@@ -35,46 +43,56 @@
   --color-gradient-end: #eceff4;
 
   /* ========== Body background ========== */
+  /* Main page background gradient - diagonal gradient from gray to light gray */
   --body-background: linear-gradient(120deg, var(--color-background-secondary-80) 0%, var(--color-gradient-end) 50%, var(--color-gradient-end) 100%);
 
   /* ========== Typography ========== */
+  /* Font family stack - Post Sans primary, fallbacks for compatibility */
   --font-family: "Post Sans", "Open Sans", Helvetica, sans-serif;
 
+  /* Font weights available in Post Sans */
   --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  /* Base: 16px on html */
+  /* Font sizes - rem units based on 16px root font size */
   --font-size-12: 0.75rem;   /* 12px */
   --font-size-14: 0.875rem;  /* 14px */
   --font-size-16: 1rem;      /* 16px */
   --font-size-18: 1.125rem;  /* 18px */
 
+  /* Letter spacing */
   --letter-spacing-default: 0%;
 
-  /* Label styles */
+  /* ========== Form labels ========== */
+  /* Label typography and spacing */
   --label-font-size: 0.875rem;  /* 14px */
   --label-font-weight: 700;
   --label-color: #000000;
   --label-margin-left: 9px;
   --label-margin-bottom: 0px;
 
-  /* Input text styles */
+  /* ========== Input fields ========== */
+  /* Input text typography */
   --input-font-size: 0.875rem;  /* 14px */
   --input-font-weight: 400;
   --input-color: #000000;
 
   /* ========== Box shadow ========== */
+  /* Default shadow used for headers, sections, tooltips */
   --shadow-default: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /* ========== Spacing – containers (mobile) ========== */
+  /* Horizontal margin for main containers */
   --container-margin-horizontal: 10px;
 
   /* Forms – inner margin */
+  /* Horizontal padding for form content */
   --form-margin-horizontal: 16px;
 
   /* ========== Header ========== */
+  /* Header padding and shadow */
   --header-padding-top: 65px;
   --header-padding-bottom: 8px;
   --header-padding-left: 10px;
@@ -82,10 +100,24 @@
   --header-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /* ========== Footer ========== */
+  /* Footer spacing */
   --footer-margin-bottom: 26px;
   --footer-padding-horizontal: 12px;
 
+  /* ========== Buttons ========== */
+  /* Primary button (Weiter) - yellow with rounded corners */
+  --btn-primary-background: rgba(255, 220, 0, 0.9);
+  --btn-primary-color: #000000;
+  --btn-primary-border-radius: 30px;
+  --btn-primary-padding-vertical: 10px;
+  --btn-primary-padding-horizontal: 50px;
+
+  /* Secondary/text buttons (Zurück, Speichern) - text-only with icons */
+  --btn-text-color: #000000;
+  --btn-icon-size: 22px;
+
   /* ========== Form sections ========== */
+  /* Section header (yellow title bar) spacing and styling */
   --form-section-header-padding-top: 7px;
   --form-section-header-padding-bottom: 7px;
   --form-section-header-margin-top: 22px;
@@ -94,14 +126,36 @@
   
 
   /* ========== Form fields ========== */
+  /* Vertical spacing between form fields */
   --input-margin-between: 8px;
+  /* Input field styling */
   --input-background: #FFFFFF;
   --input-border-color: #C6CFDE;
+  --input-border-color-focus: #6A83AC;
+  --input-box-shadow-focus: 0 0 0 0.25rem rgba(143, 163, 196, 0.25);
   --input-border-width: 2px;
   --input-border-radius: 5px;
+  --input-padding: 8px;
 
-  /* Caret / dropdown indicator */
+  /* ========== Dropdown caret ========== */
+  /* Custom dropdown indicator styling */
   --caret-background: #7b8390;
   --caret-color: #fff;
   --caret-border-radius: 5px;
+
+  /* ========== Bootstrap compatibility ========== */
+  /* Variables required for Bootstrap component overrides */
+  /* These maintain compatibility with Bootstrap's grid system */
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  /* Spinner component variables */
+  --bs-spinner-width: 1rem;
+  --bs-spinner-height: 1rem;
+  --bs-spinner-vertical-align: -.125em;
+  --bs-spinner-border-width: .1em;
+  --bs-spinner-animation-speed: .75s;
+  --bs-spinner-animation-name: spinner-border;
+  --bs-progress-height: 1rem;
+
 }
+
