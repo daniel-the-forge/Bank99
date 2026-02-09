@@ -1,0 +1,109 @@
+/**
+ * Icon styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Info icon button ========== */
+/* Circular info button displayed next to form inputs */
+.econ-control-icon .btn.econ-icon-info {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* Focus state - shows border and shadow for accessibility */
+.econ-control-icon .btn.econ-icon-info:focus {
+  border: var(--input-border-width) solid var(--input-border-color);
+  outline: 0;
+  box-shadow: var(--input-box-shadow-focus);
+}
+
+/* Info icon "i" letter - created using ::before pseudo-element */
+.econ-control-icon .btn.econ-icon-info::before{
+  background: var(--color-icon);
+  color: var(--color-background);
+  
+  border-radius: 50%;
+
+  height: 100%;
+  width: 100%;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  content: "i";
+  font-family: 'Post Sans' !important;
+  font-weight: 700 !important;
+  vertical-align: middle;
+  font-size: 1.5rem;
+
+}
+
+/* ========== Bootstrap icon overrides ========== */
+/* Default calendar icon  */
+.econ-form-control-date {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.bi.bi-calendar {
+  display: flex;
+  align-items: center;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: .375rem;
+}
+
+.bi.bi-calendar:before {
+  display: inline-block;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+}
+
+.bi.bi-calendar::before {
+  content: "";
+}
+
+.econ-container .input-group-text {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-radius: var(--input-border-radius);
+  display: flex;
+  align-items: center;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.econ-form-control-currency {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+}
