@@ -1,0 +1,35 @@
+/**
+ * Neukunde (New Customer) process-specific styles
+ * Styles specific to the new customer registration flow
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Email confirmation checkbox ========== */
+/* Large top margin for first email confirmation checkbox section only */
+/* Target the first .econ-fragment that contains .depot-email-confirmation-box */
+.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box):first-of-type .depot-email-confirmation-box {
+  margin-top: 100px;
+}
+
+/* Reset margin for subsequent fragments containing depot-email-confirmation-box */
+.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box) ~ .econ-fragment:has(.depot-email-confirmation-box) .depot-email-confirmation-box {
+  margin-top: 0 !important;
+}
+
+/* Form check layout - flexbox with checkbox and label side-by-side */
+/* Negative margin to extend checkbox to form edge */
+.depot-email-confirmation-box .form-check {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 8px;
+  
+  padding-left: 0;
+  margin-bottom: 0;
+  min-height: unset;
+}
+
+/* ========== Titel field icon ========== */
+/* Hide icon button in Titel field (has two col-6 selects side by side) */
+.econ-form-control-outer:has(.col-6:first-child .econ-form-control-select):has(.col-6:nth-child(2) .econ-form-control-select) + .econ-control-icon {
+  display: none;
+}
