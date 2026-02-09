@@ -1,14 +1,17 @@
 /**
  * Bootstrap overrides
+ * Override Bootstrap's default grid system and component styles
  * Uses design tokens – requires design-system.css and font-faces.css
  */
 
-
+/* ========== Top Bar resets ========== */
+/* Reset Bootstrap row styles within top-bar */
 .top-bar > .row {
   all: unset;
   margin: 0;
 }
 
+/* Reset all direct children of top-bar rows */
 .top-bar > .row > * {
   all: unset;
   box-sizing: border-box;
@@ -16,8 +19,121 @@
   width: 100%;
 }
 
+/* Links within top-bar rows */
 .top-bar > .row a {
   cursor: pointer;
   text-decoration: underline;
 }
 
+/* ========== Column resets ========== */
+/* Full-width column (12/12) */
+.econ-container .col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: var(--bs-gutter-y);
+  padding: 0;
+}
+
+/* 10/12 width column - remove Bootstrap padding */
+.econ-container .col-10 {
+  padding: 0;
+}
+
+/* 4/12 width column (1/3) - maintain proportions, account for gap */
+.econ-container .col-4 {
+  flex: 0 0 auto;
+  width: calc(33.333% - 3px);
+  padding: 0;
+}
+
+/* 8/12 width column (2/3) - maintain proportions, account for gap */
+.econ-container .col-8 {
+  flex: 0 0 auto;
+  width: calc(66.666% - 3px);
+  padding: 0;
+}
+
+/* ========== Row resets ========== */
+/* Form rows - flexbox layout with custom gap instead of Bootstrap gutters */
+.econ-container form .row {
+  /* all: unset; */
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 6px;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  align-items: stretch;
+}
+
+/* 6/12 width column (1/2) - account for gap between columns */
+.econ-container .row .col-6 {
+  all: unset;
+  flex: 0 0 calc(50% - 3px);
+  /* flex: 0 0 calc(50% - 13.5px); */
+  /* flex: 0 0 calc(50% - 25px);*/
+  width: 50%;
+}
+
+/* ========== Input group overrides ========== */
+/* Remove Bootstrap's default left margin on input-group children */
+/* Exclude dropdown menus and validation tooltips/feedback */
+.econ-container .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* ========== Econ input group layout ========== */
+/* Reset Bootstrap row margins for econ-input-group */
+.econ-input-group.input-group.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Input field column - flexible width, takes remaining space */
+.econ-input-group .econ-form-control-outer {
+  flex: 1;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Icon column - fixed 37px width for info buttons */
+.econ-input-group .econ-control-icon {
+  flex: 0 0 37px;
+  padding-left: 0px;
+  padding-right: 0;
+  display: flex;
+  align-items: flex-start; /* Align with input top */
+}
+
+/* ========== Form control width ========== */
+/* Ensure input fields use full width of their container */
+.econ-form-control-outer .econ-form-control-input-text {
+  width: 100%;
+}
+
+.econ-form-control-outer .form-control {
+  width: 100%;
+}
+
+/* ========== Nested row/column resets ========== */
+/* Remove Bootstrap's default column padding within input groups */
+.econ-input-group .econ-form-control-outer .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.econ-input-group .econ-form-control-outer .row > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* ========== Input group border radius ========== */
+/* Apply border radius to input-group elements (except last child) */
+/* Exclude validation elements, dropdowns, and floating labels */
+.econ-container .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+  border-top-right-radius: var(--input-border-radius);
+  border-bottom-right-radius: var(--input-border-radius);
+}
