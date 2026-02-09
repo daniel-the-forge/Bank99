@@ -163,6 +163,7 @@
   --bs-spinner-border-width: .1em;
   --bs-spinner-animation-speed: .75s;
   --bs-spinner-animation-name: spinner-border;
+  --bs-progress-height: 1rem;
 
 }
 
@@ -262,7 +263,6 @@ body {
   padding-left: calc(var(--bs-gutter-x) * .5);
   margin-right: auto;
   margin-left: auto;
-  width: 100%;
 }
 
 /* ========== Page content container ========== */
@@ -433,9 +433,9 @@ body {
 
 .econ-container .row .col-6 {
   all: unset;
-  /* flex: 0 0 calc(50% - 3px); */
+  flex: 0 0 calc(50% - 3px);
   /* flex: 0 0 calc(50% - 13.5px); */
-  flex: 0 0 calc(50% - 25px);
+  /* flex: 0 0 calc(50% - 25px);*/
   width: 50%;
 }
 
@@ -683,8 +683,8 @@ body {
 /* Circular info button displayed next to form inputs */
 
 .econ-control-icon .btn.econ-icon-info {
-  width: 37px;
-  height: 37px;
+  width: 36px;
+  height: 36px;
   padding: 0;
   flex-shrink: 0;
   border: none;
@@ -721,15 +721,72 @@ body {
   vertical-align: middle;
   font-size: 1.5rem;
 
-  padding-top: 2px;
 }
 
 /* ========== Bootstrap icon overrides ========== */
 
-/* Hide Bootstrap's default calendar icon (we use custom datepicker) */
+/* Default calendar icon  */
+
+.econ-form-control-date {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
+}
 
 .bi.bi-calendar {
-  display: none;
+  display: flex;
+  align-items: center;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: .375rem;
+}
+
+.bi.bi-calendar:before {
+  display: inline-block;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+}
+
+.bi.bi-calendar::before {
+  content: "";
+}
+
+.econ-container .input-group-text {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border-radius: var(--input-border-radius);
+  display: flex;
+  align-items: center;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.econ-form-control-currency {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  width: 100%;
 }
 
 /**
@@ -902,6 +959,25 @@ form .econ-form-group.pb-3 {
   display: none;
 }
 
+/* When expanded, remove restrictions */
+
+.econ-checkbox-label p:nth-of-type(2).expanded {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Remove fade when expanded */
+
+.econ-checkbox-label p:nth-of-type(2).expanded::after {
+  display: none !important;
+}
+
+/* Show third paragraph when visible class is added */
+
+.econ-checkbox-label p:nth-of-type(3).visible {
+  display: block !important;
+}
+
 /* ========== Checkbox inputs ========== */
 
 /* Valid checkbox label text color */
@@ -924,6 +1000,7 @@ form .econ-form-group.pb-3 {
   background-position: center;
   background-size: contain;
   border: var(--input-border-width) solid var(--color-text);
+  border-radius: var(--input-border-radius);
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -942,6 +1019,14 @@ form .econ-form-group.pb-3 {
 
 .econ-container .form-check-input.is-valid {
   border-color: var(--color-text);
+}
+
+.econ-container .form-check-input:checked,
+.econ-container .form-check-input.is-valid:checked {
+  background-color: var(--color-primary);
+  border-color: var(--input-border-color-focus);
+  color: var(--color-text);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
 }
 
 /* Checkbox border radius */
@@ -1023,6 +1108,24 @@ form .econ-form-group.pb-3 {
   margin-bottom: 38px;
 }
 
+.econ-fragment-multiple.econ-fragment-checkbox .econ-form-control-outer {
+  background-color: var(--color-background);
+  border-radius: var(--input-border-radius) !important;
+  padding: calc(var(--form-margin-horizontal) / 2) var(--form-margin-horizontal);
+  margin-top: calc(var(--form-margin-horizontal) / 2);
+}
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.econ-fragment-multiple.econ-fragment-checkbox .econ-control-icon {
+  display: none;
+}
+
 /* ========== Media queries ========== */
 
 /* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
@@ -1033,12 +1136,15 @@ form .econ-form-group.pb-3 {
 
 @media (min-width: 576px) {
   @supports selector(:has(h3)) {
-    /* Section header extends to viewport edges - breaks out of centered container */
-    /* Uses 50% - 50vw to extend from container center to viewport edges */
+    /* Section header bar - yellow background with shadow */
     .econ-section-header.econ-collapse-header:has(h3) {
-      margin-inline: calc(50% - 50vw);
-      margin-inline: unset;
+      margin-inline: 0;
     }
+  }
+
+  .econ-container form {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -1143,15 +1249,10 @@ form .econ-form-group.pb-3 {
 
 /* Main header bar - dynamically injected into empty #header div by backend */
 
-/* CSS Grid layout: left column auto-sized (logos), right column flexible (titles/progress) */
-
 .top-bar {
   all: unset;
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
+  display: block;
   padding-top: var(--header-padding-top);
   padding-bottom: var(--header-padding-bottom);
   padding-left: var(--header-padding-left);
@@ -1162,23 +1263,140 @@ form .econ-form-group.pb-3 {
   z-index: 2;
 }
 
-/* ========== Grid column assignments ========== */
+/* ========== Grid column layout ========== */
 
-/* Left column: logos (existing content) */
+/* CSS Grid layout: left column auto-sized (logos), right column flexible (titles/progress) */
 
-/* First child element goes into column 1 */
-
-.top-bar > *:first-child {
-  grid-column: 1;
-  flex-shrink: 0;
+.top-bar > .row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
 }
 
-/* Right column: slot for future titles + progress */
+/* ========== Content header (titles) ========== */
 
-/* Second child element goes into column 2 */
+/* Page title container - hidden by default, shown via JS when content loads */
 
-.top-bar > *:nth-child(2) {
-  grid-column: 2;
+.content-header.content {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Visible state - applied via JS when content is ready */
+
+.content-header.content.content-header--visible {
+  opacity: 1;
+}
+
+/* Page title styling */
+
+.content-header.content h1 {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+/* Subtitle/second line of title */
+
+.content-header.content h1 span {
+  font-weight: var(--font-weight-regular);
+  display: block;
+}
+
+/* ========== Progress bar container ========== */
+
+/* Progress bar wrapper - provides space for shadow */
+
+.econ-container .progress {
+  display: flex;
+  height: var(--bs-progress-height);
+  overflow: visible; /* Changed from hidden to allow shadow visibility */
+  font-size: var(--font-size-12);
+  background-color: transparent;
+  border-radius: 4px;
+  padding-bottom: 2px; /* Space for shadow */
+}
+
+/* ========== Progress bar ========== */
+
+/* Progress bar fill - yellow bar with shadow */
+
+.econ-container .progress-bar {
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
+  transition: width 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden; /* Keep overflow hidden for content, shadow extends outside */
+  color: var(--color-text);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ========== Media queries ========== */
+
+/* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
+
+/* Mobile-first approach: base styles are for mobile, these add desktop styles */
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+  /* Center page content with max-width constraint */
+  .top-bar > .row {
+    max-width: 540px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  /* Increase max-width for tablet screens */
+  .top-bar > .row {
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  /* Increase max-width for desktop screens */
+  .top-bar > .row {
+    max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  /* Increase max-width for large desktop screens */
+  .top-bar > .row {
+    max-width: 1140px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+/* Extra extra large devices (larger desktops, 1400px and up) */
+
+@media (min-width: 1400px) {
+  /* Maximum width for very large screens */
+  .top-bar > .row {
+    max-width: 1320px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 
 /**
@@ -1192,7 +1410,8 @@ form .econ-form-group.pb-3 {
 /* Negative margin to extend footer to form edges, accounting for Bootstrap gutter and form margin */
 
 .econ-fragment.econ-fragment-button-row{
-  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal) + 7px);
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal) + var(--header-padding-left));
+  ;
 }
 
 /* ========== Footer navigation bar ========== */
@@ -1212,13 +1431,31 @@ form .econ-form-group.pb-3 {
   margin-left: 0;
   margin-right: 0;
   padding-bottom: 26px;
+  padding-top: 16px;
+  padding-left: 0;
+  padding-right: 0;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-between;
-  -moz-column-gap: 20px;
-       column-gap: 20px;
+  -moz-column-gap: 0;
+       column-gap: 0;
   margin-bottom: 0 !important;
+}
+
+/* ========== Media queries ========== */
+
+/* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
+
+/* Mobile-first approach: base styles are for mobile, these add desktop styles */
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+  /* Center page content with max-width constraint */
+  .econ-fragment.econ-fragment-button-row {
+    margin-inline: 0;
+  }
 }
 
 /* ========== Process-specific styles ========== */
@@ -1231,10 +1468,18 @@ form .econ-form-group.pb-3 {
 
 /* ========== Email confirmation checkbox ========== */
 
-/* Large top margin for email confirmation checkbox section */
+/* Large top margin for first email confirmation checkbox section only */
 
-.depot-email-confirmation-box {
+/* Target the first .econ-fragment that contains .depot-email-confirmation-box */
+
+.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box):first-of-type .depot-email-confirmation-box {
   margin-top: 100px;
+}
+
+/* Reset margin for subsequent fragments containing depot-email-confirmation-box */
+
+.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box) ~ .econ-fragment:has(.depot-email-confirmation-box) .depot-email-confirmation-box {
+  margin-top: 0 !important;
 }
 
 /* Form check layout - flexbox with checkbox and label side-by-side */
@@ -1246,8 +1491,188 @@ form .econ-form-group.pb-3 {
   align-items: flex-start;
   -moz-column-gap: 8px;
        column-gap: 8px;
-  margin-left: calc(var(--form-margin-horizontal) * -1);
+  
   padding-left: 0;
   margin-bottom: 0;
   min-height: unset;
 }
+
+/* ========== Titel field icon ========== */
+
+/* Hide icon button in Titel field (has two col-6 selects side by side) */
+
+.econ-form-control-outer:has(.col-6:first-child .econ-form-control-select):has(.col-6:nth-child(2) .econ-form-control-select) + .econ-control-icon {
+  display: none;
+}
+
+/**
+ * Mittelherkunft (Source of Funds) checkbox icons
+ * Icons displayed alongside checkbox options in the income source selection
+ * 
+ * Structure: ICON | LABEL | CHECKBOX
+ * - Icon is positioned at the far left via ::before pseudo-element
+ * - Label fills the middle space
+ * - Checkbox is at the far right (handled by row-reverse in form-sections.css)
+ * 
+ * Icons are targeted by the data-econ-property attribute on each checkbox input
+ * This ensures stable selectors that don't depend on dynamic IDs
+ * 
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Base layout for checkbox with icon ========== */
+
+/* 
+ * Modify the existing flex layout to accommodate the icon
+ * Original layout (from form-sections.css): CHECKBOX | LABEL (with justify-content: space-between)
+ * New layout: ICON | LABEL | CHECKBOX
+ * 
+ * We achieve this by:
+ * 1. Adding a ::before pseudo-element for the icon
+ * 2. Using order property to position elements correctly
+ * 3. Overriding justify-content to use gap instead for consistent spacing
+ */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) {
+  /* Ensure flex layout can accommodate the icon */
+  flex-wrap: nowrap;
+  justify-content: flex-start; /* Override space-between to allow proper ordering */
+  gap: 8px; /* 8px gap between icon and label, and between label and checkbox */
+}
+
+/* Icon container - ::before pseudo-element */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"])::before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  min-width: 40px; /* Prevent shrinking in flex container */
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  order: -1; /* Place icon first (leftmost) */
+}
+
+/* Label positioning - fills middle space */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) .form-check-label {
+  flex: 1; /* Take remaining space */
+  order: 0; /* Middle position */
+  font-size: var(--font-size-14);
+}
+
+/* Checkbox positioning - far right */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) .form-check-input {
+  order: 1; /* Rightmost position */
+}
+
+/* ========== Individual checkbox icons ========== */
+
+/* Each icon is targeted by the data-econ-property attribute */
+
+/* ---------- Gehalt (Salary) ---------- */
+
+/* Icon: Stock chart / financial growth indicator */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-gehalt"])::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.6934 31.1562L27.6934 15.355H26.3401L26.3401 31.1562H23.2754V19.6536H21.9222V31.1562L18.8575 31.1562V18.2605H17.5042V31.1562H14.4395L14.4395 16.6685H13.0863L13.0863 31.1562H10.0216L10.0216 20.9272H8.66834L8.66834 31.1562H5.84244L5.84244 22.6812L13.942 14.6983L22.7978 17.763L30.3999 9.63476V13.5241H31.7531V7.27533H25.5043V8.62858H29.4898L22.3998 16.2107L13.5838 13.146L5.84244 20.7835L5.84244 7.95195H4.4892L4.4892 32.5094L34.6188 32.5094V31.1562H27.6934Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Selbstständige Tätigkeiten (Self-employment) ---------- */
+
+/* Icon: Package/box icon representing business/self-employment */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-selbststaendigeTaetigkeiten"])::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.28528 12.1709L19.8924 6.20069L34.4995 12.1709V28.9273L19.9322 35.3353L5.28528 28.9273L5.28528 12.1709ZM27.2234 14.7443L32.0835 12.6125L19.8924 7.63354L14.9938 9.63416L27.2234 14.7443ZM19.9322 17.9421L7.7056 12.6107L13.2828 10.3329L25.5726 15.4682L19.9322 17.9421ZM19.2556 19.1598L6.63853 13.6619L6.63853 28.0518L19.2556 33.5293V19.1598ZM20.6088 33.5275V19.1582L33.1462 13.6642V28.0518L20.6088 33.5275ZM31.3552 21.206L25.9422 23.5941V22.3204L31.3552 19.9324L31.3552 21.206ZM25.9422 26.1414L31.3552 23.7533V22.4797L25.9422 24.8677V26.1414ZM29.5641 27.0568L25.9422 28.6489V27.3752L29.5641 25.7832V27.0568Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Pension/Versicherungszahlung (Pension/Insurance) ---------- */
+
+/* Icon: Bank/insurance products icon representing pension and insurance payments */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-pensionVersicherungszahlung"])::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.942 13.9653C28.0704 13.9655 29.3102 15.2284 29.3336 17.3569V28.2573C29.3336 30.3858 28.0704 31.6487 25.942 31.6489H8.58459C6.45607 31.6488 5.19299 30.3859 5.19299 28.2573V17.3569C5.19299 15.2283 6.45607 13.9654 8.58459 13.9653H25.942ZM6.54944 28.2339C6.54944 29.6139 7.20462 30.2689 8.58459 30.269H25.942C27.3218 30.2689 27.9761 29.6372 27.9528 28.2573V20.0229H6.54944V28.2339ZM17.3571 28.2104H8.60803V23.1108H17.3571V28.2104ZM27.6022 10.854C30.5261 10.854 32.1871 12.515 32.1871 15.4389V27.7895H30.8307V15.4389C30.8307 13.2635 29.7776 12.2104 27.6022 12.2104H10.2692V10.854H27.6022ZM21.8717 27.5317H19.0875V26.1753H21.8717V27.5317ZM9.96448 26.854H12.3043V24.4682H9.96448V26.854ZM13.6608 26.854H15.9996V24.4682H13.6608V26.854ZM30.4791 7.76608C33.0054 7.76608 35.0407 9.80129 35.0641 12.3276V25.1928H33.7076V12.351C33.7076 10.5733 32.2569 9.12253 30.4791 9.12253H13.1227V7.76608H30.4791ZM24.9821 24.7485H19.0875V23.3921H24.9821V24.7485ZM8.60803 15.3217C7.22803 15.3218 6.57288 15.9768 6.57288 17.3569V18.6665H27.9996V17.3569C27.9996 15.9768 27.3446 15.3217 25.9645 15.3217H8.60803Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Sozialleistungen (Social benefits) ---------- */
+
+/* Icon: People/employees icon representing social benefits and welfare */
+
+.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sozialleistungen"])::before {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M33.8029 22.3401C34.4752 21.4607 34.9572 20.4028 35.1375 19.2941C36.0736 18.5242 36.8075 16.312 36.8075 14.5194C36.8075 11.0566 33.5637 8.07154 29.7229 8.07154C28.266 8.07154 26.4094 8.74658 25.3682 9.6037C23.9121 8.2001 21.9374 7.27552 19.8918 7.27552C17.8376 7.27552 15.8549 8.20786 14.3972 9.62141C13.3602 8.75593 11.4881 8.07154 10.021 8.07154C6.18019 8.07154 2.93638 11.0566 2.93638 14.5194C2.93638 16.312 3.67031 18.5242 4.60644 19.2941C4.78674 20.4028 5.26874 21.4607 5.94098 22.3401C2.17927 24.6721 2.17959 27.6808 2.17994 31.0195L2.17995 31.1163H3.5332L3.53319 31.0016C3.53277 27.6132 3.53248 25.3125 6.90199 23.3628C7.83672 24.169 8.95892 24.6685 10.1004 24.6685C11.0895 24.6685 12.1773 24.2415 13.1034 23.5091C14.0431 24.6986 15.4052 25.0836 16.2991 25.1899L16.1576 25.5501C11.2646 26.5446 8.50737 30.1965 8.42857 34.1808H9.78182C9.90122 31.0166 11.9311 27.9121 15.7321 27.0166L17.4038 27.8325C19.4535 28.8475 20.3292 28.8475 22.3789 27.8325L24.0506 27.0166C27.8516 27.9121 29.8815 31.0166 30.0009 34.1808L31.3542 34.1808C31.2753 30.1965 28.5181 26.5446 23.6251 25.5501L23.4836 25.1899C24.3728 25.0842 25.725 24.7027 26.6642 23.5282C27.5852 24.2488 28.6624 24.6685 29.6429 24.6685C30.7844 24.6685 31.9066 24.169 32.8413 23.3628C36.2108 25.3125 36.2106 27.6132 36.2101 31.0016L36.2101 31.1163H37.5634L37.5634 31.0195C37.5637 27.6808 37.5641 24.6721 33.8023 22.3401H33.8029ZM22.9662 23.8723L22.6888 23.1662C24.2393 22.0048 25.3842 20.0132 25.3842 18.0215V15.3548H24.0309V18.0215C24.0309 20.3698 21.8816 22.8375 19.8916 22.8375C17.8816 22.8375 15.7522 20.3897 15.7522 18.0215V16.9071C19.0358 16.6085 22.1602 14.1409 22.1602 11.6135H20.807C20.807 13.6632 17.3244 15.9319 14.399 15.5538V18.0215C14.399 20.0283 15.5381 22.0183 17.0909 23.1748L16.8171 23.8719C14.6585 23.8506 13.4041 22.4402 13.4041 19.9716V14.7178C13.4041 11.673 16.5882 8.62817 19.8918 8.62817C23.1953 8.62817 26.3794 11.673 26.3794 14.7178L26.3794 19.9716C26.3794 22.4402 25.125 23.8506 22.9664 23.8719L22.9662 23.8723ZM4.28962 14.5188C4.28962 15.0298 4.46555 15.8507 4.67132 16.5898H4.67152C5.06356 15.3251 6.20228 14.28 7.31493 14.28H9.26519C10.3796 14.28 10.8771 13.862 11.6334 13.2252L11.6806 13.1852L11.6806 13.1852L11.6807 13.1852C11.9088 12.992 12.1539 12.7845 12.4425 12.5761C12.6937 11.8885 13.0575 11.231 13.5098 10.6274C12.7442 10.0196 11.143 9.4242 10.021 9.4242C6.93641 9.4242 4.28962 11.8322 4.28962 14.5188ZM35.4545 14.5188C35.4545 15.0298 35.2788 15.8507 35.073 16.5898C34.681 15.3251 33.5422 14.28 32.4296 14.28H30.4793C29.3649 14.28 28.8674 13.862 28.1111 13.2252L28.067 13.1879L28.067 13.1878L28.0669 13.1877C27.8521 13.0059 27.6225 12.8115 27.3557 12.6155C27.1014 11.9062 26.7271 11.2282 26.2592 10.6077C27.0341 10.0069 28.6128 9.4242 29.7227 9.4242C32.8073 9.4242 35.4541 11.8322 35.4541 14.5188H35.4545ZM5.88168 18.3397C5.88168 20.8273 8.01105 23.3149 10.1006 23.3149L10.101 23.3151C10.8779 23.3151 11.7054 22.9487 12.4324 22.3065C12.194 21.6727 12.0509 20.9039 12.0509 19.9718V14.718C12.0509 14.6903 12.0511 14.6627 12.0515 14.635C11.3858 15.1544 10.5647 15.6332 9.2648 15.6332H7.31453C6.69761 15.6332 5.88168 16.6083 5.88168 17.5039V18.3397ZM29.6435 23.3151C28.8771 23.3151 28.0616 22.9587 27.3418 22.3326C27.5862 21.6938 27.7332 20.9166 27.7332 19.9718L27.7332 14.718V14.6666C28.3919 15.1739 29.2061 15.6338 30.4799 15.6338H32.4302C33.0471 15.6338 33.863 16.6089 33.863 17.5045V18.3403C33.863 20.8279 31.7337 23.3155 29.6441 23.3155L29.6435 23.3151ZM18.0022 26.5991C19.6938 27.4349 20.0918 27.4349 21.7833 26.5991L22.4355 26.2381L21.4987 23.8538C20.9775 24.0707 20.4352 24.1911 19.8928 24.1911C19.3485 24.1911 18.8058 24.0725 18.285 23.8582L17.3528 26.2311L18.0022 26.5991Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Ehe-Partner (Spouse income) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-ehePartner"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Abfindung/Unterhalt (Severance/Alimony) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-abfindungUnterhalt"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Kapitalertrag/Rendite (Capital gains/Investment returns) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-ertragRendite"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Erbschaft (Inheritance) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-erbschaft"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Stipendium (Scholarship) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-stipendium"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Lotteriegewinn (Lottery winnings) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-lotteriegewinn"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Stiftung (Foundation grants) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-stiftung"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Kein Einkommen (No income) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-keinEinkommen"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
+
+/* ---------- Sonstige (Other) ---------- */
+
+/* TODO: Add icon when SVG is provided */
+
+/* .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstige"])::before {
+  background-image: url("data:image/svg+xml,...");
+} */
