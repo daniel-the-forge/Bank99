@@ -1,0 +1,48 @@
+/**
+ * Form footer layout styles
+ * Form footer navigation bar and button row
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Footer button row container ========== */
+/* Negative margin to extend footer to form edges, accounting for Bootstrap gutter and form margin */
+.econ-fragment.econ-fragment-button-row{
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal) + var(--header-padding-left));
+  ;
+}
+
+/* ========== Footer navigation bar ========== */
+/* Base styles for footer button bar */
+.econ-button-bar.b99-page-nav-btns {
+  padding: 0 var(--footer-padding-horizontal);
+  margin-bottom: var(--footer-margin-bottom);
+}
+
+/* ========== Bootstrap row override ========== */
+/* Reset Bootstrap row styles and apply flexbox layout for button alignment */
+.econ-button-bar.b99-page-nav-btns.row {
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 26px;
+  padding-top: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  column-gap: 0;
+  margin-bottom: 0 !important;
+}
+
+/* ========== Media queries ========== */
+/* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
+/* Mobile-first approach: base styles are for mobile, these add desktop styles */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  /* Center page content with max-width constraint */
+  .econ-fragment.econ-fragment-button-row {
+    margin-inline: 0;
+  }
+}
