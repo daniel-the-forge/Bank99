@@ -1,0 +1,35 @@
+/**
+ * Form spinner styles
+ * Loading indicators for form fields (e.g., during async validation)
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Spinner container ========== */
+/* Spinner wrapper - positioned absolutely within form row */
+/* Hidden by default, shown via JS when loading */
+.econ-container .econ-fragment-form-row .econ-spinner{
+  display: none;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+/* ========== Spinner base styles ========== */
+/* Common styles for both spinner types (grow and border) */
+.econ-container .spinner-grow, 
+.econ-container .spinner-border {
+  display: inline-block;
+  width: var(--bs-spinner-width);
+  height: var(--bs-spinner-height);
+  vertical-align: var(--bs-spinner-vertical-align);
+  border-radius: 50%;
+  animation: var(--bs-spinner-animation-speed) linear infinite var(--bs-spinner-animation-name);
+}
+
+/* ========== Border spinner ========== */
+/* Spinning border effect - border on three sides, transparent on right */
+.econ-container .spinner-border {
+  border: var(--bs-spinner-border-width) solid currentcolor;
+  border-right-color: transparent;
+}
