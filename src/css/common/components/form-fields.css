@@ -3,23 +3,33 @@
  * Uses design tokens – requires design-system.css
  */
 
-/* Labels (always on top) */
+/* ========== Labels ========== */
+/* Form labels always appear above inputs */
 .econ-form-label label,
 .econ-form-label .form-label {
+  color: var(--label-color);
+  display: block;
   font-size: var(--label-font-size);
   font-family: var(--font-family);
-  color: var(--label-color);
   font-weight: var(--label-font-weight);
   letter-spacing: var(--letter-spacing-default);
   margin-left: var(--label-margin-left);
   margin-bottom: var(--label-margin-bottom);
-  display: block;
 }
 
-/* Input fields */
+/* ========== Input fields ========== */
+/* Base styles for text inputs and select dropdowns */
 .econ-container .form-control,
 .econ-container .form-select {
+  box-sizing: border-box;
+  /* Remove Bootstrap's default background images (caret icons, etc.) */
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: unset;
+  background-size: unset;
+  
   background-color: var(--input-background);
+  border: unset;
   border-color: var(--input-border-color);
   border-width: var(--input-border-width);
   border-style: solid;
@@ -29,22 +39,37 @@
   color: var(--input-color);
   font-weight: var(--input-font-weight);
   letter-spacing: var(--letter-spacing-default);
+  text-transform: none;
+  padding: var(--input-padding);
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  word-wrap: normal;
 }
 
-/* Select – remove native caret */
+/* Focus state - darker border and subtle shadow */
+.econ-container .form-control:focus,
+.econ-container .form-select:focus {
+  border-color: var(--input-border-color-focus);
+  outline: 0;
+  box-shadow: var(--input-box-shadow-focus);
+}
+
+/* ========== Select dropdowns ========== */
+/* Remove native browser dropdown caret */
 .econ-form-control-select .form-select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: none;
-  padding-right: 2.5rem; /* space for custom caret */
+  display: block;
+  width: 100%;
 }
 
-/* Caret / dropdown indicator (gray box with white chevron – for custom dropdowns) */
+/* Select wrapper - positioned relative for custom caret */
 .econ-form-control-select {
+  box-sizing: border-box;
   position: relative;
 }
 
+/* Custom dropdown caret - gray box with white chevron icon */
 .econ-form-control-select::after {
   content: "";
   position: absolute;
@@ -60,136 +85,136 @@
 
   border-radius: var(--caret-border-radius);
 
+  /* White chevron down icon */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
 }
 
-/* Spacing between form fields */
+/* ========== Form field spacing ========== */
+/* Vertical spacing between form groups and form rows */
 .econ-form-group + .econ-form-group,
 .econ-fragment-form-row {
   margin-top: var(--input-margin-between);
   position: relative;
 }
 
-
-/* Ensure icon button is properly sized */
-.econ-control-icon .btn.econ-icon-info {
-  width: 37px;
-  height: 37px;
-  padding: 0;
-  flex-shrink: 0;
-}
-
-.econ-control-icon .btn.econ-icon-info::before{
-  background: var(--color-icon);
-  color: var(--color-background);
-  
-  border-radius: 50%;
-
-  height: 100%;
-  width: 100%;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  content: "i";
-  font-family: 'Post Sans' !important;
-  font-weight: 700 !important;
-  vertical-align: middle;
-  font-size: 1.5rem;
-
-  padding-top: 2px;
-}
-
-/* Set the width of the form control outer */
+/* ========== Form control width ========== */
+/* Ensure form control outer takes full width when using col-10 */
 .econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
   width: 100%;
 }
 
-/* Override .econ-container .pb-3 { padding-bottom: 1rem !important } from external stylesheet */
+/* ========== Bootstrap overrides ========== */
+/* Override external stylesheet's padding-bottom on form groups */
 form .econ-form-group.pb-3 {
   padding-bottom: 0 !important;
 }
 
-/* Remove the default margin left of the input group */
-.econ-container .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
-  margin-left: 0;
+
+/* ========== Checkbox labels ========== */
+/* Checkbox label container */
+.econ-checkbox-label {
+  display: block;
 }
 
-/* Override Bootstrap column spacing and alignment */
-.econ-input-group.input-group.row {
-  margin-left: 0;
-  margin-right: 0;
+/* Paragraph text within checkbox labels */
+.econ-checkbox-label p {
+  font-size: var(--font-size-12);
 }
 
-/* Input field column - take most space, align to left edge */
-.econ-input-group .econ-form-control-outer {
-  flex: 1;
-  padding-left: 0;
-  padding-right: 0;
+/* Second paragraph - truncated with fade effect for long text */
+.econ-checkbox-label p:nth-of-type(2) {
+  position: relative;
+  max-height: 3.75em; /* ~2.5 lines at 1.5em line-height */
+  line-height: 1.5em;
+  overflow: hidden;
 }
 
-/* Icon column - fixed width, align to right edge */
-.econ-input-group .econ-control-icon {
-  flex: 0 0 37px;
-  padding-left: 0px;
-  padding-right: 0;
-  display: flex;
-  align-items: flex-start; /* Align with input top */
-}
-
-/* Ensure input field uses full width of its container */
-.econ-form-control-outer .econ-form-control-input-text {
-  width: 100%;
-}
-
-.econ-form-control-outer .form-control {
-  width: 100%;
-}
-
-/* Remove Bootstrap's default column padding */
-.econ-input-group .econ-form-control-outer .row {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.econ-input-group .econ-form-control-outer .row > [class*="col-"] {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-/* Hide calendar icon and reset border-radius*/
-.bi.bi-calendar {
-  display: none;
-}
-
-.econ-container .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
-  border-top-right-radius: var(--input-border-radius);
-  border-bottom-right-radius: var(--input-border-radius);
-}
-
-
-/* Set the position of the tooltip */
-/* Tooltip styles (always present, but hidden when display:none) */
-.econ-sliding-tooltip.econ-tooltip {
+/* Fade gradient overlay at bottom of truncated paragraph */
+.econ-checkbox-label p:nth-of-type(2)::after {
+  content: '';
   position: absolute;
-  background: var(--color-background);
-  border: 2px solid var(--color-text);
-  border-radius: 10px;
-  padding: 12px;
-  box-shadow: var(--shadow-default);
-  z-index: 1000;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3.5em;
+  background: linear-gradient(180deg, transparent 0%, var(--color-gradient-end) 100%);
   pointer-events: none;
 }
 
-/* When visible (display:none is removed, element becomes visible) */
-.econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+/* Hide third paragraph initially (shown via JS when expanded) */
+.econ-checkbox-label p:nth-of-type(3) {
+  display: none;
+}
+
+/* When expanded, remove restrictions */
+.econ-checkbox-label p:nth-of-type(2).expanded {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Remove fade when expanded */
+.econ-checkbox-label p:nth-of-type(2).expanded::after {
+  display: none !important;
+}
+
+/* Show third paragraph when visible class is added */
+.econ-checkbox-label p:nth-of-type(3).visible {
+  display: block !important;
+}
+
+/* ========== Checkbox inputs ========== */
+/* Valid checkbox label text color */
+.econ-container .form-check-input.is-valid~.form-check-label {
+  color: var(--color-text);
+}
+
+/* Base checkbox input styles - fixed 25x25px size */
+.econ-container .form-check-input {
+  width: 1.5625rem; /* 25px */
+  height: 1.5625rem; /* 25px */
+  min-width: 1.5625rem; /* prevent shrinking in flex containers */
+  flex-shrink: 0;
+  margin-top: 0;
+  vertical-align: top;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: var(--input-border-width) solid var(--color-text);
+  border-radius: var(--input-border-radius);
+  appearance: none;
+  print-color-adjust: exact;
+}
+
+/* Reset Bootstrap's float and margin */
+.econ-container .form-check .form-check-input {
+  float: unset;
+  margin-left: 0;
+}
+
+/* Valid checkbox border color */
+.econ-container .form-check-input.is-valid {
+  border-color: var(--color-text);
+}
+
+.econ-container .form-check-input:checked,
+.econ-container .form-check-input.is-valid:checked {
+  background-color: var(--color-primary);
+  border-color: var(--input-border-color-focus);
+  color: var(--color-text);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
+}
+
+/* Checkbox border radius */
+.econ-container .form-check-input[type=checkbox] {
+  border-radius: var(--input-border-radius);
+}
+
+/* Checkbox focus state */
+.econ-container .form-check-input:focus {
+  border-color: var(--input-border-color-focus);
+  outline: 0;
+  box-shadow: var(--input-box-shadow-focus);
 }
