@@ -1,0 +1,37 @@
+/**
+ * Tooltip styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Tooltip base styles ========== */
+/* Tooltip container - always present in DOM but hidden by default */
+/* Visibility controlled via inline style (display:none) and opacity */
+.econ-sliding-tooltip.econ-tooltip {
+  position: absolute;
+  background: var(--color-background);
+  border: 2px solid var(--color-text);
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: var(--shadow-default);
+  z-index: 1000;
+  /* Hidden state - transparent and slightly offset upward */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* ========== Tooltip visible state ========== */
+/* When display:none is removed via JS, tooltip becomes visible */
+/* Uses attribute selector to detect when inline style is removed */
+.econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ========== Tooltip content ========== */
+/* Remove default paragraph margins within tooltip content */
+.econ-tooltip-info p {
+  margin-bottom: 0;
+}
