@@ -46,3 +46,11 @@
     margin-inline: 0;
   }
 }
+
+@media (min-width: 992px) {
+  .econ-fragment.econ-fragment-button-row {
+    width: 84%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

@@ -33,5 +33,5 @@
 /* ========== Tooltip content ========== */
 /* Remove default paragraph margins within tooltip content */
 .econ-tooltip-info p {
-  margin-bottom: 0;
+  margin: 0;
 }

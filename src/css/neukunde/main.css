@@ -7,7 +7,8 @@
 /* ========== Email confirmation checkbox ========== */
 /* Large top margin for first email confirmation checkbox section only */
 /* Target the first .econ-fragment that contains .depot-email-confirmation-box */
-.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box):first-of-type .depot-email-confirmation-box {
+.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box):first-of-type .depot-email-confirmation-box,
+.depot-email-confirmation-box {
   margin-top: 100px;
 }
 
@@ -25,6 +26,7 @@
   
   padding-left: 0;
   margin-bottom: 0;
+  margin-top: 8px;
   min-height: unset;
 }
 
@@ -33,3 +35,363 @@
 .econ-form-control-outer:has(.col-6:first-child .econ-form-control-select):has(.col-6:nth-child(2) .econ-form-control-select) + .econ-control-icon {
   display: none;
 }
+
+/* ========== Steueransässigkeit radio buttons ========== */
+/* Stack radio buttons vertically for long text labels */
+/* Target radio group by data-econ-property attribute */
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio.row {
+  flex-direction: column; /* Stack radio buttons vertically */
+  gap: var(--input-margin-between); /* Add spacing between stacked buttons */
+}
+
+/* Make each radio button take full width when stacked */
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio .col-6 {
+  flex: 0 0 100%; /* Full width instead of 50% */
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Align label an input horizontally */
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .radio  {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+
+/* Align info icon to top of first radio button */
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
+  position: absolute;
+  top: 50px;
+  right: -45px;
+}
+
+/* USA Bezug radio buttons */
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-control-icon {
+  position: absolute;
+  top: 26px;
+  right: -45px;
+}
+
+/* Sonstiges Einkünfte input group */
+.econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+  position: absolute;
+  top: -64px;
+  left: 130px;
+  width: 45%;
+}
+
+.econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) .econ-control-icon {
+  display: none;
+}
+
+
+/* ========== Documents section ========== */
+.econ-section.abcschluss-info-box-fix {
+  background-color: var(--color-primary);
+  /* Negative margin to extend section to screen edges */
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  /* Add padding equal to removed margin so content aligns with other elements */
+  padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.econ-section.abcschluss-info-box-fix p {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  max-width: 100%;
+  margin-left: 0;
+}
+
+.econ-section.abcschluss-info-box-fix .col-12 {
+  font-size: var(--font-size-12);
+  line-height: 20px;
+}
+
+.econ-section.speichern-box h3 {
+  font-size: var(--font-size-16);
+}
+
+.econ-section.speichern-box p {
+  margin-left: 0;
+}
+
+/* ========== File upload button ========== */
+/* Style the file drop area as a button with icon and text */
+.econ-file-drop-area {
+  /* Button appearance */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  /* Dimensions and spacing */
+  padding: 10px 28px;
+  border-radius: 30px;
+  
+  /* Background with 90% opacity */
+  background-color: rgba(255, 255, 255, 0.9);
+  
+  /* Inside border using box-shadow */
+  box-shadow: inset 0 0 0 2px #000000;
+  
+  /* Cursor */
+  cursor: pointer;
+  
+  /* Position for pseudo-elements */
+  position: relative;
+}
+
+/* Hide original content */
+.econ-file-drop-area .econ-form-control,
+.econ-file-drop-area .econ-file-add-button,
+.econ-file-drop-area .econ-file-message {
+  display: none;
+}
+
+/* Upload icon via ::before pseudo-element */
+.econ-file-drop-area::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.58257 5.58597H17.2352V6.56842H6.58257V5.58597ZM11.9159 7.41053L17.572 13.0246L16.9264 13.6982L12.4212 9.23509V18.8491H11.4387V9.23509L6.93345 13.6982L6.25977 13.0246L11.9159 7.41053Z' fill='black'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.econ-file-remove-button {
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.econ-file-remove-button:hover,
+.econ-file-remove-button:focus {
+  background-color: var(--color-text);
+  color: var(--color-primary);
+}
+
+/* "hochladen" text via ::after pseudo-element */
+.econ-file-drop-area::after {
+  content: "hochladen";
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family);
+  color: #000000;
+}
+
+/* Hover state */
+.econ-file-drop-area:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Make the hidden file input cover the entire button for click handling */
+.econ-file-drop-area input[type="file"] {
+  display: block !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* File upload container - center the button */
+.econ-form-control-file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.econ-fragment-file-input {
+  margin-bottom: calc(var(--input-margin-between) + 1rem);
+}
+
+/* Hide "Entfernen" button by default */
+.econ-fragment-file-input .form-label,
+.econ-file-remove-button {
+  display: none;
+}
+
+.econ-fragment-file-input .row {
+  justify-content: center;
+}
+
+/* Show "Entfernen" button when file is uploaded (via JS adding a class) */
+/* The button will be shown when a file is selected - requires JS to add .has-file class */
+.econ-form-control-file.has-file .econ-file-remove-button {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* Filename display - shows the name of the uploaded file */
+.econ-file-name {
+  display: block;
+  margin-top: 8px;
+  font-size: var(--font-size-12);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  text-align: center;
+  word-break: break-all; /* Handle long filenames */
+  max-width: 100%;
+}
+
+/* Hide filename when empty */
+.econ-file-name:empty {
+  display: none;
+}
+
+/* Hide hidden labels */
+.econ-form-control-file label[for] {
+  display: none;
+}
+
+/* Hide info icon for upload fields */
+.b99-upload-field .econ-control-icon {
+  display: none;
+}
+
+/* ========== "Weitere Dokumente hinzufügen" button ========== */
+/* Transform radio group into a single button-like element */
+
+/* Container - full width yellow button */
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-input-group.row {
+  display: block;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-form-label {
+  display: none;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-form-control-outer {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-control-icon {
+  display: none;
+}
+
+/* Style the radio container as a button */
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--color-primary);
+  padding: 16px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  position: relative;
+  /* Extend to screen edges */
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+}
+
+/* Hide both radio buttons - we handle clicks via JavaScript */
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio .col-6 {
+  display: none;
+}
+
+/* Plus icon in circle via ::before */
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  background-color: var(--color-background);
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5V19M5 12H19' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Text via ::after */
+.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row::after {
+  content: "weitere Dokumente hinzufügen";
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family);
+  color: #000000;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+
+/* ========== Media queries ========== */
+/* Small devices (landscape phones, 397px and up) */
+@media (min-width: 397px) {
+  .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
+    top: 30px;
+  }
+}
+
+@media (min-width: 420px) {
+  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    width: 50%;
+  }
+}
+
+@media (min-width: 500px) {
+  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    width: 60%;
+  }
+}
+
+@media (min-width: 600px) {
+  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    width: 65%;
+  }
+}
+
+@media (min-width: 768px) {
+  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    width: 73%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Monthly income input group */
+  .econ-fragment-currency {
+    width: 79%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    width: 76%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    width: 79%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    width: 83%;
+  }
+}
+

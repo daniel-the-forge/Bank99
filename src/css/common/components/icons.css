@@ -10,14 +10,15 @@
   height: 36px;
   padding: 0;
   flex-shrink: 0;
-  border: none;
+  border: var(--input-border-width) solid transparent;
   border-radius: 50%;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 /* Focus state - shows border and shadow for accessibility */
-.econ-control-icon .btn.econ-icon-info:focus {
-  border: var(--input-border-width) solid var(--input-border-color);
+.econ-control-icon .btn.econ-icon-info:focus,
+.econ-control-icon .btn.econ-icon-info:hover {
+  border-color: var(--color-primary);
   outline: 0;
   box-shadow: var(--input-box-shadow-focus);
 }
@@ -70,20 +71,11 @@
 }
 
 .bi.bi-calendar:before {
+  content: '';
   display: inline-block;
-  font-family: bootstrap-icons !important;
-  font-style: normal;
-  font-weight: 400 !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  vertical-align: -.125em;
-  -webkit-font-smoothing: antialiased;
-  font-size: 1rem;
-}
-
-.bi.bi-calendar::before {
-  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z'/%3E%3C/svg%3E");
 }
 
 .econ-container .input-group-text {
@@ -106,4 +98,51 @@
   flex-wrap: nowrap;
   align-items: stretch;
   width: 100%;
+}
+
+.econ-input-group-append {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  position: relative;
+}
+
+.econ-input-group-append > .econ-icon-success,
+.econ-input-group-append > .econ-icon-error {
+  position: absolute;
+  left: 40px;
+  top: 7px;
+}
+
+.econ-input-group-append > .econ-icon-success::before {
+  content: "\2713";
+  color: var(--color-success);
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.econ-input-group-append > .econ-icon-error {
+  border: none;
+  font-size: var(--font-size-16);
+  padding: 0;
+}
+
+.econ-input-group-append > .econ-icon-error::before {
+  content: "\2715";
+  color: var(--color-error);
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-variant: normal;
+}
+
+.econ-fragment-radio-group .econ-control-icon {
+  position: relative;
+  top: 11px;
 }

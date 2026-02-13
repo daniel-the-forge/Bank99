@@ -46,6 +46,7 @@
 .econ-fragment-content-row p {
   font-size: var(--font-size-12);
   margin-left: calc(var(--bs-gutter-x) * .5);
+  max-width: 80%;
 }
 
 /* ========== Section spacing ========== */

@@ -13,7 +13,7 @@
 
 /* Reset all direct children of top-bar rows */
 .top-bar > .row > * {
-  all: unset;
+  /* all: unset; */
   box-sizing: border-box;
   max-width: 100%;
   width: 100%;
@@ -125,10 +125,12 @@
   margin-right: 0;
 }
 
+/*
 .econ-input-group .econ-form-control-outer .row > [class*="col-"] {
   padding-left: 0;
   padding-right: 0;
 }
+*/
 
 /* ========== Input group border radius ========== */
 /* Apply border radius to input-group elements (except last child) */

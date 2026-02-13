@@ -25,7 +25,7 @@
 .top-bar > .row {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1rem;
+  column-gap: 1rem;
   align-items: start;
 }
 
@@ -34,7 +34,13 @@
 .content-header.content {
   opacity: 0;
   transition: opacity 0.3s ease;
+  grid-area: 2/2;
 }
+
+.content-header > div:first-child {
+  display: none;
+}
+
 
 /* Visible state - applied via JS when content is ready */
 .content-header.content.content-header--visible {
@@ -42,7 +48,7 @@
 }
 
 /* Page title styling */
-.content-header.content h1 {
+.top-bar h1 {
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
@@ -51,7 +57,7 @@
 }
 
 /* Subtitle/second line of title */
-.content-header.content h1 span {
+.top-bar h1 span {
   font-weight: var(--font-weight-regular);
   display: block;
 }

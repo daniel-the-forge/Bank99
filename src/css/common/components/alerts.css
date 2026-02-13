@@ -1,0 +1,38 @@
+/**
+ * Alert styles
+ * Uses design tokens – requires design-system.css
+ */
+
+.alert {
+padding: var(--input-padding);
+border: var(--input-border-width) solid currentColor;
+border-radius: var(--input-border-radius);
+margin-bottom: var(--form-margin-horizontal);
+} 
+
+.alert-danger {
+border-color: var(--color-error);
+background-color: var(--color-error-10);
+}
+
+.alert .feedback-hint {
+  margin-bottom: var(--input-padding);
+}
+
+.alert .field-feedback-message {
+  font-weight: var(--font-weight-bold);
+  padding-left: calc(var(--input-padding));
+  margin-bottom: calc(var(--input-padding) / 2);
+  position: relative;
+}
+
+.alert .field-feedback-message::before {
+  content: ""; /* The content property is mandatory for the pseudo-element to render */
+  display: inline-block; /* Allows width/height to be applied, unlike default inline */
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-error); /* Blue background for the circle */
+  border-radius: 50%; /* This makes the square element a circle */
+  margin-right: calc(var(--input-padding) / 2); /* Space between the circle and the text */
+  vertical-align: middle; /* Aligns the circle vertically with the text */
+}

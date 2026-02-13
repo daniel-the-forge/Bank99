@@ -33,6 +33,7 @@ body {
 /* Paragraph spacing within econ-container */
 .econ-container p {
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 /* ========== Content main container ========== */
@@ -91,6 +92,12 @@ body {
   /* Increase max-width for desktop screens */
   #econ-container.page-content {
     max-width: 960px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  form > .econ-fragment-container > .econ-form-content > .econ-section-content {
+    width: 84%;
     margin-right: auto;
     margin-left: auto;
   }

@@ -34,6 +34,13 @@
   --color-icon: #7B8390;
   --color-icon-100: rgba(123, 131, 144, 1);
 
+  /* State colors */
+  --color-success: #2D8700;
+  --color-success-100: rgba(45, 135, 0, 1);
+  --color-error: #D20019;
+  --color-error-100: rgba(210, 0, 25, 1);
+  --color-error-10: rgba(210, 0, 25, 0.1);
+
   /* Link colors - blue for expandable sections */
   --color-link: #005FA0;
   --color-link-100: rgba(0, 95, 160, 1);
@@ -103,6 +110,13 @@
   /* Footer spacing */
   --footer-margin-bottom: 26px;
   --footer-padding-horizontal: 12px;
+
+  /* ========== Cards ========== */
+  --card-border-radius: 15px;
+  --card-horizontal-padding: 16px;
+  --card-vertical-padding: 16px;
+  --card-margin-bottom: 16px;
+  --card-margin-top: 24px;
 
   /* ========== Buttons ========== */
   /* Primary button (Weiter) - yellow with rounded corners */

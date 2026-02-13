@@ -47,7 +47,9 @@
 
 /* Focus state - darker border and subtle shadow */
 .econ-container .form-control:focus,
-.econ-container .form-select:focus {
+.econ-container .form-select:focus,
+.econ-container .form-control:hover,
+.econ-container .form-select:hover {
   border-color: var(--input-border-color-focus);
   outline: 0;
   box-shadow: var(--input-box-shadow-focus);
@@ -109,6 +111,74 @@
 /* Override external stylesheet's padding-bottom on form groups */
 form .econ-form-group.pb-3 {
   padding-bottom: 0 !important;
+}
+
+/* ========== Radio form fields ========== */
+/* Radio label container */
+.econ-fragment-radio-group .econ-form-label {
+  display: block;
+  padding: 0;
+}
+
+.econ-fragment-radio-group .econ-form-control-outer {
+  flex: 0 0 calc(100% - 43px);
+}
+
+/* .econ-fragment-radio-group .input-group.row {
+  display: block;
+  position: relative;
+  width: calc(100% - 43px);
+} */
+
+.econ-fragment-radio-group .col-10 > .row {
+  display: block;
+}
+
+/* Radio button container box - bordered box with padding */
+.econ-fragment-radio-group .econ-radio .col-6 {
+  box-sizing: border-box;
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  padding: calc(var(--input-padding) * 2) var(--input-padding);
+  position: relative; /* Required for label overlay positioning */
+  cursor: pointer; /* Visual feedback that the whole box is clickable */
+}
+
+/* Radio button label - stretched to cover entire container */
+/* This makes the entire .col-6 box clickable via the label */
+.econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label {
+  position: static; /* Keep label in normal flow for text positioning */
+}
+
+.econ-fragment-radio-group .econ-radio .col-6:hover,
+.econ-fragment-radio-group .econ-radio .col-6:focus {
+  border-color: transparent
+}
+
+.econ-fragment-radio-group .econ-radio .col-6:hover .econ-radio-label::after,
+.econ-fragment-radio-group .econ-radio .col-6:focus .econ-radio-label::after {
+  border: var(--input-border-width) solid var(--color-primary);
+  border-radius: var(--input-border-radius);
+}
+
+/* Clickable overlay - covers entire .col-6 container */
+/* Uses ::after pseudo-element to extend label's clickable area */
+.econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* Covers entire parent (top: 0, right: 0, bottom: 0, left: 0) */
+  cursor: pointer;
+}
+
+/* Active/selected state - visual feedback for selected radio option */
+.econ-fragment-radio-group .econ-radio .col-6.econ-radio--active {
+  background-color: var(--color-background);
+  border-color: var(--input-border-color-focus);
+  box-shadow: var(--input-box-shadow-focus);
+}
+
+.econ-fragment-radio-group > .econ-form-group {
+  position: relative;
 }
 
 
@@ -192,6 +262,7 @@ form .econ-form-group.pb-3 {
 .econ-container .form-check .form-check-input {
   float: unset;
   margin-left: 0;
+  vertical-align: middle;
 }
 
 /* Valid checkbox border color */
@@ -213,8 +284,9 @@ form .econ-form-group.pb-3 {
 }
 
 /* Checkbox focus state */
-.econ-container .form-check-input:focus {
-  border-color: var(--input-border-color-focus);
+.econ-container .form-check-input:focus,
+.econ-container .form-check-input:hover {
+  border-color: var(--color-primary);
   outline: 0;
   box-shadow: var(--input-box-shadow-focus);
 }

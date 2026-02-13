@@ -22,6 +22,8 @@
 @import "common/components/form-spinner.css";
 @import "common/components/progress-indicator.css";
 @import "common/components/tooltips.css";
+@import "common/components/alerts.css";
+@import "common/components/cards.css";
 
 /* ========== Layout ========== */
 @import "common/layout/header.css";
