@@ -98,6 +98,7 @@
 .econ-form-group + .econ-form-group,
 .econ-fragment-form-row {
   margin-top: var(--input-margin-between);
+  margin-bottom: calc(var(--input-margin-between) * 2);
   position: relative;
 }
 

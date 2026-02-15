@@ -86,7 +86,7 @@
   --label-font-weight: 700;
   --label-color: #000000;
   --label-margin-left: 9px;
-  --label-margin-bottom: 0px;
+  --label-margin-bottom: 8px;
 
   /* ========== Input fields ========== */
   /* Input text typography */
@@ -143,7 +143,7 @@
   --form-section-header-padding-top: 7px;
   --form-section-header-padding-bottom: 7px;
   --form-section-header-margin-top: 22px;
-  --form-section-header-margin-bottom: 20px;
+  --form-section-header-margin-bottom: 40px;
   --form-section-header-radius: 3px;
   
 
@@ -846,10 +846,10 @@ body {
   font-variant: normal;
 }
 
-.econ-fragment-radio-group .econ-control-icon {
+/* .econ-fragment-radio-group .econ-control-icon {
   position: relative;
   top: 11px;
-}
+} */
 
 /**
  * Form field styles – labels and inputs
@@ -962,6 +962,7 @@ body {
 .econ-form-group + .econ-form-group,
 .econ-fragment-form-row {
   margin-top: var(--input-margin-between);
+  margin-bottom: calc(var(--input-margin-between) * 2);
   position: relative;
 }
 
@@ -1208,7 +1209,7 @@ form .econ-form-group.pb-3 {
 
 @supports selector(:has(h3)) {
   /* Section header bar - yellow background with shadow */
-  .econ-section-header.econ-collapse-header:has(h3) {
+  .econ-section-header:has(h3) {
     background-color: var(--color-primary);
     box-shadow: var(--shadow-default);
     border-radius: var(--form-section-header-radius);
@@ -1221,7 +1222,7 @@ form .econ-form-group.pb-3 {
   }
   
   /* Section header title text styling */
-  .econ-section-header.econ-collapse-header h3 {
+  .econ-section-header h3 {
     font-size: var(--font-size-18);
     font-family: var(--font-family);
     color: var(--color-text);
@@ -1280,7 +1281,7 @@ form .econ-form-group.pb-3 {
 @media (min-width: 576px) {
   @supports selector(:has(h3)) {
     /* Section header bar - yellow background with shadow */
-    .econ-section-header.econ-collapse-header:has(h3) {
+    .econ-section-header:has(h3) {
       margin-inline: 0;
     }
   }
@@ -1773,16 +1774,16 @@ background-color: var(--color-error-10);
 
 .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
   position: absolute;
-  top: 50px;
-  right: -45px;
+  top: 40px;
+  right: -15px;
 }
 
 /* USA Bezug radio buttons */
 
 .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-control-icon {
   position: absolute;
-  top: 26px;
-  right: -45px;
+  top: 36px;
+  right: -15px;
 }
 
 /* Sonstiges Einkünfte input group */
@@ -1808,7 +1809,7 @@ background-color: var(--color-error-10);
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-top: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 0;
 }
 
 .econ-section.abcschluss-info-box-fix p {
@@ -2071,6 +2072,358 @@ background-color: var(--color-error-10);
   pointer-events: none; /* Allow clicks to pass through */
 }
 
+/* ========== "Weitere Nationalität hinzufügen" button ========== */
+
+/* Transform radio group into a single button-like element with light grey background */
+
+/* Container - full width light grey button */
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-input-group.row {
+  display: block;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-label {
+  display: none;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-control-outer {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-control-icon {
+  display: none;
+}
+
+/* Style the radio container as a button with light grey background */
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  position: relative;
+  /* Extend to screen edges */
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+}
+
+/* Hide both radio buttons - we handle clicks via JavaScript */
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio .col-6 {
+  display: none;
+}
+
+/* Plus icon in circle with yellow border via ::before */
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border: 3px solid var(--color-primary); /* Yellow border */
+  border-radius: 50%;
+  background-color: var(--color-background); /* White background */
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5V19M5 12H19' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Text via ::after */
+
+.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after {
+  content: "weitere Nationalität hinzufügen";
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family);
+  color: #000000;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* ========== "Weiteren steuerlichen Ansässigkeitsstaat hinzufügen" button ========== */
+
+/* Transform radio group into a single button-like element with light grey background */
+
+/* Only appears when "Ich bin/Wir sind steuerlich ansässig in Österreich und in ..." is selected */
+
+/* Container - full width light grey button */
+
+/* Match all instances: steueransaessigkeit2, steueransaessigkeit3, etc. (but not steueransaessigkeit1) */
+
+/* Use a simpler selector that matches any steueransaessigkeit with number >= 2 */
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]),
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]),
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]),
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]),
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]),
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]),
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]),
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]) {
+  /* Container styles */
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row {
+  display: block;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-form-label {
+  display: none;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+}
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon {
+  display: none;
+}
+
+/* Style the radio container as a button with light grey background */
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 0;
+  cursor: pointer;
+  position: relative;
+  /* Extend to screen edges */
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+}
+
+/* Hide both radio buttons - we handle clicks via JavaScript */
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6 {
+  display: none;
+}
+
+/* Plus icon in circle with yellow border via ::before */
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border: 3px solid var(--color-primary); /* Yellow border */
+  border-radius: 50%;
+  background-color: var(--color-background); /* White background */
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5V19M5 12H19' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Text via ::after */
+
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after {
+  content: "weitere steuerliche Ansässigkeit hinzufügen";
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family);
+  color: #000000;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* ========== "Dokumente später nachreichen" checkbox ========== */
+
+/* Convert radio group (Nein/Ja) into a single checkbox */
+
+/* Hide label and control icon */
+
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-form-label,
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-control-icon {
+  display: none;
+}
+
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-form-control-outer {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+}
+
+/* Style the radio container as a checkbox */
+
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Hide both radio buttons - we handle clicks via JavaScript */
+
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio .col-6 {
+  display: none;
+}
+
+/* Checkbox appearance via ::before */
+
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row::before {
+  content: "";
+  display: block;
+  width: 1.5625rem; /* 25px */
+  height: 1.5625rem; /* 25px */
+  min-width: 1.5625rem;
+  flex-shrink: 0;
+  border: 2px solid #000000;
+  border-radius: var(--input-border-radius);
+  background-color: var(--color-background);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  pointer-events: none; /* Allow clicks to pass through */
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+/* Checked state - show checkmark when "Ja" is selected */
+
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row:has(.econ-radio-value-true input:checked)::before {
+  background-color: var(--color-primary);
+  border-color: var(--input-border-color-focus);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+/* Text label via ::after */
+
+.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row::after {
+  content: "Dokumente später nachreichen.";
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family);
+  color: #000000;
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* ========== Rechtliches checkboxes ========== */
+
+/* Hide all info icons except the first one on rechtliches page */
+
+.page-rechtliches .econ-control-icon {
+  display: none;
+}
+
+.page-rechtliches p {
+  margin-left: 0;
+  font-size: var(--font-size-14);
+}
+
+.page-rechtliches .form-label {
+  display: none;
+}
+
+.page-rechtliches .slide-up {
+  margin-top: 0 !important;
+}
+
+/* Reorder checkboxes: label on far left, checkbox on far right, same row */
+
+.page-rechtliches .form-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.page-rechtliches .form-check .econ-checkbox-label {
+  order: 1;
+  flex: 1;
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-right: 12px;
+}
+
+.page-rechtliches .form-check input[type="checkbox"] {
+  order: 2;
+  flex-shrink: 0;
+  margin-left: auto;
+  margin-top: 0;
+  margin-right: 0;
+}
+
 /* ========== Media queries ========== */
 
 /* Small devices (landscape phones, 397px and up) */
@@ -2108,7 +2461,7 @@ background-color: var(--color-error-10);
 @media (min-width: 992px) {
   /* Monthly income input group */
   .econ-fragment-currency {
-    width: 79%;
+    width: 84%;
     margin-right: auto;
     margin-left: auto;
   }

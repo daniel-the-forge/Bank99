@@ -78,7 +78,7 @@
   --label-font-weight: 700;
   --label-color: #000000;
   --label-margin-left: 9px;
-  --label-margin-bottom: 0px;
+  --label-margin-bottom: 8px;
 
   /* ========== Input fields ========== */
   /* Input text typography */
@@ -135,7 +135,7 @@
   --form-section-header-padding-top: 7px;
   --form-section-header-padding-bottom: 7px;
   --form-section-header-margin-top: 22px;
-  --form-section-header-margin-bottom: 20px;
+  --form-section-header-margin-bottom: 40px;
   --form-section-header-radius: 3px;
   
 
