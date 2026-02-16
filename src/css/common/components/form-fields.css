@@ -195,7 +195,7 @@ form .econ-form-group.pb-3 {
 }
 
 /* Second paragraph - truncated with fade effect for long text */
-.econ-checkbox-label p:nth-of-type(2) {
+.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2) {
   position: relative;
   max-height: 3.75em; /* ~2.5 lines at 1.5em line-height */
   line-height: 1.5em;
@@ -203,7 +203,7 @@ form .econ-form-group.pb-3 {
 }
 
 /* Fade gradient overlay at bottom of truncated paragraph */
-.econ-checkbox-label p:nth-of-type(2)::after {
+.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2)::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -215,23 +215,23 @@ form .econ-form-group.pb-3 {
 }
 
 /* Hide third paragraph initially (shown via JS when expanded) */
-.econ-checkbox-label p:nth-of-type(3) {
+.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3) {
   display: none;
 }
 
 /* When expanded, remove restrictions */
-.econ-checkbox-label p:nth-of-type(2).expanded {
+.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded {
   max-height: none !important;
   overflow: visible !important;
 }
 
 /* Remove fade when expanded */
-.econ-checkbox-label p:nth-of-type(2).expanded::after {
+.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded::after {
   display: none !important;
 }
 
 /* Show third paragraph when visible class is added */
-.econ-checkbox-label p:nth-of-type(3).visible {
+.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3).visible {
   display: block !important;
 }
 

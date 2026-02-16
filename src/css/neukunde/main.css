@@ -63,14 +63,14 @@
 .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
   position: absolute;
   top: 40px;
-  right: -15px;
+  right: 0;
 }
 
 /* USA Bezug radio buttons */
 .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-control-icon {
   position: absolute;
   top: 36px;
-  right: -15px;
+  right: 0;
 }
 
 /* Sonstiges Einkünfte input group */
@@ -293,7 +293,7 @@
   align-items: center;
   gap: 12px;
   background-color: var(--color-primary);
-  padding: 16px 20px;
+  padding: 0 0 16px;
   border-radius: 0;
   cursor: pointer;
   position: relative;
@@ -626,6 +626,12 @@
 .page-rechtliches p {
   margin-left: 0;
   font-size: var(--font-size-14);
+  line-height: 1.5;
+}
+
+.econ-form-content.b99-rechtliches-checkboxes .econ-checkbox-label,
+.econ-form-content.b99-rechtliches-checkboxes span {
+  font-size: var(--font-size-14) !important;
 }
 
 .page-rechtliches .form-label {
