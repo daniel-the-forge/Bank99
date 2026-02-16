@@ -1524,6 +1524,7 @@ background-color: var(--color-error-10);
   color: var(--color-text);
   line-height: 1.2;
   margin-bottom: 8px;
+  margin-top: 0;
 }
 
 /* Subtitle/second line of title */
