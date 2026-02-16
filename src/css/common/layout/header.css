@@ -35,12 +35,16 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   grid-area: 2/2;
+  margin-top: -16px;
 }
 
 .content-header > div:first-child {
   display: none;
 }
 
+.page-content > .hr.hr-20 {
+  display: none;
+}
 
 /* Visible state - applied via JS when content is ready */
 .content-header.content.content-header--visible {
