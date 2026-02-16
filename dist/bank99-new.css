@@ -2109,7 +2109,6 @@ background-color: var(--color-error-10);
   flex-wrap: nowrap;
   align-items: center;
   gap: 12px;
-  padding: 16px 20px;
   border-radius: 0;
   cursor: pointer;
   position: relative;

@@ -15,7 +15,13 @@ window.addEventListener("load", () => {
 });
 
 
-// Wait for DOM and try multiple times if needed
+/* ========== Expandable checkbox "Mehr Informationen" link ========== */
+/* Creates a "Mehr Informationen" link that expands hidden paragraphs */
+/* Uses MutationObserver on document.body to detect when Wicket AJAX re-renders the DOM */
+
+// Track the expanded state globally so it persists across DOM re-renders
+let expandableCheckboxExpanded = false;
+
 function initExpandableCheckbox() {
   const label = document.querySelector('.econ-checkbox-label');
   
@@ -31,6 +37,19 @@ function initExpandableCheckbox() {
   
   const secondP = paragraphs[1];
   const thirdP = paragraphs[2];
+  
+  // Check if link already exists in this label
+  const existingLink = label.querySelector('.mehr-info-link');
+  if (existingLink) {
+    return true; // Already initialized
+  }
+  
+  // If already expanded (from previous interaction), apply expanded state and don't add link
+  if (expandableCheckboxExpanded) {
+    secondP.classList.add('expanded');
+    thirdP.classList.add('visible');
+    return true;
+  }
   
   // Create "Mehr Informationen" link
   const moreLink = document.createElement('a');
@@ -52,6 +71,7 @@ function initExpandableCheckbox() {
   // Click handler
   moreLink.addEventListener('click', (e) => {
     e.preventDefault();
+    e.stopPropagation(); // Prevent checkbox from being toggled
     
     // Add classes to expand
     secondP.classList.add('expanded');
@@ -59,21 +79,54 @@ function initExpandableCheckbox() {
     
     // Hide the link
     moreLink.style.display = 'none';
+    
+    // Remember expanded state
+    expandableCheckboxExpanded = true;
   });
   
   return true;
 }
 
+// Set up a global MutationObserver on document.body to detect DOM re-renders
+// This observer watches for any changes and re-initializes the expandable checkbox if needed
+function setupGlobalExpandableCheckboxObserver() {
+  const expandableObserver = new MutationObserver(function(mutations) {
+    // Check if there's a label that needs the link
+    const label = document.querySelector('.econ-checkbox-label');
+    if (label) {
+      const paragraphs = label.querySelectorAll('p');
+      const existingLink = label.querySelector('.mehr-info-link');
+      
+      // If label has 3+ paragraphs and no link exists, re-initialize
+      if (paragraphs.length >= 3 && !existingLink) {
+        initExpandableCheckbox();
+      }
+    }
+  });
+  
+  // Observe the entire document body for any DOM changes
+  if (document.body) {
+    expandableObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+}
+
 // Try immediately
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initExpandableCheckbox);
+  document.addEventListener('DOMContentLoaded', () => {
+    initExpandableCheckbox();
+    setupGlobalExpandableCheckboxObserver();
+  });
 } else {
   initExpandableCheckbox();
+  setupGlobalExpandableCheckboxObserver();
 }
 
 // Fallback: try again after a delay if it failed
 setTimeout(() => {
-  if (!document.querySelector('.mehr-info-link')) {
+  if (!document.querySelector('.mehr-info-link') && !expandableCheckboxExpanded) {
     initExpandableCheckbox();
   }
 }, 500);

@@ -153,59 +153,7 @@
 
 
 <div class="econ-fragment econ-fragment-static-module form-horizontal" id="id762">
-
-<script>
-    function initExpandableCheckbox() {
-        const label = document.querySelector('.econ-checkbox-label');
-        if (!label) {
-            return false;
-        }
-        const paragraphs = label.querySelectorAll('p');
-        if (paragraphs.length < 3) {
-            return false;
-        }
-        const secondP = paragraphs[1];
-        const thirdP = paragraphs[2];
-// Create "Mehr Informationen" link
-        const moreLink = document.createElement('a');
-        moreLink.href = '#';
-        moreLink.textContent = 'Mehr Informationen';
-        moreLink.className = 'mehr-info-link';
-        moreLink.style.cssText = `
-display: block;
-margin-top: 8px;
-color: #0066cc;
-text-decoration: underline;
-cursor: pointer;
-font-size: var(--font-size-12);
-`;
-// Insert link after second paragraph
-        secondP.parentNode.insertBefore(moreLink, thirdP);
-// Click handler
-        moreLink.addEventListener('click', (e) => {
-            e.preventDefault();
-// Add classes to expand
-            secondP.classList.add('expanded');
-            thirdP.classList.add('visible');
-// Hide the link
-            moreLink.style.display = 'none';
-        });
-        return true;
-    }
-    // Try immediately
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initExpandableCheckbox);
-    } else {
-        initExpandableCheckbox();
-    }
-    // Fallback: try again after a delay if it failed
-    setTimeout(() => {
-        if (!document.querySelector('.mehr-info-link')) {
-            initExpandableCheckbox();
-        }
-    }, 500);
-</script>
-
+<!-- Expandable checkbox functionality is handled by main.js -->
 </div>
 
 <div class="econ-fragment econ-fragment-static-module form-horizontal" id="id763">
