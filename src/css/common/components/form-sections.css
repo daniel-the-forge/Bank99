@@ -39,6 +39,41 @@
     text-align: center;
     margin: 0;
   }
+
+  .econ-section-header.econ-collapse-header:has(h3) {
+    background-color: var(--color-background);
+    margin-inline: 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    padding: 16px 20px;
+  }
+  
+  .econ-section-header.econ-collapse-header:has(h3)::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 10px;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='10' viewBox='0 0 15 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 2.26316L7.10526 9.39474L14.2368 2.26316L11.9737 0L7.10526 4.86842L2.26316 0L0 2.26316Z' fill='black'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .econ-section-content.collapse {
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .econ-section-content.collapse.show {
+    max-height: 1000px;
+    overflow: visible;
+  }
+
 }
 
 /* ========== Fragment content ========== */

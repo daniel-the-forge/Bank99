@@ -26,9 +26,7 @@
   /* Background colors */
   --color-background: #FFFFFF;
   --color-background-100: rgba(255, 255, 255, 1);
-  --color-background-secondary: #C6CFDE;
-  --color-background-secondary-70: rgba(198, 207, 222, 0.7);
-  --color-background-secondary-80: rgba(198, 207, 222, 0.8);
+  --color-background-40: rgba(255, 255, 255, 0.4);
 
   /* Border colors */
   --color-border: #C6CFDE;
@@ -164,6 +162,16 @@
   --caret-background: #7b8390;
   --caret-color: #fff;
   --caret-border-radius: 5px;
+
+  /* ========== Tables ========== */
+  /* Table styling tokens */
+  --table-font-size: var(--font-size-12);
+  --table-header-font-size: var(--font-size-16);
+  --table-cell-padding: 16px;
+  --table-border-radius: 5px;
+  --table-row-gap: 2px;
+  --table-highlight-bg: var(--color-primary);
+  --table-highlight-bg-opacity: rgba(255, 220, 0, 0.45);
 
   /* ========== Bootstrap compatibility ========== */
   /* Variables required for Bootstrap component overrides */
@@ -1232,6 +1240,42 @@ form .econ-form-group.pb-3 {
     text-align: center;
     margin: 0;
   }
+
+  .econ-section-header.econ-collapse-header:has(h3) {
+    background-color: var(--color-background);
+    margin-inline: 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 8px;
+         column-gap: 8px;
+    padding: 16px 20px;
+  }
+  
+  .econ-section-header.econ-collapse-header:has(h3)::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 10px;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='10' viewBox='0 0 15 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 2.26316L7.10526 9.39474L14.2368 2.26316L11.9737 0L7.10526 4.86842L2.26316 0L0 2.26316Z' fill='black'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  
+  .econ-section-content.collapse {
+    position: relative;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .econ-section-content.collapse.show {
+    max-height: 1000px;
+    overflow: visible;
+  }
+
 }
 
 /* ========== Fragment content ========== */
@@ -1458,6 +1502,152 @@ background-color: var(--color-error-10);
   right: 16px;
 }
 
+/**
+ * Table components
+ * Styling for comparison tables (e.g., product selection)
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Base table styles ========== */
+
+/* Product comparison table - responsive with highlighted column */
+
+.table-produktauswahl {
+  width: 100%;
+  font-size: var(--table-font-size);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  border-collapse: separate;
+  border-spacing: 0 var(--table-row-gap);
+  border-radius: var(--table-border-radius);
+  background-color: var(--color-background-40);
+}
+
+/* ========== Table header ========== */
+
+/* Header row with larger font and bold text */
+
+.table-produktauswahl thead {
+  font-size: var(--table-header-font-size);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Header cells */
+
+.table-produktauswahl thead td {
+  padding: var(--table-cell-padding);
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Highlighted column header (depot99) - full opacity yellow with top border radius */
+
+.table-produktauswahl thead td:nth-child(3) {
+  background-color: var(--table-highlight-bg);
+  border-radius: var(--table-border-radius) var(--table-border-radius) 0 0;
+}
+
+/* ========== Table body ========== */
+
+/* Body cells */
+
+.table-produktauswahl tbody td {
+  padding: var(--table-cell-padding);
+  vertical-align: top;
+}
+
+/* First column (labels) - left aligned */
+
+.table-produktauswahl tbody td:first-child {
+  text-align: left;
+}
+
+/* Data columns - center aligned */
+
+.table-produktauswahl tbody td:nth-child(2),
+.table-produktauswahl tbody td:nth-child(3) {
+  text-align: center;
+}
+
+/* Highlighted column body cells (depot99) - 45% opacity yellow */
+
+.table-produktauswahl tbody td:nth-child(3) {
+  background-color: var(--table-highlight-bg-opacity);
+}
+
+/* Last row - add bottom border radius to highlighted column */
+
+.table-produktauswahl tbody tr:last-child td:nth-child(3) {
+  border-radius: 0 0 var(--table-border-radius) var(--table-border-radius);
+}
+
+/* ========== Bold text ========== */
+
+/* Bold tags within table cells */
+
+.table-produktauswahl b {
+  font-weight: var(--font-weight-bold);
+}
+
+/* ========== Responsive table ========== */
+
+/* Make the parent container horizontally scrollable on mobile */
+
+/* This targets the static module container that wraps the table */
+
+.econ-fragment-static-module:has(.table-produktauswahl) {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Set minimum width on table to prevent squishing on mobile */
+
+/* Table will maintain readable size and scroll horizontally instead */
+
+.table-produktauswahl {
+  min-width: 600px;
+}
+
+/* ========== Mobile column reordering ========== */
+
+/* On mobile, visually move depot99 (column 3) to the middle position */
+
+/* Uses flexbox on table rows to reorder cells without changing HTML */
+
+@media (max-width: 576px) {
+  /* Make table rows flex containers */
+  .table-produktauswahl thead tr,
+  .table-produktauswahl tbody tr {
+    display: flex;
+  }
+  
+  /* All cells take equal width by default */
+  .table-produktauswahl thead td,
+  .table-produktauswahl tbody td {
+    flex: 1;
+    min-width: 0; /* Allow cells to shrink below content size */
+  }
+  
+  /* First column (labels) - stays on the left, slightly wider */
+  .table-produktauswahl thead td:nth-child(1),
+  .table-produktauswahl tbody td:nth-child(1) {
+    order: 1;
+    flex: 1.2;
+  }
+  
+  /* Second column (aktuelles Modell/Fondsdepot99) - moves to the right */
+  .table-produktauswahl thead td:nth-child(2),
+  .table-produktauswahl tbody td:nth-child(2) {
+    order: 3;
+  }
+  
+  /* Third column (depot99 - highlighted) - moves to the middle */
+  .table-produktauswahl thead td:nth-child(3),
+  .table-produktauswahl tbody td:nth-child(3) {
+    order: 2;
+  }
+}
+
 /* ========== Layout ========== */
 
 /**
@@ -1511,7 +1701,8 @@ background-color: var(--color-error-10);
   display: none;
 }
 
-.page-content > .hr.hr-20 {
+.page-content > .hr.hr-20,
+.page-content .b99-page-header {
   display: none;
 }
 

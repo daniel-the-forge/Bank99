@@ -1,0 +1,123 @@
+/**
+ * Table components
+ * Styling for comparison tables (e.g., product selection)
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Base table styles ========== */
+/* Product comparison table - responsive with highlighted column */
+.table-produktauswahl {
+  width: 100%;
+  font-size: var(--table-font-size);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  border-collapse: separate;
+  border-spacing: 0 var(--table-row-gap);
+  border-radius: var(--table-border-radius);
+  background-color: var(--color-background-40);
+}
+
+/* ========== Table header ========== */
+/* Header row with larger font and bold text */
+.table-produktauswahl thead {
+  font-size: var(--table-header-font-size);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Header cells */
+.table-produktauswahl thead td {
+  padding: var(--table-cell-padding);
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Highlighted column header (depot99) - full opacity yellow with top border radius */
+.table-produktauswahl thead td:nth-child(3) {
+  background-color: var(--table-highlight-bg);
+  border-radius: var(--table-border-radius) var(--table-border-radius) 0 0;
+}
+
+/* ========== Table body ========== */
+/* Body cells */
+.table-produktauswahl tbody td {
+  padding: var(--table-cell-padding);
+  vertical-align: top;
+}
+
+/* First column (labels) - left aligned */
+.table-produktauswahl tbody td:first-child {
+  text-align: left;
+}
+
+/* Data columns - center aligned */
+.table-produktauswahl tbody td:nth-child(2),
+.table-produktauswahl tbody td:nth-child(3) {
+  text-align: center;
+}
+
+/* Highlighted column body cells (depot99) - 45% opacity yellow */
+.table-produktauswahl tbody td:nth-child(3) {
+  background-color: var(--table-highlight-bg-opacity);
+}
+
+/* Last row - add bottom border radius to highlighted column */
+.table-produktauswahl tbody tr:last-child td:nth-child(3) {
+  border-radius: 0 0 var(--table-border-radius) var(--table-border-radius);
+}
+
+/* ========== Bold text ========== */
+/* Bold tags within table cells */
+.table-produktauswahl b {
+  font-weight: var(--font-weight-bold);
+}
+
+/* ========== Responsive table ========== */
+/* Make the parent container horizontally scrollable on mobile */
+/* This targets the static module container that wraps the table */
+.econ-fragment-static-module:has(.table-produktauswahl) {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Set minimum width on table to prevent squishing on mobile */
+/* Table will maintain readable size and scroll horizontally instead */
+.table-produktauswahl {
+  min-width: 600px;
+}
+
+/* ========== Mobile column reordering ========== */
+/* On mobile, visually move depot99 (column 3) to the middle position */
+/* Uses flexbox on table rows to reorder cells without changing HTML */
+@media (max-width: 576px) {
+  /* Make table rows flex containers */
+  .table-produktauswahl thead tr,
+  .table-produktauswahl tbody tr {
+    display: flex;
+  }
+  
+  /* All cells take equal width by default */
+  .table-produktauswahl thead td,
+  .table-produktauswahl tbody td {
+    flex: 1;
+    min-width: 0; /* Allow cells to shrink below content size */
+  }
+  
+  /* First column (labels) - stays on the left, slightly wider */
+  .table-produktauswahl thead td:nth-child(1),
+  .table-produktauswahl tbody td:nth-child(1) {
+    order: 1;
+    flex: 1.2;
+  }
+  
+  /* Second column (aktuelles Modell/Fondsdepot99) - moves to the right */
+  .table-produktauswahl thead td:nth-child(2),
+  .table-produktauswahl tbody td:nth-child(2) {
+    order: 3;
+  }
+  
+  /* Third column (depot99 - highlighted) - moves to the middle */
+  .table-produktauswahl thead td:nth-child(3),
+  .table-produktauswahl tbody td:nth-child(3) {
+    order: 2;
+  }
+}

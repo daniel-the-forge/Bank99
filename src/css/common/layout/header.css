@@ -42,7 +42,8 @@
   display: none;
 }
 
-.page-content > .hr.hr-20 {
+.page-content > .hr.hr-20,
+.page-content .b99-page-header {
   display: none;
 }
 

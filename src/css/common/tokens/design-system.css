@@ -18,9 +18,7 @@
   /* Background colors */
   --color-background: #FFFFFF;
   --color-background-100: rgba(255, 255, 255, 1);
-  --color-background-secondary: #C6CFDE;
-  --color-background-secondary-70: rgba(198, 207, 222, 0.7);
-  --color-background-secondary-80: rgba(198, 207, 222, 0.8);
+  --color-background-40: rgba(255, 255, 255, 0.4);
 
   /* Border colors */
   --color-border: #C6CFDE;
@@ -156,6 +154,16 @@
   --caret-background: #7b8390;
   --caret-color: #fff;
   --caret-border-radius: 5px;
+
+  /* ========== Tables ========== */
+  /* Table styling tokens */
+  --table-font-size: var(--font-size-12);
+  --table-header-font-size: var(--font-size-16);
+  --table-cell-padding: 16px;
+  --table-border-radius: 5px;
+  --table-row-gap: 2px;
+  --table-highlight-bg: var(--color-primary);
+  --table-highlight-bg-opacity: rgba(255, 220, 0, 0.45);
 
   /* ========== Bootstrap compatibility ========== */
   /* Variables required for Bootstrap component overrides */
