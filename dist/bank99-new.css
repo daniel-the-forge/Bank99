@@ -27,6 +27,9 @@
   --color-background: #FFFFFF;
   --color-background-100: rgba(255, 255, 255, 1);
   --color-background-40: rgba(255, 255, 255, 0.4);
+  --color-background-secondary: #C6CFDE;
+  --color-background-secondary-70: rgba(198, 207, 222, 0.7);
+  --color-background-secondary-80: rgba(198, 207, 222, 0.8);
 
   /* Border colors */
   --color-border: #C6CFDE;
@@ -1217,6 +1220,7 @@ form .econ-form-group.pb-3 {
 
 @supports selector(:has(h3)) {
   /* Section header bar - yellow background with shadow */
+  /* Apply yellow styles to ALL headers with h3 by default */
   .econ-section-header:has(h3) {
     background-color: var(--color-primary);
     box-shadow: var(--shadow-default);
@@ -1241,7 +1245,9 @@ form .econ-form-group.pb-3 {
     margin: 0;
   }
 
-  .econ-section-header.econ-collapse-header:has(h3) {
+  /* Collapse headers in page-rechtliches get white background styles (except the first one) */
+  /* This overrides the yellow styles for collapse headers ONLY in page-rechtliches pages */
+  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3) {
     background-color: var(--color-background);
     margin-inline: 0;
     border-radius: 4px;
@@ -1250,9 +1256,29 @@ form .econ-form-group.pb-3 {
     -moz-column-gap: 8px;
          column-gap: 8px;
     padding: 16px 20px;
+    box-shadow: none; /* Remove shadow for collapse headers */
   }
   
-  .econ-section-header.econ-collapse-header:has(h3)::before {
+  /* First collapse header in recap page - keep yellow styles */
+  /* This overrides the white styles back to yellow for the first header */
+  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3) {
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-default);
+    border-radius: var(--form-section-header-radius);
+    margin-bottom: var(--form-section-header-margin-bottom);
+    margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+    padding-top: var(--form-section-header-padding-top);
+    padding-bottom: var(--form-section-header-padding-bottom);
+    display: block; /* Override flex from collapse header styles */
+  }
+  
+  /* Collapse headers on pages WITHOUT page-rechtliches class keep yellow styles */
+  /* This ensures collapse headers with h3 get yellow styles on other pages */
+  /* The base .econ-section-header:has(h3) rule already applies yellow, so this is just for clarity */
+  /* No additional rule needed - the base rule handles it */
+  
+  /* Chevron icon - only on collapse headers in page-rechtliches pages (except the first one) */
+  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3)::before {
     content: '';
     display: block;
     width: 15px;
@@ -1264,16 +1290,47 @@ form .econ-form-group.pb-3 {
     background-size: contain;
   }
   
-  .econ-section-content.collapse {
-    position: relative;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+  /* Hide the chevron icon on the first collapse header in recap page */
+  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3)::before {
+    display: none;
   }
   
-  .econ-section-content.collapse.show {
-    max-height: 1000px;
-    overflow: visible;
+  /* Collapsible section content - smooth expand/collapse animation */
+  /* Base state - always has transition for smooth animations */
+  .page-rechtliches .econ-section-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  /* Collapsed state - hidden */
+  .page-rechtliches .econ-section-content.collapse {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  /* Expanded state - visible */
+  .page-rechtliches .econ-section-content.collapse.show {
+    max-height: 2000px; /* Large enough for most content */
+    opacity: 1;
+  }
+  
+  /* Collapsing state - intermediate state during animation */
+  /* This is the key: collapsing state maintains transition and animates properly */
+  .page-rechtliches .econ-section-content.collapsing {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  /* When collapsing (closing), animate to collapsed state */
+  .page-rechtliches .econ-section-content.collapsing:not(.show) {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  /* When collapsing (opening), animate to expanded state */
+  .page-rechtliches .econ-section-content.collapsing.show {
+    max-height: 2000px;
+    opacity: 1;
   }
 
 }
@@ -2855,4 +2912,36 @@ background-color: var(--color-error-10);
 
 .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstige"])::before {
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M31.6257 20.0936H33.193V26.9942H31.6257V32.4912H7.20465V14.0585H9.84793V13.731C9.84793 10.8538 12.2339 8.46784 15.1111 8.46784C16.8421 8.46784 18.5029 9.40351 19.462 10.9006L25.076 6.97076L30.0351 14.0585H31.6257V20.0936ZM19.3684 14.0585L25.4269 9.80117L24.7485 8.84211L17.3099 14.0585H19.3684ZM11.2047 13.731C11.2047 11.6023 12.9824 9.82457 15.1111 9.82457C16.421 9.82457 17.6374 10.5263 18.3625 11.6725L14.9473 14.0585H11.2047V13.731ZM21.731 14.0585H28.3976L26.1988 10.924L21.731 14.0585ZM30.2924 31.1345H8.56138V15.4152H30.2924V20.0936H23.8128V26.9708H30.2924V31.1345ZM25.1696 25.614H31.8362V21.4503H25.1696V25.614Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/**
+ * Form recap page styles
+ * Uses design tokens – requires design-system.css
+ */
+
+.page-rechtliches .econ-section-content.collapse.show {
+  background-color: var(--color-background);
+  position: relative;
+  top: calc(var(--form-section-header-margin-bottom) * -1);
+  padding-left: 43px;
+  padding-right: 20px;
+}
+
+.page-rechtliches .econ-section-content.collapse.show select,
+.page-rechtliches .econ-section-content.collapse.show input {
+  background-color: var(--color-gradient-end);
+  border-radius: 0;
+  border: none;
+  pointer-events: none;
+  opacity: 1;
+  font-weight: var(--font-weight-bold);
+}
+
+.page-rechtliches .econ-section-content.collapse.show .econ-form-control-select::after,
+.page-rechtliches .input-group-append {
+  display: none;
+}
+
+.page-rechtliches .econ-fragment-radio-group .econ-form-control-outer {
+  flex: 0 0 100%;
 }

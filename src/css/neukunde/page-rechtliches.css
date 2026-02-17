@@ -1,0 +1,31 @@
+/**
+ * Form recap page styles
+ * Uses design tokens – requires design-system.css
+ */
+
+.page-rechtliches .econ-section-content.collapse.show {
+  background-color: var(--color-background);
+  position: relative;
+  top: calc(var(--form-section-header-margin-bottom) * -1);
+  padding-left: 43px;
+  padding-right: 20px;
+}
+
+.page-rechtliches .econ-section-content.collapse.show select,
+.page-rechtliches .econ-section-content.collapse.show input {
+  background-color: var(--color-gradient-end);
+  border-radius: 0;
+  border: none;
+  pointer-events: none;
+  opacity: 1;
+  font-weight: var(--font-weight-bold);
+}
+
+.page-rechtliches .econ-section-content.collapse.show .econ-form-control-select::after,
+.page-rechtliches .input-group-append {
+  display: none;
+}
+
+.page-rechtliches .econ-fragment-radio-group .econ-form-control-outer {
+  flex: 0 0 100%;
+}

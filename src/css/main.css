@@ -33,4 +33,5 @@
 /* ========== Process-specific styles ========== */
 @import "neukunde/main.css";
 @import "neukunde/mittelherkunft-icons.css";
+@import "neukunde/page-rechtliches.css";
 @import "bestehender_kunde/main.css";

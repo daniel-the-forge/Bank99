@@ -16,6 +16,7 @@
 /* Uses @supports to check for :has() selector support (modern browsers) */
 @supports selector(:has(h3)) {
   /* Section header bar - yellow background with shadow */
+  /* Apply yellow styles to ALL headers with h3 by default */
   .econ-section-header:has(h3) {
     background-color: var(--color-primary);
     box-shadow: var(--shadow-default);
@@ -40,7 +41,9 @@
     margin: 0;
   }
 
-  .econ-section-header.econ-collapse-header:has(h3) {
+  /* Collapse headers in page-rechtliches get white background styles (except the first one) */
+  /* This overrides the yellow styles for collapse headers ONLY in page-rechtliches pages */
+  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3) {
     background-color: var(--color-background);
     margin-inline: 0;
     border-radius: 4px;
@@ -48,9 +51,29 @@
     align-items: center;
     column-gap: 8px;
     padding: 16px 20px;
+    box-shadow: none; /* Remove shadow for collapse headers */
   }
   
-  .econ-section-header.econ-collapse-header:has(h3)::before {
+  /* First collapse header in recap page - keep yellow styles */
+  /* This overrides the white styles back to yellow for the first header */
+  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3) {
+    background-color: var(--color-primary);
+    box-shadow: var(--shadow-default);
+    border-radius: var(--form-section-header-radius);
+    margin-bottom: var(--form-section-header-margin-bottom);
+    margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+    padding-top: var(--form-section-header-padding-top);
+    padding-bottom: var(--form-section-header-padding-bottom);
+    display: block; /* Override flex from collapse header styles */
+  }
+  
+  /* Collapse headers on pages WITHOUT page-rechtliches class keep yellow styles */
+  /* This ensures collapse headers with h3 get yellow styles on other pages */
+  /* The base .econ-section-header:has(h3) rule already applies yellow, so this is just for clarity */
+  /* No additional rule needed - the base rule handles it */
+  
+  /* Chevron icon - only on collapse headers in page-rechtliches pages (except the first one) */
+  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3)::before {
     content: '';
     display: block;
     width: 15px;
@@ -62,16 +85,47 @@
     background-size: contain;
   }
   
-  .econ-section-content.collapse {
-    position: relative;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+  /* Hide the chevron icon on the first collapse header in recap page */
+  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3)::before {
+    display: none;
   }
   
-  .econ-section-content.collapse.show {
-    max-height: 1000px;
-    overflow: visible;
+  /* Collapsible section content - smooth expand/collapse animation */
+  /* Base state - always has transition for smooth animations */
+  .page-rechtliches .econ-section-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  /* Collapsed state - hidden */
+  .page-rechtliches .econ-section-content.collapse {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  /* Expanded state - visible */
+  .page-rechtliches .econ-section-content.collapse.show {
+    max-height: 2000px; /* Large enough for most content */
+    opacity: 1;
+  }
+  
+  /* Collapsing state - intermediate state during animation */
+  /* This is the key: collapsing state maintains transition and animates properly */
+  .page-rechtliches .econ-section-content.collapsing {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  /* When collapsing (closing), animate to collapsed state */
+  .page-rechtliches .econ-section-content.collapsing:not(.show) {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  /* When collapsing (opening), animate to expanded state */
+  .page-rechtliches .econ-section-content.collapsing.show {
+    max-height: 2000px;
+    opacity: 1;
   }
 
 }
