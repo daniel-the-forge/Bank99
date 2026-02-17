@@ -53,6 +53,10 @@
     padding: 16px 20px;
     box-shadow: none; /* Remove shadow for collapse headers */
   }
+
+  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3) span {
+    cursor: pointer;
+  }
   
   /* First collapse header in recap page - keep yellow styles */
   /* This overrides the white styles back to yellow for the first header */
@@ -65,6 +69,7 @@
     padding-top: var(--form-section-header-padding-top);
     padding-bottom: var(--form-section-header-padding-bottom);
     display: block; /* Override flex from collapse header styles */
+    cursor: auto;
   }
   
   /* Collapse headers on pages WITHOUT page-rechtliches class keep yellow styles */

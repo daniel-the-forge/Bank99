@@ -9,6 +9,7 @@
   top: calc(var(--form-section-header-margin-bottom) * -1);
   padding-left: 43px;
   padding-right: 20px;
+  padding-bottom: 16px;
 }
 
 .page-rechtliches .econ-section-content.collapse.show select,
@@ -28,4 +29,86 @@
 
 .page-rechtliches .econ-fragment-radio-group .econ-form-control-outer {
   flex: 0 0 100%;
+}
+
+.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
+.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
+.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
+.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
+.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
+.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
+  cursor: auto;
+}
+
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover, 
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover, 
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
+  border: var(--input-border-width) solid var(--input-border-color);
+}
+
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover, 
+.econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover, 
+.econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus,
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover, 
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
+  border-color: var(--input-border-color-focus);
+}
+
+.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover, 
+.econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus {
+  border-color: var(--input-border-color);
+}
+
+.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus .econ-radio-label::after,
+.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover .econ-radio-label::after,
+.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus .econ-radio-label::after,
+.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover .econ-radio-label::after,
+.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover .econ-radio-label::after,
+.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus .econ-radio-label::after {
+  border: none;
+}
+
+.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
+  cursor: auto;
+}
+
+.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) .econ-radio-label::after,
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio-label::after,
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-radio-label::after {
+  pointer-events: none;
+  cursor: auto;
+}
+
+.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:hover,
+.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:focus,
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:hover,
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:focus,
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:hover,
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:focus {
+  box-shadow: none;
+}
+
+.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"]),
+.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before,
+.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after,
+.page-rechtliches .econ-fragment.econ-fragment-static-module,
+.page-rechtliches .econ-section-content .econ-section-header,
+.page-rechtliches .econ-input-group-suffix {
+  display: none !important;
+}
+
+.page-rechtliches .econ-fragment-currency {
+  width: 100%;
+}
+
+/* ========== Media queries ========== */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .page-rechtliches .econ-section-content.collapse.show {
+    padding-top: 16px;
+  }
 }
