@@ -1657,14 +1657,6 @@ background-color: var(--color-error-10);
   -webkit-overflow-scrolling: touch;
 }
 
-/* Set minimum width on table to prevent squishing on mobile */
-
-/* Table will maintain readable size and scroll horizontally instead */
-
-.table-produktauswahl {
-  min-width: 600px;
-}
-
 /* ========== Mobile column reordering ========== */
 
 /* On mobile, visually move depot99 (column 3) to the middle position */
@@ -1672,6 +1664,23 @@ background-color: var(--color-error-10);
 /* Uses flexbox on table rows to reorder cells without changing HTML */
 
 @media (max-width: 576px) {
+
+  /* Reduce font size and padding on mobile */
+  .table-produktauswahl {
+    font-size: 10px;
+  }
+
+  .table-produktauswahl thead {
+    font-size: var(--font-size-12);
+  }
+
+  .table-produktauswahl thead td,
+  .table-produktauswahl tbody td {
+    padding: calc(var(--table-cell-padding) / 2);
+  }
+
+
+
   /* Make table rows flex containers */
   .table-produktauswahl thead tr,
   .table-produktauswahl tbody tr {
