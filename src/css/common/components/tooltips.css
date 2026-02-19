@@ -6,32 +6,43 @@
 /* ========== Tooltip base styles ========== */
 /* Tooltip container - always present in DOM but hidden by default */
 /* Visibility controlled via inline style (display:none) and opacity */
-.econ-sliding-tooltip.econ-tooltip {
+.b99-style .econ-sliding-tooltip.econ-tooltip {
+  /* Positioning declarations */
   position: absolute;
+  z-index: var(--z-index-tooltip);
+
+  /* Color declarations */
   background: var(--color-background);
-  border: 2px solid var(--color-text);
-  border-radius: 10px;
-  padding: 12px;
+
+  /* Box Model declarations */
+  border: var(--input-border-width) solid var(--color-text);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-12);
+
+  /* Miscellaneous declarations */
   box-shadow: var(--shadow-default);
-  z-index: 1000;
+  
+  /* Manipulations declarations */
   /* Hidden state - transparent and slightly offset upward */
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease;
   pointer-events: none;
+  transform: translateY(calc(var(--spacing-10) * -1));
+  transition: opacity var(--transition-default);
 }
 
 /* ========== Tooltip visible state ========== */
 /* When display:none is removed via JS, tooltip becomes visible */
 /* Uses attribute selector to detect when inline style is removed */
-.econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
+.b99-style .econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
+  /* Manipulations declarations */
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* ========== Tooltip content ========== */
 /* Remove default paragraph margins within tooltip content */
-.econ-tooltip-info p {
+.b99-style .econ-tooltip-info p {
+  /* Box Model declarations */
   margin: 0;
 }

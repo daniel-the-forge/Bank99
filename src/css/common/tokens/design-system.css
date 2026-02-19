@@ -168,6 +168,73 @@
   --table-highlight-bg: var(--color-primary);
   --table-highlight-bg-opacity: rgba(255, 220, 0, 0.45);
 
+  /* ========== Spacing ========== */
+  /* Spacing scale for consistent margins, paddings, and gaps */
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-38: 38px;
+  --spacing-40: 40px;
+  --spacing-43: 43px;
+  --spacing-64: 64px;
+  --spacing-100: 100px;
+
+  /* ========== Line Heights ========== */
+  /* Line height scale for typography */
+  --line-height-tight: 1;
+  --line-height-normal: 1.2;
+  --line-height-relaxed: 1.5;
+  --line-height-20: 20px;
+
+  /* ========== Transitions ========== */
+  /* Transition timing for animations */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-default: 0.3s ease-in-out;
+  --transition-slow: 0.6s ease;
+
+  /* ========== Z-Index ========== */
+  /* Z-index scale for layering elements */
+  --z-index-tooltip: 1000;
+
+  /* ========== Border Radius (additional) ========== */
+  /* Additional border radius values */
+  --border-radius-none: 0;
+  --border-radius-sm: 4px;
+  --border-radius-md: 10px;
+  --border-radius-full: 50%;
+
+  /* ========== Icon Sizes ========== */
+  /* Standard icon dimensions */
+  --icon-size-sm: 16px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 36px;
+  --icon-size-xl: 40px;
+
+  /* ========== Collapse Animation ========== */
+  /* Max height for collapsible sections */
+  --collapse-max-height: 2000px;
+
+  /* ========== Breakpoints (reference) ========== */
+  /* Breakpoint values for documentation - use in media queries */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  /* ========== Additional Colors ========== */
+  /* Colors for Bootstrap input group compatibility */
+  --color-input-group-bg: #e9ecef;
+  --color-input-group-border: #ced4da;
+  --color-input-group-text: #212529;
+
   /* ========== Bootstrap compatibility ========== */
   /* Variables required for Bootstrap component overrides */
   /* These maintain compatibility with Bootstrap's grid system */

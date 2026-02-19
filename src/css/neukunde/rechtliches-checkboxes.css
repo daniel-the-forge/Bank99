@@ -1,0 +1,81 @@
+/**
+ * Rechtliches page checkbox styles
+ * Checkbox layout and styling for the legal/terms page
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Hide info icons ========== */
+/* Hide all info icons except the first one on rechtliches page */
+.page-rechtliches.b99-style .econ-control-icon {
+  /* Display declarations */
+  display: none;
+}
+
+/* ========== Typography ========== */
+.page-rechtliches.b99-style p {
+  /* Box Model declarations */
+  margin-left: 0;
+
+  /* Typography declarations */
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-relaxed);
+}
+
+.b99-style .econ-form-content.b99-rechtliches-checkboxes .econ-checkbox-label,
+.b99-style .econ-form-content.b99-rechtliches-checkboxes span {
+  /* Typography declarations */
+  font-size: var(--font-size-14) !important;
+}
+
+/* ========== Hidden elements ========== */
+.page-rechtliches.b99-style .form-label {
+  /* Display declarations */
+  display: none;
+}
+
+.page-rechtliches.b99-style .slide-up {
+  /* Box Model declarations */
+  margin-top: 0 !important;
+}
+
+/* ========== Checkbox layout ========== */
+/* Reorder checkboxes: label on far left, checkbox on far right, same row */
+.page-rechtliches.b99-style .form-check {
+  /* Display declarations */
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  /* Box Model declarations */
+  margin-bottom: 0;
+  padding-left: 0;
+  width: 100%;
+}
+
+/* ========== Checkbox label ========== */
+.page-rechtliches.b99-style .form-check .econ-checkbox-label {
+  
+  /* Positioning declarations */
+  order: 1;
+  flex: 1;
+
+  /* Box Model declarations */
+  margin-bottom: 0;
+  margin-left: 0;
+  padding-right: var(--spacing-12);
+}
+
+/* ========== Checkbox input ========== */
+.page-rechtliches.b99-style .form-check input[type="checkbox"] {
+  /* Positioning declarations */
+  order: 2;
+
+  /* Manipulations declarations */
+  flex-shrink: 0;
+
+  /* Box Model declarations */
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: 0;
+}

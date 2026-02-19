@@ -6,75 +6,100 @@
 
 /* ========== Base table styles ========== */
 /* Product comparison table - responsive with highlighted column */
-.table-produktauswahl {
-  width: 100%;
-  font-size: var(--table-font-size);
-  font-family: var(--font-family);
-  color: var(--color-text);
+.b99-style .table-produktauswahl {
+  /* Box Model declarations */
   border-collapse: separate;
   border-spacing: 0 var(--table-row-gap);
-  border-radius: var(--table-border-radius);
+  width: 100%;
+
+  /* Typography declarations */
+  font-size: var(--table-font-size);
+  font-family: var(--font-family);
+
+  /* Color declarations */
   background-color: var(--color-background-40);
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--table-border-radius);
 }
 
 /* ========== Table header ========== */
 /* Header row with larger font and bold text */
-.table-produktauswahl thead {
+.b99-style .table-produktauswahl thead {
+  /* Typography declarations */
   font-size: var(--table-header-font-size);
   font-weight: var(--font-weight-bold);
 }
 
 /* Header cells */
-.table-produktauswahl thead td {
+.b99-style .table-produktauswahl thead td {
+  /* Box Model declarations */
   padding: var(--table-cell-padding);
+
+  /* Typography declarations */
   text-align: center;
+
+  /* Positioning declarations */
   vertical-align: middle;
 }
 
 /* Highlighted column header (depot99) - full opacity yellow with top border radius */
-.table-produktauswahl thead td:nth-child(3) {
+.b99-style .table-produktauswahl thead td:nth-child(3) {
+  /* Color declarations */
   background-color: var(--table-highlight-bg);
+
+  /* Miscellaneous declarations */
   border-radius: var(--table-border-radius) var(--table-border-radius) 0 0;
 }
 
 /* ========== Table body ========== */
 /* Body cells */
-.table-produktauswahl tbody td {
+.b99-style .table-produktauswahl tbody td {
+  /* Box Model declarations */
   padding: var(--table-cell-padding);
+
+  /* Positioning declarations */
   vertical-align: top;
 }
 
 /* First column (labels) - left aligned */
-.table-produktauswahl tbody td:first-child {
+.b99-style .table-produktauswahl tbody td:first-child {
+  /* Typography declarations */
   text-align: left;
 }
 
 /* Data columns - center aligned */
-.table-produktauswahl tbody td:nth-child(2),
-.table-produktauswahl tbody td:nth-child(3) {
+.b99-style .table-produktauswahl tbody td:nth-child(2),
+.b99-style .table-produktauswahl tbody td:nth-child(3) {
+  /* Typography declarations */
   text-align: center;
 }
 
 /* Highlighted column body cells (depot99) - 45% opacity yellow */
-.table-produktauswahl tbody td:nth-child(3) {
+.b99-style .table-produktauswahl tbody td:nth-child(3) {
+  /* Color declarations */
   background-color: var(--table-highlight-bg-opacity);
 }
 
 /* Last row - add bottom border radius to highlighted column */
-.table-produktauswahl tbody tr:last-child td:nth-child(3) {
+.b99-style .table-produktauswahl tbody tr:last-child td:nth-child(3) {
+  /* Miscellaneous declarations */
   border-radius: 0 0 var(--table-border-radius) var(--table-border-radius);
 }
 
 /* ========== Bold text ========== */
 /* Bold tags within table cells */
-.table-produktauswahl b {
+.b99-style .table-produktauswahl b {
+  /* Typography declarations */
   font-weight: var(--font-weight-bold);
 }
 
 /* ========== Responsive table ========== */
 /* Make the parent container horizontally scrollable on mobile */
 /* This targets the static module container that wraps the table */
-.econ-fragment-static-module:has(.table-produktauswahl) {
+.b99-style .econ-fragment-static-module:has(.table-produktauswahl) {
+  /* Manipulations declarations */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -87,50 +112,62 @@
 @media (max-width: 576px) {
 
   /* Reduce font size and padding on mobile */
-  .table-produktauswahl {
-    font-size: 10px;
+  .b99-style .table-produktauswahl {
+    /* Typography declarations */
+    font-size: var(--spacing-10);
   }
 
-  .table-produktauswahl thead {
+  .b99-style .table-produktauswahl thead {
+    /* Typography declarations */
     font-size: var(--font-size-12);
   }
 
-  .table-produktauswahl thead td,
-  .table-produktauswahl tbody td {
+  .b99-style .table-produktauswahl thead td,
+  .b99-style .table-produktauswahl tbody td {
+    /* Box Model declarations */
     padding: calc(var(--table-cell-padding) / 2);
   }
 
 
 
   /* Make table rows flex containers */
-  .table-produktauswahl thead tr,
-  .table-produktauswahl tbody tr {
+  .b99-style .table-produktauswahl thead tr,
+  .b99-style .table-produktauswahl tbody tr {
+    /* Display declarations */
     display: flex;
   }
   
   /* All cells take equal width by default */
-  .table-produktauswahl thead td,
-  .table-produktauswahl tbody td {
+  .b99-style .table-produktauswahl thead td,
+  .b99-style .table-produktauswahl tbody td {
+    /* Display declarations */
     flex: 1;
+
+    /* Manipulations declarations */
     min-width: 0; /* Allow cells to shrink below content size */
   }
   
   /* First column (labels) - stays on the left, slightly wider */
-  .table-produktauswahl thead td:nth-child(1),
-  .table-produktauswahl tbody td:nth-child(1) {
+  .b99-style .table-produktauswahl thead td:nth-child(1),
+  .b99-style .table-produktauswahl tbody td:nth-child(1) {
+    /* Positioning declarations */
     order: 1;
+
+    /* Display flex */
     flex: 1.2;
   }
   
   /* Second column (aktuelles Modell/Fondsdepot99) - moves to the right */
-  .table-produktauswahl thead td:nth-child(2),
-  .table-produktauswahl tbody td:nth-child(2) {
+  .b99-style .table-produktauswahl thead td:nth-child(2),
+  .b99-style .table-produktauswahl tbody td:nth-child(2) {
+    /* Positioning declarations */
     order: 3;
   }
   
   /* Third column (depot99 - highlighted) - moves to the middle */
-  .table-produktauswahl thead td:nth-child(3),
-  .table-produktauswahl tbody td:nth-child(3) {
+  .b99-style .table-produktauswahl thead td:nth-child(3),
+  .b99-style .table-produktauswahl tbody td:nth-child(3) {
+    /* Positioning declarations */
     order: 2;
   }
 }

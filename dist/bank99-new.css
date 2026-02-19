@@ -176,6 +176,73 @@
   --table-highlight-bg: var(--color-primary);
   --table-highlight-bg-opacity: rgba(255, 220, 0, 0.45);
 
+  /* ========== Spacing ========== */
+  /* Spacing scale for consistent margins, paddings, and gaps */
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-38: 38px;
+  --spacing-40: 40px;
+  --spacing-43: 43px;
+  --spacing-64: 64px;
+  --spacing-100: 100px;
+
+  /* ========== Line Heights ========== */
+  /* Line height scale for typography */
+  --line-height-tight: 1;
+  --line-height-normal: 1.2;
+  --line-height-relaxed: 1.5;
+  --line-height-20: 20px;
+
+  /* ========== Transitions ========== */
+  /* Transition timing for animations */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-default: 0.3s ease-in-out;
+  --transition-slow: 0.6s ease;
+
+  /* ========== Z-Index ========== */
+  /* Z-index scale for layering elements */
+  --z-index-tooltip: 1000;
+
+  /* ========== Border Radius (additional) ========== */
+  /* Additional border radius values */
+  --border-radius-none: 0;
+  --border-radius-sm: 4px;
+  --border-radius-md: 10px;
+  --border-radius-full: 50%;
+
+  /* ========== Icon Sizes ========== */
+  /* Standard icon dimensions */
+  --icon-size-sm: 16px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 36px;
+  --icon-size-xl: 40px;
+
+  /* ========== Collapse Animation ========== */
+  /* Max height for collapsible sections */
+  --collapse-max-height: 2000px;
+
+  /* ========== Breakpoints (reference) ========== */
+  /* Breakpoint values for documentation - use in media queries */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  /* ========== Additional Colors ========== */
+  /* Colors for Bootstrap input group compatibility */
+  --color-input-group-bg: #e9ecef;
+  --color-input-group-border: #ced4da;
+  --color-input-group-text: #212529;
+
   /* ========== Bootstrap compatibility ========== */
   /* Variables required for Bootstrap component overrides */
   /* These maintain compatibility with Bootstrap's grid system */
@@ -244,7 +311,7 @@
 /* Set base font size for rem calculations (16px = 1rem) */
 
 html {
-  font-size: 16px;
+  font-size: var(--font-size-16);
 }
 
 /* ========== Body element ========== */
@@ -252,8 +319,13 @@ html {
 /* Apply base typography and remove default margins */
 
 body {
+   /* Color declarations */
   color: var(--color-text);
+
+  /* Typography declarations */
   font-family: var(--font-family);
+
+  /* Box Model declarations */
   margin: 0;
   min-height: 100vh;
 }
@@ -264,10 +336,16 @@ body {
 
 .econ-container {
   all: unset;
+
+  /* Color declarations */
   color: var(--bs-body-color);
+
+  /* Typography declarations */
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
+
+  /* Box Model declarations */
   line-height: var(--bs-body-line-height);
   text-align: var(--bs-body-text-align);
 }
@@ -275,7 +353,8 @@ body {
 /* Paragraph spacing within econ-container */
 
 .econ-container p {
-  margin-bottom: 1rem;
+  /* Box Model declarations */
+  margin-bottom: var(--spacing-16);
   margin-top: 0;
 }
 
@@ -284,11 +363,14 @@ body {
 /* Main content wrapper with background gradient and gutter padding based on Bootstrap gutter */
 
 .content-main.container {
+  /* Color declarations */
   background: var(--body-background);
+  
+  /* Box Model declarations */
+  margin-left: auto;
+  margin-right: auto;
   padding-right: calc(var(--bs-gutter-x) * .5);
   padding-left: calc(var(--bs-gutter-x) * .5);
-  margin-right: auto;
-  margin-left: auto;
 }
 
 /* ========== Page content container ========== */
@@ -296,6 +378,7 @@ body {
 /* Add top padding to create space for the first form section header */
 
 #econ-container.page-content {
+  /* Box Model declarations */
   padding-top: var(--form-section-header-margin-top);
 }
 
@@ -304,6 +387,7 @@ body {
 /* Ensure elements with [hidden] attribute are not displayed */
 
 .econ-container [hidden] {
+  /* Display declarations */
   display: none !important;
 }
 
@@ -317,14 +401,16 @@ body {
 
 @media (min-width: 576px) {
   .content-main.container {
+    /* Box Model declarations */
     max-width: 100%;
   }
 
   /* Center page content with max-width constraint */
   #econ-container.page-content {
-    max-width: 540px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 540px;
   }
 }
 
@@ -333,9 +419,10 @@ body {
 @media (min-width: 768px) {
   /* Increase max-width for tablet screens */
   #econ-container.page-content {
-    max-width: 720px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 720px;
   }
 }
 
@@ -344,15 +431,17 @@ body {
 @media (min-width: 992px) {
   /* Increase max-width for desktop screens */
   #econ-container.page-content {
-    max-width: 960px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
   }
 
   form > .econ-fragment-container > .econ-form-content > .econ-section-content {
-    width: 84%;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    width: 84%;
   }
 }
 
@@ -361,9 +450,10 @@ body {
 @media (min-width: 1200px) {
   /* Increase max-width for large desktop screens */
   #econ-container.page-content {
-    max-width: 1140px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
   }
 }
 
@@ -372,9 +462,10 @@ body {
 @media (min-width: 1400px) {
   /* Maximum width for very large screens */
   #econ-container.page-content {
-    max-width: 1320px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 1320px;
   }
 }
 
@@ -391,14 +482,17 @@ body {
 /* Reset Bootstrap row styles within top-bar */
 
 .top-bar > .row {
+  /* Miscellaneous declarations */
   all: unset;
+
+  /* Box Model declarations */
   margin: 0;
 }
 
 /* Reset all direct children of top-bar rows */
 
 .top-bar > .row > * {
-  /* all: unset; */
+  /* Box Model declarations */
   box-sizing: border-box;
   max-width: 100%;
   width: 100%;
@@ -407,7 +501,10 @@ body {
 /* Links within top-bar rows */
 
 .top-bar > .row a {
+  /* Miscellaneous declarations */
   cursor: pointer;
+
+  /* Typography declarations */
   text-decoration: underline;
 }
 
@@ -416,33 +513,45 @@ body {
 /* Full-width column (12/12) */
 
 .econ-container .col-12 {
+  /* Display declarations */
   flex: 0 0 auto;
-  width: 100%;
+
+  /* Manipulations declarations */
   max-width: 100%;
+
+  /* Box Model declarations */
   margin: var(--bs-gutter-y);
   padding: 0;
+  width: 100%;
 }
 
 /* 10/12 width column - remove Bootstrap padding */
 
 .econ-container .col-10 {
+  /* Box Model declarations */
   padding: 0;
 }
 
 /* 4/12 width column (1/3) - maintain proportions, account for gap */
 
 .econ-container .col-4 {
+  /* Display declarations */
   flex: 0 0 auto;
-  width: calc(33.333% - 3px);
+
+  /* Box Model declarations */
   padding: 0;
+  width: calc(33.333% - 3px);
 }
 
 /* 8/12 width column (2/3) - maintain proportions, account for gap */
 
 .econ-container .col-8 {
+  /* Display declarations */
   flex: 0 0 auto;
-  width: calc(66.666% - 3px);
+
+  /* Box Model declarations */
   padding: 0;
+  width: calc(66.666% - 3px);
 }
 
 /* ========== Row resets ========== */
@@ -450,24 +559,31 @@ body {
 /* Form rows - flexbox layout with custom gap instead of Bootstrap gutters */
 
 .econ-container form .row {
-  /* all: unset; */
+  /* Display declarations */
+  align-items: stretch;
+  -moz-column-gap: var(--spacing-6);
+       column-gap: var(--spacing-6);
   display: flex;
   flex-wrap: wrap;
-  -moz-column-gap: 6px;
-       column-gap: 6px;
+
+  /* Manipulations declarations */
   max-width: 100%;
-  width: 100%;
+
+  /* Positioning declarations */
   position: relative;
-  align-items: stretch;
+
+  /* Box Model declarations */
+  width: 100%;
 }
 
 /* 6/12 width column (1/2) - account for gap between columns */
 
 .econ-container .row .col-6 {
+  /* Miscellaneous declarations */
   all: unset;
+
+  /* Box Model declarations */
   flex: 0 0 calc(50% - 3px);
-  /* flex: 0 0 calc(50% - 13.5px); */
-  /* flex: 0 0 calc(50% - 25px);*/
   width: 50%;
 }
 
@@ -478,47 +594,60 @@ body {
 /* Exclude dropdown menus and validation tooltips/feedback */
 
 .econ-container .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  /* Box Model declarations */
   margin-left: 0;
-  border-top-left-radius: 0;
+
+  /* Miscellaneous declarations */
   border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  
 }
 
 /* ========== Econ input group layout ========== */
 
 /* Reset Bootstrap row margins for econ-input-group */
 
-.econ-input-group.input-group.row {
+.b99-style .econ-input-group.input-group.row {
+  /* Box Model declarations */
   margin-left: 0;
   margin-right: 0;
 }
 
 /* Input field column - flexible width, takes remaining space */
 
-.econ-input-group .econ-form-control-outer {
+.b99-style .econ-input-group .econ-form-control-outer {
+  /* Display declarations */
   flex: 1;
+
+  /* Box Model declarations */
   padding-left: 0;
   padding-right: 0;
 }
 
 /* Icon column - fixed 37px width for info buttons */
 
-.econ-input-group .econ-control-icon {
+.b99-style .econ-input-group .econ-control-icon {
+  /* Display declarations */
+  align-items: flex-start; /* Align with input top */
+  display: flex;
   flex: 0 0 37px;
+  
+  /* Box Model declarations */
   padding-left: 0px;
   padding-right: 0;
-  display: flex;
-  align-items: flex-start; /* Align with input top */
 }
 
 /* ========== Form control width ========== */
 
 /* Ensure input fields use full width of their container */
 
-.econ-form-control-outer .econ-form-control-input-text {
+.b99-style .econ-form-control-outer .econ-form-control-input-text {
+  /* Box Model declarations */
   width: 100%;
 }
 
-.econ-form-control-outer .form-control {
+.b99-style .econ-form-control-outer .form-control {
+  /* Box Model declarations */
   width: 100%;
 }
 
@@ -526,17 +655,11 @@ body {
 
 /* Remove Bootstrap's default column padding within input groups */
 
-.econ-input-group .econ-form-control-outer .row {
+.b99-style .econ-input-group .econ-form-control-outer .row {
+  /* Box Model declarations */
   margin-left: 0;
   margin-right: 0;
 }
-
-/*
-.econ-input-group .econ-form-control-outer .row > [class*="col-"] {
-  padding-left: 0;
-  padding-right: 0;
-}
-*/
 
 /* ========== Input group border radius ========== */
 
@@ -545,8 +668,9 @@ body {
 /* Exclude validation elements, dropdowns, and floating labels */
 
 .econ-container .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
-  border-top-right-radius: var(--input-border-radius);
+  /* Miscellaneous declarations */
   border-bottom-right-radius: var(--input-border-radius);
+  border-top-right-radius: var(--input-border-radius);
 }
 
 /* ========== Components ========== */
@@ -560,25 +684,28 @@ body {
 
 /* Remove text transformation from buttons and selects */
 
-.econ-container button, .econ-container select {
+.econ-container .b99-style button, .econ-container .b99-style  select {
+  /* Typography declarations */
   text-transform: none;
 }
 
 /* Ensure native button appearance is maintained */
 
-.econ-container button, 
-.econ-container [type=button], 
-.econ-container [type=reset], 
-.econ-container [type=submit] {
+.econ-container .b99-style  button, 
+.econ-container .b99-style [type=button], 
+.econ-container .b99-style [type=reset], 
+.econ-container .b99-style [type=submit] {
+  /* Display declarations */
   -webkit-appearance: button;
 }
 
 /* Pointer cursor for interactive buttons */
 
-.econ-container button:not(:disabled), 
-.econ-container [type=button]:not(:disabled), 
-.econ-container [type=reset]:not(:disabled), 
-.econ-container [type=submit]:not(:disabled) {
+.econ-container .b99-style button:not(:disabled), 
+.econ-container .b99-style [type=button]:not(:disabled), 
+.econ-container .b99-style [type=reset]:not(:disabled), 
+.econ-container .b99-style [type=submit]:not(:disabled) {
+  /* Cursor declarations */
   cursor: pointer;
 }
 
@@ -586,27 +713,38 @@ body {
 
 /* Container for footer navigation buttons - flexbox layout, no wrapping */
 
-.econ-button-bar.b99-page-nav-btns {
+/***** DUPLICATED DECLARATION - REVIEW REQUIRED *****/
+
+/* Note: This selector is also defined in footer.css */
+
+.b99-style .econ-button-bar.b99-page-nav-btns {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
-  padding: 0 var(--footer-padding-horizontal);
+  
+  /* Box Model declarations */
   margin-bottom: var(--footer-margin-bottom);
+  padding: 0 var(--footer-padding-horizontal);
 }
 
 /* Reset Bootstrap row styles */
 
-.econ-button-bar.b99-page-nav-btns.row {
+.b99-style .econ-button-bar.b99-page-nav-btns.row {
+  /* Box Model declarations */
   margin-left: 0;
   margin-right: 0;
 }
 
 /* Button wrappers - reset Bootstrap columns and create equal flex containers */
 
-.econ-button-bar .econ-button-wrapper {
+.b99-style .econ-button-bar .econ-button-wrapper {
+  /* Miscellaneous declarations */
   all: unset;
-  display: flex;
+
+  /* Display declarations */
   align-items: center;
+  display: flex;
   flex: 1;
 }
 
@@ -614,253 +752,388 @@ body {
 
 /* Zurück (back) - first in visual order, left aligned */
 
-.econ-button-bar .b99-back-btn {
-  order: 1;
+.b99-style .econ-button-bar .b99-back-btn {
+  /* Positioning declarations */
   justify-content: flex-start;
+  order: 1;
 }
 
 /* Weiter (next) - second in visual order (center) */
 
-.econ-button-bar .b99-next-btn {
-  order: 2;
+.b99-style .econ-button-bar .b99-next-btn {
+  /* Positioning declarations */
   justify-content: center;
+  order: 2;
 }
 
 /* Speichern (save) - third in visual order, right aligned */
 
-.econ-button-bar .b99-save-btn {
-  order: 3;
+.b99-style .econ-button-bar .b99-save-btn {
+  /* Positioning declarations */
   justify-content: flex-end;
+  order: 3;
 }
 
 /* ========== Text Buttons (Zurück, Speichern) ========== */
 
 /* Style for text-only buttons with icons - no background or border */
 
-.econ-button-bar .b99-back-btn .econ-button,
-.econ-button-bar .b99-save-btn .econ-button {
+.b99-style .econ-button-bar .b99-back-btn .econ-button,
+.b99-style .econ-button-bar .b99-save-btn .econ-button {
+  /* Miscellaneous declarations */
   all: unset;
-  display: inline-flex;
+  cursor: pointer;
+
+  /* Display declarations */
   align-items: center;
-  gap: 6px;
+  display: inline-flex;
+  gap: var(--spacing-6);
+
+  /* Box Model declarations */
+  border: none;
+  padding: 0;
+  
+  /* Color declarations */
+  background: none;
   color: var(--btn-text-color);
+
+  /* Typography declarations */
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-regular);
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
 }
 
 /* Zurück icon (arrow left) - SVG embedded as background image */
 
-.econ-button-bar .b99-back-btn .econ-button::before {
+.b99-style .econ-button-bar .b99-back-btn .econ-button::before {
+  /* Content declarations */
   content: "";
+
+  /* Display declarations */
   display: inline-block;
-  width: var(--btn-icon-size);
+
+  /* Box Model declarations */
   height: var(--btn-icon-size);
+  width: var(--btn-icon-size);
+
+  /* Background declarations */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23' height='23' viewBox='0 0 23 23' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.2444 0C5.01754 0 0 5.04327 0 11.2444C0 17.4456 5.04327 22.4889 11.2444 22.4889C17.4456 22.4889 22.4889 17.4456 22.4889 11.2444C22.4889 5.04327 17.4713 0 11.2444 0ZM11.2445 21.022C5.8667 21.022 1.49243 16.6477 1.49243 11.27C1.49243 5.89219 5.8667 1.49219 11.2445 1.49219C16.6223 1.49219 21.0223 5.86646 21.0223 11.27C21.0223 16.6735 16.648 21.022 11.2445 21.022ZM11.0643 4.47754L12.1193 5.53251L7.20468 10.4986H17.883V11.991H7.20468L12.145 16.9828L11.0901 18.0378L4.37427 11.2705L11.0643 4.47754Z' fill='black'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* Speichern icon (diskette) - SVG embedded as background image */
 
-.econ-button-bar .b99-save-btn .econ-button::before {
+.b99-style .econ-button-bar .b99-save-btn .econ-button::before {
+  /* Content declarations */
   content: "";
+
+  /* Display declarations */
   display: inline-block;
+
+  /* Box Model declarations */
   width: var(--btn-icon-size);
   height: var(--btn-icon-size);
+
+  /* Background declarations */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'%3E%3Cpath d='M18.375 0H2.625C1.17525 0 0 1.17525 0 2.625V18.375C0 19.8247 1.17525 21 2.625 21H18.375C19.8247 21 21 19.8247 21 18.375V2.625C21 1.17525 19.8247 0 18.375 0ZM6.5625 1.3125H14.4375V5.25H6.5625V1.3125ZM19.6875 18.375C19.6875 19.0994 19.0994 19.6875 18.375 19.6875H2.625C1.90062 19.6875 1.3125 19.0994 1.3125 18.375V2.625C1.3125 1.90062 1.90062 1.3125 2.625 1.3125H5.25V5.90625C5.25 6.26869 5.54381 6.5625 5.90625 6.5625H15.0938C15.4562 6.5625 15.75 6.26869 15.75 5.90625V1.3125H18.375C19.0994 1.3125 19.6875 1.90062 19.6875 2.625V18.375Z' fill='black'/%3E%3Cpath d='M10.5 9.1875C8.32687 9.1875 6.5625 10.9519 6.5625 13.125C6.5625 15.2981 8.32687 17.0625 10.5 17.0625C12.6731 17.0625 14.4375 15.2981 14.4375 13.125C14.4375 10.9519 12.6731 9.1875 10.5 9.1875ZM10.5 15.75C9.05175 15.75 7.875 14.5733 7.875 13.125C7.875 11.6767 9.05175 10.5 10.5 10.5C11.9483 10.5 13.125 11.6767 13.125 13.125C13.125 14.5733 11.9483 15.75 10.5 15.75Z' fill='black'/%3E%3Crect x='11.8125' y='2.625' width='1.3125' height='2.625' fill='black'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* ========== Primary Button (Weiter) ========== */
 
 /* Yellow primary button with rounded corners and opacity */
 
-.econ-button-bar .b99-next-btn .econ-button {
+.b99-style .econ-button-bar .b99-next-btn .econ-button {
+  /* Miscellaneous declarations */
   all: unset;
-  display: inline-flex;
+  border-radius: var(--btn-primary-border-radius);
+  cursor: pointer;
+
+  /* Display declarations */
   align-items: center;
+  display: inline-flex;
   justify-content: center;
+
+  /* Color declarations */
   background-color: var(--btn-primary-background);
   color: var(--btn-primary-color);
+
+  /* Typography declarations */
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-regular);
-  border-radius: var(--btn-primary-border-radius);
-  padding: var(--btn-primary-padding-vertical) var(--btn-primary-padding-horizontal);
-  cursor: pointer;
+
+  /* Box Model declarations */
   border: none;
+  padding: var(--btn-primary-padding-vertical) var(--btn-primary-padding-horizontal);  
 }
 
 /* ========== Button spinner ========== */
 
 /* Hide spinner icons by default (shown via JS when loading) */
 
-.econ-button-bar .econ-button-spinner {
+.b99-style .econ-button-bar .econ-button-spinner {
+  /* Display declarations */
   display: none;
 }
 
 /**
  * Icon styles
+ * Icon components including info buttons, calendar icons, and validation icons
  * Uses design tokens – requires design-system.css
+ * 
+ * Structure:
+ * - Info icon button (circular "i" icon)
+ * - Bootstrap icon overrides (calendar, input group)
+ * - Currency input icons
+ * - Validation icons (success/error)
  */
 
 /* ========== Info icon button ========== */
 
 /* Circular info button displayed next to form inputs */
 
-.econ-control-icon .btn.econ-icon-info {
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  flex-shrink: 0;
+.b99-style .econ-control-icon .btn.econ-icon-info {
+  /* Box Model declarations */
   border: var(--input-border-width) solid transparent;
-  border-radius: 50%;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: var(--icon-size-lg);
+  padding: 0;
+  width: var(--icon-size-lg);
+  
+  /* Display declarations */
+  flex-shrink: 0;
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
+
+  /* Manipulations declarations */
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  /* Color declarations */
+  color: var(--color-background);
 }
 
 /* Focus state - shows border and shadow for accessibility */
 
-.econ-control-icon .btn.econ-icon-info:focus,
-.econ-control-icon .btn.econ-icon-info:hover {
+.b99-style .econ-control-icon .btn.econ-icon-info:focus,
+.b99-style .econ-control-icon .btn.econ-icon-info:hover {
+  /* Box Model declarations */
   border-color: var(--color-primary);
   outline: 0;
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
 
 /* Info icon "i" letter - created using ::before pseudo-element */
 
-.econ-control-icon .btn.econ-icon-info::before{
+.b99-style .econ-control-icon .btn.econ-icon-info::before{
+  /* Color declarations */
   background: var(--color-icon);
   color: var(--color-background);
   
-  border-radius: 50%;
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
 
+  /* Box Model declarations */
   height: 100%;
   width: 100%;
   
-  display: flex;
+  /* Display declarations */
   align-items: center;
+  display: flex;
   justify-content: center;
 
+  /* Color declarations */
   content: "i";
-  font-family: 'Post Sans' !important;
-  font-weight: 700 !important;
-  vertical-align: middle;
-  font-size: 1.5rem;
 
+  /* Typography declarations */
+  font-family: 'Post Sans' !important;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold) !important;
+
+  /* Positioning declarations */
+  vertical-align: middle;
 }
 
 /* ========== Bootstrap icon overrides ========== */
 
 /* Default calendar icon  */
 
-.econ-form-control-date {
+.b99-style .econ-form-control-date {
+  /* Positioning declarations */
   position: relative;
+
+  /* Display declarations */
   display: flex;
   flex-wrap: nowrap;
+
+  /* Box Model declarations */
   align-items: stretch;
   width: 100%;
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
 }
 
-.bi.bi-calendar {
-  display: flex;
+.b99-style .bi.bi-calendar {
+  /* Display declarations */
   align-items: center;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
+  display: flex;
+  
+  /* Box Model declarations */
+  border: 1px solid var(--color-input-group-border);
+  padding: var(--spacing-6) var(--spacing-12);
+
+  /* Typography declarations */
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
   text-align: center;
   white-space: nowrap;
-  background-color: #e9ecef;
-  border: 1px solid #ced4da;
-  border-radius: .375rem;
+
+  /* Color declarations */
+  color: var(--color-input-group-text);
+  background-color: var(--color-input-group-bg);
+  
+  /* Miscellaneous declarations */
+  border-radius: var(--spacing-6);
 }
 
-.bi.bi-calendar:before {
+.b99-style .bi.bi-calendar:before {
+  /* Content declarations */
   content: '';
+
+  /* Display declarations */
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z'/%3E%3C/svg%3E");
+
+  /* Box Model declarations */
+  height: var(--icon-size-sm);
+  width: var(--icon-size-sm);
+  
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.econ-container .input-group-text {
+.econ-container .b99-style .input-group-text {
+  /* Color declarations */
   background-color: var(--color-background);
   color: var(--color-text);
+
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
-  display: flex;
+
+  /* Display declarations */
   align-items: center;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  display: flex;
+  
+  /* Box Model declarations */
+  padding: var(--spacing-6) var(--spacing-12);
+
+  /* Typography declarations */
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
   text-align: center;
   white-space: nowrap;
 }
 
-.econ-form-control-currency {
+/* ========== Currency input container ========== */
+
+.b99-style .econ-form-control-currency {
+  /* Positioning declarations */
   position: relative;
+
+  /* Display declarations */
+  align-items: stretch;
   display: flex;
   flex-wrap: nowrap;
-  align-items: stretch;
+  
+  /* Box Model declarations */
   width: 100%;
 }
 
-.econ-input-group-append {
+/* ========== Input group append container ========== */
+
+.b99-style .econ-input-group-append {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
+  
+  /* Positioning declarations */
   position: relative;
 }
 
-.econ-input-group-append > .econ-icon-success,
-.econ-input-group-append > .econ-icon-error {
+/* ========== Validation icons ========== */
+
+/* Success and error icons positioned within input group */
+
+.b99-style .econ-input-group-append > .econ-icon-success,
+.b99-style .econ-input-group-append > .econ-icon-error {
+  /* Positioning declarations */
+  left: var(--spacing-40);
   position: absolute;
-  left: 40px;
   top: 7px;
 }
 
-.econ-input-group-append > .econ-icon-success::before {
+/* Success checkmark icon */
+
+.b99-style .econ-input-group-append > .econ-icon-success::before {
+  /* Content declarations */
   content: "\2713";
+
+  /* Color declarations */
   color: var(--color-success);
+
+  /* Display declarations */
   display: inline-block;
+
+  /* Typography declarations */
   font-style: normal;
-  font-weight: 400 !important;
   font-variant: normal;
-  text-transform: none;
+  font-weight: 400 !important;
   line-height: 1;
-  vertical-align: -.125em;
+  text-transform: none;
   -webkit-font-smoothing: antialiased;
+
+  /* Positioning declarations */
+  vertical-align: -.125em;
 }
 
-.econ-input-group-append > .econ-icon-error {
+/* Error X icon */
+
+.b99-style .econ-input-group-append > .econ-icon-error {
+  /* Box Model declarations */
   border: none;
-  font-size: var(--font-size-16);
   padding: 0;
+
+  /* Typography declarations */
+  font-size: var(--font-size-16);
 }
 
-.econ-input-group-append > .econ-icon-error::before {
+.b99-style .econ-input-group-append > .econ-icon-error::before {
+  /* Content declarations */
   content: "\2715";
-  color: var(--color-error);
-  display: inline-block;
-  font-style: normal;
-  font-weight: 400 !important;
-  font-variant: normal;
-}
 
-/* .econ-fragment-radio-group .econ-control-icon {
-  position: relative;
-  top: 11px;
-} */
+  /* Color declarations */
+  color: var(--color-error);
+
+  /* Display declarations */
+  display: inline-block;
+
+  /* Typography declarations */
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400 !important;
+}
 
 /**
  * Form field styles – labels and inputs
@@ -871,56 +1144,74 @@ body {
 
 /* Form labels always appear above inputs */
 
-.econ-form-label label,
-.econ-form-label .form-label {
+.b99-style .econ-form-label label,
+.b99-style .econ-form-label .form-label {
+  /* Color declarations */
   color: var(--label-color);
+
+  /* Display declarations */
   display: block;
-  font-size: var(--label-font-size);
+
+  /* Typography declarations */
   font-family: var(--font-family);
+  font-size: var(--label-font-size);
   font-weight: var(--label-font-weight);
   letter-spacing: var(--letter-spacing-default);
-  margin-left: var(--label-margin-left);
+
+  /* Box Model declarations */
   margin-bottom: var(--label-margin-bottom);
+  margin-left: var(--label-margin-left);
 }
 
 /* ========== Input fields ========== */
 
 /* Base styles for text inputs and select dropdowns */
 
-.econ-container .form-control,
-.econ-container .form-select {
+.econ-container .b99-style .form-control,
+.econ-container .b99-style .form-select {
+  /* Box Model declarations */
   box-sizing: border-box;
-  /* Remove Bootstrap's default background images (caret icons, etc.) */
-  background-image: none;
-  background-repeat: no-repeat;
-  background-position: unset;
-  background-size: unset;
-  
-  background-color: var(--input-background);
   border: unset;
   border-color: var(--input-border-color);
-  border-width: var(--input-border-width);
   border-style: solid;
-  border-radius: var(--input-border-radius);
-  font-size: var(--input-font-size);
-  font-family: var(--font-family);
+  border-width: var(--input-border-width);
+  padding: var(--input-padding);
+  
+  /* Color declarations */
+  /* Remove Bootstrap's default background images (caret icons, etc.) */
+  background-color: var(--input-background);
+  background-image: none;
+  background-position: unset;
+  background-repeat: no-repeat;
+  background-size: unset;
   color: var(--input-color);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
+
+  /* Typography declarations */
+  font-family: var(--font-family);
+  font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
   letter-spacing: var(--letter-spacing-default);
   text-transform: none;
-  padding: var(--input-padding);
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   word-wrap: normal;
+  
+  /* Manipulations declarations */
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 /* Focus state - darker border and subtle shadow */
 
-.econ-container .form-control:focus,
-.econ-container .form-select:focus,
-.econ-container .form-control:hover,
-.econ-container .form-select:hover {
+.econ-container .b99-style .form-control:focus,
+.econ-container .b99-style .form-select:focus,
+.econ-container .b99-style .form-control:hover,
+.econ-container .b99-style .form-select:hover {
+  /* Box Model declarations */
   border-color: var(--input-border-color-focus);
   outline: 0;
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
 
@@ -928,52 +1219,70 @@ body {
 
 /* Remove native browser dropdown caret */
 
-.econ-form-control-select .form-select {
+.b99-style .econ-form-control-select .form-select {
+  /* Display declarations */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   display: block;
+
+  /* Box Model declarations */
   width: 100%;
 }
 
 /* Select wrapper - positioned relative for custom caret */
 
-.econ-form-control-select {
+.b99-style .econ-form-control-select {
+  /* Box Model declarations */
   box-sizing: border-box;
+
+  /* Positioning declarations */
   position: relative;
 }
 
 /* Custom dropdown caret - gray box with white chevron icon */
 
-.econ-form-control-select::after {
+.b99-style .econ-form-control-select::after {
+  /* Content declarations */
   content: "";
+
+  /* Positioning declarations */
   position: absolute;
-  pointer-events: none;
-
-  top: 50%;
   right: 0;
-  width: 29px;
-  height: 100%;
+  top: 50%;
 
+  /* Miscellaneous declarations */
+  border-radius: var(--caret-border-radius);
+  pointer-events: none;
+  
+  /* Box Model declarations */
+  height: 100%;
+  width: 29px;
+  
+  /* Color declarations */
   background-color: var(--caret-background);
+  
+  /* Manipulations declarations */
   transform: translateY(-50%);
 
-  border-radius: var(--caret-border-radius);
-
+  /* Color declarations */
   /* White chevron down icon */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ========== Form field spacing ========== */
 
 /* Vertical spacing between form groups and form rows */
 
-.econ-form-group + .econ-form-group,
-.econ-fragment-form-row {
-  margin-top: var(--input-margin-between);
+.b99-style .econ-form-group + .econ-form-group,
+.b99-style .econ-fragment-form-row {
+  /* Box Model declarations */
   margin-bottom: calc(var(--input-margin-between) * 2);
+  margin-top: var(--input-margin-between);
+
+  /* Positioning declarations */
   position: relative;
 }
 
@@ -981,7 +1290,8 @@ body {
 
 /* Ensure form control outer takes full width when using col-10 */
 
-.econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
+.b99-style .econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
+  /* Box Model declarations */
   width: 100%;
 }
 
@@ -989,7 +1299,8 @@ body {
 
 /* Override external stylesheet's padding-bottom on form groups */
 
-form .econ-form-group.pb-3 {
+form.b99-style .econ-form-group.pb-3 {
+  /* Box Model declarations */
   padding-bottom: 0 !important;
 }
 
@@ -997,33 +1308,37 @@ form .econ-form-group.pb-3 {
 
 /* Radio label container */
 
-.econ-fragment-radio-group .econ-form-label {
+.b99-style .econ-fragment-radio-group .econ-form-label {
+  /* Display declarations */
   display: block;
+
+  /* Box Model declarations */
   padding: 0;
 }
 
-.econ-fragment-radio-group .econ-form-control-outer {
-  flex: 0 0 calc(100% - 43px);
+.b99-style .econ-fragment-radio-group .econ-form-control-outer {
+  /* Display declarations */
+  flex: 0 0 calc(100% - var(--spacing-43));
 }
 
-/* .econ-fragment-radio-group .input-group.row {
-  display: block;
-  position: relative;
-  width: calc(100% - 43px);
-} */
-
-.econ-fragment-radio-group .col-10 > .row {
+.b99-style .econ-fragment-radio-group .col-10 > .row {
+  /* Display declarations */
   display: block;
 }
 
 /* Radio button container box - bordered box with padding */
 
-.econ-fragment-radio-group .econ-radio .col-6 {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6 {
+  /* Box Model declarations */
   box-sizing: border-box;
   border: var(--input-border-width) solid var(--input-border-color);
-  border-radius: var(--input-border-radius);
   padding: calc(var(--input-padding) * 2) var(--input-padding);
+  
+  /* Positioning declarations */
   position: relative; /* Required for label overlay positioning */
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
   cursor: pointer; /* Visual feedback that the whole box is clickable */
 }
 
@@ -1031,18 +1346,23 @@ form .econ-form-group.pb-3 {
 
 /* This makes the entire .col-6 box clickable via the label */
 
-.econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label {
+  /* Positioning declarations */
   position: static; /* Keep label in normal flow for text positioning */
 }
 
-.econ-fragment-radio-group .econ-radio .col-6:hover,
-.econ-fragment-radio-group .econ-radio .col-6:focus {
-  border-color: transparent
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:hover,
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:focus {
+  /* Box Model declarations */
+  border-color: transparent;
 }
 
-.econ-fragment-radio-group .econ-radio .col-6:hover .econ-radio-label::after,
-.econ-fragment-radio-group .econ-radio .col-6:focus .econ-radio-label::after {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:hover .econ-radio-label::after,
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:focus .econ-radio-label::after {
+  /* Box Model declarations */
   border: var(--input-border-width) solid var(--color-primary);
+
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
 }
 
@@ -1050,22 +1370,33 @@ form .econ-form-group.pb-3 {
 
 /* Uses ::after pseudo-element to extend label's clickable area */
 
-.econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label::after {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label::after {
+  /* Content declarations */
   content: "";
-  position: absolute;
+
+  /* Positioning declarations */
   inset: 0; /* Covers entire parent (top: 0, right: 0, bottom: 0, left: 0) */
+  position: absolute;
+
+  /* Miscellaneous declarations */
   cursor: pointer;
 }
 
 /* Active/selected state - visual feedback for selected radio option */
 
-.econ-fragment-radio-group .econ-radio .col-6.econ-radio--active {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active {
+  /* Color declarations */
   background-color: var(--color-background);
+
+  /* Box Model declarations */
   border-color: var(--input-border-color-focus);
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
 
-.econ-fragment-radio-group > .econ-form-group {
+.b99-style .econ-fragment-radio-group > .econ-form-group {
+  /* Positioning declarations */
   position: relative;
 }
 
@@ -1073,60 +1404,80 @@ form .econ-form-group.pb-3 {
 
 /* Checkbox label container */
 
-.econ-checkbox-label {
+.b99-style .econ-checkbox-label {
+  /* Display declarations */
   display: block;
 }
 
 /* Paragraph text within checkbox labels */
 
-.econ-checkbox-label p {
+.b99-style .econ-checkbox-label p {
+  /* Typography declarations */
   font-size: var(--font-size-12);
 }
 
 /* Second paragraph - truncated with fade effect for long text */
 
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2) {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2) {
+  /* Positioning declarations */
   position: relative;
+
+  /* Typography declarations */
+  line-height: var(--line-height-relaxed);
+  
+  /* Manipulations declarations */
   max-height: 3.75em; /* ~2.5 lines at 1.5em line-height */
-  line-height: 1.5em;
   overflow: hidden;
 }
 
 /* Fade gradient overlay at bottom of truncated paragraph */
 
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2)::after {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2)::after {
+  /* Content declarations */
   content: '';
-  position: absolute;
+
+  /* Positioning declarations */
   bottom: 0;
   left: 0;
+  position: absolute;
   right: 0;
+
+  /* Box Model declarations */
   height: 3.5em;
+
+  /* Color declarations */
   background: linear-gradient(180deg, transparent 0%, var(--color-gradient-end) 100%);
+
+  /* Miscellaneous declarations */
   pointer-events: none;
 }
 
 /* Hide third paragraph initially (shown via JS when expanded) */
 
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3) {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3) {
+  /* Display declarations */
   display: none;
 }
 
 /* When expanded, remove restrictions */
 
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded {
+  /* Manipulations declarations */
   max-height: none !important;
   overflow: visible !important;
 }
 
 /* Remove fade when expanded */
 
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded::after {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded::after {
+  /* Display declarations */
   display: none !important;
 }
 
 /* Show third paragraph when visible class is added */
 
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3).visible {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3).visible {
+  /* Display declarations */
   display: block !important;
 }
 
@@ -1134,66 +1485,91 @@ form .econ-form-group.pb-3 {
 
 /* Valid checkbox label text color */
 
-.econ-container .form-check-input.is-valid~.form-check-label {
+.econ-container .b99-style .form-check-input.is-valid~.form-check-label {
+  /* Color declarations */
   color: var(--color-text);
 }
 
 /* Base checkbox input styles - fixed 25x25px size */
 
-.econ-container .form-check-input {
-  width: 1.5625rem; /* 25px */
-  height: 1.5625rem; /* 25px */
-  min-width: 1.5625rem; /* prevent shrinking in flex containers */
-  flex-shrink: 0;
-  margin-top: 0;
-  vertical-align: top;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.econ-container .b99-style .form-check-input {
+  /* Box Model declarations */
   border: var(--input-border-width) solid var(--color-text);
+  height: 1.5625rem; /* 25px */
+  margin-top: 0;
+  width: 1.5625rem; /* 25px */
+  
+  /* Manipulations declarations */
+  min-width: 1.5625rem; /* prevent shrinking in flex containers */
+  
+  /* Display declarations */
+  flex-shrink: 0;
+  
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
+  -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+  vertical-align: top;
+
+  /* Color declarations */
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  /* Display declarations */
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
 }
 
 /* Reset Bootstrap's float and margin */
 
-.econ-container .form-check .form-check-input {
+.econ-container .b99-style .form-check .form-check-input {
+  /* Positioning declarations */
   float: unset;
+
+  /* Box Model declarations */
   margin-left: 0;
+
+  /* Positioning declarations */
   vertical-align: middle;
 }
 
 /* Valid checkbox border color */
 
-.econ-container .form-check-input.is-valid {
+.econ-container .b99-style .form-check-input.is-valid {
+  /* Box Model declarations */
   border-color: var(--color-text);
 }
 
-.econ-container .form-check-input:checked,
-.econ-container .form-check-input.is-valid:checked {
+.econ-container .b99-style .form-check-input:checked,
+.econ-container .b99-style .form-check-input.is-valid:checked {
+  /* Color declarations */
   background-color: var(--color-primary);
-  border-color: var(--input-border-color-focus);
   color: var(--color-text);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+
+  /* Box Model declarations */
+  border-color: var(--input-border-color-focus);
 }
 
 /* Checkbox border radius */
 
-.econ-container .form-check-input[type=checkbox] {
+.econ-container .b99-style .form-check-input[type=checkbox] {
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
 }
 
 /* Checkbox focus state */
 
-.econ-container .form-check-input:focus,
-.econ-container .form-check-input:hover {
+.econ-container .b99-style .form-check-input:focus,
+.econ-container .b99-style .form-check-input:hover {
+  /* Box Model declarations */
   border-color: var(--color-primary);
   outline: 0;
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
 
@@ -1207,7 +1583,8 @@ form .econ-form-group.pb-3 {
 
 /* Horizontal padding for form content (left and right margins) */
 
-.econ-container form {
+.econ-container form.b99-style {
+  /* Box Model declarations */
   padding-left: var(--form-margin-horizontal);
   padding-right: var(--form-margin-horizontal);
 }
@@ -1221,60 +1598,84 @@ form .econ-form-group.pb-3 {
 @supports selector(:has(h3)) {
   /* Section header bar - yellow background with shadow */
   /* Apply yellow styles to ALL headers with h3 by default */
-  .econ-section-header:has(h3) {
+  .b99-style .econ-section-header:has(h3) {
+    /* Color declarations */
     background-color: var(--color-primary);
-    box-shadow: var(--shadow-default);
+    
+    /* Miscellaneous declarations */
     border-radius: var(--form-section-header-radius);
-    /* margin-top: var(--form-section-header-margin-top); */
+    box-shadow: var(--shadow-default);
+
+    /* Box Model declarations */
     margin-bottom: var(--form-section-header-margin-bottom);
     /* Negative margin to extend header to form edges, accounting for Bootstrap gutter */
     margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
-    padding-top: var(--form-section-header-padding-top);
     padding-bottom: var(--form-section-header-padding-bottom);
+    padding-top: var(--form-section-header-padding-top);
   }
   
   /* Section header title text styling */
-  .econ-section-header h3 {
-    font-size: var(--font-size-18);
+  .b99-style .econ-section-header h3 {
+    /* Typography declarations */
     font-family: var(--font-family);
-    color: var(--color-text);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-bold);
-    letter-spacing: 0;
-    line-height: 1;
+    letter-spacing: var(--letter-spacing-default);
+    line-height: var(--line-height-tight);
     text-align: center;
+    
+    /* Color declarations */
+    color: var(--color-text);
+    
+    /* Box Model declarations */
     margin: 0;
   }
 
   /* Collapse headers in page-rechtliches get white background styles (except the first one) */
   /* This overrides the yellow styles for collapse headers ONLY in page-rechtliches pages */
-  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3) {
+  .page-rechtliches.b99-style .econ-section-header.econ-collapse-header:has(h3) {
+    /* Color declarations */
     background-color: var(--color-background);
+
+    /* Box Model declarations */
     margin-inline: 0;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    -moz-column-gap: 8px;
-         column-gap: 8px;
-    padding: 16px 20px;
+    padding: var(--spacing-16) var(--spacing-20);
+
+    /* Miscellaneous declarations */
+    border-radius: var(--border-radius-sm);
     box-shadow: none; /* Remove shadow for collapse headers */
+
+    /* Display declarations */
+    align-items: center;
+    -moz-column-gap: var(--spacing-8);
+         column-gap: var(--spacing-8);
+    display: flex;
   }
 
-  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3) span {
+  .page-rechtliches.b99-style .econ-section-header.econ-collapse-header:has(h3) span {
+    /* Miscellaneous declarations */
     cursor: pointer;
   }
   
   /* First collapse header in recap page - keep yellow styles */
   /* This overrides the white styles back to yellow for the first header */
-  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3) {
+  .page-rechtliches.b99-style section.page-header .econ-section-header.econ-collapse-header:has(h3) {
+    /* Color declarations */
     background-color: var(--color-primary);
+
+    /* Miscellaneous declarations */
     box-shadow: var(--shadow-default);
     border-radius: var(--form-section-header-radius);
+    cursor: auto;
+
+    /* Box Model declarations */
     margin-bottom: var(--form-section-header-margin-bottom);
     margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
-    padding-top: var(--form-section-header-padding-top);
     padding-bottom: var(--form-section-header-padding-bottom);
+    padding-top: var(--form-section-header-padding-top);
+    
+    /* Display declarations */
     display: block; /* Override flex from collapse header styles */
-    cursor: auto;
   }
   
   /* Collapse headers on pages WITHOUT page-rechtliches class keep yellow styles */
@@ -1283,58 +1684,80 @@ form .econ-form-group.pb-3 {
   /* No additional rule needed - the base rule handles it */
   
   /* Chevron icon - only on collapse headers in page-rechtliches pages (except the first one) */
-  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3)::before {
+  .page-rechtliches.b99-style .econ-section-header.econ-collapse-header:has(h3)::before {
+    /* Content declarations */
     content: '';
+
+    /* Display declarations */
     display: block;
-    width: 15px;
-    height: 10px;
     flex-shrink: 0;
+
+    /* Box Model declarations */
+    height: 10px;
+    width: 15px;  
+
+    /* Color declarations */
     background-image: url("data:image/svg+xml,%3Csvg width='15' height='10' viewBox='0 0 15 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 2.26316L7.10526 9.39474L14.2368 2.26316L11.9737 0L7.10526 4.86842L2.26316 0L0 2.26316Z' fill='black'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
   }
   
   /* Hide the chevron icon on the first collapse header in recap page */
-  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3)::before {
+  .page-rechtliches.b99-style section.page-header .econ-section-header.econ-collapse-header:has(h3)::before {
+    /* Display declarations */
     display: none;
   }
   
   /* Collapsible section content - smooth expand/collapse animation */
   /* Base state - always has transition for smooth animations */
-  .page-rechtliches .econ-section-content {
+  .page-rechtliches.b99-style .econ-section-content {
+    /* Manipulations declarations */
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: max-height var(--transition-default), opacity var(--transition-default);
   }
   
   /* Collapsed state - hidden */
-  .page-rechtliches .econ-section-content.collapse {
+  .page-rechtliches.b99-style .econ-section-content.collapse {
+    /* Box Model declarations */
     max-height: 0;
+
+    /* Color declarations */
     opacity: 0;
   }
   
   /* Expanded state - visible */
-  .page-rechtliches .econ-section-content.collapse.show {
-    max-height: 2000px; /* Large enough for most content */
+  .page-rechtliches.b99-style .econ-section-content.collapse.show {
+    /* Manipulations declarations */
+    max-height: var(--collapse-max-height);
+
+    /* Color declarations */
     opacity: 1;
   }
   
   /* Collapsing state - intermediate state during animation */
   /* This is the key: collapsing state maintains transition and animates properly */
-  .page-rechtliches .econ-section-content.collapsing {
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  .page-rechtliches.b99-style .econ-section-content.collapsing {
+    /* Manipulations declarations */
     overflow: hidden;
+    transition: max-height var(--transition-default), opacity var(--transition-default);
   }
   
   /* When collapsing (closing), animate to collapsed state */
-  .page-rechtliches .econ-section-content.collapsing:not(.show) {
+  .page-rechtliches.b99-style .econ-section-content.collapsing:not(.show) {
+    /* Manipulations declarations */
     max-height: 0;
+
+    /* Color declarations */
     opacity: 0;
   }
   
   /* When collapsing (opening), animate to expanded state */
-  .page-rechtliches .econ-section-content.collapsing.show {
-    max-height: 2000px;
+  .page-rechtliches.b99-style .econ-section-content.collapsing.show {
+    /* Manipulations declarations */
+    max-height: var(--collapse-max-height);
+
+    /* Color declarations */
     opacity: 1;
   }
 
@@ -1344,9 +1767,14 @@ form .econ-form-group.pb-3 {
 
 /* Paragraph text within fragment content rows */
 
-.econ-fragment-content-row p {
+.b99-style .econ-fragment-content-row p {
+  /* Typography declarations */
   font-size: var(--font-size-12);
+
+  /* Box Model declarations */
   margin-left: calc(var(--bs-gutter-x) * .5);
+
+  /* Manipulations declarations */
   max-width: 80%;
 }
 
@@ -1354,25 +1782,35 @@ form .econ-form-group.pb-3 {
 
 /* Sections with bottom separation line get extra margin */
 
-.econ-section.with-bottom-separation-line {
-  margin-bottom: 38px;
+.b99-style .econ-section.with-bottom-separation-line {
+  /* Box Model declarations */
+  margin-bottom: var(--spacing-38);
 }
 
-.econ-fragment-multiple.econ-fragment-checkbox .econ-form-control-outer {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .econ-form-control-outer {
+  /* Color declarations */
   background-color: var(--color-background);
+
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius) !important;
-  padding: calc(var(--form-margin-horizontal) / 2) var(--form-margin-horizontal);
+
+  /* Box Model declarations */
   margin-top: calc(var(--form-margin-horizontal) / 2);
+  padding: calc(var(--form-margin-horizontal) / 2) var(--form-margin-horizontal);
 }
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
+
+  /* Box Model declarations */
+  padding: var(--spacing-8) 0;
 }
 
-.econ-fragment-multiple.econ-fragment-checkbox .econ-control-icon {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
@@ -1387,12 +1825,14 @@ form .econ-form-group.pb-3 {
 @media (min-width: 576px) {
   @supports selector(:has(h3)) {
     /* Section header bar - yellow background with shadow */
-    .econ-section-header:has(h3) {
+    .b99-style .econ-section-header:has(h3) {
+      /* Box Model declarations */
       margin-inline: 0;
     }
   }
 
-  .econ-container form {
+  .econ-container form.b99-style {
+    /* Box Model declarations */
     padding-left: 0;
     padding-right: 0;
   }
@@ -1410,25 +1850,35 @@ form .econ-form-group.pb-3 {
 
 /* Hidden by default, shown via JS when loading */
 
-.econ-container .econ-fragment-form-row .econ-spinner{
+.econ-container .b99-style .econ-fragment-form-row .econ-spinner {
+  /* Display declarations */
   display: none;
-  right: 2rem;
+
+  /* Positioning declarations */
+  position: absolute;
+  right: calc(var(--spacing-16) * 2);
   top: 50%;
   transform: translateY(-50%);
-  position: absolute;
 }
 
 /* ========== Spinner base styles ========== */
 
 /* Common styles for both spinner types (grow and border) */
 
-.econ-container .spinner-grow, 
-.econ-container .spinner-border {
+.econ-container .b99-style .spinner-grow, 
+.econ-container .b99-style .spinner-border {
+  /* Display declarations */
   display: inline-block;
-  width: var(--bs-spinner-width);
+
+  /* Box Model declarations */
   height: var(--bs-spinner-height);
+  width: var(--bs-spinner-width);
+
+  /* Miscellaneous declarations */
   vertical-align: var(--bs-spinner-vertical-align);
-  border-radius: 50%;
+  border-radius: var(--border-radius-full);
+
+  /* Manipulations declarations */
   animation: var(--bs-spinner-animation-speed) linear infinite var(--bs-spinner-animation-name);
 }
 
@@ -1436,7 +1886,8 @@ form .econ-form-group.pb-3 {
 
 /* Spinning border effect - border on three sides, transparent on right */
 
-.econ-container .spinner-border {
+.econ-container .b99-style .spinner-border {
+  /* Box Model declarations */
   border: var(--bs-spinner-border-width) solid currentcolor;
   border-right-color: transparent;
 }
@@ -1452,19 +1903,28 @@ form .econ-form-group.pb-3 {
 
 /* Visibility controlled via inline style (display:none) and opacity */
 
-.econ-sliding-tooltip.econ-tooltip {
+.b99-style .econ-sliding-tooltip.econ-tooltip {
+  /* Positioning declarations */
   position: absolute;
+  z-index: var(--z-index-tooltip);
+
+  /* Color declarations */
   background: var(--color-background);
-  border: 2px solid var(--color-text);
-  border-radius: 10px;
-  padding: 12px;
+
+  /* Box Model declarations */
+  border: var(--input-border-width) solid var(--color-text);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-12);
+
+  /* Miscellaneous declarations */
   box-shadow: var(--shadow-default);
-  z-index: 1000;
+  
+  /* Manipulations declarations */
   /* Hidden state - transparent and slightly offset upward */
   opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 0.3s ease;
   pointer-events: none;
+  transform: translateY(calc(var(--spacing-10) * -1));
+  transition: opacity var(--transition-default);
 }
 
 /* ========== Tooltip visible state ========== */
@@ -1473,17 +1933,19 @@ form .econ-form-group.pb-3 {
 
 /* Uses attribute selector to detect when inline style is removed */
 
-.econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
+.b99-style .econ-sliding-tooltip.econ-tooltip:not([style*="display: none"]):not([style*="display:none"]) {
+  /* Manipulations declarations */
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* ========== Tooltip content ========== */
 
 /* Remove default paragraph margins within tooltip content */
 
-.econ-tooltip-info p {
+.b99-style .econ-tooltip-info p {
+  /* Box Model declarations */
   margin: 0;
 }
 
@@ -1493,75 +1955,129 @@ form .econ-form-group.pb-3 {
  */
 
 .alert {
-padding: var(--input-padding);
-border: var(--input-border-width) solid currentColor;
-border-radius: var(--input-border-radius);
-margin-bottom: var(--form-margin-horizontal);
+  /* Box Model declarations */
+  border: var(--input-border-width) solid currentColor;
+  margin-bottom: var(--form-margin-horizontal);
+  padding: var(--input-padding);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
 }
 
 .alert-danger {
-border-color: var(--color-error);
-background-color: var(--color-error-10);
+  /* Color declarations */
+  background-color: var(--color-error-10);
+  border-color: var(--color-error);
 }
 
 .alert .feedback-hint {
+  /* Box Model declarations */
   margin-bottom: var(--input-padding);
 }
 
 .alert .field-feedback-message {
+  /* Typography declarations */
   font-weight: var(--font-weight-bold);
-  padding-left: calc(var(--input-padding));
+
+  /* Box Model declarations */
   margin-bottom: calc(var(--input-padding) / 2);
+  padding-left: calc(var(--input-padding));
+  
+  /* Positioning declarations */
   position: relative;
 }
 
 .alert .field-feedback-message::before {
+  /* Content declarations */
   content: ""; /* The content property is mandatory for the pseudo-element to render */
+  
+  /* Display declarations */
   display: inline-block; /* Allows width/height to be applied, unlike default inline */
-  width: 8px;
-  height: 8px;
-  background-color: var(--color-error); /* Blue background for the circle */
-  border-radius: 50%; /* This makes the square element a circle */
-  margin-right: calc(var(--input-padding) / 2); /* Space between the circle and the text */
-  vertical-align: middle; /* Aligns the circle vertically with the text */
+
+  /* Box Model declarations */
+  height: var(--spacing-8);
+  margin-right: calc(var(--input-padding) / 2);
+  width: var(--spacing-8);
+  
+  /* Color declarations */
+  background-color: var(--color-error);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
+
+  /* Positioning declarations */
+  vertical-align: middle;
 }
 
 /**
- * Icon styles
+ * Card component styles
+ * Promo cards and card-based UI elements
  * Uses design tokens – requires design-system.css
+ * 
+ * Structure:
+ * - Promo card container
+ * - Card divider
+ * - Card title and list
+ * - Card icon positioning
  */
 
-#econ-container .b99-promo-card {
+/* ========== Promo card container ========== */
+
+#econ-container .b99-style .b99-promo-card {
+  /* Miscellaneous declarations */
   border-radius: var(--card-border-radius);
-  padding: 0;
-  margin-top: var(--card-margin-top);
+  
+  /* Box Model declarations */
   margin-bottom: var(--card-margin-bottom);
+  margin-top: var(--card-margin-top);
+  padding: 0;
 }
 
-#econ-container .b99-promo-card__card {
+/* ========== Card inner content ========== */
+
+#econ-container .b99-style .b99-promo-card__card {
+  /* Miscellaneous declarations */
   box-shadow: inset 0 0 0 3px var(--color-primary);
+
+  /* Box Model declarations */
   padding: var(--card-vertical-padding) var(--card-horizontal-padding) calc(var(--card-vertical-padding) * 2);
 }
 
-#econ-container .b99-promo-card__divider {
+/* ========== Card divider ========== */
+
+#econ-container .b99-style .b99-promo-card__divider {
+  /* Color declarations */
   background: var(--color-background);
-  margin: 8px 0 16px 0;
-  margin-inline: -8px;
+
+  /* Box Model declarations */
+  margin: var(--spacing-8) 0 var(--spacing-16) 0;
+  margin-inline: calc(var(--spacing-8) * -1);
 }
 
-#econ-container .b99-promo-card__title {
+/* ========== Card title ========== */
+
+#econ-container .b99-style .b99-promo-card__title {
+  /* Typography declarations */
   font-size: var(--font-size-16) !important;
 }
 
-#econ-container .b99-promo-card__list {
+/* ========== Card list ========== */
+
+#econ-container .b99-style .b99-promo-card__list {
+  /* Typography declarations */
   font-size: var(--font-size-12);
-  line-height: 20px;
+  line-height: var(--line-height-20);
+
+  /* Box Model declarations */
   margin: 0;
 }
 
-#econ-container .b99-promo-card__icon {
+/* ========== Card icon ========== */
+
+#econ-container .b99-style .b99-promo-card__icon {
+  /* Positioning declarations */
   position: absolute;
-  right: 16px;
+  right: var(--spacing-16);
 }
 
 /**
@@ -1574,38 +2090,54 @@ background-color: var(--color-error-10);
 
 /* Product comparison table - responsive with highlighted column */
 
-.table-produktauswahl {
-  width: 100%;
-  font-size: var(--table-font-size);
-  font-family: var(--font-family);
-  color: var(--color-text);
+.b99-style .table-produktauswahl {
+  /* Box Model declarations */
   border-collapse: separate;
   border-spacing: 0 var(--table-row-gap);
-  border-radius: var(--table-border-radius);
+  width: 100%;
+
+  /* Typography declarations */
+  font-size: var(--table-font-size);
+  font-family: var(--font-family);
+
+  /* Color declarations */
   background-color: var(--color-background-40);
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--table-border-radius);
 }
 
 /* ========== Table header ========== */
 
 /* Header row with larger font and bold text */
 
-.table-produktauswahl thead {
+.b99-style .table-produktauswahl thead {
+  /* Typography declarations */
   font-size: var(--table-header-font-size);
   font-weight: var(--font-weight-bold);
 }
 
 /* Header cells */
 
-.table-produktauswahl thead td {
+.b99-style .table-produktauswahl thead td {
+  /* Box Model declarations */
   padding: var(--table-cell-padding);
+
+  /* Typography declarations */
   text-align: center;
+
+  /* Positioning declarations */
   vertical-align: middle;
 }
 
 /* Highlighted column header (depot99) - full opacity yellow with top border radius */
 
-.table-produktauswahl thead td:nth-child(3) {
+.b99-style .table-produktauswahl thead td:nth-child(3) {
+  /* Color declarations */
   background-color: var(--table-highlight-bg);
+
+  /* Miscellaneous declarations */
   border-radius: var(--table-border-radius) var(--table-border-radius) 0 0;
 }
 
@@ -1613,33 +2145,40 @@ background-color: var(--color-error-10);
 
 /* Body cells */
 
-.table-produktauswahl tbody td {
+.b99-style .table-produktauswahl tbody td {
+  /* Box Model declarations */
   padding: var(--table-cell-padding);
+
+  /* Positioning declarations */
   vertical-align: top;
 }
 
 /* First column (labels) - left aligned */
 
-.table-produktauswahl tbody td:first-child {
+.b99-style .table-produktauswahl tbody td:first-child {
+  /* Typography declarations */
   text-align: left;
 }
 
 /* Data columns - center aligned */
 
-.table-produktauswahl tbody td:nth-child(2),
-.table-produktauswahl tbody td:nth-child(3) {
+.b99-style .table-produktauswahl tbody td:nth-child(2),
+.b99-style .table-produktauswahl tbody td:nth-child(3) {
+  /* Typography declarations */
   text-align: center;
 }
 
 /* Highlighted column body cells (depot99) - 45% opacity yellow */
 
-.table-produktauswahl tbody td:nth-child(3) {
+.b99-style .table-produktauswahl tbody td:nth-child(3) {
+  /* Color declarations */
   background-color: var(--table-highlight-bg-opacity);
 }
 
 /* Last row - add bottom border radius to highlighted column */
 
-.table-produktauswahl tbody tr:last-child td:nth-child(3) {
+.b99-style .table-produktauswahl tbody tr:last-child td:nth-child(3) {
+  /* Miscellaneous declarations */
   border-radius: 0 0 var(--table-border-radius) var(--table-border-radius);
 }
 
@@ -1647,7 +2186,8 @@ background-color: var(--color-error-10);
 
 /* Bold tags within table cells */
 
-.table-produktauswahl b {
+.b99-style .table-produktauswahl b {
+  /* Typography declarations */
   font-weight: var(--font-weight-bold);
 }
 
@@ -1657,7 +2197,8 @@ background-color: var(--color-error-10);
 
 /* This targets the static module container that wraps the table */
 
-.econ-fragment-static-module:has(.table-produktauswahl) {
+.b99-style .econ-fragment-static-module:has(.table-produktauswahl) {
+  /* Manipulations declarations */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -1671,50 +2212,62 @@ background-color: var(--color-error-10);
 @media (max-width: 576px) {
 
   /* Reduce font size and padding on mobile */
-  .table-produktauswahl {
-    font-size: 10px;
+  .b99-style .table-produktauswahl {
+    /* Typography declarations */
+    font-size: var(--spacing-10);
   }
 
-  .table-produktauswahl thead {
+  .b99-style .table-produktauswahl thead {
+    /* Typography declarations */
     font-size: var(--font-size-12);
   }
 
-  .table-produktauswahl thead td,
-  .table-produktauswahl tbody td {
+  .b99-style .table-produktauswahl thead td,
+  .b99-style .table-produktauswahl tbody td {
+    /* Box Model declarations */
     padding: calc(var(--table-cell-padding) / 2);
   }
 
 
 
   /* Make table rows flex containers */
-  .table-produktauswahl thead tr,
-  .table-produktauswahl tbody tr {
+  .b99-style .table-produktauswahl thead tr,
+  .b99-style .table-produktauswahl tbody tr {
+    /* Display declarations */
     display: flex;
   }
   
   /* All cells take equal width by default */
-  .table-produktauswahl thead td,
-  .table-produktauswahl tbody td {
+  .b99-style .table-produktauswahl thead td,
+  .b99-style .table-produktauswahl tbody td {
+    /* Display declarations */
     flex: 1;
+
+    /* Manipulations declarations */
     min-width: 0; /* Allow cells to shrink below content size */
   }
   
   /* First column (labels) - stays on the left, slightly wider */
-  .table-produktauswahl thead td:nth-child(1),
-  .table-produktauswahl tbody td:nth-child(1) {
+  .b99-style .table-produktauswahl thead td:nth-child(1),
+  .b99-style .table-produktauswahl tbody td:nth-child(1) {
+    /* Positioning declarations */
     order: 1;
+
+    /* Display flex */
     flex: 1.2;
   }
   
   /* Second column (aktuelles Modell/Fondsdepot99) - moves to the right */
-  .table-produktauswahl thead td:nth-child(2),
-  .table-produktauswahl tbody td:nth-child(2) {
+  .b99-style .table-produktauswahl thead td:nth-child(2),
+  .b99-style .table-produktauswahl tbody td:nth-child(2) {
+    /* Positioning declarations */
     order: 3;
   }
   
   /* Third column (depot99 - highlighted) - moves to the middle */
-  .table-produktauswahl thead td:nth-child(3),
-  .table-produktauswahl tbody td:nth-child(3) {
+  .b99-style .table-produktauswahl thead td:nth-child(3),
+  .b99-style .table-produktauswahl tbody td:nth-child(3) {
+    /* Positioning declarations */
     order: 2;
   }
 }
@@ -1732,15 +2285,26 @@ background-color: var(--color-error-10);
 /* Main header bar - dynamically injected into empty #header div by backend */
 
 .top-bar {
+  /* Miscellaneous declarations */
   all: unset;
+
+  /* Box Model declarations */
   box-sizing: border-box;
-  display: block;
-  padding-top: var(--header-padding-top);
   padding-bottom: var(--header-padding-bottom);
   padding-left: var(--header-padding-left);
   padding-right: var(--header-padding-right);
+  padding-top: var(--header-padding-top);
+
+  /* Display declarations */
+  display: block;
+  
+  /* Color declarations */
   background-color: var(--color-background-secondary-70);
+
+  /* Miscellaneous declarations */
   box-shadow: var(--header-shadow);
+
+  /* Positioning declarations */
   position: relative;
   z-index: 2;
 }
@@ -1750,11 +2314,12 @@ background-color: var(--color-error-10);
 /* CSS Grid layout: left column auto-sized (logos), right column flexible (titles/progress) */
 
 .top-bar > .row {
+  /* Display declarations */
+  align-items: start;
+  -moz-column-gap: var(--spacing-16);
+       column-gap: var(--spacing-16);
   display: grid;
   grid-template-columns: auto 1fr;
-  -moz-column-gap: 1rem;
-       column-gap: 1rem;
-  align-items: start;
 }
 
 /* ========== Content header (titles) ========== */
@@ -1762,42 +2327,60 @@ background-color: var(--color-error-10);
 /* Page title container - hidden by default, shown via JS when content loads */
 
 .content-header.content {
+  /* Color declarations */
   opacity: 0;
-  transition: opacity 0.3s ease;
+
+  /* Manipulations declarations */
+  transition: opacity var(--transition-default);
+  
+  /* Positioning declarations */
   grid-area: 2/2;
-  margin-top: -16px;
+
+  /* Box Model declarations */
+  margin-top: calc(var(--spacing-16) * -1);
 }
 
 .content-header > div:first-child {
+  /* Display declarations */
   display: none;
 }
 
 .page-content > .hr.hr-20,
 .page-content .b99-page-header {
+  /* Display declarations */
   display: none;
 }
 
 /* Visible state - applied via JS when content is ready */
 
 .content-header.content.content-header--visible {
+  /* Color declarations */
   opacity: 1;
 }
 
 /* Page title styling */
 
 .top-bar h1 {
+  /* Typography declarations */
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+
+  /* Color declarations */
   color: var(--color-text);
-  line-height: 1.2;
-  margin-bottom: 8px;
+
+  /* Box Model declarations */
+  margin-bottom: var(--spacing-8);
   margin-top: 0;
 }
 
 /* Subtitle/second line of title */
 
 .top-bar h1 span {
+  /* Typography declarations */
   font-weight: var(--font-weight-regular);
+
+  /* Display declarations */
   display: block;
 }
 
@@ -1806,13 +2389,24 @@ background-color: var(--color-error-10);
 /* Progress bar wrapper - provides space for shadow */
 
 .econ-container .progress {
+  /* Display declarations */
   display: flex;
+
+  /* Box Model declarations */
   height: var(--bs-progress-height);
+  padding-bottom: var(--spacing-2); /* Space for shadow */
+
+  /* Manipulations declarations */
   overflow: visible; /* Changed from hidden to allow shadow visibility */
+
+  /* Typography declarations */
   font-size: var(--font-size-12);
+
+  /* Color declarations */
   background-color: transparent;
-  border-radius: 4px;
-  padding-bottom: 2px; /* Space for shadow */
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-sm);
 }
 
 /* ========== Progress bar ========== */
@@ -1820,17 +2414,37 @@ background-color: var(--color-error-10);
 /* Progress bar fill - yellow bar with shadow */
 
 .econ-container .progress-bar {
+  /* Color declarations */
   background-color: var(--color-primary);
-  border-radius: 4px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
-  transition: width 0.6s ease;
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--spacing-2) var(--spacing-2) var(--spacing-2) rgba(0, 0, 0, 0.35);
+
+  /* Manipulations declarations */
+  overflow: hidden; /* Keep overflow hidden for content, shadow extends outside */
+  transition: width var(--transition-slow);
+
+  /* Display declarations */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden; /* Keep overflow hidden for content, shadow extends outside */
-  color: var(--color-text);
+  
+  /* Typography declarations */
   text-align: center;
   white-space: nowrap;
+}
+
+/* Progress bar percentage */
+
+.econ-container .progress-percentage {
+  /* Box Model declarations */
+  margin-left: var(--input-padding);
+
+  /* Typography declarations */
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
 }
 
 /* ========== Media queries ========== */
@@ -1844,9 +2458,12 @@ background-color: var(--color-error-10);
 @media (min-width: 576px) {
   /* Center page content with max-width constraint */
   .top-bar > .row {
-    max-width: 540px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    
+    /* Manipulations declarations */
+    max-width: 540px;
   }
 }
 
@@ -1855,9 +2472,12 @@ background-color: var(--color-error-10);
 @media (min-width: 768px) {
   /* Increase max-width for tablet screens */
   .top-bar > .row {
-    max-width: 720px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+
+    /* Manipulations declarations */
+    max-width: 720px;
   }
 }
 
@@ -1866,9 +2486,12 @@ background-color: var(--color-error-10);
 @media (min-width: 992px) {
   /* Increase max-width for desktop screens */
   .top-bar > .row {
-    max-width: 960px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    
+    /* Manipulations declarations */
+    max-width: 960px;
   }
 }
 
@@ -1877,9 +2500,13 @@ background-color: var(--color-error-10);
 @media (min-width: 1200px) {
   /* Increase max-width for large desktop screens */
   .top-bar > .row {
-    max-width: 1140px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+
+    /* Manipulations declarations */
+    max-width: 1140px;
+    
   }
 }
 
@@ -1888,9 +2515,12 @@ background-color: var(--color-error-10);
 @media (min-width: 1400px) {
   /* Maximum width for very large screens */
   .top-bar > .row {
-    max-width: 1320px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+
+    /* Manipulations declarations */
+    max-width: 1320px;
   }
 }
 
@@ -1904,7 +2534,8 @@ background-color: var(--color-error-10);
 
 /* Negative margin to extend footer to form edges, accounting for Bootstrap gutter and form margin */
 
-.econ-fragment.econ-fragment-button-row{
+.b99-style .econ-fragment.econ-fragment-button-row{
+  /* Box Model declarations */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal) + var(--header-padding-left));
   ;
 }
@@ -1913,29 +2544,37 @@ background-color: var(--color-error-10);
 
 /* Base styles for footer button bar */
 
-.econ-button-bar.b99-page-nav-btns {
-  padding: 0 var(--footer-padding-horizontal);
+/***** DUPLICATED DECLARATION - REVIEW REQUIRED *****/
+
+/* Note: This selector is also defined in buttons.css */
+
+.b99-style .econ-button-bar.b99-page-nav-btns {
+  /* Box Model declarations */
   margin-bottom: var(--footer-margin-bottom);
+  padding: 0 var(--footer-padding-horizontal);
 }
 
 /* ========== Bootstrap row override ========== */
 
 /* Reset Bootstrap row styles and apply flexbox layout for button alignment */
 
-.econ-button-bar.b99-page-nav-btns.row {
+.b99-style .econ-button-bar.b99-page-nav-btns.row {
+  /* Box Model declarations */
+  margin-bottom: 0 !important;
   margin-left: 0;
   margin-right: 0;
-  padding-bottom: 26px;
-  padding-top: 16px;
+  padding-bottom: var(--footer-margin-bottom);
   padding-left: 0;
   padding-right: 0;
-  display: flex;
+  padding-top: var(--spacing-16);
+  
+  /* Display declarations */
   align-items: center;
+  display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   -moz-column-gap: 0;
        column-gap: 0;
-  margin-bottom: 0 !important;
 }
 
 /* ========== Media queries ========== */
@@ -1948,16 +2587,18 @@ background-color: var(--color-error-10);
 
 @media (min-width: 576px) {
   /* Center page content with max-width constraint */
-  .econ-fragment.econ-fragment-button-row {
+  .b99-style .econ-fragment.econ-fragment-button-row {
+    /* Box Model declarations */
     margin-inline: 0;
   }
 }
 
 @media (min-width: 992px) {
-  .econ-fragment.econ-fragment-button-row {
-    width: 84%;
-    margin-right: auto;
+  .b99-style .econ-fragment.econ-fragment-button-row {
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    width: 84%;
   }
 }
 
@@ -1965,7 +2606,22 @@ background-color: var(--color-error-10);
 
 /**
  * Neukunde (New Customer) process-specific styles
- * Styles specific to the new customer registration flow
+ * Entry point for new customer registration flow styles
+ * Uses design tokens – requires design-system.css
+ * 
+ * Structure:
+ * - form-controls.css: Email confirmation, radio buttons, input customizations
+ * - documents-section.css: Info boxes and document section styling
+ * - file-upload.css: File drop area and upload button styles
+ * - add-more-buttons.css: "Add more" button transformations
+ * - rechtliches-checkboxes.css: Legal page checkbox layout
+ */
+
+/* ========== Module imports ========== */
+
+/**
+ * Neukunde form control styles
+ * Specific form field customizations for the new customer registration flow
  * Uses design tokens – requires design-system.css
  */
 
@@ -1975,14 +2631,16 @@ background-color: var(--color-error-10);
 
 /* Target the first .econ-fragment that contains .depot-email-confirmation-box */
 
-.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box):first-of-type .depot-email-confirmation-box,
-.depot-email-confirmation-box {
-  margin-top: 100px;
+.b99-style .econ-section-content > .econ-fragment:has(.depot-email-confirmation-box):first-of-type .depot-email-confirmation-box,
+.b99-style .depot-email-confirmation-box {
+  /* Box Model declarations */
+  margin-top: var(--spacing-100);
 }
 
 /* Reset margin for subsequent fragments containing depot-email-confirmation-box */
 
-.econ-section-content > .econ-fragment:has(.depot-email-confirmation-box) ~ .econ-fragment:has(.depot-email-confirmation-box) .depot-email-confirmation-box {
+.b99-style .econ-section-content > .econ-fragment:has(.depot-email-confirmation-box) ~ .econ-fragment:has(.depot-email-confirmation-box) .depot-email-confirmation-box {
+  /* Box Model declarations */
   margin-top: 0 !important;
 }
 
@@ -1990,23 +2648,26 @@ background-color: var(--color-error-10);
 
 /* Negative margin to extend checkbox to form edge */
 
-.depot-email-confirmation-box .form-check {
-  display: flex;
+.b99-style .depot-email-confirmation-box .form-check {
+  /* Display declarations */
   align-items: flex-start;
-  -moz-column-gap: 8px;
-       column-gap: 8px;
-  
-  padding-left: 0;
+  display: flex;
+
+  /* Box Model declarations */
+  -moz-column-gap: var(--spacing-8);
+       column-gap: var(--spacing-8);
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: var(--spacing-8);
   min-height: unset;
+  padding-left: 0;
 }
 
 /* ========== Titel field icon ========== */
 
 /* Hide icon button in Titel field (has two col-6 selects side by side) */
 
-.econ-form-control-outer:has(.col-6:first-child .econ-form-control-select):has(.col-6:nth-child(2) .econ-form-control-select) + .econ-control-icon {
+.b99-style .econ-form-control-outer:has(.col-6:first-child .econ-form-control-select):has(.col-6:nth-child(2) .econ-form-control-select) + .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
@@ -2016,250 +2677,440 @@ background-color: var(--color-error-10);
 
 /* Target radio group by data-econ-property attribute */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio.row {
+  /* Display declarations */
   flex-direction: column; /* Stack radio buttons vertically */
+
+  /* Box Model declarations */
   gap: var(--input-margin-between); /* Add spacing between stacked buttons */
 }
 
 /* Make each radio button take full width when stacked */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio .col-6 {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio .col-6 {
+  /* Display declarations */
   flex: 0 0 100%; /* Full width instead of 50% */
-  width: 100%;
+
+  /* Box Model declarations */
   max-width: 100%;
+  width: 100%;
 }
 
 /* Align label an input horizontally */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .radio  {
-  display: flex;
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .radio {
+  /* Display declarations */
   align-items: center;
-  gap: 8px;
+  display: flex;
+
+  /* Box Model declarations */
+  gap: var(--spacing-8);
   padding: 0;
 }
 
 /* Align info icon to top of first radio button */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
+  /* Positioning declarations */
   position: absolute;
-  top: 40px;
   right: 0;
+  top: var(--spacing-40);
 }
 
 /* USA Bezug radio buttons */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-control-icon {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-control-icon {
+  /* Positioning declarations */
   position: absolute;
-  top: 36px;
   right: 0;
+  top: 36px;
 }
 
-/* Sonstiges Einkünfte input group */
+/* ========== Sonstiges Einkünfte input group ========== */
 
-.econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-  position: absolute;
-  top: -64px;
-  left: 130px;
+.b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+  /* Box Model declarations */
   width: 45%;
+
+  /* Positioning declarations */
+  left: 130px;
+  position: absolute;
+  top: calc(var(--spacing-64) * -1);
 }
 
-.econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) .econ-control-icon {
+.b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
-/* ========== Documents section ========== */
+/* ========== Media queries ========== */
 
-.econ-section.abcschluss-info-box-fix {
+/* Small devices (landscape phones, 397px and up) */
+
+@media (min-width: 397px) {
+  .b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
+    /* Positioning declarations */
+    top: 30px;
+  }
+}
+
+@media (min-width: 420px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 50%;
+  }
+}
+
+@media (min-width: 500px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 60%;
+  }
+}
+
+@media (min-width: 600px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 65%;
+  }
+}
+
+@media (min-width: 768px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 73%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Monthly income input group */
+  .b99-style .econ-fragment-currency {
+    /* Box Model declarations */
+    margin-left: auto;
+    margin-right: auto;
+    width: 84%;
+  }
+
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 76%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 79%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 83%;
+  }
+}
+
+/**
+ * Documents section styles
+ * Info boxes and document-related section styling
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Info box section ========== */
+
+/* Yellow background info box that extends to screen edges */
+
+.b99-style .econ-section.abcschluss-info-box-fix {
+  /* Color declarations */
   background-color: var(--color-primary);
+
+  /* Box Model declarations */
   /* Negative margin to extend section to screen edges */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
   /* Add padding equal to removed margin so content aligns with other elements */
+  padding-bottom: 0;
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
-  padding-top: 16px;
-  padding-bottom: 0;
+  padding-top: var(--spacing-16);
 }
 
-.econ-section.abcschluss-info-box-fix p {
+/* ========== Info box typography ========== */
+
+.b99-style .econ-section.abcschluss-info-box-fix p {
+  /* Box Model declarations */
+  margin-left: 0;
+
+  /* Manipulations declarations */
+  max-width: 100%;
+
+  /* Typography declarations */
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-bold);
   text-align: center;
-  max-width: 100%;
-  margin-left: 0;
 }
 
-.econ-section.abcschluss-info-box-fix .col-12 {
+.b99-style .econ-section.abcschluss-info-box-fix .col-12 {
+  /* Typography declarations */
   font-size: var(--font-size-12);
-  line-height: 20px;
+  line-height: var(--line-height-20);
 }
 
-.econ-section.speichern-box h3 {
+/* ========== Speichern box ========== */
+
+.b99-style .econ-section.speichern-box h3 {
+  /* Typography declarations */
   font-size: var(--font-size-16);
 }
 
-.econ-section.speichern-box p {
+.b99-style .econ-section.speichern-box p {
+  /* Box Model declarations */
   margin-left: 0;
 }
 
-/* ========== File upload button ========== */
+/**
+ * File upload component styles
+ * Styles for file drop area, upload button, and file management
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== File drop area button ========== */
 
 /* Style the file drop area as a button with icon and text */
 
-.econ-file-drop-area {
-  /* Button appearance */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  
-  /* Dimensions and spacing */
-  padding: 10px 28px;
-  border-radius: 30px;
-  
-  /* Background with 90% opacity */
+.b99-style .econ-file-drop-area {
+  /* Color declarations */
   background-color: rgba(255, 255, 255, 0.9);
-  
-  /* Inside border using box-shadow */
-  box-shadow: inset 0 0 0 2px #000000;
-  
-  /* Cursor */
-  cursor: pointer;
-  
-  /* Position for pseudo-elements */
+
+  /* Display declarations */
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  gap: var(--spacing-8);
+
+  /* Box Model declarations */
+  box-shadow: inset 0 0 0 var(--input-border-width) var(--color-text);
+  padding: var(--spacing-10) var(--spacing-28);
+
+  /* Positioning declarations */
   position: relative;
+
+  /* Miscellaneous declarations */
+  /* Inside border using box-shadow */
+  border-radius: var(--btn-primary-border-radius);
+  cursor: pointer;
 }
 
-/* Hide original content */
+/* ========== Hide original content ========== */
 
-.econ-file-drop-area .econ-form-control,
-.econ-file-drop-area .econ-file-add-button,
-.econ-file-drop-area .econ-file-message {
+/* Hide default file input elements */
+
+.b99-style .econ-file-drop-area .econ-form-control,
+.b99-style .econ-file-drop-area .econ-file-add-button,
+.b99-style .econ-file-drop-area .econ-file-message {
+  /* Display declarations */
   display: none;
 }
 
+/* ========== Upload icon ========== */
+
 /* Upload icon via ::before pseudo-element */
 
-.econ-file-drop-area::before {
+.b99-style .econ-file-drop-area::before {
+  /* Content declarations */
   content: "";
+
+  /* Display declarations */
   display: inline-block;
-  width: 24px;
-  height: 24px;
+
+  /* Box Model declarations */
+  height: var(--icon-size-md);
+  width: var(--icon-size-md);
+
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.58257 5.58597H17.2352V6.56842H6.58257V5.58597ZM11.9159 7.41053L17.572 13.0246L16.9264 13.6982L12.4212 9.23509V18.8491H11.4387V9.23509L6.93345 13.6982L6.25977 13.0246L11.9159 7.41053Z' fill='black'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
   background-size: contain;
 }
 
-.econ-file-remove-button {
-  padding: 8px 16px;
-  border-radius: 30px;
+/* ========== Remove button ========== */
+
+/* Button to remove uploaded file */
+
+.b99-style .econ-file-remove-button {
+  /* Color declarations */
   background-color: var(--color-primary);
   color: var(--color-text);
+
+  /* Box Model declarations */
+  padding: var(--spacing-8) var(--spacing-16);
+
+  /* Typography declarations */
   font-size: var(--font-size-12);
   font-weight: var(--font-weight-bold);
-  transition: background-color 0.3s ease, color 0.3s ease;
+
+  /* Miscellaneous declarations */
+  border-radius: var(--btn-primary-border-radius);
+
+  /* Manipulations declarations */
+  transition: background-color var(--transition-default), color var(--transition-default);
 }
 
-.econ-file-remove-button:hover,
-.econ-file-remove-button:focus {
+.b99-style .econ-file-remove-button:hover,
+.b99-style .econ-file-remove-button:focus {
+  /* Color declarations */
   background-color: var(--color-text);
   color: var(--color-primary);
 }
 
+/* ========== Upload text ========== */
+
 /* "hochladen" text via ::after pseudo-element */
 
-.econ-file-drop-area::after {
+.b99-style .econ-file-drop-area::after {
+  /* Content declarations */
   content: "hochladen";
-  font-size: 14px;
-  font-weight: var(--font-weight-bold);
+
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Typography declarations */
   font-family: var(--font-family);
-  color: #000000;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
 }
 
-/* Hover state */
+/* ========== Hover state ========== */
 
-.econ-file-drop-area:hover {
+.b99-style .econ-file-drop-area:hover {
+  /* Color declarations */
   background-color: rgba(255, 255, 255, 1);
 }
 
+/* ========== Hidden file input ========== */
+
 /* Make the hidden file input cover the entire button for click handling */
 
-.econ-file-drop-area input[type="file"] {
+.b99-style .econ-file-drop-area input[type="file"] {
+  /* Display declarations */
   display: block !important;
+
+  /* Box Model declarations */
+  height: 100%;
+  width: 100%;
+
+  /* Positioning declarations */
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
   z-index: 1;
+
+  /* Miscellaneous declarations */
+  cursor: pointer;
+  opacity: 0;
 }
 
-/* File upload container - center the button */
+/* ========== File upload container ========== */
 
-.econ-form-control-file {
+/* Center the button */
+
+.b99-style .econ-form-control-file {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+
+  /* Box Model declarations */
   width: 100%;
 }
 
-.econ-fragment-file-input {
+.b99-style .econ-fragment-file-input {
+  /* Box Model declarations */
   margin-bottom: calc(var(--input-margin-between) + 1rem);
 }
 
+/* ========== Hidden elements ========== */
+
 /* Hide "Entfernen" button by default */
 
-.econ-fragment-file-input .form-label,
-.econ-file-remove-button {
+.b99-style .econ-fragment-file-input .form-label,
+.b99-style .econ-file-remove-button {
+  /* Display declarations */
   display: none;
 }
 
-.econ-fragment-file-input .row {
+.b99-style .econ-fragment-file-input .row {
+  /* Display declarations */
   justify-content: center;
 }
+
+/* ========== File selected state ========== */
 
 /* Show "Entfernen" button when file is uploaded (via JS adding a class) */
 
 /* The button will be shown when a file is selected - requires JS to add .has-file class */
 
-.econ-form-control-file.has-file .econ-file-remove-button {
+.b99-style .econ-form-control-file.has-file .econ-file-remove-button {
+  /* Display declarations */
   display: inline-block;
-  margin-top: 8px;
+
+  /* Box Model declarations */
+  margin-top: var(--spacing-8);
 }
 
-/* Filename display - shows the name of the uploaded file */
+/* ========== Filename display ========== */
 
-.econ-file-name {
+/* Shows the name of the uploaded file */
+
+.b99-style .econ-file-name {
+  /* Display declarations */
   display: block;
-  margin-top: 8px;
-  font-size: var(--font-size-12);
-  font-family: var(--font-family);
+
+  /* Box Model declarations */
+  margin-top: var(--spacing-8);
+  max-width: 100%;
+
+  /* Color declarations */
   color: var(--color-text);
+
+  /* Typography declarations */
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
   text-align: center;
   word-break: break-all; /* Handle long filenames */
-  max-width: 100%;
 }
 
 /* Hide filename when empty */
 
-.econ-file-name:empty {
+.b99-style .econ-file-name:empty {
+  /* Display declarations */
   display: none;
 }
 
 /* Hide hidden labels */
 
-.econ-form-control-file label[for] {
+.b99-style .econ-form-control-file label[for] {
+  /* Display declarations */
   display: none;
 }
+
+/* ========== Upload field icon ========== */
 
 /* Hide info icon for upload fields */
 
-.b99-upload-field .econ-control-icon {
+.b99-style .b99-upload-field .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
+
+/**
+ * "Add more" button styles
+ * Transforms radio groups into button-like elements for adding items
+ * Includes: Weitere Dokumente, Weitere Nationalität, Steueransässigkeit
+ * Uses design tokens – requires design-system.css
+ */
 
 /* ========== "Weitere Dokumente hinzufügen" button ========== */
 
@@ -2267,76 +3118,113 @@ background-color: var(--color-error-10);
 
 /* Container - full width yellow button */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-input-group.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-input-group.row {
+  /* Display declarations */
   display: block;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-form-label {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-form-label {
+  /* Display declarations */
   display: none;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-form-control-outer {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-form-control-outer {
+  /* Box Model declarations */
   width: 100%;
+  
+  /* Manipulations declarations */
   max-width: 100%;
+
+  /* Display declarations */
   flex: none;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-control-icon {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
 /* Style the radio container as a button */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
-  gap: 12px;
+  gap: var(--spacing-12);
+  
+  /* Color */
   background-color: var(--color-primary);
-  padding: 0 0 16px;
-  border-radius: 0;
-  cursor: pointer;
-  position: relative;
+
+  /* Box Model declarations */
   /* Extend to screen edges */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  padding: 0 0 var(--spacing-16);
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-none);
+  cursor: pointer;
+
+  /* Positioning declarations */
+  position: relative;
+  
 }
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio .col-6 {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio .col-6 {
+  /* Display declarations */
   display: none;
 }
 
 /* Plus icon in circle via ::before */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row::before {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row::before {
+  /* Content declarations */
   content: "";
-  display: flex;
+
+  /* Display declarations */
   align-items: center;
+  display: flex;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border: 2px solid #000000;
-  border-radius: 50%;
+
+  /* Box Model declarations */
+  border: var(--input-border-width) solid var(--color-text);
+  height: var(--icon-size-xl);
+  width: var(--icon-size-xl);
+
+  /* Manipulations declarations */
+  min-width: var(--icon-size-xl);
+  
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
+  pointer-events: none; /* Allow clicks to pass through */
+
+  /* Color declarations */
   background-color: var(--color-background);
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5V19M5 12H19' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-position: center;  
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 24px 24px;
-  pointer-events: none; /* Allow clicks to pass through */
+  background-size: var(--icon-size-md) var(--icon-size-md);
 }
 
 /* Text via ::after */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row::after {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row::after {
+  /* Content declarations */
   content: "weitere Dokumente hinzufügen";
+
+  /* Typography declarations */
+  font-family: var(--font-family);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
-  font-family: var(--font-family);
-  color: #000000;
+  
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
   pointer-events: none; /* Allow clicks to pass through */
 }
 
@@ -2346,34 +3234,49 @@ background-color: var(--color-error-10);
 
 /* Container - full width light grey button */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-input-group.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-input-group.row {
+  /* Display declarations */
   display: block;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-label {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-label {
+  /* Display declarations */
   display: none;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-control-outer {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-control-outer {
+  /* Box Model declarations */
   width: 100%;
+
+  /* Manipulations declarations */
   max-width: 100%;
+
+  /* Display declarations */
   flex: none;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-control-icon {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
 /* Style the radio container as a button with light grey background */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
-  gap: 12px;
-  border-radius: 0;
+  gap: var(--spacing-12);
+  
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-none);
   cursor: pointer;
+
+  /* Positioning declarations */
   position: relative;
+
+  /* Box Model declarations */
   /* Extend to screen edges */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
@@ -2382,38 +3285,57 @@ background-color: var(--color-error-10);
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio .col-6 {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio .col-6 {
+  /* Display declarations */
   display: none;
 }
 
 /* Plus icon in circle with yellow border via ::before */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before {
+  /* Content declarations */
   content: "";
-  display: flex;
+
+  /* Display declarations */
   align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
+  display: flex;
+  justify-content: center; 
+ 
+  /* Box Model declarations */
   border: 3px solid var(--color-primary); /* Yellow border */
-  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  
+  /* Manipulations declarations */
+  min-width: 30px;
+  
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
+  pointer-events: none; /* Allow clicks to pass through */
+
+  /* Color declarations */
   background-color: var(--color-background); /* White background */
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5V19M5 12H19' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
   background-position: center;
-  background-size: 24px 24px;
-  pointer-events: none; /* Allow clicks to pass through */
+  background-repeat: no-repeat;
+  background-size: var(--icon-size-md) var(--icon-size-md);
 }
 
 /* Text via ::after */
 
-.econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after {
+  /* Content declarations */
   content: "weitere Nationalität hinzufügen";
+
+  /* Typography declarations */
+  font-family: var(--font-family);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-regular);
-  font-family: var(--font-family);
-  color: #000000;
+  
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
   pointer-events: none; /* Allow clicks to pass through */
 }
 
@@ -2429,142 +3351,176 @@ background-color: var(--color-error-10);
 
 /* Use a simpler selector that matches any steueransaessigkeit with number >= 2 */
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]),
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]),
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]),
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]),
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]),
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]),
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]),
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]) {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]),
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]),
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]),
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]),
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]),
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]),
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]),
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]) {
   /* Container styles */
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-input-group.row {
+  /* Display declarations */
   display: block;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
 .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-form-label {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-form-label,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-form-label {
+  /* Display declarations */
   display: none;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-form-control-outer {
+  /* Box Model declarations */
   width: 100%;
+
+  /* Manipulations declarations */
   max-width: 100%;
+
+  /* Display declarations */
   flex: none;
 }
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
 /* Style the radio container as a button with light grey background */
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  border-radius: 0;
-  cursor: pointer;
-  position: relative;
+  gap: var(--spacing-12);
+  
+  /* Box Model declarations */
   /* Extend to screen edges */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  padding: var(--spacing-16) var(--spacing-20);
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-none);
+  cursor: pointer;
+
+  /* Positioning declarations */
+  position: relative;
 }
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6 {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio .col-6 {
+  /* Display declarations */
   display: none;
 }
 
 /* Plus icon in circle with yellow border via ::before */
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::before {
+  /* Content declarations */
   content: "";
-  display: flex;
+
+  /* Display declarations */
   align-items: center;
+  display: flex;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
+  
+  /* Box Model declarations */
   border: 3px solid var(--color-primary); /* Yellow border */
-  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  
+  /* Manipulations declarations */
+  min-width: 30px;
+  
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
+  pointer-events: none; /* Allow clicks to pass through */
+
+  /* Color declarations */
   background-color: var(--color-background); /* White background */
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5V19M5 12H19' stroke='black' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
   background-position: center;
-  background-size: 24px 24px;
-  pointer-events: none; /* Allow clicks to pass through */
+  background-repeat: no-repeat;
+  background-size: var(--icon-size-md) var(--icon-size-md);
 }
 
 /* Text via ::after */
 
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
-.econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after {
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row::after {
+  /* Content declarations */
   content: "weitere steuerliche Ansässigkeit hinzufügen";
+
+  /* Typography declarations */
+  font-family: var(--font-family);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-bold);
-  font-family: var(--font-family);
-  color: #000000;
+  
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
   pointer-events: none; /* Allow clicks to pass through */
 }
 
@@ -2574,249 +3530,271 @@ background-color: var(--color-error-10);
 
 /* Hide label and control icon */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-form-label,
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-control-icon {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-form-label,
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-form-control-outer {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-form-control-outer {
+  /* Box Model declarations */
   width: 100%;
+
+  /* Manipulations declarations */
   max-width: 100%;
+
+  /* Display declarations */
   flex: none;
 }
 
 /* Style the radio container as a checkbox */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
-  gap: 12px;
-  padding: 0;
+  gap: var(--spacing-12);
+  
+  /* Box Model declarations */
   margin: 0;
+  padding: 0;
+  
+  /* Miscellaneous declarations */
   cursor: pointer;
+
+  /* Positioning declarations */
   position: relative;
 }
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio .col-6 {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio .col-6 {
+  /* Display declarations */
   display: none;
 }
 
 /* Checkbox appearance via ::before */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row::before {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row::before {
+  /* Content declarations */
   content: "";
+
+  /* Display declarations */
   display: block;
-  width: 1.5625rem; /* 25px */
+
+  /* Box Model declarations */
+  border: var(--input-border-width) solid var(--color-text);
   height: 1.5625rem; /* 25px */
+  width: 1.5625rem; /* 25px */
+  
+  /* Manipulations declarations */
   min-width: 1.5625rem;
   flex-shrink: 0;
-  border: 2px solid #000000;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+  
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
-  background-color: var(--color-background);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
   pointer-events: none; /* Allow clicks to pass through */
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+  /* Color declarations */
+  background-color: var(--color-background);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* Checked state - show checkmark when "Ja" is selected */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row:has(.econ-radio-value-true input:checked)::before {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row:has(.econ-radio-value-true input:checked)::before {
+  /* Color declarations */
   background-color: var(--color-primary);
-  border-color: var(--input-border-color-focus);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+  border-color: var(--input-border-color-focus);
 }
 
 /* Text label via ::after */
 
-.econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row::after {
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-legitimation-bestaetigungUploadDokumente"]) .econ-radio.row::after {
+  /* Content declarations */
   content: "Dokumente später nachreichen.";
+
+  /* Typography declarations */
+  font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-bold);
-  font-family: var(--font-family);
-  color: #000000;
+  
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
   pointer-events: none; /* Allow clicks to pass through */
 }
 
-/* ========== Rechtliches checkboxes ========== */
+/**
+ * Rechtliches page checkbox styles
+ * Checkbox layout and styling for the legal/terms page
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Hide info icons ========== */
 
 /* Hide all info icons except the first one on rechtliches page */
 
-.page-rechtliches .econ-control-icon {
+.page-rechtliches.b99-style .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
-.page-rechtliches p {
+/* ========== Typography ========== */
+
+.page-rechtliches.b99-style p {
+  /* Box Model declarations */
   margin-left: 0;
+
+  /* Typography declarations */
   font-size: var(--font-size-14);
-  line-height: 1.5;
+  line-height: var(--line-height-relaxed);
 }
 
-.econ-form-content.b99-rechtliches-checkboxes .econ-checkbox-label,
-.econ-form-content.b99-rechtliches-checkboxes span {
+.b99-style .econ-form-content.b99-rechtliches-checkboxes .econ-checkbox-label,
+.b99-style .econ-form-content.b99-rechtliches-checkboxes span {
+  /* Typography declarations */
   font-size: var(--font-size-14) !important;
 }
 
-.page-rechtliches .form-label {
+/* ========== Hidden elements ========== */
+
+.page-rechtliches.b99-style .form-label {
+  /* Display declarations */
   display: none;
 }
 
-.page-rechtliches .slide-up {
+.page-rechtliches.b99-style .slide-up {
+  /* Box Model declarations */
   margin-top: 0 !important;
 }
 
+/* ========== Checkbox layout ========== */
+
 /* Reorder checkboxes: label on far left, checkbox on far right, same row */
 
-.page-rechtliches .form-check {
+.page-rechtliches.b99-style .form-check {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding-left: 0;
+
+  /* Box Model declarations */
   margin-bottom: 0;
+  padding-left: 0;
+  width: 100%;
 }
 
-.page-rechtliches .form-check .econ-checkbox-label {
+/* ========== Checkbox label ========== */
+
+.page-rechtliches.b99-style .form-check .econ-checkbox-label {
+  
+  /* Positioning declarations */
   order: 1;
   flex: 1;
+
+  /* Box Model declarations */
   margin-bottom: 0;
   margin-left: 0;
-  padding-right: 12px;
+  padding-right: var(--spacing-12);
 }
 
-.page-rechtliches .form-check input[type="checkbox"] {
+/* ========== Checkbox input ========== */
+
+.page-rechtliches.b99-style .form-check input[type="checkbox"] {
+  /* Positioning declarations */
   order: 2;
+
+  /* Manipulations declarations */
   flex-shrink: 0;
+
+  /* Box Model declarations */
   margin-left: auto;
-  margin-top: 0;
   margin-right: 0;
-}
-
-/* ========== Media queries ========== */
-
-/* Small devices (landscape phones, 397px and up) */
-
-@media (min-width: 397px) {
-  .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
-    top: 30px;
-  }
-}
-
-@media (min-width: 420px) {
-  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    width: 50%;
-  }
-}
-
-@media (min-width: 500px) {
-  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    width: 60%;
-  }
-}
-
-@media (min-width: 600px) {
-  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    width: 65%;
-  }
-}
-
-@media (min-width: 768px) {
-  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    width: 73%;
-  }
-}
-
-@media (min-width: 992px) {
-  /* Monthly income input group */
-  .econ-fragment-currency {
-    width: 84%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    width: 76%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    width: 79%;
-  }
-}
-
-@media (min-width: 1400px) {
-  .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    width: 83%;
-  }
+  margin-top: 0;
 }
 
 /**
  * Mittelherkunft (Source of Funds) checkbox icons
  * Icons displayed alongside checkbox options in the income source selection
- * 
+ *
  * Structure: ICON | LABEL | CHECKBOX
  * - Icon is positioned at the far left via ::before pseudo-element
  * - Label fills the middle space
  * - Checkbox is at the far right (handled by row-reverse in form-sections.css)
- * 
+ *
  * Icons are targeted by the data-econ-property attribute on each checkbox input
  * This ensures stable selectors that don't depend on dynamic IDs
- * 
+ *
  * Uses design tokens – requires design-system.css
  */
 
 /* ========== Base layout for checkbox with icon ========== */
 
-/* 
+/*
  * Modify the existing flex layout to accommodate the icon
  * Original layout (from form-sections.css): CHECKBOX | LABEL (with justify-content: space-between)
  * New layout: ICON | LABEL | CHECKBOX
- * 
+ *
  * We achieve this by:
  * 1. Adding a ::before pseudo-element for the icon
  * 2. Using order property to position elements correctly
  * 3. Overriding justify-content to use gap instead for consistent spacing
  */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) {
-  /* Ensure flex layout can accommodate the icon */
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) {
+  /* Display declarations */
   flex-wrap: nowrap;
   justify-content: flex-start; /* Override space-between to allow proper ordering */
-  gap: 8px; /* 8px gap between icon and label, and between label and checkbox */
+
+  /* Box Model declarations */
+  gap: var(--spacing-8); /* 8px gap between icon and label, and between label and checkbox */
 }
 
 /* Icon container - ::before pseudo-element */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"])::before {
+  /* Content declarations */
   content: "";
+
+  /* Display declarations */
   display: block;
-  width: 40px;
-  height: 40px;
-  min-width: 40px; /* Prevent shrinking in flex container */
   flex-shrink: 0;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
   order: -1; /* Place icon first (leftmost) */
+
+  /* Box Model declarations */
+  height: var(--icon-size-xl);
+  min-width: var(--icon-size-xl); /* Prevent shrinking in flex container */
+  width: var(--icon-size-xl);
+
+  /* Color declarations */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /* Label positioning - fills middle space */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) .form-check-label {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) .form-check-label {
+  /* Display declarations */
   flex: 1; /* Take remaining space */
   order: 0; /* Middle position */
+
+  /* Typography declarations */
   font-size: var(--font-size-14);
 }
 
 /* Checkbox positioning - far right */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) .form-check-input {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-mittelherkunft-"]) .form-check-input {
+  /* Display declarations */
   order: 1; /* Rightmost position */
 }
 
@@ -2828,7 +3806,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Stock chart / financial growth indicator */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-gehalt"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-gehalt"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.6934 31.1562L27.6934 15.355H26.3401L26.3401 31.1562H23.2754V19.6536H21.9222V31.1562L18.8575 31.1562V18.2605H17.5042V31.1562H14.4395L14.4395 16.6685H13.0863L13.0863 31.1562H10.0216L10.0216 20.9272H8.66834L8.66834 31.1562H5.84244L5.84244 22.6812L13.942 14.6983L22.7978 17.763L30.3999 9.63476V13.5241H31.7531V7.27533H25.5043V8.62858H29.4898L22.3998 16.2107L13.5838 13.146L5.84244 20.7835L5.84244 7.95195H4.4892L4.4892 32.5094L34.6188 32.5094V31.1562H27.6934Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2836,7 +3815,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Package/box icon representing business/self-employment */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-selbststaendigeTaetigkeiten"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-selbststaendigeTaetigkeiten"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.28528 12.1709L19.8924 6.20069L34.4995 12.1709V28.9273L19.9322 35.3353L5.28528 28.9273L5.28528 12.1709ZM27.2234 14.7443L32.0835 12.6125L19.8924 7.63354L14.9938 9.63416L27.2234 14.7443ZM19.9322 17.9421L7.7056 12.6107L13.2828 10.3329L25.5726 15.4682L19.9322 17.9421ZM19.2556 19.1598L6.63853 13.6619L6.63853 28.0518L19.2556 33.5293V19.1598ZM20.6088 33.5275V19.1582L33.1462 13.6642V28.0518L20.6088 33.5275ZM31.3552 21.206L25.9422 23.5941V22.3204L31.3552 19.9324L31.3552 21.206ZM25.9422 26.1414L31.3552 23.7533V22.4797L25.9422 24.8677V26.1414ZM29.5641 27.0568L25.9422 28.6489V27.3752L29.5641 25.7832V27.0568Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2844,7 +3824,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Bank/insurance products icon representing pension and insurance payments */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-pensionVersicherungszahlung"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-pensionVersicherungszahlung"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.942 13.9653C28.0704 13.9655 29.3102 15.2284 29.3336 17.3569V28.2573C29.3336 30.3858 28.0704 31.6487 25.942 31.6489H8.58459C6.45607 31.6488 5.19299 30.3859 5.19299 28.2573V17.3569C5.19299 15.2283 6.45607 13.9654 8.58459 13.9653H25.942ZM6.54944 28.2339C6.54944 29.6139 7.20462 30.2689 8.58459 30.269H25.942C27.3218 30.2689 27.9761 29.6372 27.9528 28.2573V20.0229H6.54944V28.2339ZM17.3571 28.2104H8.60803V23.1108H17.3571V28.2104ZM27.6022 10.854C30.5261 10.854 32.1871 12.515 32.1871 15.4389V27.7895H30.8307V15.4389C30.8307 13.2635 29.7776 12.2104 27.6022 12.2104H10.2692V10.854H27.6022ZM21.8717 27.5317H19.0875V26.1753H21.8717V27.5317ZM9.96448 26.854H12.3043V24.4682H9.96448V26.854ZM13.6608 26.854H15.9996V24.4682H13.6608V26.854ZM30.4791 7.76608C33.0054 7.76608 35.0407 9.80129 35.0641 12.3276V25.1928H33.7076V12.351C33.7076 10.5733 32.2569 9.12253 30.4791 9.12253H13.1227V7.76608H30.4791ZM24.9821 24.7485H19.0875V23.3921H24.9821V24.7485ZM8.60803 15.3217C7.22803 15.3218 6.57288 15.9768 6.57288 17.3569V18.6665H27.9996V17.3569C27.9996 15.9768 27.3446 15.3217 25.9645 15.3217H8.60803Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2852,7 +3833,8 @@ background-color: var(--color-error-10);
 
 /* Icon: People/employees icon representing social benefits and welfare */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sozialleistungen"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sozialleistungen"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M33.8029 22.3401C34.4752 21.4607 34.9572 20.4028 35.1375 19.2941C36.0736 18.5242 36.8075 16.312 36.8075 14.5194C36.8075 11.0566 33.5637 8.07154 29.7229 8.07154C28.266 8.07154 26.4094 8.74658 25.3682 9.6037C23.9121 8.2001 21.9374 7.27552 19.8918 7.27552C17.8376 7.27552 15.8549 8.20786 14.3972 9.62141C13.3602 8.75593 11.4881 8.07154 10.021 8.07154C6.18019 8.07154 2.93638 11.0566 2.93638 14.5194C2.93638 16.312 3.67031 18.5242 4.60644 19.2941C4.78674 20.4028 5.26874 21.4607 5.94098 22.3401C2.17927 24.6721 2.17959 27.6808 2.17994 31.0195L2.17995 31.1163H3.5332L3.53319 31.0016C3.53277 27.6132 3.53248 25.3125 6.90199 23.3628C7.83672 24.169 8.95892 24.6685 10.1004 24.6685C11.0895 24.6685 12.1773 24.2415 13.1034 23.5091C14.0431 24.6986 15.4052 25.0836 16.2991 25.1899L16.1576 25.5501C11.2646 26.5446 8.50737 30.1965 8.42857 34.1808H9.78182C9.90122 31.0166 11.9311 27.9121 15.7321 27.0166L17.4038 27.8325C19.4535 28.8475 20.3292 28.8475 22.3789 27.8325L24.0506 27.0166C27.8516 27.9121 29.8815 31.0166 30.0009 34.1808L31.3542 34.1808C31.2753 30.1965 28.5181 26.5446 23.6251 25.5501L23.4836 25.1899C24.3728 25.0842 25.725 24.7027 26.6642 23.5282C27.5852 24.2488 28.6624 24.6685 29.6429 24.6685C30.7844 24.6685 31.9066 24.169 32.8413 23.3628C36.2108 25.3125 36.2106 27.6132 36.2101 31.0016L36.2101 31.1163H37.5634L37.5634 31.0195C37.5637 27.6808 37.5641 24.6721 33.8023 22.3401H33.8029ZM22.9662 23.8723L22.6888 23.1662C24.2393 22.0048 25.3842 20.0132 25.3842 18.0215V15.3548H24.0309V18.0215C24.0309 20.3698 21.8816 22.8375 19.8916 22.8375C17.8816 22.8375 15.7522 20.3897 15.7522 18.0215V16.9071C19.0358 16.6085 22.1602 14.1409 22.1602 11.6135H20.807C20.807 13.6632 17.3244 15.9319 14.399 15.5538V18.0215C14.399 20.0283 15.5381 22.0183 17.0909 23.1748L16.8171 23.8719C14.6585 23.8506 13.4041 22.4402 13.4041 19.9716V14.7178C13.4041 11.673 16.5882 8.62817 19.8918 8.62817C23.1953 8.62817 26.3794 11.673 26.3794 14.7178L26.3794 19.9716C26.3794 22.4402 25.125 23.8506 22.9664 23.8719L22.9662 23.8723ZM4.28962 14.5188C4.28962 15.0298 4.46555 15.8507 4.67132 16.5898H4.67152C5.06356 15.3251 6.20228 14.28 7.31493 14.28H9.26519C10.3796 14.28 10.8771 13.862 11.6334 13.2252L11.6806 13.1852L11.6806 13.1852L11.6807 13.1852C11.9088 12.992 12.1539 12.7845 12.4425 12.5761C12.6937 11.8885 13.0575 11.231 13.5098 10.6274C12.7442 10.0196 11.143 9.4242 10.021 9.4242C6.93641 9.4242 4.28962 11.8322 4.28962 14.5188ZM35.4545 14.5188C35.4545 15.0298 35.2788 15.8507 35.073 16.5898C34.681 15.3251 33.5422 14.28 32.4296 14.28H30.4793C29.3649 14.28 28.8674 13.862 28.1111 13.2252L28.067 13.1879L28.067 13.1878L28.0669 13.1877C27.8521 13.0059 27.6225 12.8115 27.3557 12.6155C27.1014 11.9062 26.7271 11.2282 26.2592 10.6077C27.0341 10.0069 28.6128 9.4242 29.7227 9.4242C32.8073 9.4242 35.4541 11.8322 35.4541 14.5188H35.4545ZM5.88168 18.3397C5.88168 20.8273 8.01105 23.3149 10.1006 23.3149L10.101 23.3151C10.8779 23.3151 11.7054 22.9487 12.4324 22.3065C12.194 21.6727 12.0509 20.9039 12.0509 19.9718V14.718C12.0509 14.6903 12.0511 14.6627 12.0515 14.635C11.3858 15.1544 10.5647 15.6332 9.2648 15.6332H7.31453C6.69761 15.6332 5.88168 16.6083 5.88168 17.5039V18.3397ZM29.6435 23.3151C28.8771 23.3151 28.0616 22.9587 27.3418 22.3326C27.5862 21.6938 27.7332 20.9166 27.7332 19.9718L27.7332 14.718V14.6666C28.3919 15.1739 29.2061 15.6338 30.4799 15.6338H32.4302C33.0471 15.6338 33.863 16.6089 33.863 17.5045V18.3403C33.863 20.8279 31.7337 23.3155 29.6441 23.3155L29.6435 23.3151ZM18.0022 26.5991C19.6938 27.4349 20.0918 27.4349 21.7833 26.5991L22.4355 26.2381L21.4987 23.8538C20.9775 24.0707 20.4352 24.1911 19.8928 24.1911C19.3485 24.1911 18.8058 24.0725 18.285 23.8582L17.3528 26.2311L18.0022 26.5991Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2860,7 +3842,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Business/customer icon representing spouse/partner income */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-ehePartner"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-ehePartner"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M30.0218 24.3103C31.0169 24.5491 33.7233 25.2258 35.196 27.2556L35.1962 27.2558C36.6833 29.3095 36.6585 31.4261 36.6349 33.4378V33.4378C36.632 33.6874 36.6291 33.9354 36.6291 34.1815H35.2758C35.2758 33.9583 35.2773 33.7389 35.2788 33.5228V33.5227V33.5227V33.5227V33.5226V33.5226V33.5225C35.2924 31.5033 35.3042 29.7776 34.0818 28.0518C33.1667 26.7583 31.5763 26.14 30.4407 25.8204L25.0867 34.0024L19.6944 25.7621C18.5441 26.0646 16.8995 26.6528 16.0517 28.0122C15.8527 28.3307 15.6935 28.6093 15.5343 28.8879C14.8539 30.2828 14.8714 31.7359 14.8908 33.3466C14.8941 33.6202 14.8975 33.8983 14.8975 34.1815H13.5443C13.5443 33.917 13.5403 33.649 13.5363 33.3781C13.5147 31.9267 13.492 30.3936 14.0734 28.8911C13.8692 28.9155 13.6668 28.9279 13.4645 28.9279C12.0461 28.9279 10.8399 28.2913 10.0535 27.0972L9.92958 27.1308C8.7822 27.4411 6.71483 28.0002 5.62378 29.5245C4.35014 31.2957 4.38994 34.1815 4.38994 34.1815H3.03638C3.03638 34.1815 2.97699 30.8379 4.50934 28.7285C5.17542 27.8083 6.11175 27.1659 7.03096 26.7129C6.33125 25.4136 5.46457 23.3368 5.46457 17.5043C5.46457 10.8575 8.17107 7.31513 13.385 7.31513C15.5851 7.31513 17.4058 8.12788 18.892 9.75317C20.0532 7.69703 22.3975 6.3995 25.0268 6.3995C26.6188 6.3995 27.6337 7.33484 28.2109 7.91195L28.6487 8.34977C31.0368 8.34977 32.6686 10.0612 32.6686 12.6085C32.6686 13.7641 31.914 15.6889 31.4457 16.8833C31.3656 17.0875 31.2939 17.2704 31.2358 17.4245C31.0994 17.802 30.9466 18.1628 30.7888 18.5013C30.5261 19.9117 29.8069 21.247 28.8427 22.2566L29.7432 24.2307L30.0218 24.3103ZM27.1608 8.78866C26.5721 8.26862 25.9885 7.75315 25.0269 7.75315H25.0267C22.0416 7.75315 19.4745 9.78302 19.4745 12.7283C19.4745 13.2605 19.6484 14.1086 19.8587 14.8856C20.3827 13.8298 21.372 13.0467 22.38 13.0467H24.171C25.584 13.0467 26.5591 12.1313 26.5591 11.0567H27.9123C27.9123 13.0467 26.3203 14.4 24.171 14.4H22.38C21.7033 14.4 20.8277 15.4348 20.8277 16.4696V17.3453C20.8277 20.0518 22.9173 22.7185 25.0865 22.7185C27.2755 22.7185 29.5442 20.012 29.5442 17.3453V15.0567H30.7339C31.0582 14.113 31.3156 13.1914 31.3156 12.6089C31.3156 10.7781 30.2807 9.70341 28.6489 9.70341C28.1713 9.70341 27.813 9.4248 27.2956 8.90739C27.2505 8.86794 27.2056 8.82828 27.1608 8.78866ZM6.81762 17.5045C6.81762 11.5343 9.0067 8.66858 13.3848 8.66858C15.4237 8.66858 16.9962 9.43456 18.3158 11.1796C18.1889 11.6696 18.1214 12.1874 18.1214 12.7281C18.1214 14.3399 18.7035 16.3007 19.4747 17.3375V17.3451C19.4747 19.1369 20.211 20.896 21.3322 22.1656L20.3903 24.2307L20.1515 24.2705L20.1261 24.2764C19.4459 24.4332 18.0435 24.7566 16.7733 25.5382C16.718 25.5087 16.6699 25.4596 16.649 25.345L16.325 23.2568C17.6639 22.1547 18.6191 20.4038 18.6191 18.6382V17.9218L17.2659 17.9218V18.6382C17.2659 20.7875 15.2758 23.0562 13.4051 23.0562C11.5345 23.0562 9.58422 20.7875 9.58422 18.6382V17.6432C12.6887 17.3646 15.5544 15.1357 15.5544 12.7874H14.2012C14.2012 14.6183 11.0171 16.6482 8.23097 16.2899V18.6382C8.23097 20.4822 9.25705 22.3101 10.6784 23.3997L10.3605 25.3247C10.3207 25.5635 10.0819 25.663 9.86302 25.7227C9.8006 25.7399 9.72942 25.759 9.65046 25.7801C9.31082 25.8709 8.82744 26.0002 8.27973 26.1923C7.55912 24.9095 6.81822 23.1825 6.81822 17.5037L6.81762 17.5045ZM24.4858 24.0249C23.7239 23.9083 22.9903 23.576 22.3306 23.0868L21.1033 25.453L22.7449 27.9587L24.4858 24.0249ZM27.8274 23.1324L29.0485 25.4874L27.4294 27.9587L25.6886 24.0253C26.4345 23.9127 27.1629 23.5967 27.8272 23.1324H27.8274ZM14.9244 27.3161L14.9377 27.2948L14.9381 27.2952C15.1628 26.9382 15.4281 26.623 15.719 26.3444C15.5256 26.1316 15.3815 25.8805 15.3359 25.5836L15.0947 24.0287C14.5512 24.2727 13.9793 24.4094 13.4055 24.4094C12.8997 24.4094 12.3966 24.3032 11.9142 24.1107L11.6742 25.5637C11.6183 25.9211 11.4559 26.2158 11.2465 26.4479C11.7725 27.1874 12.5516 27.5734 13.4851 27.5734C13.9946 27.5734 14.4404 27.4843 14.9244 27.3161ZM23.6289 29.308L25.0874 26.0216L26.546 29.308L25.0874 31.5341L23.6289 29.308ZM31.794 33.1858H28.0526V31.8326H31.794V33.1858Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2868,7 +3851,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Backspace/delete icon representing severance/alimony payments */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-abfindungUnterhalt"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-abfindungUnterhalt"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M30.3999 10.0614L15.2754 10.0614C13.6236 10.0614 12.4097 10.5788 11.4346 11.6733L5.44446 18.5789C4.66833 19.4545 4.66833 20.4893 5.44446 21.365L11.4346 28.1113C12.4495 29.2058 13.6833 29.7233 15.2754 29.7233L30.3999 29.7233C32.39 29.7233 33.9024 28.1909 33.9024 26.1809V13.6037C33.9024 11.5937 32.39 10.0614 30.3999 10.0614ZM32.5492 26.1809C32.5492 27.4546 31.6537 28.37 30.3999 28.37L15.2754 28.37C14.0018 28.37 13.2057 28.0317 12.4296 27.1959L6.4594 20.4694C6.14098 20.1112 6.14098 19.8326 6.4793 19.4545L12.4495 12.5689C13.1858 11.733 13.962 11.4146 15.2754 11.4146L30.3999 11.4146C31.6537 11.4146 32.5492 12.3301 32.5492 13.6037V26.1809ZM23.2755 18.9371L27.375 14.8376L28.3302 15.7928L24.2307 19.8923L28.3302 23.9919L27.375 24.9471L23.2755 20.8476L19.1759 24.9471L18.2207 23.9919L22.3202 19.8923L18.2207 15.7928L19.1759 14.8376L23.2755 18.9371Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2876,7 +3860,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Finance/money icon representing capital gains and investment returns */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-ertragRendite"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-ertragRendite"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20.7251 15.1345C20.7251 10.9006 24.1637 7.48535 28.3743 7.48535C32.5848 7.48535 36.0234 10.8772 36.0234 15.1111C36.0234 19.345 32.5848 22.7602 28.3743 22.7602C26.9707 22.7602 25.6842 22.4093 24.5614 21.7544L25.0292 22.0584L22.3626 26.1988C23.0643 26.8772 23.5088 27.8128 23.5088 28.8655C23.5088 30.8772 21.8713 32.5146 19.8596 32.5146C17.8479 32.5146 16.2105 30.8772 16.2105 28.8655C16.2105 27.6257 16.8421 26.5263 17.7778 25.8713L14.4561 18.8772C14.152 18.9473 13.8479 18.9941 13.5205 18.9941C13.0058 18.9941 12.538 18.9006 12.0936 18.7134L10.2456 21.5204C10.9006 22.1754 11.3216 23.1111 11.3216 24.1169C11.3216 26.1286 9.6842 27.7661 7.6725 27.7661C5.6608 27.7661 4.02338 26.1286 4.02338 24.1169C4.02338 22.1052 5.6608 20.4678 7.6725 20.4678C8.18712 20.4678 8.67835 20.5848 9.12279 20.7719L10.9941 17.9649C10.2924 17.3099 9.87133 16.3742 9.87133 15.345C9.87133 13.3333 11.5088 11.6959 13.5205 11.6959C15.5321 11.6959 17.1696 13.3333 17.1696 15.345C17.1696 16.5614 16.5848 17.6374 15.6725 18.2924L19.0175 25.3099C19.2982 25.2631 19.5789 25.2163 19.883 25.2163C20.3743 25.2163 20.8421 25.3333 21.2631 25.497L23.9298 21.3567C21.9883 19.9766 20.7251 17.7076 20.7251 15.1345ZM22.0819 15.1345C22.0819 18.6199 24.8889 21.4269 28.3743 21.4269C31.8362 21.4269 34.6667 18.6199 34.6667 15.1345C34.6667 11.6491 31.8596 8.84208 28.3743 8.84208C24.8889 8.84208 22.0819 11.6491 22.0819 15.1345ZM28.8889 18.3158C27.6725 18.3158 26.8538 17.8479 26.5263 16.6549H30.1988V15.4854H26.3859V15.2982V14.8538V14.6432H30.5263V13.4737H26.5497C26.8772 12.2105 27.7427 11.7427 29.0058 11.7427C29.7778 11.7427 30.4327 12 30.8772 12.538L31.5088 11.6959C30.9941 10.9707 30.0819 10.5965 29.0058 10.5965C27.0877 10.5965 25.7544 11.5087 25.3333 13.4737H24.1637V14.6432H25.2164V14.8304V15.3918V15.4854H24.1637V16.6549H25.3099C25.6842 18.5965 26.9474 19.462 28.8421 19.462C30.0585 19.462 31.0175 19.0643 31.6023 18.2456L30.9474 17.4035C30.4795 17.9883 29.731 18.3158 28.8889 18.3158ZM13.5205 13.0292C12.2339 13.0292 11.2047 14.0585 11.2047 15.345C11.2047 16.6082 12.2339 17.6608 13.5205 17.6608C14.807 17.6608 15.8362 16.6315 15.8362 15.345C15.8362 14.0585 14.807 13.0292 13.5205 13.0292ZM7.62572 26.4327C6.33917 26.4327 5.30993 25.4035 5.30993 24.1169C5.30993 22.8304 6.33917 21.8011 7.62572 21.8011C8.91227 21.8011 9.9415 22.8304 9.9415 24.1169C9.9415 25.4035 8.91227 26.4327 7.62572 26.4327ZM17.5672 28.8655C17.5672 30.152 18.5965 31.1813 19.883 31.1813C21.1462 31.1813 22.1988 30.152 22.1988 28.8655C22.1988 27.5789 21.1696 26.5497 19.883 26.5497C18.5965 26.5497 17.5672 27.5789 17.5672 28.8655Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2884,7 +3869,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Money bag icon representing inheritance */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-erbschaft"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-erbschaft"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M25.0426 10.5235L24.9656 10.4513L27.4263 6.15233C28.185 4.8267 27.25 3.69423 25.8046 4.18815L22.8866 5.18536C22.5845 5.2886 22.448 5.26791 22.1898 5.07993L20.9678 4.19034C20.2736 3.68508 19.5033 3.68508 18.8091 4.19034L17.5871 5.07993C17.3289 5.26791 17.1924 5.2886 16.8903 5.18536L14.02 4.20447C12.571 3.70935 11.6168 4.85495 12.423 6.18734L14.8527 10.2024C12.5197 12.231 8.14636 16.309 8.14636 22.6575C8.14636 28.6751 13.1567 33.2559 19.8405 33.2559C26.5301 33.2559 31.5581 28.6683 31.5581 22.6575C31.5581 16.6336 27.3029 12.6434 25.0422 10.5235H25.0426ZM13.5776 5.48295L16.4524 6.46524C17.1421 6.70096 17.7934 6.6025 18.3826 6.17342L19.6046 5.28383C19.8272 5.12171 19.9483 5.12171 20.1709 5.28383L21.3929 6.17342C21.9821 6.6025 22.6334 6.70096 23.3231 6.46524L26.2413 5.46803C26.2488 5.46545 26.2562 5.46286 26.2634 5.46027C26.2594 5.46664 26.2554 5.4734 26.2514 5.48017L23.9676 9.47018C23.9228 9.41986 23.882 9.37172 23.8454 9.32577L15.9283 9.36754L13.5798 5.48653L13.5776 5.48295ZM19.8401 31.9028C13.8925 31.9028 9.49845 27.9164 9.49845 22.6573C9.49845 17.8345 12.2947 14.4463 14.537 12.3122L13.8475 14.3412L15.1282 14.7765L16.0243 12.1391L18.2503 15.8174L19.4076 15.117L16.7443 10.7158L23.2521 10.6814C23.4973 10.9291 23.7939 11.2072 24.1166 11.5098C26.3773 13.6297 30.2052 17.2193 30.2052 22.6573C30.2052 27.9096 25.7937 31.903 19.8403 31.903L19.8401 31.9028ZM20.4448 27.2072C18.8232 27.2072 17.7419 26.5944 17.3152 25.0036H22.1982V23.4285H17.1133C17.1115 23.3483 17.1105 23.2666 17.1105 23.1834V22.5852C17.1105 22.4894 17.1117 22.3953 17.1143 22.3032H22.6211V20.7281H17.3207C17.7685 19.0595 18.9143 18.4158 20.6 18.4158C21.6189 18.4158 22.5113 18.7693 23.0852 19.4868L23.9441 18.3593C23.2628 17.3868 22.0468 16.9056 20.6062 16.9056C18.0414 16.9056 16.2557 18.1102 15.718 20.7281H14.1578V22.3032H15.5513C15.5497 22.3813 15.5489 22.4603 15.5489 22.5403V23.3028C15.5489 23.3451 15.5491 23.3871 15.5495 23.4289H14.1578V25.004H15.6949C16.1845 27.5937 17.8809 28.7372 20.4186 28.7372C22.0472 28.7372 23.3284 28.1985 24.1062 27.1207L23.2184 25.9868C22.562 26.771 21.568 27.2078 20.4444 27.2078L20.4448 27.2072Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2892,7 +3878,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Education/graduation cap icon representing scholarship */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-stipendium"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-stipendium"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M28.9482 24.6665H29.9978V23.3139H28.9634V18.9972C28.9634 18.3805 28.7246 17.8435 28.0682 17.5849L20.151 14.422L19.6338 15.6553L25.8699 18.1772L19.9322 20.8273L6.8828 15.0585L19.8924 9.64779L32.9219 15.0585L28.8639 16.9085C29.3612 17.1273 29.6596 17.5451 29.7789 17.9628L36.3037 15.0187L19.8924 8.17575L3.4613 15.0187L10.8215 18.2721L10.8215 26.3375C10.8215 29.1423 15.1779 31.5493 19.8924 31.5493C22.0607 31.5493 24.4677 31.0122 26.1585 30.0972C25.7806 29.7988 25.522 29.381 25.3827 28.9832C23.9107 29.7192 21.7822 30.1966 19.8924 30.1966C16.0333 30.1966 12.1742 28.2472 12.1742 26.3375L12.1742 18.8701L19.9322 22.2994L27.6107 18.8824V23.3139H26.6161V24.6665H27.6469C26.8096 25.1891 26.1784 26.6411 26.1784 27.8095C26.1784 28.9832 27.1134 29.9181 28.287 29.9181C29.4806 29.9181 30.3956 29.0031 30.3956 27.8095C30.3956 26.6118 29.7931 25.1834 28.9482 24.6665ZM28.287 28.5655C27.8693 28.5655 27.5311 28.2273 27.5311 27.8095C27.5311 27.173 28.1478 25.8203 28.287 25.8203C28.4462 25.8203 29.0429 27.1133 29.0429 27.8095C29.0429 28.2472 28.7246 28.5655 28.287 28.5655Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2900,7 +3887,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Game/gaming icon representing lottery winnings */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-lotteriegewinn"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-lotteriegewinn"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M33.4646 19.1162L30.2463 20.5483L33.9024 22.1704V32.8694L25.4844 36.5891L1.72302 26.1412L1.72302 14.9172L25.0068 5.42458L33.4646 8.66839V19.1162ZM25.5093 11.6031L31.1163 9.16571L25.0068 6.85723L19.4356 9.13029L25.5093 11.6031ZM23.3153 10.0413C24.3302 10.4593 25.3451 10.4991 26.2208 10.1607C27.1832 9.7897 26.5985 9.43217 26.1002 9.12751C25.7433 8.90928 25.4308 8.71819 25.7631 8.56869C25.982 8.46918 26.2805 8.48908 26.6188 8.62839C26.9647 8.7856 27.0001 8.93028 26.6759 9.08232L27.6484 9.41725C28.4417 9.05725 28.4359 8.67953 27.4745 8.26998C26.4994 7.85206 25.4844 7.87196 24.7282 8.17047C23.7198 8.56913 24.3349 8.92634 24.8436 9.22174C25.1983 9.42772 25.5012 9.60365 25.166 9.74263C24.9073 9.86203 24.5491 9.82223 24.2108 9.68293C23.7668 9.49924 23.7115 9.35078 24.018 9.16511L23.0243 8.79794C22.2165 9.18839 22.2739 9.6071 23.3153 10.0411V10.0413ZM23.779 12.3552L17.6854 9.84432L11.5938 12.3297L17.7033 14.9964L23.779 12.3552ZM32.1114 18.2203L28.532 19.7873L26.1213 18.7174V12.7852L32.1114 10.1605V18.2203ZM19.8127 11.6133C20.7879 12.0312 20.7282 12.5088 19.952 12.8272C19.1759 13.1456 18.0615 13.1854 17.166 12.7874L16.5888 12.5287L15.3948 13.0262L14.4396 12.6083L18.3202 10.9765L19.8127 11.6133ZM17.9421 12.3695L17.4446 12.1705L18.3998 11.7526L18.9371 11.9715C19.2953 12.1108 19.3152 12.2501 18.9769 12.3894C18.6187 12.5287 18.3202 12.5287 17.9421 12.3695ZM9.8823 13.0262L3.09617 15.7924L9.48429 18.5984L16.0117 15.7327L9.8823 13.0262ZM19.3948 15.7327L24.768 13.3783V18.117L19.3948 15.7327ZM6.67829 16.3298L11.0166 14.4989L12.2903 15.0561L7.95194 16.887L6.67829 16.3298ZM11.2156 19.3547L17.7033 16.489L24.1511 19.3547L17.6038 22.1806L11.2156 19.3547ZM3.07627 25.2652L9.22558 27.9717L9.22558 20.0114L3.07627 17.3049L3.07627 25.2652ZM20.3899 19.3547L21.365 18.9566L18.3799 17.683L14.0813 19.5139L17.0665 20.7676L18.0217 20.3696L16.1112 19.5537L16.8674 19.2353L18.3998 19.892L19.3749 19.494L17.8028 18.8372L18.4993 18.5586L20.3899 19.3547ZM19.2356 22.897L25.3849 25.5836L31.8129 22.7577L25.6635 20.0711L19.2356 22.897ZM16.9868 31.3548L10.5788 28.5488V20.6084L16.9868 23.4144V31.3548ZM26.3601 21.2452L27.4546 21.7427L24.4894 23.096L26.2009 23.892L25.166 24.3895L22.3799 23.0761L26.3601 21.2452ZM26.1213 26.7776L32.5492 23.9517V31.9524L26.1213 34.7976V26.7776ZM18.36 31.9518L24.768 34.7578V26.8572L18.36 24.0313V31.9518Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2908,7 +3896,8 @@ background-color: var(--color-error-10);
 
 /* Icon: Hourglass icon representing foundation grants */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-stiftung"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-stiftung"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M26.1213 12.6684L26.1213 8.96686L27.3352 8.96686V7.61361L12.4495 7.61361V8.96686H13.6635L13.6635 12.6684C13.6635 13.6833 14.0615 14.6386 14.758 15.3948L18.9604 19.8221L14.7381 24.2705C14.0416 25.0267 13.6635 26.0018 13.6635 26.9969V30.579H12.4495V31.9323L27.3352 31.9323V30.579H26.1213V26.9969C26.1213 26.0018 25.7432 25.0267 25.0467 24.2705L20.8243 19.8221L25.0268 15.3948C25.7233 14.6386 26.1213 13.6833 26.1213 12.6684ZM24.0317 14.4793L19.8924 18.8404L15.753 14.4793C15.2555 13.942 15.0167 13.3649 15.0167 12.6684L15.0167 8.96686H24.768L24.768 12.6684C24.768 13.3649 24.5292 13.942 24.0317 14.4793ZM17.3849 12.7082L19.8924 15.2157L22.38 12.7082L23.3352 13.6634L19.8924 17.1261L16.4297 13.6634L17.3849 12.7082ZM24.0516 25.1859C24.5292 25.7232 24.768 26.3004 24.768 26.9969V30.579H15.0167V26.9969C15.0167 26.3004 15.2555 25.7232 15.7331 25.1859L19.8924 20.804L24.0516 25.1859ZM19.2158 24.9471V22.559H20.569V24.9471H19.2158ZM20.569 26.1412H19.2158V27.3352H20.569V26.1412ZM16.5889 28.1909H23.1959V29.5442H16.5889V28.1909Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2916,7 +3905,8 @@ background-color: var(--color-error-10);
 
 /* Icon: X/close icon representing no income */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-keinEinkommen"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-keinEinkommen"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.1249 19.9998L28.8119 27.6868L27.6332 28.8655L19.9461 21.1785L12.313 28.8117L11.1881 27.6868L18.8213 20.0536L11.1342 12.3666L12.313 11.1879L20 18.8749L27.687 11.1879L28.8119 12.3128L21.1249 19.9998Z' fill='black'/%3E%3C/svg%3E");
 }
 
@@ -2924,115 +3914,266 @@ background-color: var(--color-error-10);
 
 /* Icon: Category/other icon representing miscellaneous income sources */
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstige"])::before {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstige"])::before {
+  /* Color declarations */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M31.6257 20.0936H33.193V26.9942H31.6257V32.4912H7.20465V14.0585H9.84793V13.731C9.84793 10.8538 12.2339 8.46784 15.1111 8.46784C16.8421 8.46784 18.5029 9.40351 19.462 10.9006L25.076 6.97076L30.0351 14.0585H31.6257V20.0936ZM19.3684 14.0585L25.4269 9.80117L24.7485 8.84211L17.3099 14.0585H19.3684ZM11.2047 13.731C11.2047 11.6023 12.9824 9.82457 15.1111 9.82457C16.421 9.82457 17.6374 10.5263 18.3625 11.6725L14.9473 14.0585H11.2047V13.731ZM21.731 14.0585H28.3976L26.1988 10.924L21.731 14.0585ZM30.2924 31.1345H8.56138V15.4152H30.2924V20.0936H23.8128V26.9708H30.2924V31.1345ZM25.1696 25.614H31.8362V21.4503H25.1696V25.614Z' fill='black'/%3E%3C/svg%3E");
 }
 
 /**
- * Form recap page styles
+ * Form recap/rechtliches page styles
+ * Styles for the legal summary and recap pages
+ * Uses design tokens – requires design-system.css
+ *
+ * Structure:
+ * - Collapsed section content styling
+ * - Form controls in readonly state
+ * - Hidden elements
+ * - Radio disabled states (imported)
+ */
+
+/* ========== Module imports ========== */
+
+/**
+ * Radio button disabled states
+ * Styles for disabled/readonly radio buttons on the rechtliches page
+ * Prevents interaction while maintaining visual appearance
  * Uses design tokens – requires design-system.css
  */
 
-.page-rechtliches .econ-section-content.collapse.show {
-  background-color: var(--color-background);
-  position: relative;
-  top: calc(var(--form-section-header-margin-bottom) * -1);
-  padding-left: 43px;
-  padding-right: 20px;
-  padding-bottom: 16px;
-}
+/* ========== Disabled cursor ========== */
 
-.page-rechtliches .econ-section-content.collapse.show select,
-.page-rechtliches .econ-section-content.collapse.show input {
-  background-color: var(--color-gradient-end);
-  border-radius: 0;
-  border: none;
-  pointer-events: none;
-  opacity: 1;
-  font-weight: var(--font-weight-bold);
-}
+/* Remove pointer cursor from disabled radio buttons */
 
-.page-rechtliches .econ-section-content.collapse.show .econ-form-control-select::after,
-.page-rechtliches .input-group-append {
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
+.b99-style.page-rechtliches .col-6.econ-radio-value-false:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit2-ansaessig"]) {
+  /* Display declarations */
   display: none;
 }
 
-.page-rechtliches .econ-fragment-radio-group .econ-form-control-outer {
-  flex: 0 0 100%;
-}
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
+  /* Display declarations */
+  display: block;
 
-.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
-.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
-.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
-.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
-  cursor: auto;
-}
-
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover, 
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover, 
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
-  border: var(--input-border-width) solid var(--input-border-color);
-}
-
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover, 
-.econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover, 
-.econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus,
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover, 
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
-  border-color: var(--input-border-color-focus);
-}
-
-.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover, 
-.econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus {
-  border-color: var(--input-border-color);
-}
-
-.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus .econ-radio-label::after,
-.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover .econ-radio-label::after,
-.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus .econ-radio-label::after,
-.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover .econ-radio-label::after,
-.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover .econ-radio-label::after,
-.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus .econ-radio-label::after {
+  /* Box Model declarations */
   border: none;
-}
+  padding: 0;
 
-.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
+  /* Miscellaneous declarations */
   cursor: auto;
-}
-
-.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) .econ-radio-label::after,
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio-label::after,
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-radio-label::after {
-  pointer-events: none;
-  cursor: auto;
-}
-
-.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:hover,
-.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:focus,
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:hover,
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:focus,
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:hover,
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:focus {
   box-shadow: none;
 }
 
-.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"]),
-.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before,
-.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after,
-.page-rechtliches .econ-fragment.econ-fragment-static-module,
-.page-rechtliches .econ-section-content .econ-section-header,
-.page-rechtliches .econ-input-group-suffix {
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) .form-check,
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .form-check,
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .form-check {
+  /* Display declarations */
+  justify-content: flex-start;
+
+  /* Box Model declarations */
+  -moz-column-gap: var(--spacing-8);
+       column-gap: var(--spacing-8);
+}
+
+/* ========== Disabled hover/focus states ========== */
+
+/* Maintain border on hover/focus for disabled radio buttons */
+
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
+  /* Box Model declarations */
+  border: var(--input-border-width) solid var(--input-border-color);
+}
+
+/* ========== Active disabled hover/focus states ========== */
+
+/* Maintain focus border color for active disabled radio buttons */
+
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
+  /* Box Model declarations */
+  border: none;
+}
+
+/* ========== Steueransässigkeit disabled hover/focus ========== */
+
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover,
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus {
+  /* Box Model declarations */
+  border-color: var(--input-border-color);
+}
+
+/* ========== Remove label overlay border ========== */
+
+/* Prevent border on label ::after pseudo-element for disabled radio buttons */
+
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus .econ-radio-label::after,
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover .econ-radio-label::after,
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus .econ-radio-label::after,
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover .econ-radio-label::after,
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover .econ-radio-label::after,
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus .econ-radio-label::after {
+  /* Box Model declarations */
+  border: none;
+}
+
+/* ========== Form check disabled cursor ========== */
+
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
+  /* Miscellaneous declarations */
+  cursor: auto;
+}
+
+/* ========== Disable label pointer events ========== */
+
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) .econ-radio-label::after,
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio-label::after,
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-radio-label::after {
+  /* Miscellaneous declarations */
+  cursor: auto;
+  pointer-events: none;
+}
+
+/* ========== Remove input box-shadow on hover/focus ========== */
+
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:hover,
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:focus,
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:hover,
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:focus,
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:hover,
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:focus {
+  /* Miscellaneous declarations */
+  box-shadow: none;
+}
+
+/* ========== Collapsed section content ========== */
+
+/* Styling for expanded collapse sections */
+
+.b99-style.page-rechtliches .econ-section-content.collapse.show {
+  /* Color declarations */
+  background-color: var(--color-background);
+
+  /* Box Model declarations */
+  padding-bottom: var(--spacing-16);
+  padding-left: var(--spacing-43);
+  padding-right: var(--spacing-20);
+
+  /* Positioning declarations */
+  position: relative;
+  top: calc(var(--form-section-header-margin-bottom) * -1);
+}
+
+/* ========== Label styles ========== */
+
+.b99-style.page-rechtliches.b99-style .form-label {
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Box Model declarations */
+  margin-bottom: 0;
+
+  /* Typography declarations */
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-tight);
+}
+
+/* ========== Readonly form controls ========== */
+
+/* Style inputs/selects as readonly within collapsed sections */
+
+.b99-style.page-rechtliches .econ-section-content.collapse.show select,
+.b99-style.page-rechtliches .econ-section-content.collapse.show input {
+  /* Color declarations */
+  background-color: var(--color-transparent);
+
+  /* Box Model declarations */
+  border: none;
+
+  /* Typography declarations */
+  font-weight: var(--font-weight-bold);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-none);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* ========== Hidden elements ========== */
+
+/* Hide select caret and input group append in collapsed sections */
+
+.b99-style.page-rechtliches .econ-section-content.collapse.show .econ-form-control-select::after,
+.b99-style.page-rechtliches .input-group-append {
+  /* Display declarations */
+  display: none;
+}
+
+/* ========== Radio group layout ========== */
+
+/* Full width radio group control */
+
+.b99-style.page-rechtliches .econ-fragment-radio-group .econ-form-control-outer {
+  /* Display declarations */
+  flex: 0 0 100%;
+}
+
+/* ========== Hidden elements on rechtliches page ========== */
+
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"]),
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before,
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after,
+.b99-style.page-rechtliches .econ-fragment.econ-fragment-static-module,
+.b99-style.page-rechtliches .econ-section-content .econ-section-header,
+.b99-style.page-rechtliches .econ-input-group-suffix {
+  /* Display declarations */
   display: none !important;
 }
 
-.page-rechtliches .econ-fragment-currency {
+/* ========== Currency fragment ========== */
+
+.b99-style.page-rechtliches .econ-fragment-currency {
+  /* Box Model declarations */
   width: 100%;
+}
+
+/* ========== Form Fragment ========== */
+
+.b99-style.page-rechtliches .collapse .econ-fragment-form-row {
+  /* Box Model declarations */
+  margin-bottom: calc(var(--input-margin-between) * 2);
+}
+
+/* */
+
+.b99-style.page-rechtliches .col-10:has([data-econ-property^="antrag-antragsteller1-personenDaten-titel"]) > .row {
+  /* Display declarations */
+  display: block;
+}
+
+.b99-style.page-rechtliches .col-10:has([data-econ-property^="antrag-antragsteller1-personenDaten-titel"]) > .row select:nth-child(1) {
+  /* Box Model declarations */
+  padding-bottom: 0;
+  padding-top: var(--input-padding);
+}
+
+.b99-style.page-rechtliches .col-10:has([data-econ-property^="antrag-antragsteller1-personenDaten-titel"]) > .row select:nth-child(2) {
+  /* Box Model declarations */
+  margin-bottom: var(--input-padding);
+  padding-bottom: var(--input-padding);
+  padding-top: 0;
 }
 
 /* ========== Media queries ========== */
@@ -3040,7 +4181,8 @@ background-color: var(--color-error-10);
 /* Small devices (landscape phones, 576px and up) */
 
 @media (min-width: 576px) {
-  .page-rechtliches .econ-section-content.collapse.show {
-    padding-top: 16px;
+  .b99-style.page-rechtliches .econ-section-content.collapse.show {
+    /* Box Model declarations */
+    padding-top: var(--spacing-16);
   }
 }

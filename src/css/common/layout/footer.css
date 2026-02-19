@@ -6,33 +6,40 @@
 
 /* ========== Footer button row container ========== */
 /* Negative margin to extend footer to form edges, accounting for Bootstrap gutter and form margin */
-.econ-fragment.econ-fragment-button-row{
+.b99-style .econ-fragment.econ-fragment-button-row{
+  /* Box Model declarations */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal) + var(--header-padding-left));
   ;
 }
 
 /* ========== Footer navigation bar ========== */
 /* Base styles for footer button bar */
-.econ-button-bar.b99-page-nav-btns {
-  padding: 0 var(--footer-padding-horizontal);
+/***** DUPLICATED DECLARATION - REVIEW REQUIRED *****/
+/* Note: This selector is also defined in buttons.css */
+.b99-style .econ-button-bar.b99-page-nav-btns {
+  /* Box Model declarations */
   margin-bottom: var(--footer-margin-bottom);
+  padding: 0 var(--footer-padding-horizontal);
 }
 
 /* ========== Bootstrap row override ========== */
 /* Reset Bootstrap row styles and apply flexbox layout for button alignment */
-.econ-button-bar.b99-page-nav-btns.row {
+.b99-style .econ-button-bar.b99-page-nav-btns.row {
+  /* Box Model declarations */
+  margin-bottom: 0 !important;
   margin-left: 0;
   margin-right: 0;
-  padding-bottom: 26px;
-  padding-top: 16px;
+  padding-bottom: var(--footer-margin-bottom);
   padding-left: 0;
   padding-right: 0;
-  display: flex;
+  padding-top: var(--spacing-16);
+  
+  /* Display declarations */
   align-items: center;
+  display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   column-gap: 0;
-  margin-bottom: 0 !important;
 }
 
 /* ========== Media queries ========== */
@@ -42,15 +49,17 @@
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   /* Center page content with max-width constraint */
-  .econ-fragment.econ-fragment-button-row {
+  .b99-style .econ-fragment.econ-fragment-button-row {
+    /* Box Model declarations */
     margin-inline: 0;
   }
 }
 
 @media (min-width: 992px) {
-  .econ-fragment.econ-fragment-button-row {
-    width: 84%;
-    margin-right: auto;
+  .b99-style .econ-fragment.econ-fragment-button-row {
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    width: 84%;
   }
 }

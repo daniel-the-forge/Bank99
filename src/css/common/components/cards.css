@@ -1,37 +1,64 @@
 /**
- * Icon styles
+ * Card component styles
+ * Promo cards and card-based UI elements
  * Uses design tokens – requires design-system.css
+ * 
+ * Structure:
+ * - Promo card container
+ * - Card divider
+ * - Card title and list
+ * - Card icon positioning
  */
 
-#econ-container .b99-promo-card {
+/* ========== Promo card container ========== */
+#econ-container .b99-style .b99-promo-card {
+  /* Miscellaneous declarations */
   border-radius: var(--card-border-radius);
-  padding: 0;
-  margin-top: var(--card-margin-top);
+  
+  /* Box Model declarations */
   margin-bottom: var(--card-margin-bottom);
+  margin-top: var(--card-margin-top);
+  padding: 0;
 }
 
-#econ-container .b99-promo-card__card {
+/* ========== Card inner content ========== */
+#econ-container .b99-style .b99-promo-card__card {
+  /* Miscellaneous declarations */
   box-shadow: inset 0 0 0 3px var(--color-primary);
+
+  /* Box Model declarations */
   padding: var(--card-vertical-padding) var(--card-horizontal-padding) calc(var(--card-vertical-padding) * 2);
 }
 
-#econ-container .b99-promo-card__divider {
+/* ========== Card divider ========== */
+#econ-container .b99-style .b99-promo-card__divider {
+  /* Color declarations */
   background: var(--color-background);
-  margin: 8px 0 16px 0;
-  margin-inline: -8px;
+
+  /* Box Model declarations */
+  margin: var(--spacing-8) 0 var(--spacing-16) 0;
+  margin-inline: calc(var(--spacing-8) * -1);
 }
 
-#econ-container .b99-promo-card__title {
+/* ========== Card title ========== */
+#econ-container .b99-style .b99-promo-card__title {
+  /* Typography declarations */
   font-size: var(--font-size-16) !important;
 }
 
-#econ-container .b99-promo-card__list {
+/* ========== Card list ========== */
+#econ-container .b99-style .b99-promo-card__list {
+  /* Typography declarations */
   font-size: var(--font-size-12);
-  line-height: 20px;
+  line-height: var(--line-height-20);
+
+  /* Box Model declarations */
   margin: 0;
 }
 
-#econ-container .b99-promo-card__icon {
+/* ========== Card icon ========== */
+#econ-container .b99-style .b99-promo-card__icon {
+  /* Positioning declarations */
   position: absolute;
-  right: 16px;
+  right: var(--spacing-16);
 }

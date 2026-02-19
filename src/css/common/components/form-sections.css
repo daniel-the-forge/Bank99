@@ -6,7 +6,8 @@
 
 /* ========== Form container padding ========== */
 /* Horizontal padding for form content (left and right margins) */
-.econ-container form {
+.econ-container form.b99-style {
+  /* Box Model declarations */
   padding-left: var(--form-margin-horizontal);
   padding-right: var(--form-margin-horizontal);
 }
@@ -17,59 +18,83 @@
 @supports selector(:has(h3)) {
   /* Section header bar - yellow background with shadow */
   /* Apply yellow styles to ALL headers with h3 by default */
-  .econ-section-header:has(h3) {
+  .b99-style .econ-section-header:has(h3) {
+    /* Color declarations */
     background-color: var(--color-primary);
-    box-shadow: var(--shadow-default);
+    
+    /* Miscellaneous declarations */
     border-radius: var(--form-section-header-radius);
-    /* margin-top: var(--form-section-header-margin-top); */
+    box-shadow: var(--shadow-default);
+
+    /* Box Model declarations */
     margin-bottom: var(--form-section-header-margin-bottom);
     /* Negative margin to extend header to form edges, accounting for Bootstrap gutter */
     margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
-    padding-top: var(--form-section-header-padding-top);
     padding-bottom: var(--form-section-header-padding-bottom);
+    padding-top: var(--form-section-header-padding-top);
   }
   
   /* Section header title text styling */
-  .econ-section-header h3 {
-    font-size: var(--font-size-18);
+  .b99-style .econ-section-header h3 {
+    /* Typography declarations */
     font-family: var(--font-family);
-    color: var(--color-text);
+    font-size: var(--font-size-18);
     font-weight: var(--font-weight-bold);
-    letter-spacing: 0;
-    line-height: 1;
+    letter-spacing: var(--letter-spacing-default);
+    line-height: var(--line-height-tight);
     text-align: center;
+    
+    /* Color declarations */
+    color: var(--color-text);
+    
+    /* Box Model declarations */
     margin: 0;
   }
 
   /* Collapse headers in page-rechtliches get white background styles (except the first one) */
   /* This overrides the yellow styles for collapse headers ONLY in page-rechtliches pages */
-  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3) {
+  .page-rechtliches.b99-style .econ-section-header.econ-collapse-header:has(h3) {
+    /* Color declarations */
     background-color: var(--color-background);
+
+    /* Box Model declarations */
     margin-inline: 0;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    column-gap: 8px;
-    padding: 16px 20px;
+    padding: var(--spacing-16) var(--spacing-20);
+
+    /* Miscellaneous declarations */
+    border-radius: var(--border-radius-sm);
     box-shadow: none; /* Remove shadow for collapse headers */
+
+    /* Display declarations */
+    align-items: center;
+    column-gap: var(--spacing-8);
+    display: flex;
   }
 
-  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3) span {
+  .page-rechtliches.b99-style .econ-section-header.econ-collapse-header:has(h3) span {
+    /* Miscellaneous declarations */
     cursor: pointer;
   }
   
   /* First collapse header in recap page - keep yellow styles */
   /* This overrides the white styles back to yellow for the first header */
-  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3) {
+  .page-rechtliches.b99-style section.page-header .econ-section-header.econ-collapse-header:has(h3) {
+    /* Color declarations */
     background-color: var(--color-primary);
+
+    /* Miscellaneous declarations */
     box-shadow: var(--shadow-default);
     border-radius: var(--form-section-header-radius);
+    cursor: auto;
+
+    /* Box Model declarations */
     margin-bottom: var(--form-section-header-margin-bottom);
     margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
-    padding-top: var(--form-section-header-padding-top);
     padding-bottom: var(--form-section-header-padding-bottom);
+    padding-top: var(--form-section-header-padding-top);
+    
+    /* Display declarations */
     display: block; /* Override flex from collapse header styles */
-    cursor: auto;
   }
   
   /* Collapse headers on pages WITHOUT page-rechtliches class keep yellow styles */
@@ -78,58 +103,80 @@
   /* No additional rule needed - the base rule handles it */
   
   /* Chevron icon - only on collapse headers in page-rechtliches pages (except the first one) */
-  .page-rechtliches .econ-section-header.econ-collapse-header:has(h3)::before {
+  .page-rechtliches.b99-style .econ-section-header.econ-collapse-header:has(h3)::before {
+    /* Content declarations */
     content: '';
+
+    /* Display declarations */
     display: block;
-    width: 15px;
-    height: 10px;
     flex-shrink: 0;
+
+    /* Box Model declarations */
+    height: 10px;
+    width: 15px;  
+
+    /* Color declarations */
     background-image: url("data:image/svg+xml,%3Csvg width='15' height='10' viewBox='0 0 15 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 2.26316L7.10526 9.39474L14.2368 2.26316L11.9737 0L7.10526 4.86842L2.26316 0L0 2.26316Z' fill='black'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
   }
   
   /* Hide the chevron icon on the first collapse header in recap page */
-  .page-rechtliches section.page-header .econ-section-header.econ-collapse-header:has(h3)::before {
+  .page-rechtliches.b99-style section.page-header .econ-section-header.econ-collapse-header:has(h3)::before {
+    /* Display declarations */
     display: none;
   }
   
   /* Collapsible section content - smooth expand/collapse animation */
   /* Base state - always has transition for smooth animations */
-  .page-rechtliches .econ-section-content {
+  .page-rechtliches.b99-style .econ-section-content {
+    /* Manipulations declarations */
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transition: max-height var(--transition-default), opacity var(--transition-default);
   }
   
   /* Collapsed state - hidden */
-  .page-rechtliches .econ-section-content.collapse {
+  .page-rechtliches.b99-style .econ-section-content.collapse {
+    /* Box Model declarations */
     max-height: 0;
+
+    /* Color declarations */
     opacity: 0;
   }
   
   /* Expanded state - visible */
-  .page-rechtliches .econ-section-content.collapse.show {
-    max-height: 2000px; /* Large enough for most content */
+  .page-rechtliches.b99-style .econ-section-content.collapse.show {
+    /* Manipulations declarations */
+    max-height: var(--collapse-max-height);
+
+    /* Color declarations */
     opacity: 1;
   }
   
   /* Collapsing state - intermediate state during animation */
   /* This is the key: collapsing state maintains transition and animates properly */
-  .page-rechtliches .econ-section-content.collapsing {
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  .page-rechtliches.b99-style .econ-section-content.collapsing {
+    /* Manipulations declarations */
     overflow: hidden;
+    transition: max-height var(--transition-default), opacity var(--transition-default);
   }
   
   /* When collapsing (closing), animate to collapsed state */
-  .page-rechtliches .econ-section-content.collapsing:not(.show) {
+  .page-rechtliches.b99-style .econ-section-content.collapsing:not(.show) {
+    /* Manipulations declarations */
     max-height: 0;
+
+    /* Color declarations */
     opacity: 0;
   }
   
   /* When collapsing (opening), animate to expanded state */
-  .page-rechtliches .econ-section-content.collapsing.show {
-    max-height: 2000px;
+  .page-rechtliches.b99-style .econ-section-content.collapsing.show {
+    /* Manipulations declarations */
+    max-height: var(--collapse-max-height);
+
+    /* Color declarations */
     opacity: 1;
   }
 
@@ -137,33 +184,48 @@
 
 /* ========== Fragment content ========== */
 /* Paragraph text within fragment content rows */
-.econ-fragment-content-row p {
+.b99-style .econ-fragment-content-row p {
+  /* Typography declarations */
   font-size: var(--font-size-12);
+
+  /* Box Model declarations */
   margin-left: calc(var(--bs-gutter-x) * .5);
+
+  /* Manipulations declarations */
   max-width: 80%;
 }
 
 /* ========== Section spacing ========== */
 /* Sections with bottom separation line get extra margin */
-.econ-section.with-bottom-separation-line {
-  margin-bottom: 38px;
+.b99-style .econ-section.with-bottom-separation-line {
+  /* Box Model declarations */
+  margin-bottom: var(--spacing-38);
 }
 
-.econ-fragment-multiple.econ-fragment-checkbox .econ-form-control-outer {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .econ-form-control-outer {
+  /* Color declarations */
   background-color: var(--color-background);
+
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius) !important;
-  padding: calc(var(--form-margin-horizontal) / 2) var(--form-margin-horizontal);
+
+  /* Box Model declarations */
   margin-top: calc(var(--form-margin-horizontal) / 2);
+  padding: calc(var(--form-margin-horizontal) / 2) var(--form-margin-horizontal);
 }
 
-.econ-fragment-multiple.econ-fragment-checkbox .form-check {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px 0;
+
+  /* Box Model declarations */
+  padding: var(--spacing-8) 0;
 }
 
-.econ-fragment-multiple.econ-fragment-checkbox .econ-control-icon {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .econ-control-icon {
+  /* Display declarations */
   display: none;
 }
 
@@ -175,12 +237,14 @@
 @media (min-width: 576px) {
   @supports selector(:has(h3)) {
     /* Section header bar - yellow background with shadow */
-    .econ-section-header:has(h3) {
+    .b99-style .econ-section-header:has(h3) {
+      /* Box Model declarations */
       margin-inline: 0;
     }
   }
 
-  .econ-container form {
+  .econ-container form.b99-style {
+    /* Box Model declarations */
     padding-left: 0;
     padding-right: 0;
   }

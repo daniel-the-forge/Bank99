@@ -4,35 +4,56 @@
  */
 
 .alert {
-padding: var(--input-padding);
-border: var(--input-border-width) solid currentColor;
-border-radius: var(--input-border-radius);
-margin-bottom: var(--form-margin-horizontal);
+  /* Box Model declarations */
+  border: var(--input-border-width) solid currentColor;
+  margin-bottom: var(--form-margin-horizontal);
+  padding: var(--input-padding);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
 } 
 
 .alert-danger {
-border-color: var(--color-error);
-background-color: var(--color-error-10);
+  /* Color declarations */
+  background-color: var(--color-error-10);
+  border-color: var(--color-error);
 }
 
 .alert .feedback-hint {
+  /* Box Model declarations */
   margin-bottom: var(--input-padding);
 }
 
 .alert .field-feedback-message {
+  /* Typography declarations */
   font-weight: var(--font-weight-bold);
-  padding-left: calc(var(--input-padding));
+
+  /* Box Model declarations */
   margin-bottom: calc(var(--input-padding) / 2);
+  padding-left: calc(var(--input-padding));
+  
+  /* Positioning declarations */
   position: relative;
 }
 
 .alert .field-feedback-message::before {
+  /* Content declarations */
   content: ""; /* The content property is mandatory for the pseudo-element to render */
+  
+  /* Display declarations */
   display: inline-block; /* Allows width/height to be applied, unlike default inline */
-  width: 8px;
-  height: 8px;
-  background-color: var(--color-error); /* Blue background for the circle */
-  border-radius: 50%; /* This makes the square element a circle */
-  margin-right: calc(var(--input-padding) / 2); /* Space between the circle and the text */
-  vertical-align: middle; /* Aligns the circle vertically with the text */
+
+  /* Box Model declarations */
+  height: var(--spacing-8);
+  margin-right: calc(var(--input-padding) / 2);
+  width: var(--spacing-8);
+  
+  /* Color declarations */
+  background-color: var(--color-error);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
+
+  /* Positioning declarations */
+  vertical-align: middle;
 }

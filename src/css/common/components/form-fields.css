@@ -5,289 +5,392 @@
 
 /* ========== Labels ========== */
 /* Form labels always appear above inputs */
-.econ-form-label label,
-.econ-form-label .form-label {
+.b99-style .econ-form-label label,
+.b99-style .econ-form-label .form-label {
+  /* Color declarations */
   color: var(--label-color);
+
+  /* Display declarations */
   display: block;
-  font-size: var(--label-font-size);
+
+  /* Typography declarations */
   font-family: var(--font-family);
+  font-size: var(--label-font-size);
   font-weight: var(--label-font-weight);
   letter-spacing: var(--letter-spacing-default);
-  margin-left: var(--label-margin-left);
+
+  /* Box Model declarations */
   margin-bottom: var(--label-margin-bottom);
+  margin-left: var(--label-margin-left);
 }
 
 /* ========== Input fields ========== */
 /* Base styles for text inputs and select dropdowns */
-.econ-container .form-control,
-.econ-container .form-select {
+.econ-container .b99-style .form-control,
+.econ-container .b99-style .form-select {
+  /* Box Model declarations */
   box-sizing: border-box;
-  /* Remove Bootstrap's default background images (caret icons, etc.) */
-  background-image: none;
-  background-repeat: no-repeat;
-  background-position: unset;
-  background-size: unset;
-  
-  background-color: var(--input-background);
   border: unset;
   border-color: var(--input-border-color);
-  border-width: var(--input-border-width);
   border-style: solid;
-  border-radius: var(--input-border-radius);
-  font-size: var(--input-font-size);
-  font-family: var(--font-family);
+  border-width: var(--input-border-width);
+  padding: var(--input-padding);
+  
+  /* Color declarations */
+  /* Remove Bootstrap's default background images (caret icons, etc.) */
+  background-color: var(--input-background);
+  background-image: none;
+  background-position: unset;
+  background-repeat: no-repeat;
+  background-size: unset;
   color: var(--input-color);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
+
+  /* Typography declarations */
+  font-family: var(--font-family);
+  font-size: var(--input-font-size);
   font-weight: var(--input-font-weight);
   letter-spacing: var(--letter-spacing-default);
   text-transform: none;
-  padding: var(--input-padding);
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   word-wrap: normal;
+  
+  /* Manipulations declarations */
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 /* Focus state - darker border and subtle shadow */
-.econ-container .form-control:focus,
-.econ-container .form-select:focus,
-.econ-container .form-control:hover,
-.econ-container .form-select:hover {
+.econ-container .b99-style .form-control:focus,
+.econ-container .b99-style .form-select:focus,
+.econ-container .b99-style .form-control:hover,
+.econ-container .b99-style .form-select:hover {
+  /* Box Model declarations */
   border-color: var(--input-border-color-focus);
   outline: 0;
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
 
 /* ========== Select dropdowns ========== */
 /* Remove native browser dropdown caret */
-.econ-form-control-select .form-select {
+.b99-style .econ-form-control-select .form-select {
+  /* Display declarations */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   display: block;
+
+  /* Box Model declarations */
   width: 100%;
 }
 
 /* Select wrapper - positioned relative for custom caret */
-.econ-form-control-select {
+.b99-style .econ-form-control-select {
+  /* Box Model declarations */
   box-sizing: border-box;
+
+  /* Positioning declarations */
   position: relative;
 }
 
 /* Custom dropdown caret - gray box with white chevron icon */
-.econ-form-control-select::after {
+.b99-style .econ-form-control-select::after {
+  /* Content declarations */
   content: "";
+
+  /* Positioning declarations */
   position: absolute;
-  pointer-events: none;
-
-  top: 50%;
   right: 0;
-  width: 29px;
-  height: 100%;
+  top: 50%;
 
+  /* Miscellaneous declarations */
+  border-radius: var(--caret-border-radius);
+  pointer-events: none;
+  
+  /* Box Model declarations */
+  height: 100%;
+  width: 29px;
+  
+  /* Color declarations */
   background-color: var(--caret-background);
+  
+  /* Manipulations declarations */
   transform: translateY(-50%);
 
-  border-radius: var(--caret-border-radius);
-
+  /* Color declarations */
   /* White chevron down icon */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 12 12'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ========== Form field spacing ========== */
 /* Vertical spacing between form groups and form rows */
-.econ-form-group + .econ-form-group,
-.econ-fragment-form-row {
-  margin-top: var(--input-margin-between);
+.b99-style .econ-form-group + .econ-form-group,
+.b99-style .econ-fragment-form-row {
+  /* Box Model declarations */
   margin-bottom: calc(var(--input-margin-between) * 2);
+  margin-top: var(--input-margin-between);
+
+  /* Positioning declarations */
   position: relative;
 }
 
 /* ========== Form control width ========== */
 /* Ensure form control outer takes full width when using col-10 */
-.econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
+.b99-style .econ-fragment > .econ-form-group .econ-form-control-outer.col-10 {
+  /* Box Model declarations */
   width: 100%;
 }
 
 /* ========== Bootstrap overrides ========== */
 /* Override external stylesheet's padding-bottom on form groups */
-form .econ-form-group.pb-3 {
+form.b99-style .econ-form-group.pb-3 {
+  /* Box Model declarations */
   padding-bottom: 0 !important;
 }
 
 /* ========== Radio form fields ========== */
 /* Radio label container */
-.econ-fragment-radio-group .econ-form-label {
+.b99-style .econ-fragment-radio-group .econ-form-label {
+  /* Display declarations */
   display: block;
+
+  /* Box Model declarations */
   padding: 0;
 }
 
-.econ-fragment-radio-group .econ-form-control-outer {
-  flex: 0 0 calc(100% - 43px);
+.b99-style .econ-fragment-radio-group .econ-form-control-outer {
+  /* Display declarations */
+  flex: 0 0 calc(100% - var(--spacing-43));
 }
-
-/* .econ-fragment-radio-group .input-group.row {
-  display: block;
-  position: relative;
-  width: calc(100% - 43px);
-} */
-
-.econ-fragment-radio-group .col-10 > .row {
+ 
+.b99-style .econ-fragment-radio-group .col-10 > .row {
+  /* Display declarations */
   display: block;
 }
 
 /* Radio button container box - bordered box with padding */
-.econ-fragment-radio-group .econ-radio .col-6 {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6 {
+  /* Box Model declarations */
   box-sizing: border-box;
   border: var(--input-border-width) solid var(--input-border-color);
-  border-radius: var(--input-border-radius);
   padding: calc(var(--input-padding) * 2) var(--input-padding);
+  
+  /* Positioning declarations */
   position: relative; /* Required for label overlay positioning */
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
   cursor: pointer; /* Visual feedback that the whole box is clickable */
 }
 
 /* Radio button label - stretched to cover entire container */
 /* This makes the entire .col-6 box clickable via the label */
-.econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label {
+  /* Positioning declarations */
   position: static; /* Keep label in normal flow for text positioning */
 }
 
-.econ-fragment-radio-group .econ-radio .col-6:hover,
-.econ-fragment-radio-group .econ-radio .col-6:focus {
-  border-color: transparent
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:hover,
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:focus {
+  /* Box Model declarations */
+  border-color: transparent;
 }
 
-.econ-fragment-radio-group .econ-radio .col-6:hover .econ-radio-label::after,
-.econ-fragment-radio-group .econ-radio .col-6:focus .econ-radio-label::after {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:hover .econ-radio-label::after,
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:focus .econ-radio-label::after {
+  /* Box Model declarations */
   border: var(--input-border-width) solid var(--color-primary);
+
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
 }
 
 /* Clickable overlay - covers entire .col-6 container */
 /* Uses ::after pseudo-element to extend label's clickable area */
-.econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label::after {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label::after {
+  /* Content declarations */
   content: "";
-  position: absolute;
+
+  /* Positioning declarations */
   inset: 0; /* Covers entire parent (top: 0, right: 0, bottom: 0, left: 0) */
+  position: absolute;
+
+  /* Miscellaneous declarations */
   cursor: pointer;
 }
 
 /* Active/selected state - visual feedback for selected radio option */
-.econ-fragment-radio-group .econ-radio .col-6.econ-radio--active {
+.b99-style .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active {
+  /* Color declarations */
   background-color: var(--color-background);
+
+  /* Box Model declarations */
   border-color: var(--input-border-color-focus);
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
 
-.econ-fragment-radio-group > .econ-form-group {
+.b99-style .econ-fragment-radio-group > .econ-form-group {
+  /* Positioning declarations */
   position: relative;
 }
 
 
 /* ========== Checkbox labels ========== */
 /* Checkbox label container */
-.econ-checkbox-label {
+.b99-style .econ-checkbox-label {
+  /* Display declarations */
   display: block;
 }
 
 /* Paragraph text within checkbox labels */
-.econ-checkbox-label p {
+.b99-style .econ-checkbox-label p {
+  /* Typography declarations */
   font-size: var(--font-size-12);
 }
 
 /* Second paragraph - truncated with fade effect for long text */
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2) {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2) {
+  /* Positioning declarations */
   position: relative;
+
+  /* Typography declarations */
+  line-height: var(--line-height-relaxed);
+  
+  /* Manipulations declarations */
   max-height: 3.75em; /* ~2.5 lines at 1.5em line-height */
-  line-height: 1.5em;
   overflow: hidden;
 }
 
 /* Fade gradient overlay at bottom of truncated paragraph */
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2)::after {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2)::after {
+  /* Content declarations */
   content: '';
-  position: absolute;
+
+  /* Positioning declarations */
   bottom: 0;
   left: 0;
+  position: absolute;
   right: 0;
+
+  /* Box Model declarations */
   height: 3.5em;
+
+  /* Color declarations */
   background: linear-gradient(180deg, transparent 0%, var(--color-gradient-end) 100%);
+
+  /* Miscellaneous declarations */
   pointer-events: none;
 }
 
 /* Hide third paragraph initially (shown via JS when expanded) */
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3) {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3) {
+  /* Display declarations */
   display: none;
 }
 
 /* When expanded, remove restrictions */
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded {
+  /* Manipulations declarations */
   max-height: none !important;
   overflow: visible !important;
 }
 
 /* Remove fade when expanded */
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded::after {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(2).expanded::after {
+  /* Display declarations */
   display: none !important;
 }
 
 /* Show third paragraph when visible class is added */
-.b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3).visible {
+.b99-style .b99-email-confirmation-box .econ-checkbox-label p:nth-of-type(3).visible {
+  /* Display declarations */
   display: block !important;
 }
 
 /* ========== Checkbox inputs ========== */
 /* Valid checkbox label text color */
-.econ-container .form-check-input.is-valid~.form-check-label {
+.econ-container .b99-style .form-check-input.is-valid~.form-check-label {
+  /* Color declarations */
   color: var(--color-text);
 }
 
 /* Base checkbox input styles - fixed 25x25px size */
-.econ-container .form-check-input {
-  width: 1.5625rem; /* 25px */
-  height: 1.5625rem; /* 25px */
-  min-width: 1.5625rem; /* prevent shrinking in flex containers */
-  flex-shrink: 0;
-  margin-top: 0;
-  vertical-align: top;
-  background-color: #fff;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.econ-container .b99-style .form-check-input {
+  /* Box Model declarations */
   border: var(--input-border-width) solid var(--color-text);
+  height: 1.5625rem; /* 25px */
+  margin-top: 0;
+  width: 1.5625rem; /* 25px */
+  
+  /* Manipulations declarations */
+  min-width: 1.5625rem; /* prevent shrinking in flex containers */
+  
+  /* Display declarations */
+  flex-shrink: 0;
+  
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
-  appearance: none;
   print-color-adjust: exact;
+  vertical-align: top;
+
+  /* Color declarations */
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  /* Display declarations */
+  appearance: none;
 }
 
 /* Reset Bootstrap's float and margin */
-.econ-container .form-check .form-check-input {
+.econ-container .b99-style .form-check .form-check-input {
+  /* Positioning declarations */
   float: unset;
+
+  /* Box Model declarations */
   margin-left: 0;
+
+  /* Positioning declarations */
   vertical-align: middle;
 }
 
 /* Valid checkbox border color */
-.econ-container .form-check-input.is-valid {
+.econ-container .b99-style .form-check-input.is-valid {
+  /* Box Model declarations */
   border-color: var(--color-text);
 }
 
-.econ-container .form-check-input:checked,
-.econ-container .form-check-input.is-valid:checked {
+.econ-container .b99-style .form-check-input:checked,
+.econ-container .b99-style .form-check-input.is-valid:checked {
+  /* Color declarations */
   background-color: var(--color-primary);
-  border-color: var(--input-border-color-focus);
   color: var(--color-text);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e")
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+
+  /* Box Model declarations */
+  border-color: var(--input-border-color-focus);
 }
 
 /* Checkbox border radius */
-.econ-container .form-check-input[type=checkbox] {
+.econ-container .b99-style .form-check-input[type=checkbox] {
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
 }
 
 /* Checkbox focus state */
-.econ-container .form-check-input:focus,
-.econ-container .form-check-input:hover {
+.econ-container .b99-style .form-check-input:focus,
+.econ-container .b99-style .form-check-input:hover {
+  /* Box Model declarations */
   border-color: var(--color-primary);
   outline: 0;
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }

@@ -1,0 +1,172 @@
+/**
+ * Neukunde form control styles
+ * Specific form field customizations for the new customer registration flow
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Email confirmation checkbox ========== */
+/* Large top margin for first email confirmation checkbox section only */
+/* Target the first .econ-fragment that contains .depot-email-confirmation-box */
+.b99-style .econ-section-content > .econ-fragment:has(.depot-email-confirmation-box):first-of-type .depot-email-confirmation-box,
+.b99-style .depot-email-confirmation-box {
+  /* Box Model declarations */
+  margin-top: var(--spacing-100);
+}
+
+/* Reset margin for subsequent fragments containing depot-email-confirmation-box */
+.b99-style .econ-section-content > .econ-fragment:has(.depot-email-confirmation-box) ~ .econ-fragment:has(.depot-email-confirmation-box) .depot-email-confirmation-box {
+  /* Box Model declarations */
+  margin-top: 0 !important;
+}
+
+/* Form check layout - flexbox with checkbox and label side-by-side */
+/* Negative margin to extend checkbox to form edge */
+.b99-style .depot-email-confirmation-box .form-check {
+  /* Display declarations */
+  align-items: flex-start;
+  display: flex;
+
+  /* Box Model declarations */
+  column-gap: var(--spacing-8);
+  margin-bottom: 0;
+  margin-top: var(--spacing-8);
+  min-height: unset;
+  padding-left: 0;
+}
+
+/* ========== Titel field icon ========== */
+/* Hide icon button in Titel field (has two col-6 selects side by side) */
+.b99-style .econ-form-control-outer:has(.col-6:first-child .econ-form-control-select):has(.col-6:nth-child(2) .econ-form-control-select) + .econ-control-icon {
+  /* Display declarations */
+  display: none;
+}
+
+/* ========== Steueransässigkeit radio buttons ========== */
+/* Stack radio buttons vertically for long text labels */
+/* Target radio group by data-econ-property attribute */
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio.row {
+  /* Display declarations */
+  flex-direction: column; /* Stack radio buttons vertically */
+
+  /* Box Model declarations */
+  gap: var(--input-margin-between); /* Add spacing between stacked buttons */
+}
+
+/* Make each radio button take full width when stacked */
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio .col-6 {
+  /* Display declarations */
+  flex: 0 0 100%; /* Full width instead of 50% */
+
+  /* Box Model declarations */
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Align label an input horizontally */
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .radio {
+  /* Display declarations */
+  align-items: center;
+  display: flex;
+
+  /* Box Model declarations */
+  gap: var(--spacing-8);
+  padding: 0;
+}
+
+/* Align info icon to top of first radio button */
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
+  /* Positioning declarations */
+  position: absolute;
+  right: 0;
+  top: var(--spacing-40);
+}
+
+/* USA Bezug radio buttons */
+.b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-control-icon {
+  /* Positioning declarations */
+  position: absolute;
+  right: 0;
+  top: 36px;
+}
+
+/* ========== Sonstiges Einkünfte input group ========== */
+.b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+  /* Box Model declarations */
+  width: 45%;
+
+  /* Positioning declarations */
+  left: 130px;
+  position: absolute;
+  top: calc(var(--spacing-64) * -1);
+}
+
+.b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) .econ-control-icon {
+  /* Display declarations */
+  display: none;
+}
+
+/* ========== Media queries ========== */
+/* Small devices (landscape phones, 397px and up) */
+@media (min-width: 397px) {
+  .b99-style .econ-fragment-radio-group:has([data-econ-property="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-control-icon {
+    /* Positioning declarations */
+    top: 30px;
+  }
+}
+
+@media (min-width: 420px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 50%;
+  }
+}
+
+@media (min-width: 500px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 60%;
+  }
+}
+
+@media (min-width: 600px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 65%;
+  }
+}
+
+@media (min-width: 768px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 73%;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Monthly income input group */
+  .b99-style .econ-fragment-currency {
+    /* Box Model declarations */
+    margin-left: auto;
+    margin-right: auto;
+    width: 84%;
+  }
+
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 76%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 79%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
+    /* Box Model declarations */
+    width: 83%;
+  }
+}

@@ -1,0 +1,210 @@
+/**
+ * File upload component styles
+ * Styles for file drop area, upload button, and file management
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== File drop area button ========== */
+/* Style the file drop area as a button with icon and text */
+.b99-style .econ-file-drop-area {
+  /* Color declarations */
+  background-color: rgba(255, 255, 255, 0.9);
+
+  /* Display declarations */
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  gap: var(--spacing-8);
+
+  /* Box Model declarations */
+  box-shadow: inset 0 0 0 var(--input-border-width) var(--color-text);
+  padding: var(--spacing-10) var(--spacing-28);
+
+  /* Positioning declarations */
+  position: relative;
+
+  /* Miscellaneous declarations */
+  /* Inside border using box-shadow */
+  border-radius: var(--btn-primary-border-radius);
+  cursor: pointer;
+}
+
+/* ========== Hide original content ========== */
+/* Hide default file input elements */
+.b99-style .econ-file-drop-area .econ-form-control,
+.b99-style .econ-file-drop-area .econ-file-add-button,
+.b99-style .econ-file-drop-area .econ-file-message {
+  /* Display declarations */
+  display: none;
+}
+
+/* ========== Upload icon ========== */
+/* Upload icon via ::before pseudo-element */
+.b99-style .econ-file-drop-area::before {
+  /* Content declarations */
+  content: "";
+
+  /* Display declarations */
+  display: inline-block;
+
+  /* Box Model declarations */
+  height: var(--icon-size-md);
+  width: var(--icon-size-md);
+
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.58257 5.58597H17.2352V6.56842H6.58257V5.58597ZM11.9159 7.41053L17.572 13.0246L16.9264 13.6982L12.4212 9.23509V18.8491H11.4387V9.23509L6.93345 13.6982L6.25977 13.0246L11.9159 7.41053Z' fill='black'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* ========== Remove button ========== */
+/* Button to remove uploaded file */
+.b99-style .econ-file-remove-button {
+  /* Color declarations */
+  background-color: var(--color-primary);
+  color: var(--color-text);
+
+  /* Box Model declarations */
+  padding: var(--spacing-8) var(--spacing-16);
+
+  /* Typography declarations */
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--btn-primary-border-radius);
+
+  /* Manipulations declarations */
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+.b99-style .econ-file-remove-button:hover,
+.b99-style .econ-file-remove-button:focus {
+  /* Color declarations */
+  background-color: var(--color-text);
+  color: var(--color-primary);
+}
+
+/* ========== Upload text ========== */
+/* "hochladen" text via ::after pseudo-element */
+.b99-style .econ-file-drop-area::after {
+  /* Content declarations */
+  content: "hochladen";
+
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Typography declarations */
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ========== Hover state ========== */
+.b99-style .econ-file-drop-area:hover {
+  /* Color declarations */
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* ========== Hidden file input ========== */
+/* Make the hidden file input cover the entire button for click handling */
+.b99-style .econ-file-drop-area input[type="file"] {
+  /* Display declarations */
+  display: block !important;
+
+  /* Box Model declarations */
+  height: 100%;
+  width: 100%;
+
+  /* Positioning declarations */
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+
+  /* Miscellaneous declarations */
+  cursor: pointer;
+  opacity: 0;
+}
+
+/* ========== File upload container ========== */
+/* Center the button */
+.b99-style .econ-form-control-file {
+  /* Display declarations */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Box Model declarations */
+  width: 100%;
+}
+
+.b99-style .econ-fragment-file-input {
+  /* Box Model declarations */
+  margin-bottom: calc(var(--input-margin-between) + 1rem);
+}
+
+/* ========== Hidden elements ========== */
+/* Hide "Entfernen" button by default */
+.b99-style .econ-fragment-file-input .form-label,
+.b99-style .econ-file-remove-button {
+  /* Display declarations */
+  display: none;
+}
+
+.b99-style .econ-fragment-file-input .row {
+  /* Display declarations */
+  justify-content: center;
+}
+
+/* ========== File selected state ========== */
+/* Show "Entfernen" button when file is uploaded (via JS adding a class) */
+/* The button will be shown when a file is selected - requires JS to add .has-file class */
+.b99-style .econ-form-control-file.has-file .econ-file-remove-button {
+  /* Display declarations */
+  display: inline-block;
+
+  /* Box Model declarations */
+  margin-top: var(--spacing-8);
+}
+
+/* ========== Filename display ========== */
+/* Shows the name of the uploaded file */
+.b99-style .econ-file-name {
+  /* Display declarations */
+  display: block;
+
+  /* Box Model declarations */
+  margin-top: var(--spacing-8);
+  max-width: 100%;
+
+  /* Color declarations */
+  color: var(--color-text);
+
+  /* Typography declarations */
+  font-family: var(--font-family);
+  font-size: var(--font-size-12);
+  text-align: center;
+  word-break: break-all; /* Handle long filenames */
+}
+
+/* Hide filename when empty */
+.b99-style .econ-file-name:empty {
+  /* Display declarations */
+  display: none;
+}
+
+/* Hide hidden labels */
+.b99-style .econ-form-control-file label[for] {
+  /* Display declarations */
+  display: none;
+}
+
+/* ========== Upload field icon ========== */
+/* Hide info icon for upload fields */
+.b99-style .b99-upload-field .econ-control-icon {
+  /* Display declarations */
+  display: none;
+}

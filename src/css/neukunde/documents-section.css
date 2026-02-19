@@ -1,0 +1,52 @@
+/**
+ * Documents section styles
+ * Info boxes and document-related section styling
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Info box section ========== */
+/* Yellow background info box that extends to screen edges */
+.b99-style .econ-section.abcschluss-info-box-fix {
+  /* Color declarations */
+  background-color: var(--color-primary);
+
+  /* Box Model declarations */
+  /* Negative margin to extend section to screen edges */
+  margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  /* Add padding equal to removed margin so content aligns with other elements */
+  padding-bottom: 0;
+  padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-top: var(--spacing-16);
+}
+
+/* ========== Info box typography ========== */
+.b99-style .econ-section.abcschluss-info-box-fix p {
+  /* Box Model declarations */
+  margin-left: 0;
+
+  /* Manipulations declarations */
+  max-width: 100%;
+
+  /* Typography declarations */
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+.b99-style .econ-section.abcschluss-info-box-fix .col-12 {
+  /* Typography declarations */
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-20);
+}
+
+/* ========== Speichern box ========== */
+.b99-style .econ-section.speichern-box h3 {
+  /* Typography declarations */
+  font-size: var(--font-size-16);
+}
+
+.b99-style .econ-section.speichern-box p {
+  /* Box Model declarations */
+  margin-left: 0;
+}

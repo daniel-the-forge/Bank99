@@ -7,15 +7,26 @@
 /* ========== Top bar container ========== */
 /* Main header bar - dynamically injected into empty #header div by backend */
 .top-bar {
+  /* Miscellaneous declarations */
   all: unset;
+
+  /* Box Model declarations */
   box-sizing: border-box;
-  display: block;
-  padding-top: var(--header-padding-top);
   padding-bottom: var(--header-padding-bottom);
   padding-left: var(--header-padding-left);
   padding-right: var(--header-padding-right);
+  padding-top: var(--header-padding-top);
+
+  /* Display declarations */
+  display: block;
+  
+  /* Color declarations */
   background-color: var(--color-background-secondary-70);
+
+  /* Miscellaneous declarations */
   box-shadow: var(--header-shadow);
+
+  /* Positioning declarations */
   position: relative;
   z-index: 2;
 }
@@ -23,77 +34,126 @@
 /* ========== Grid column layout ========== */
 /* CSS Grid layout: left column auto-sized (logos), right column flexible (titles/progress) */
 .top-bar > .row {
+  /* Display declarations */
+  align-items: start;
+  column-gap: var(--spacing-16);
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: 1rem;
-  align-items: start;
 }
 
 /* ========== Content header (titles) ========== */
 /* Page title container - hidden by default, shown via JS when content loads */
 .content-header.content {
+  /* Color declarations */
   opacity: 0;
-  transition: opacity 0.3s ease;
+
+  /* Manipulations declarations */
+  transition: opacity var(--transition-default);
+  
+  /* Positioning declarations */
   grid-area: 2/2;
-  margin-top: -16px;
+
+  /* Box Model declarations */
+  margin-top: calc(var(--spacing-16) * -1);
 }
 
 .content-header > div:first-child {
+  /* Display declarations */
   display: none;
 }
 
 .page-content > .hr.hr-20,
 .page-content .b99-page-header {
+  /* Display declarations */
   display: none;
 }
 
 /* Visible state - applied via JS when content is ready */
 .content-header.content.content-header--visible {
+  /* Color declarations */
   opacity: 1;
 }
 
 /* Page title styling */
 .top-bar h1 {
+  /* Typography declarations */
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+
+  /* Color declarations */
   color: var(--color-text);
-  line-height: 1.2;
-  margin-bottom: 8px;
+
+  /* Box Model declarations */
+  margin-bottom: var(--spacing-8);
   margin-top: 0;
 }
 
 /* Subtitle/second line of title */
 .top-bar h1 span {
+  /* Typography declarations */
   font-weight: var(--font-weight-regular);
+
+  /* Display declarations */
   display: block;
 }
 
 /* ========== Progress bar container ========== */
 /* Progress bar wrapper - provides space for shadow */
 .econ-container .progress {
+  /* Display declarations */
   display: flex;
+
+  /* Box Model declarations */
   height: var(--bs-progress-height);
+  padding-bottom: var(--spacing-2); /* Space for shadow */
+
+  /* Manipulations declarations */
   overflow: visible; /* Changed from hidden to allow shadow visibility */
+
+  /* Typography declarations */
   font-size: var(--font-size-12);
+
+  /* Color declarations */
   background-color: transparent;
-  border-radius: 4px;
-  padding-bottom: 2px; /* Space for shadow */
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-sm);
 }
 
 /* ========== Progress bar ========== */
 /* Progress bar fill - yellow bar with shadow */
 .econ-container .progress-bar {
+  /* Color declarations */
   background-color: var(--color-primary);
-  border-radius: 4px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.35);
-  transition: width 0.6s ease;
+  color: var(--color-text);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--spacing-2) var(--spacing-2) var(--spacing-2) rgba(0, 0, 0, 0.35);
+
+  /* Manipulations declarations */
+  overflow: hidden; /* Keep overflow hidden for content, shadow extends outside */
+  transition: width var(--transition-slow);
+
+  /* Display declarations */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden; /* Keep overflow hidden for content, shadow extends outside */
-  color: var(--color-text);
+  
+  /* Typography declarations */
   text-align: center;
   white-space: nowrap;
+}
+
+/* Progress bar percentage */
+.econ-container .progress-percentage {
+  /* Box Model declarations */
+  margin-left: var(--input-padding);
+
+  /* Typography declarations */
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
 }
 
 /* ========== Media queries ========== */
@@ -104,9 +164,12 @@
 @media (min-width: 576px) {
   /* Center page content with max-width constraint */
   .top-bar > .row {
-    max-width: 540px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    
+    /* Manipulations declarations */
+    max-width: 540px;
   }
 }
 
@@ -114,9 +177,12 @@
 @media (min-width: 768px) {
   /* Increase max-width for tablet screens */
   .top-bar > .row {
-    max-width: 720px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+
+    /* Manipulations declarations */
+    max-width: 720px;
   }
 }
 
@@ -124,9 +190,12 @@
 @media (min-width: 992px) {
   /* Increase max-width for desktop screens */
   .top-bar > .row {
-    max-width: 960px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    
+    /* Manipulations declarations */
+    max-width: 960px;
   }
 }
 
@@ -134,9 +203,13 @@
 @media (min-width: 1200px) {
   /* Increase max-width for large desktop screens */
   .top-bar > .row {
-    max-width: 1140px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+
+    /* Manipulations declarations */
+    max-width: 1140px;
+    
   }
 }
 
@@ -144,8 +217,11 @@
 @media (min-width: 1400px) {
   /* Maximum width for very large screens */
   .top-bar > .row {
-    max-width: 1320px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+
+    /* Manipulations declarations */
+    max-width: 1320px;
   }
 }

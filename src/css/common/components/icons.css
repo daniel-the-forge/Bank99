@@ -1,148 +1,241 @@
 /**
  * Icon styles
+ * Icon components including info buttons, calendar icons, and validation icons
  * Uses design tokens – requires design-system.css
+ * 
+ * Structure:
+ * - Info icon button (circular "i" icon)
+ * - Bootstrap icon overrides (calendar, input group)
+ * - Currency input icons
+ * - Validation icons (success/error)
  */
 
 /* ========== Info icon button ========== */
 /* Circular info button displayed next to form inputs */
-.econ-control-icon .btn.econ-icon-info {
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  flex-shrink: 0;
+.b99-style .econ-control-icon .btn.econ-icon-info {
+  /* Box Model declarations */
   border: var(--input-border-width) solid transparent;
-  border-radius: 50%;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  height: var(--icon-size-lg);
+  padding: 0;
+  width: var(--icon-size-lg);
+  
+  /* Display declarations */
+  flex-shrink: 0;
+
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
+
+  /* Manipulations declarations */
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  /* Color declarations */
+  color: var(--color-background);
 }
 
 /* Focus state - shows border and shadow for accessibility */
-.econ-control-icon .btn.econ-icon-info:focus,
-.econ-control-icon .btn.econ-icon-info:hover {
+.b99-style .econ-control-icon .btn.econ-icon-info:focus,
+.b99-style .econ-control-icon .btn.econ-icon-info:hover {
+  /* Box Model declarations */
   border-color: var(--color-primary);
   outline: 0;
+
+  /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
 
 /* Info icon "i" letter - created using ::before pseudo-element */
-.econ-control-icon .btn.econ-icon-info::before{
+.b99-style .econ-control-icon .btn.econ-icon-info::before{
+  /* Color declarations */
   background: var(--color-icon);
   color: var(--color-background);
   
-  border-radius: 50%;
+  /* Miscellaneous declarations */
+  border-radius: var(--border-radius-full);
 
+  /* Box Model declarations */
   height: 100%;
   width: 100%;
   
-  display: flex;
+  /* Display declarations */
   align-items: center;
+  display: flex;
   justify-content: center;
 
+  /* Color declarations */
   content: "i";
-  font-family: 'Post Sans' !important;
-  font-weight: 700 !important;
-  vertical-align: middle;
-  font-size: 1.5rem;
 
+  /* Typography declarations */
+  font-family: 'Post Sans' !important;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold) !important;
+
+  /* Positioning declarations */
+  vertical-align: middle;
 }
 
 /* ========== Bootstrap icon overrides ========== */
 /* Default calendar icon  */
-.econ-form-control-date {
+.b99-style .econ-form-control-date {
+  /* Positioning declarations */
   position: relative;
+
+  /* Display declarations */
   display: flex;
   flex-wrap: nowrap;
+
+  /* Box Model declarations */
   align-items: stretch;
   width: 100%;
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
 }
 
-.bi.bi-calendar {
-  display: flex;
+.b99-style .bi.bi-calendar {
+  /* Display declarations */
   align-items: center;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
+  display: flex;
+  
+  /* Box Model declarations */
+  border: 1px solid var(--color-input-group-border);
+  padding: var(--spacing-6) var(--spacing-12);
+
+  /* Typography declarations */
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
   text-align: center;
   white-space: nowrap;
-  background-color: #e9ecef;
-  border: 1px solid #ced4da;
-  border-radius: .375rem;
+
+  /* Color declarations */
+  color: var(--color-input-group-text);
+  background-color: var(--color-input-group-bg);
+  
+  /* Miscellaneous declarations */
+  border-radius: var(--spacing-6);
 }
 
-.bi.bi-calendar:before {
+.b99-style .bi.bi-calendar:before {
+  /* Content declarations */
   content: '';
+
+  /* Display declarations */
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z'/%3E%3C/svg%3E");
+
+  /* Box Model declarations */
+  height: var(--icon-size-sm);
+  width: var(--icon-size-sm);
+  
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.econ-container .input-group-text {
+.econ-container .b99-style .input-group-text {
+  /* Color declarations */
   background-color: var(--color-background);
   color: var(--color-text);
+
+  /* Miscellaneous declarations */
   border-radius: var(--input-border-radius);
-  display: flex;
+
+  /* Display declarations */
   align-items: center;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+  display: flex;
+  
+  /* Box Model declarations */
+  padding: var(--spacing-6) var(--spacing-12);
+
+  /* Typography declarations */
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
   text-align: center;
   white-space: nowrap;
 }
 
-.econ-form-control-currency {
+/* ========== Currency input container ========== */
+.b99-style .econ-form-control-currency {
+  /* Positioning declarations */
   position: relative;
+
+  /* Display declarations */
+  align-items: stretch;
   display: flex;
   flex-wrap: nowrap;
-  align-items: stretch;
+  
+  /* Box Model declarations */
   width: 100%;
 }
 
-.econ-input-group-append {
+/* ========== Input group append container ========== */
+.b99-style .econ-input-group-append {
+  /* Display declarations */
+  align-items: center;
   display: flex;
   flex-direction: row-reverse;
-  align-items: center;
+  
+  /* Positioning declarations */
   position: relative;
 }
 
-.econ-input-group-append > .econ-icon-success,
-.econ-input-group-append > .econ-icon-error {
+/* ========== Validation icons ========== */
+/* Success and error icons positioned within input group */
+.b99-style .econ-input-group-append > .econ-icon-success,
+.b99-style .econ-input-group-append > .econ-icon-error {
+  /* Positioning declarations */
+  left: var(--spacing-40);
   position: absolute;
-  left: 40px;
   top: 7px;
 }
 
-.econ-input-group-append > .econ-icon-success::before {
+/* Success checkmark icon */
+.b99-style .econ-input-group-append > .econ-icon-success::before {
+  /* Content declarations */
   content: "\2713";
+
+  /* Color declarations */
   color: var(--color-success);
+
+  /* Display declarations */
   display: inline-block;
+
+  /* Typography declarations */
   font-style: normal;
-  font-weight: 400 !important;
   font-variant: normal;
-  text-transform: none;
+  font-weight: 400 !important;
   line-height: 1;
-  vertical-align: -.125em;
+  text-transform: none;
   -webkit-font-smoothing: antialiased;
+
+  /* Positioning declarations */
+  vertical-align: -.125em;
 }
 
-.econ-input-group-append > .econ-icon-error {
+/* Error X icon */
+.b99-style .econ-input-group-append > .econ-icon-error {
+  /* Box Model declarations */
   border: none;
-  font-size: var(--font-size-16);
   padding: 0;
+
+  /* Typography declarations */
+  font-size: var(--font-size-16);
 }
 
-.econ-input-group-append > .econ-icon-error::before {
+.b99-style .econ-input-group-append > .econ-icon-error::before {
+  /* Content declarations */
   content: "\2715";
-  color: var(--color-error);
-  display: inline-block;
-  font-style: normal;
-  font-weight: 400 !important;
-  font-variant: normal;
-}
 
-/* .econ-fragment-radio-group .econ-control-icon {
-  position: relative;
-  top: 11px;
-} */
+  /* Color declarations */
+  color: var(--color-error);
+
+  /* Display declarations */
+  display: inline-block;
+
+  /* Typography declarations */
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400 !important;
+}

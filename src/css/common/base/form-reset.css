@@ -6,14 +6,19 @@
 /* ========== Root HTML element ========== */
 /* Set base font size for rem calculations (16px = 1rem) */
 html {
-  font-size: 16px;
+  font-size: var(--font-size-16);
 }
 
 /* ========== Body element ========== */
 /* Apply base typography and remove default margins */
 body {
+   /* Color declarations */
   color: var(--color-text);
+
+  /* Typography declarations */
   font-family: var(--font-family);
+
+  /* Box Model declarations */
   margin: 0;
   min-height: 100vh;
 }
@@ -22,39 +27,51 @@ body {
 /* Reset all styles and apply body variables for consistency */
 .econ-container {
   all: unset;
+
+  /* Color declarations */
   color: var(--bs-body-color);
+
+  /* Typography declarations */
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
+
+  /* Box Model declarations */
   line-height: var(--bs-body-line-height);
   text-align: var(--bs-body-text-align);
 }
 
 /* Paragraph spacing within econ-container */
 .econ-container p {
-  margin-bottom: 1rem;
+  /* Box Model declarations */
+  margin-bottom: var(--spacing-16);
   margin-top: 0;
 }
 
 /* ========== Content main container ========== */
 /* Main content wrapper with background gradient and gutter padding based on Bootstrap gutter */
 .content-main.container {
+  /* Color declarations */
   background: var(--body-background);
+  
+  /* Box Model declarations */
+  margin-left: auto;
+  margin-right: auto;
   padding-right: calc(var(--bs-gutter-x) * .5);
   padding-left: calc(var(--bs-gutter-x) * .5);
-  margin-right: auto;
-  margin-left: auto;
 }
 
 /* ========== Page content container ========== */
 /* Add top padding to create space for the first form section header */
 #econ-container.page-content {
+  /* Box Model declarations */
   padding-top: var(--form-section-header-margin-top);
 }
 
 /* ========== Hidden elements ========== */
 /* Ensure elements with [hidden] attribute are not displayed */
 .econ-container [hidden] {
+  /* Display declarations */
   display: none !important;
 }
 
@@ -66,14 +83,16 @@ body {
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .content-main.container {
+    /* Box Model declarations */
     max-width: 100%;
   }
 
   /* Center page content with max-width constraint */
   #econ-container.page-content {
-    max-width: 540px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 540px;
   }
 }
 
@@ -81,9 +100,10 @@ body {
 @media (min-width: 768px) {
   /* Increase max-width for tablet screens */
   #econ-container.page-content {
-    max-width: 720px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 720px;
   }
 }
 
@@ -91,15 +111,17 @@ body {
 @media (min-width: 992px) {
   /* Increase max-width for desktop screens */
   #econ-container.page-content {
-    max-width: 960px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;
   }
 
   form > .econ-fragment-container > .econ-form-content > .econ-section-content {
-    width: 84%;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    width: 84%;
   }
 }
 
@@ -107,9 +129,10 @@ body {
 @media (min-width: 1200px) {
   /* Increase max-width for large desktop screens */
   #econ-container.page-content {
-    max-width: 1140px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 1140px;
   }
 }
 
@@ -117,8 +140,9 @@ body {
 @media (min-width: 1400px) {
   /* Maximum width for very large screens */
   #econ-container.page-content {
-    max-width: 1320px;
-    margin-right: auto;
+    /* Box Model declarations */
     margin-left: auto;
+    margin-right: auto;
+    max-width: 1320px;
   }
 }
