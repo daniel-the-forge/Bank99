@@ -73,6 +73,37 @@
   box-shadow: var(--input-box-shadow-focus);
 }
 
+/* Read Only states */
+.econ-container .b99-style input[type="text"]:read-only,
+.econ-container .b99-style input[type="number"]:read-only,
+.econ-container .b99-style input[type="email"]:read-only,
+.econ-container .b99-style input[type="tel"]:read-only,
+.econ-container .b99-style input[type="date"]:read-only,
+.econ-container .b99-style textarea:read-only,
+.econ-container .b99-style select[disabled],
+.econ-container .b99-style select[disabled] {
+  /* Box Model declarations */
+  border: var(--input-border-width) solid var(--color-border);
+  /* Color declarations */
+  background-color: var(--color-border);
+
+  /* Miscellaneous declarations */
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Read-only form control with input-group-append */
+.econ-container .b99-style .input-group:has(input[type="text"][readonly]) .bi,
+.econ-container .b99-style .input-group:has(input[type="date"][readonly]) .bi {
+  /* Color declarations */
+  background-color: var(--color-border);
+}
+
+.b99-style .econ-fragment-radio-group .econ-radio .col-6:has(input[readonly]) .econ-radio-label::after {
+  /* Display declarations */
+  display: none;
+}
+
 /* ========== Select dropdowns ========== */
 /* Remove native browser dropdown caret */
 .b99-style .econ-form-control-select .form-select {

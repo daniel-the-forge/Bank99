@@ -13,6 +13,7 @@
 
 /* ========== Module imports ========== */
 @import "form-controls.css";
+@import "form-sections.css";
 @import "documents-section.css";
 @import "file-upload.css";
 @import "add-more-buttons.css";

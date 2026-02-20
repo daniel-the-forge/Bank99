@@ -186,13 +186,13 @@
 /* Paragraph text within fragment content rows */
 .b99-style .econ-fragment-content-row p {
   /* Typography declarations */
-  font-size: var(--font-size-12);
+  font-size: var(--font-size-16);
 
   /* Box Model declarations */
-  margin-left: calc(var(--bs-gutter-x) * .5);
+  margin-left: 0;
 
   /* Manipulations declarations */
-  max-width: 80%;
+  max-width: 100%;
 }
 
 /* ========== Section spacing ========== */

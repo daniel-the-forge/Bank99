@@ -1,0 +1,18 @@
+/**
+ * Neukunde form section styles
+ * Specific form section customizations for the new customer registration flow
+ * Uses design tokens – requires design-system.css
+ */
+
+ /* ========== Gray info box ========== */
+ /* Gray info box with smaller font size and no left margin */
+.b99-style .b99-gray-info-box p {
+  /* Typography declarations */
+  font-size: var(--font-size-12);
+
+  /* Box Model declarations */
+  margin-left: 0;
+
+  /* Manipulations declarations */
+  max-width: 80%;
+}
