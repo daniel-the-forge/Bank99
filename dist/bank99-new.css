@@ -19,6 +19,11 @@
   --color-text: #000000;
   --color-text-opacity-100: rgba(0, 0, 0, 1);
 
+  /* Link colors */
+  --color-link: #197ECA;
+  --color-link-hover: #0078C8;
+  --color-link-active: #005FA0;
+
   /* Primary brand color - yellow used for buttons, headers, progress bars */
   --color-primary: #FFDC00;
   --color-primary-100: rgba(255, 220, 0, 1);
@@ -61,6 +66,9 @@
   /* ========== Body background ========== */
   /* Main page background gradient - diagonal gradient from gray to light gray */
   --body-background: linear-gradient(120deg, var(--color-background-secondary-80) 0%, var(--color-gradient-end) 50%, var(--color-gradient-end) 100%);
+
+  /* ========== Border========== */
+  --b99-master-radius: 8px;
 
   /* ========== Typography ========== */
   /* Font family stack - Post Sans primary, fallbacks for compatibility */
@@ -391,6 +399,28 @@ body {
   display: none !important;
 }
 
+/* ========== Links ========== */
+
+/* Set link color to primary color */
+
+.b99-style a {
+  /* Color declarations */
+  color: var(--color-link);
+}
+
+.b99-style a:hover,
+.b99-style a:focus {
+  /* Color declarations */
+  color: var(--color-link-hover);
+  text-decoration: underline
+}
+
+.b99-style a:active {
+  /* Color declarations */
+  color: var(--color-link-active);
+  text-decoration: underline;
+}
+
 /* ========== Media queries ========== */
 
 /* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
@@ -399,73 +429,39 @@ body {
 
 /* Small devices (landscape phones, 576px and up) */
 
+/* Fluid transition: 540px at 576px → 710px at 768px */
+
 @media (min-width: 576px) {
   .content-main.container {
     /* Box Model declarations */
     max-width: 100%;
   }
 
-  /* Center page content with max-width constraint */
+  /* Center page content with fluid max-width constraint */
+  /* Smoothly transitions from 540px (576px) to 710px (768px) */
   #econ-container.page-content {
     /* Box Model declarations */
     margin-left: auto;
     margin-right: auto;
-    max-width: 540px;
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 
+/* Fixed width at 710px - clamp() ensures this value is maintained */
+
 @media (min-width: 768px) {
-  /* Increase max-width for tablet screens */
-  #econ-container.page-content {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 720px;
-  }
+  /* No additional changes needed - clamp() handles the transition */
 }
 
 /* Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
-  /* Increase max-width for desktop screens */
-  #econ-container.page-content {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 960px;
-  }
-
   form > .econ-fragment-container > .econ-form-content > .econ-section-content {
-    /* Box Model declarations */
-    margin-left: auto;
+    /* margin-left: auto;
     margin-right: auto;
-    width: 84%;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {
-  /* Increase max-width for large desktop screens */
-  #econ-container.page-content {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1140px;
-  }
-}
-
-/* Extra extra large devices (larger desktops, 1400px and up) */
-
-@media (min-width: 1400px) {
-  /* Maximum width for very large screens */
-  #econ-container.page-content {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1320px;
+    width: 73%; */
   }
 }
 
@@ -2117,7 +2113,7 @@ form.b99-style .econ-form-group.pb-3 {
   border-radius: var(--card-border-radius);
   
   /* Box Model declarations */
-  margin-bottom: var(--card-margin-bottom);
+  margin-bottom: calc(var(--form-section-header-margin-top) / 2 + var(--card-margin-top));
   margin-top: var(--card-margin-top);
   padding: 0;
 }
@@ -2544,73 +2540,33 @@ form.b99-style .econ-form-group.pb-3 {
 
 /* Small devices (landscape phones, 576px and up) */
 
+/* Fluid transition: 540px at 576px → 710px at 768px */
+
 @media (min-width: 576px) {
-  /* Center page content with max-width constraint */
+  /* Center page content with fluid max-width constraint */
+  /* Smoothly transitions from 540px (576px) to 710px (768px) */
   .top-bar > .row {
     /* Box Model declarations */
     margin-left: auto;
     margin-right: auto;
     
     /* Manipulations declarations */
-    max-width: 540px;
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 
-@media (min-width: 768px) {
-  /* Increase max-width for tablet screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
+/* Fixed width at 710px - clamp() ensures this value is maintained */
 
-    /* Manipulations declarations */
-    max-width: 720px;
-  }
+@media (min-width: 768px) {
+  /* No additional changes needed - clamp() handles the transition */
 }
 
 /* Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
-  /* Increase max-width for desktop screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    
-    /* Manipulations declarations */
-    max-width: 960px;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {
-  /* Increase max-width for large desktop screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-
-    /* Manipulations declarations */
-    max-width: 1140px;
-    
-  }
-}
-
-/* Extra extra large devices (larger desktops, 1400px and up) */
-
-@media (min-width: 1400px) {
-  /* Maximum width for very large screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-
-    /* Manipulations declarations */
-    max-width: 1320px;
-  }
+  /* No additional changes needed - clamp() maintains 710px */
 }
 
 /**
@@ -2674,21 +2630,32 @@ form.b99-style .econ-form-group.pb-3 {
 
 /* Small devices (landscape phones, 576px and up) */
 
+/* Fluid transition: 540px at 576px → 710px at 768px */
+
 @media (min-width: 576px) {
-  /* Center page content with max-width constraint */
+  /* Center page content with fluid max-width constraint */
+  /* Smoothly transitions from 540px (576px) to 710px (768px) */
   .b99-style .econ-fragment.econ-fragment-button-row {
     /* Box Model declarations */
     margin-inline: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
   }
 }
 
+/* Medium devices (tablets, 768px and up) */
+
+/* Fixed width at 710px - clamp() ensures this value is maintained */
+
+@media (min-width: 768px) {
+  /* No additional changes needed - clamp() handles the transition */
+}
+
+/* Large devices (desktops, 992px and up) */
+
 @media (min-width: 992px) {
-  .b99-style .econ-fragment.econ-fragment-button-row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    width: 84%;
-  }
+  /* No additional changes needed - clamp() maintains 710px */
 }
 
 /* ========== Process-specific styles ========== */
@@ -2817,14 +2784,17 @@ form.b99-style .econ-form-group.pb-3 {
 
 /* ========== Sonstiges Einkünfte input group ========== */
 
+/* Fluid width transition: 50% at 420px → 73% at 600px, then fixed at 73% */
+
 .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
   /* Box Model declarations */
-  width: 45%;
+  /* Smoothly transitions from smaller to larger screens */
+  width: clamp(95px, calc(100vw - 240px), 520px);
 
   /* Positioning declarations */
   left: 130px;
   position: absolute;
-  top: calc(var(--spacing-64) * -1);
+  top: calc(var(--spacing-64) * -1.115);
 }
 
 .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) .econ-control-icon {
@@ -2843,61 +2813,27 @@ form.b99-style .econ-form-group.pb-3 {
   }
 }
 
-@media (min-width: 420px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 50%;
-  }
-}
-
-@media (min-width: 500px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 60%;
-  }
-}
-
-@media (min-width: 600px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 65%;
-  }
-}
-
-@media (min-width: 768px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 73%;
-  }
-}
-
 @media (min-width: 992px) {
   /* Monthly income input group */
   .b99-style .econ-fragment-currency {
     /* Box Model declarations */
-    margin-left: auto;
+    /* margin-left: auto;
+    margin-right: 0;
+    width: 78%; */
+
+    /* margin-left: auto;
     margin-right: auto;
-    width: 84%;
+    width: 73%; */
+        
+    /* Positioning declarations */
+    /* right: 8.75%; */
   }
 
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 76%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 79%;
-  }
-}
-
-@media (min-width: 1400px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 83%;
-  }
+  /* .b99-style .econ-fragment-currency .econ-control-icon { */
+    /* Positioning declarations */
+  /*   position: relative;
+    left: 8px;
+  } */
 }
 
 /**
@@ -3389,8 +3325,10 @@ form.b99-style .econ-form-group.pb-3 {
   /* Box Model declarations */
   /* Extend to screen edges */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  padding-bottom: var(--spacing-4);
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-top: var(--spacing-8);
 }
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
@@ -3829,6 +3767,329 @@ form.b99-style .econ-form-group.pb-3 {
   margin-left: auto;
   margin-right: 0;
   margin-top: 0;
+}
+
+/**
+ * Anlegerprofil styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Section header ========== */
+
+.b99-style.anlegerprofil .econ-section-header {
+  /* Box Model declarations */
+  margin-bottom: var(--spacing-28);
+  margin-top: var(--spacing-24);
+}
+
+@supports selector(:has(h3)) {
+
+  /* ========== Hide the first collapsible header if it doesn't have a h3 ========== */
+  .b99-style.anlegerprofil .econ-fragment.econ-fragment-container:not(:has(h3)) {
+    /* Display declarations */
+    display: none;
+  }
+
+  /* ========== Collapsible header - "Angaben nach dem Wertpapieraufsichtsgesetz 2018" ========== */
+  /* Blue link style header with caret icon */
+  /* Only applies to the first collapsible header inside .econ-section.econ-collapse */
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) {
+    /* Display declarations */
+    align-items: center;
+    display: flex;
+    -moz-column-gap: var(--spacing-8);
+         column-gap: var(--spacing-8);
+
+    /* Box Model declarations */
+    margin-bottom: var(--spacing-28);
+    margin-top: 0;
+    padding: 0;
+
+    /* Color declarations */
+    background-color: transparent;
+
+    /* Miscellaneous declarations */
+    box-shadow: none;
+  }
+
+  /* Header text styling - blue link */
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) h3 {
+    /* Typography declarations */
+    font-family: var(--font-family);
+    font-size: var(--font-size-16);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+
+    /* Color declarations */
+    color: #197ECA;
+
+    /* Box Model declarations */
+    margin: 0;
+
+    /* Miscellaneous declarations */
+    cursor: pointer;
+  }
+
+  /* Span wrapper for clickable area */
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span {
+    /* Display declarations */
+    align-items: center;
+    display: flex;
+    -moz-column-gap: var(--spacing-8);
+         column-gap: var(--spacing-8);
+
+    /* Miscellaneous declarations */
+    cursor: pointer;
+  }
+
+  /* Chevron/caret icon - positioned on the right, inside the span */
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span::after {
+    /* Content declarations */
+    content: '';
+
+    /* Display declarations */
+    display: block;
+    flex-shrink: 0;
+
+    /* Box Model declarations */
+    height: 10px;
+    width: 15px;
+
+    /* Color declarations */
+    background-image: url("data:image/svg+xml,%3Csvg width='15' height='10' viewBox='0 0 15 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 2.26316L7.10526 9.39474L14.2368 2.26316L11.9737 0L7.10526 4.86842L2.26316 0L0 2.26316Z' fill='%230078C8'/%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    /* Manipulations declarations */
+    transition: transform var(--transition-default);
+  }
+
+  /* Rotate caret when expanded (span doesn't have .collapsed class) */
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span:not(.collapsed)::after {
+    /* Manipulations declarations */
+    transform: rotate(180deg);
+  }
+
+  /* Collapsible section content - smooth expand/collapse animation */
+  /* Base state - always has transition for smooth animations */
+  .b99-style.anlegerprofil .econ-section-content {
+    /* Manipulations declarations */
+    overflow: hidden;
+    transition: max-height var(--transition-default), opacity var(--transition-default);
+  }
+
+  /* Collapsed state - hidden */
+  .b99-style.anlegerprofil .econ-section-content.collapse {
+    /* Box Model declarations */
+    max-height: 0;
+
+    /* Color declarations */
+    opacity: 0;
+  }
+
+  /* Expanded state - visible */
+  .b99-style.anlegerprofil .econ-section-content.collapse.show {
+    /* Manipulations declarations */
+    max-height: var(--collapse-max-height);
+
+    /* Color declarations */
+    opacity: 1;
+  }
+
+  /* Collapsing state - intermediate state during animation */
+  .b99-style.anlegerprofil .econ-section-content.collapsing {
+    /* Manipulations declarations */
+    overflow: hidden;
+    transition: max-height var(--transition-default), opacity var(--transition-default);
+  }
+
+  /* When collapsing (closing), animate to collapsed state */
+  .b99-style.anlegerprofil .econ-section-content.collapsing:not(.show) {
+    /* Manipulations declarations */
+    max-height: 0;
+
+    /* Color declarations */
+    opacity: 0;
+  }
+
+  /* When collapsing (opening), animate to expanded state */
+  .b99-style.anlegerprofil .econ-section-content.collapsing.show {
+    /* Manipulations declarations */
+    max-height: var(--collapse-max-height);
+
+    /* Color declarations */
+    opacity: 1;
+  }
+}
+
+/* ========== Input group ========== */
+
+.b99-style.anlegerprofil .econ-fragment-multiple .form-check {
+  /* Display declarations */
+  flex-direction: row-reverse;
+}
+
+/* ========== Anlageklasse checkbox icons ========== */
+
+/**
+ * Icons displayed alongside checkbox options in the "Anlageklasse" (Asset Class) section
+ *
+ * Structure: ICON | LABEL | CHECKBOX
+ * - Icon is positioned at the far left via ::before pseudo-element
+ * - Label fills the middle space
+ * - Checkbox is at the far right
+ *
+ * Icons are targeted by the data-econ-property attribute on each checkbox input
+ * This ensures stable selectors that don't depend on dynamic IDs
+ *
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Base layout for checkbox with icon ========== */
+
+/*
+ * Modify the existing flex layout to accommodate the icon
+ * Original layout: CHECKBOX | LABEL (with flex-direction: row-reverse)
+ * New layout: ICON | LABEL | CHECKBOX
+ *
+ * We achieve this by:
+ * 1. Changing flex-direction back to row (normal order)
+ * 2. Adding a ::before pseudo-element for the icon
+ * 3. Using order property to position elements correctly
+ * 4. Overriding justify-content to use gap instead for consistent spacing
+ */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check {
+  /* Display declarations */
+  flex-direction: row; /* Override row-reverse to allow icon on left */
+  flex-wrap: nowrap;
+  justify-content: flex-start; /* Override space-between to allow proper ordering */
+
+  /* Box Model declarations */
+  gap: var(--spacing-8); /* 8px gap between icon and label, and between label and checkbox */
+}
+
+/* Icon container - ::before pseudo-element */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check::before {
+  /* Content declarations */
+  content: "";
+
+  /* Display declarations */
+  display: block;
+  flex-shrink: 0;
+  order: -1; /* Place icon first (leftmost) */
+
+  /* Box Model declarations */
+  height: var(--icon-size-xl);
+  min-width: var(--icon-size-xl); /* Prevent shrinking in flex container */
+  width: var(--icon-size-xl);
+
+  /* Color declarations */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* Label positioning - fills middle space */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check .form-check-label {
+  /* Display declarations */
+  flex: 1; /* Take remaining space */
+  order: 0; /* Middle position */
+
+  /* Typography declarations */
+  font-size: var(--font-size-14);
+}
+
+/* Checkbox positioning - far right */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check .form-check-input {
+  /* Display declarations */
+  order: 1; /* Rightmost position */
+}
+
+/* ========== Individual checkbox icons ========== */
+
+/* Each icon is targeted by the data-econ-property attribute */
+
+/* TODO: Update data-econ-property attributes in HTML to match these selectors */
+
+/* ---------- Aktienfonds (Equity Funds) ---------- */
+
+/* Icon: Stock chart / financial growth indicator */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property*="antrag-antragsteller2-dateien-kreditkarte-erforderlich"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.6934 31.156L27.6934 15.3549H26.3402L26.3402 31.156H23.2755V19.6534H21.9222V31.156L18.8575 31.156V18.2604H17.5043V31.156H14.4396L14.4396 16.6683H13.0863L13.0863 31.156H10.0216L10.0216 20.9271H8.66837L8.66837 31.156H5.84247L5.84247 22.6811L13.9421 14.6982L22.7979 17.7629L30.3999 9.63463V13.524H31.7532V7.27521H25.5044V8.62845H29.4899L22.3998 16.2106L13.5838 13.1459L5.84247 20.7834L5.84247 7.95183H4.48923L4.48923 32.5093L34.6189 32.5093V31.156H27.6934Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Anleihenfonds (Bond Funds) ---------- */
+
+/* Icon: Cash/money icon representing bond funds */
+
+/* 2nd checkbox with shared data-econ-property - using nth-child on parent container */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .row > .col-12:nth-child(2) .form-check:has([data-econ-property*="antrag-antragsteller1-dateien-kreditkarte-erforderlich"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M33.3801 11.953H24.8187L8.79533 7.64893L7.64913 11.953H6.40936V27.7893H14.8772L30.7368 32.0466L31.883 27.7893H33.3801V11.953ZM9.75439 9.30974L19.6023 11.953H9.02925L9.75439 9.30974ZM7.76609 26.4326H32.0234V13.3097H7.76609V26.4326ZM20.538 24.5612C21.731 24.5612 22.8538 24.1869 23.5322 23.6723L22.9708 22.4326C22.4795 22.76 21.5205 23.1109 20.538 23.1109C19.2047 23.1109 18.269 22.7366 17.9415 21.4969H21.4503V20.2337H17.8012V19.2045H22.1287V17.9413H17.9649C18.3158 16.8419 19.2281 16.3039 20.538 16.3039C21.614 16.3039 22.269 16.5846 22.9708 17.0057L23.5322 15.8127C22.924 15.2747 21.8947 14.8536 20.538 14.8536C18.5731 14.8536 16.9357 15.9764 16.4912 17.9413H15.0877V19.2045H16.3743V20.2337H15.0877V21.4969H16.4678C16.8421 23.6489 18.4328 24.5612 20.538 24.5612ZM25.8713 15.5086H30.2456V16.8653H25.8713V15.5086ZM13.9181 22.877H9.54387V24.2337H13.9181V22.877ZM20.0702 27.7893L29.7778 30.3858L30.4561 27.7893H20.0702Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Gemischte Fonds (Mixed Funds) ---------- */
+
+/* Icon: Scale/balance icon representing mixed/balanced funds */
+
+/* 3rd checkbox with shared data-econ-property - using nth-child on parent container */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .row > .col-12:nth-child(3) .form-check:has([data-econ-property*="antrag-antragsteller1-dateien-kreditkarte-erforderlich"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M34.152 19.9298H35.1813C35.5789 23.345 32.9123 26.2455 29.5672 26.2455C26.2222 26.2455 23.5556 23.345 23.9532 19.9298H24.9591L29.0526 10.9473H23.2749C22.9941 12.304 21.9181 13.3567 20.5614 13.614V30.7368H26.1754V32.0935H13.6374V30.7368H19.2281V13.614C17.8713 13.3333 16.8187 12.2806 16.5146 10.9473H10.7368L14.807 19.9298H15.8129C16.2105 23.345 13.5439 26.2455 10.1988 26.2455C6.8538 26.2455 4.18713 23.345 4.58479 19.9298H5.61403L9.7076 10.9473H5.56725V9.59057H16.4912C16.7719 7.95315 18.1988 6.71338 19.9064 6.71338C21.614 6.71338 23.0409 7.95315 23.3216 9.59057H34.1988V10.9473H30.0585L34.152 19.9298ZM17.7544 10.1988C17.7544 11.3684 18.7134 12.3274 19.883 12.3274C21.076 12.3274 22.0117 11.3684 22.0117 10.1988C22.0117 9.02917 21.0526 8.0701 19.883 8.0701C18.7134 8.0701 17.7544 9.02917 17.7544 10.1988ZM7.11111 19.9298L10.2222 13.0993L13.3333 19.9298H7.11111ZM32.6784 19.9298L29.5672 13.0993L26.4561 19.9298H32.6784ZM10.1988 24.9122C8.04678 24.9122 6.29239 23.345 5.96491 21.2865H14.4327C14.1287 23.345 12.3509 24.9122 10.1988 24.9122ZM25.3333 21.2865C25.6608 23.345 27.4152 24.9122 29.5672 24.9122C31.7193 24.9122 33.4971 23.345 33.8012 21.2865H25.3333Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Immobilien Fonds (Real Estate Funds) ---------- */
+
+/* Icon: Building/house icon representing real estate funds */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property*="bank99-antrag-kundenwunsch-antragssteller1-ausgaben-weitererKonsumkredit8-abloeseErwuenscht4"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.2804 33.4248L22.2804 18.3003L34.7383 18.3003V33.4248L22.2804 33.4248ZM12.6485 19.5341H19.2555V27.2954H20.768V28.6486H6.83751L6.83751 14.2744L5.36486 15.554L4.48923 14.5192L15.9918 4.48921L27.4148 14.5192L26.5392 15.554L25.0665 14.2648V16.7082H23.7133V13.0799L15.9918 6.32007L8.19075 13.0984L8.19075 27.2954H12.6485L12.6485 19.5341ZM23.6337 32.0716V19.6535L33.385 19.6535V26.6942L29.4049 29.7631L27.8526 27.8924L26.8178 28.768L29.1661 31.6735L33.385 28.3463V32.0716H23.6337ZM17.9023 20.8874H14.0018L14.0018 27.2954H17.9023V20.8874ZM31.4348 21.5242L25.3451 21.5242V22.8774L31.4348 22.8774V21.5242ZM25.3451 24.4297L31.4348 24.4297V25.7829H25.3451V24.4297Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Aktien (Stocks) ---------- */
+
+/* Icon: Product/package icon representing stocks */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property*="bank99-antrag-kundenwunsch-antragssteller1-ausgaben-weitererKonsumkredit8-abloeseErwuenscht5"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.942 13.9653C28.0704 13.9655 29.3102 15.2284 29.3336 17.3569V28.2573C29.3336 30.3858 28.0704 31.6487 25.942 31.6489H8.58458C6.45605 31.6488 5.19298 30.3859 5.19298 28.2573V17.3569C5.19298 15.2283 6.45605 13.9654 8.58458 13.9653H25.942ZM6.54942 28.2339C6.54942 29.6139 7.20461 30.269 8.58458 30.269H25.942C27.3218 30.2689 27.9761 29.6373 27.9527 28.2573V20.0229H6.54942V28.2339ZM17.357 28.2104H8.60802V23.1108H17.357V28.2104ZM27.6022 10.854C30.5261 10.854 32.1871 12.515 32.1871 15.439V27.7896H30.8307V15.439C30.8307 13.2635 29.7776 12.2104 27.6022 12.2104H10.2691V10.854H27.6022ZM21.8717 27.5317H19.0875V26.1753H21.8717V27.5317ZM9.96446 26.854H12.3043V24.4683H9.96446V26.854ZM13.6608 26.854H15.9996V24.4683H13.6608V26.854ZM30.4791 7.76611C33.0054 7.76611 35.0407 9.80132 35.0641 12.3276V25.1929H33.7076V12.3511C33.7076 10.5733 32.2569 9.12256 30.4791 9.12256H13.1227V7.76611H30.4791ZM24.982 24.7485H19.0875V23.3921H24.982V24.7485ZM8.60802 15.3218C7.22801 15.3218 6.57286 15.9769 6.57286 17.3569V18.6665H27.9996V17.3569C27.9996 15.9768 27.3446 15.3218 25.9645 15.3218H8.60802Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- ETFs (Exchange Traded Funds) ---------- */
+
+/* Icon: Package/box icon representing ETFs */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property*="bank99-antrag-kundenwunsch-antragssteller1-ausgaben-weitererKonsumkredit8-abloeseErwuenscht6"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.61359 13.4845L12.0913 7.47446L36.4895 7.47446V26.3801L29.3253 32.4697H3.61359L3.61359 13.4845ZM33.9663 8.82771L12.4893 8.82771L10.3997 10.3203L32.2053 10.3203L33.9663 8.82771ZM29.7631 30.3344L29.7631 14.1496L35.1363 9.61021V25.7435L29.7631 30.3344ZM6.4156 13.1663L28.8477 13.1663L30.6556 11.6339L8.5609 11.6339L6.4156 13.1663ZM4.96683 14.5195L28.4098 14.5195L28.4098 31.1167L4.96683 31.1167L4.96683 14.5195ZM16.549 22.0818V20.7285H25.2257V22.0818H16.549ZM16.549 24.5495L25.2257 24.5495V23.1962H16.549V24.5495ZM21.564 27.0171H16.549V25.6639H21.564V27.0171Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- ETCs (Exchange Traded Commodities) ---------- */
+
+/* Icon: Euro coins icon representing exchange traded commodities */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property*="bank99-antrag-kundenwunsch-antragssteller1-ausgaben-weitererKonsumkredit8-abloeseErwuenscht7"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15.5546 32.3894C16.4103 32.6681 17.3258 32.8273 18.281 32.8273V32.8271C21.1865 32.8271 23.7537 31.3942 25.3059 29.1852C25.8831 29.0857 26.4801 28.9464 27.097 28.7275C25.4651 31.9315 22.1218 34.1206 18.281 34.1206C15.9526 34.1206 13.8232 33.3246 12.1317 31.9713L9.92271 30.2002C7.69383 28.4091 6.28088 25.6031 6.28088 22.4986C6.28088 19.3718 7.72468 16.5819 10.0361 14.7626C9.89465 15.5172 9.88291 16.0568 9.88291 16.6082C8.43016 18.1605 7.57443 20.2301 7.57443 22.4988C7.57443 27.3745 11.5745 31.1158 16.1914 31.1158C18.2412 31.1158 20.1318 30.3994 21.6044 29.2053C22.2014 29.2849 22.7985 29.3048 23.3955 29.3048C21.5845 31.2153 19.0173 32.4093 16.1914 32.4093C15.9725 32.4093 15.7735 32.4093 15.5546 32.3894ZM30.1412 10.0016L27.8725 8.17071C26.0815 6.73786 23.8327 5.90203 21.3849 5.90203C15.6535 5.90203 10.9967 10.5588 10.9967 16.2902C10.9967 19.534 12.4694 22.4992 14.8177 24.3699L17.1262 26.2206C18.8973 27.6535 21.1461 28.4694 23.574 28.4694C29.3054 28.4694 33.9621 23.8126 33.9621 18.0812C33.9621 14.8175 32.4895 11.8921 30.1412 10.0016ZM12.35 16.2902C12.35 11.2951 16.3898 7.25528 21.3849 7.25528C26.38 7.25528 30.4198 11.2951 30.4198 16.2902C30.4198 21.2853 26.38 25.3251 21.3849 25.3251C16.549 25.3251 12.35 21.4047 12.35 16.2902ZM25.2349 19.9953C24.5473 20.5225 23.4243 20.8892 22.2327 20.8892L22.2333 20.8888C20.1254 20.8888 18.5425 19.9913 18.1395 17.818H16.756V16.5575H18.0394V15.5262H16.756V14.2657H18.1719C18.6356 12.2945 20.2635 11.1719 22.2331 11.1719C23.5851 11.1719 24.6164 11.5845 25.2351 12.1345L24.6622 13.3262C23.9746 12.8908 23.3099 12.6157 22.2327 12.6157C20.9216 12.6157 20.0106 13.1624 19.6522 14.2659L23.814 14.2659V15.5264L19.4826 15.5264V16.5577L23.1264 16.5577V17.8182L19.6205 17.8182C19.9578 19.0751 20.8959 19.4454 22.2327 19.4454C23.2182 19.4454 24.1808 19.0787 24.662 18.7579L25.2349 19.9953ZM23.5746 27.1158C22.5795 27.1158 21.6243 26.9566 20.7288 26.658C20.9477 26.6779 21.1666 26.6779 21.3855 26.6779C27.097 26.6779 31.7737 22.0212 31.7737 16.2898C31.7737 15.3545 31.6543 14.4589 31.4155 13.5833C32.1717 14.9166 32.6095 16.4291 32.6095 18.0809C32.6095 23.0759 28.5697 27.1158 23.5746 27.1158Z' fill='black'/%3E%3C/svg%3E");
+}
+
+/* ---------- Krypto-ETNs (Crypto Exchange Traded Notes) ---------- */
+
+/* Icon: Building/house icon representing crypto exchange traded notes */
+
+.b99-style.anlegerprofil .econ-fragment-multiple.econ-fragment-checkbox .form-check:has([data-econ-property*="bank99-antrag-kundenwunsch-antragssteller1-ausgaben-weitererKonsumkredit8-abloeseErwuenscht8"])::before {
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M30.1613 8.27058L9.6238 8.27058L9.6238 33.5843H15.6736V28.2509H23.9523V33.5843H30.1613L30.1613 8.27058ZM8.27055 34.9375L8.27055 6.91734L31.5146 6.91734L31.5146 34.9375H8.27055ZM11.7333 16.6289H16.191L16.191 17.9821H11.7333V16.6289ZM16.191 13.3336H11.7333V14.6868H16.191V13.3336ZM17.6637 16.6289H22.1214V17.9821H17.6637V16.6289ZM22.1214 13.3336H17.6637V14.6868H22.1214V13.3336ZM23.5941 16.6289H28.0518V17.9821H23.5941V16.6289ZM28.0518 13.3336H23.5941V14.6868H28.0518V13.3336ZM11.7333 19.415H16.191V20.7682H11.7333V19.415ZM17.6637 20.7682H22.1214V19.415H17.6637V20.7682ZM28.0518 20.7682H23.5941V19.415H28.0518L28.0518 20.7682ZM16.191 22.2011H11.7333V23.5543H16.191V22.2011ZM22.1214 23.5543H17.6637V22.2011H22.1214V23.5543ZM23.5941 23.5543H28.0518V22.2011H23.5941V23.5543ZM16.191 26.3404H11.7333L11.7333 24.9872H16.191V26.3404ZM17.6637 26.3404H22.1214V24.9872H17.6637V26.3404ZM28.0518 26.3404H23.5941V24.9872H28.0518V26.3404ZM17.0269 33.5843V29.6041H19.0965V33.5843H17.0269ZM20.4896 29.6041V33.5843H22.599V29.6041H20.4896Z' fill='black'/%3E%3C/svg%3E");
 }
 
 /**

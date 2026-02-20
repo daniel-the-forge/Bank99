@@ -47,19 +47,26 @@
 /* Mobile-first approach: base styles are for mobile, these add desktop styles */
 
 /* Small devices (landscape phones, 576px and up) */
+/* Fluid transition: 540px at 576px → 710px at 768px */
 @media (min-width: 576px) {
-  /* Center page content with max-width constraint */
+  /* Center page content with fluid max-width constraint */
+  /* Smoothly transitions from 540px (576px) to 710px (768px) */
   .b99-style .econ-fragment.econ-fragment-button-row {
     /* Box Model declarations */
     margin-inline: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
   }
 }
 
+/* Medium devices (tablets, 768px and up) */
+/* Fixed width at 710px - clamp() ensures this value is maintained */
+@media (min-width: 768px) {
+  /* No additional changes needed - clamp() handles the transition */
+}
+
+/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .b99-style .econ-fragment.econ-fragment-button-row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    width: 84%;
-  }
+  /* No additional changes needed - clamp() maintains 710px */
 }

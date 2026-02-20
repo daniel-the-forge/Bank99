@@ -161,67 +161,27 @@
 /* Mobile-first approach: base styles are for mobile, these add desktop styles */
 
 /* Small devices (landscape phones, 576px and up) */
+/* Fluid transition: 540px at 576px → 710px at 768px */
 @media (min-width: 576px) {
-  /* Center page content with max-width constraint */
+  /* Center page content with fluid max-width constraint */
+  /* Smoothly transitions from 540px (576px) to 710px (768px) */
   .top-bar > .row {
     /* Box Model declarations */
     margin-left: auto;
     margin-right: auto;
     
     /* Manipulations declarations */
-    max-width: 540px;
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
+/* Fixed width at 710px - clamp() ensures this value is maintained */
 @media (min-width: 768px) {
-  /* Increase max-width for tablet screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-
-    /* Manipulations declarations */
-    max-width: 720px;
-  }
+  /* No additional changes needed - clamp() handles the transition */
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  /* Increase max-width for desktop screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-    
-    /* Manipulations declarations */
-    max-width: 960px;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-  /* Increase max-width for large desktop screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-
-    /* Manipulations declarations */
-    max-width: 1140px;
-    
-  }
-}
-
-/* Extra extra large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
-  /* Maximum width for very large screens */
-  .top-bar > .row {
-    /* Box Model declarations */
-    margin-left: auto;
-    margin-right: auto;
-
-    /* Manipulations declarations */
-    max-width: 1320px;
-  }
+  /* No additional changes needed - clamp() maintains 710px */
 }

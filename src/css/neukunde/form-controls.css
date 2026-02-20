@@ -90,14 +90,16 @@
 }
 
 /* ========== Sonstiges Einkünfte input group ========== */
+/* Fluid width transition: 50% at 420px → 73% at 600px, then fixed at 73% */
 .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
   /* Box Model declarations */
-  width: 45%;
+  /* Smoothly transitions from smaller to larger screens */
+  width: clamp(95px, calc(100vw - 240px), 520px);
 
   /* Positioning declarations */
   left: 130px;
   position: absolute;
-  top: calc(var(--spacing-64) * -1);
+  top: calc(var(--spacing-64) * -1.115);
 }
 
 .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) .econ-control-icon {
@@ -114,59 +116,25 @@
   }
 }
 
-@media (min-width: 420px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 50%;
-  }
-}
-
-@media (min-width: 500px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 60%;
-  }
-}
-
-@media (min-width: 600px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 65%;
-  }
-}
-
-@media (min-width: 768px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 73%;
-  }
-}
-
 @media (min-width: 992px) {
   /* Monthly income input group */
   .b99-style .econ-fragment-currency {
     /* Box Model declarations */
-    margin-left: auto;
+    /* margin-left: auto;
+    margin-right: 0;
+    width: 78%; */
+
+    /* margin-left: auto;
     margin-right: auto;
-    width: 84%;
+    width: 73%; */
+        
+    /* Positioning declarations */
+    /* right: 8.75%; */
   }
 
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 76%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 79%;
-  }
-}
-
-@media (min-width: 1400px) {
-  .b99-style .econ-fragment-text-input:has([data-econ-property="bank99-antrag-antragssteller1-mittelherkunft-sonstigeText"]) input {
-    /* Box Model declarations */
-    width: 83%;
-  }
+  /* .b99-style .econ-fragment-currency .econ-control-icon { */
+    /* Positioning declarations */
+  /*   position: relative;
+    left: 8px;
+  } */
 }

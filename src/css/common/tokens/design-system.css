@@ -11,6 +11,11 @@
   --color-text: #000000;
   --color-text-opacity-100: rgba(0, 0, 0, 1);
 
+  /* Link colors */
+  --color-link: #197ECA;
+  --color-link-hover: #0078C8;
+  --color-link-active: #005FA0;
+
   /* Primary brand color - yellow used for buttons, headers, progress bars */
   --color-primary: #FFDC00;
   --color-primary-100: rgba(255, 220, 0, 1);
@@ -53,6 +58,9 @@
   /* ========== Body background ========== */
   /* Main page background gradient - diagonal gradient from gray to light gray */
   --body-background: linear-gradient(120deg, var(--color-background-secondary-80) 0%, var(--color-gradient-end) 50%, var(--color-gradient-end) 100%);
+
+  /* ========== Border========== */
+  --b99-master-radius: 8px;
 
   /* ========== Typography ========== */
   /* Font family stack - Post Sans primary, fallbacks for compatibility */

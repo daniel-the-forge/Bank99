@@ -163,8 +163,10 @@
   /* Box Model declarations */
   /* Extend to screen edges */
   margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
+  padding-bottom: var(--spacing-4);
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
+  padding-top: var(--spacing-8);
 }
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
