@@ -1246,6 +1246,51 @@ body {
   pointer-events: none;
 }
 
+/* Date input with specific data attribute */
+
+.econ-container .b99-style input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"],
+.econ-container .b99-style input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"] {
+  /* Box Model declarations */
+  width: 93%;
+}
+
+/* Calendar icon for date/month inputs - parent pseudo-element */
+
+.econ-container .b99-style .econ-form-control-inner.econ-form-control-input-text:has(input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"]),
+.econ-container .b99-style .econ-form-control-inner.econ-form-control-input-text:has(input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"]) {
+  /* Positioning declarations */
+  position: relative;
+}
+
+.econ-container .b99-style .econ-form-control-inner.econ-form-control-input-text:has(input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"])::before,
+.econ-container .b99-style .econ-form-control-inner.econ-form-control-input-text:has(input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"])::before {
+  /* Content declarations */
+  content: '';
+
+  /* Display declarations */
+  display: inline-block;
+
+  /* Box Model declarations */
+  height: var(--icon-size-sm);
+  width: var(--icon-size-sm);
+
+  /* Positioning declarations */
+  position: absolute;
+  right: var(--input-padding);
+  top: 35%;
+  transform: translateY(-50%);
+
+  /* Color declarations */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  /* Miscellaneous declarations */
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* Read-only form control with input-group-append */
 
 .econ-container .b99-style .input-group:has(input[type="text"][readonly]) .bi,
