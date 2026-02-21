@@ -1,0 +1,118 @@
+/**
+ * Fonds styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Radio form fields ========== */
+/* Radio label container */
+.b99-style.fonds .econ-fragment-radio-group .econ-form-label {
+  /* Display declarations */
+  display: block;
+
+  /* Box Model declarations */
+  padding: 0;
+}
+
+.b99-style.fonds .econ-fragment-radio-group .econ-form-control-outer {
+  /* Display declarations */
+  flex: 0 0 calc(100% - var(--spacing-43));
+}
+ 
+.b99-style.fonds .econ-fragment-radio-group .col-10 > .row {
+  /* Display declarations */
+  display: block;
+}
+
+/* Radio button container box - bordered box with padding */
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 {
+  /* Box Model declarations */
+  box-sizing: border-box;
+  border: var(--input-border-width) solid var(--input-border-color);
+  margin-bottom: var(--spacing-16);
+  padding: calc(var(--input-padding) * 2) var(--input-padding);
+  
+  /* Positioning declarations */
+  position: relative; /* Required for label overlay positioning */
+
+  /* Miscellaneous declarations */
+  border-radius: var(--input-border-radius);
+  cursor: pointer; /* Visual feedback that the whole box is clickable */
+}
+
+/* Form check container */
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .form-check {
+  /* Display declarations */
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-8);
+}
+
+/* Radio button label - stretched to cover entire container */
+/* This makes the entire .col-12 box clickable via the label */
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label {
+  /* Display declarations */
+  display: block;
+
+  /* Positioning declarations */
+  position: relative; /* Required for ::after positioning */
+
+  /* Box Model declarations */
+  width: 100%;
+}
+
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:hover,
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:focus {
+  /* Box Model declarations */
+  border: var(--input-border-width) solid var(--color-primary);
+}
+
+/* Clickable overlay - covers entire .col-12 container */
+/* Uses ::after pseudo-element to extend label's clickable area */
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label::after {
+  /* Content declarations */
+  content: "";
+
+  /* Display declarations */
+  display: block;
+
+  /* Positioning declarations */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Miscellaneous declarations */
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Active/selected state - visual feedback for selected radio option */
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12.econ-radio--active {
+  /* Color declarations */
+  background-color: var(--color-background);
+
+  /* Box Model declarations */
+  border-color: var(--input-border-color-focus);
+
+  /* Miscellaneous declarations */
+  box-shadow: var(--input-box-shadow-focus);
+}
+
+.b99-style.fonds .econ-fragment-radio-group > .econ-form-group {
+  /* Positioning declarations */
+  position: relative;
+}
+
+/* Icon positioning */
+.b99-style.fonds .econ-input-group-append > .econ-icon-success, .b99-style.fonds .econ-input-group-append > .econ-icon-error {
+  /* Positioning declarations */
+  top: 16px;
+}
+
+
+.b99-style.fonds .econ-fragment-radio-group:not(.econ-fragment-multiple) .econ-radio.row {
+  /* Display declarations */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

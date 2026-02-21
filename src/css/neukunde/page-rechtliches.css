@@ -78,14 +78,24 @@
 }
 
 /* ========== Hidden elements on rechtliches page ========== */
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"]),
-.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before,
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before {
+  /* Display declarations */
+  display: none !important;
+}
+
+.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"])
 .b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after,
 .b99-style.page-rechtliches .econ-fragment.econ-fragment-static-module,
 .b99-style.page-rechtliches .econ-section-content .econ-section-header,
-.b99-style.page-rechtliches .econ-input-group-suffix {
+.b99-style.page-rechtliches .econ-input-group-suffix,
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after {
   /* Display declarations */
   display: none !important;
+}
+
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"]) {
+  /* Display declarations */
+  display: block !important;
 }
 
 /* ========== Currency fragment ========== */

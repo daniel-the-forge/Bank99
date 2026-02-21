@@ -33,6 +33,11 @@
   display: none;
 }
 
+.page-rechtliches.b99-style .collapse.show .form-label {
+  /* Display declarations */
+  display: block;
+}
+
 .page-rechtliches.b99-style .slide-up {
   /* Box Model declarations */
   margin-top: 0 !important;

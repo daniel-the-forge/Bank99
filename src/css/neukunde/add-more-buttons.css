@@ -124,11 +124,6 @@
   display: block;
 }
 
-.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-label {
-  /* Display declarations */
-  display: none;
-}
-
 .b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-form-control-outer {
   /* Box Model declarations */
   width: 100%;
@@ -172,7 +167,7 @@
 /* Hide both radio buttons - we handle clicks via JavaScript */
 .b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio .col-6 {
   /* Display declarations */
-  display: none;
+  display: none; 
 }
 
 /* Plus icon in circle with yellow border via ::before */
