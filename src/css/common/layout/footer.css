@@ -1,10 +1,240 @@
 /**
- * Form footer layout styles
- * Form footer navigation bar and button row
+ * Footer layout styles
+ * 1. Site footer (#footer): meta bar with logo, legal links, social icons
+ * 2. Form footer: navigation bar and button row
  * Uses design tokens – requires design-system.css
  */
 
-/* ========== Footer button row container ========== */
+/* ========== Site footer (#footer) ========== */
+/* Meta bar: same container width as header, two-column grid */
+
+#footer.footer {
+  background-color: var(--footer-background);
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+}
+
+.footer__meta {
+  box-sizing: border-box;
+  padding-left: var(--header-padding-left);
+  padding-right: var(--header-padding-right);
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+  width: 100%;
+}
+
+/* Reset Foundation/Bootstrap row and column inside footer */
+#footer .footer__meta .row {
+  margin: 0;
+  max-width: 100%;
+}
+
+#footer .footer__meta .row > * {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Inner container: two-column layout – left group (logo + links), right group (social) */
+.footer__meta__container.footer__meta__container--b99 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== Left column: logo + legal links ========== */
+/* Two-column flex: logo left, list right, 16px gap */
+.footer__meta__container__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footer__meta__container__logo .b99-logo-img,
+.footer__meta__container__logo .logo-b99 {
+  display: block;
+  height: auto;
+  width: auto;
+}
+
+.footer__meta__container__logo svg {
+  display: block;
+  height: 60px;
+  width: 116px;
+}
+
+.footer__meta__container__content {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex-shrink: 0;
+  position: relative;
+  left: calc(var(--spacing-16) * -1);
+}
+
+.footer__meta__container__content__impressum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-20);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__meta__container__content__impressum a {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.footer__meta__container__content__impressum a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer__meta__container__content__impressum a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.footer__meta__container__content__impressum a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.footer__meta__container__content__impressum a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+/* ========== Right column: "Folge uns auf" + social icons ========== */
+.footer__meta__container__sm {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.footer__meta__container__sm > p {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  margin: 0;
+}
+
+.footer__meta__container__sm > ul {
+  display: flex;
+  gap: var(--spacing-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Social icon buttons: circle, token background, text color */
+.sm-button {
+  align-items: center;
+  background-color: var(--footer-sm-icon-bg);
+  border: none;
+  border-radius: var(--border-radius-full);
+  color: var(--color-text);
+  display: inline-flex;
+  justify-content: center;
+  padding: var(--spacing-8);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast), outline-offset var(--transition-fast);
+}
+
+.sm-button .svg-icon {
+  display: block;
+  height: var(--icon-size-md);
+  width: var(--icon-size-md);
+}
+
+.sm-button .svg-icon svg {
+  display: block;
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}
+
+.sm-button:hover {
+  background-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.sm-button:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.sm-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sm-button:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+/* ========== Site footer: container width (match header) ========== */
+@media (min-width: 576px) {
+  .footer__meta__container.footer__meta__container--b99 {
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
+  }
+}
+
+/* ========== Site footer: responsive ========== */
+@media (max-width: 767px) {
+  .footer__meta__container.footer__meta__container--b99 {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-20);
+    text-align: center;
+  }
+
+  .footer__meta__container__content {
+    justify-content: center;
+    left: 0;
+  }
+
+  .footer__meta__container__content__impressum {
+    justify-content: center;
+  }
+
+  .footer__meta__container__sm {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer__meta__container__sm > ul {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Stack logo and links vertically in left column on very small screens */
+  .footer__meta__container__logo {
+    justify-content: center;
+  }
+
+  .footer__meta__container__content__impressum {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-12);
+  }
+}
+
+/* ========== Form footer: button row container ========== */
 /* Negative margin to extend footer to form edges, accounting for Bootstrap gutter and form margin */
 .b99-style .econ-fragment.econ-fragment-button-row{
   /* Box Model declarations */
@@ -57,6 +287,7 @@
     margin-left: auto;
     margin-right: auto;
     max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
+    width: 100%;
   }
 }
 

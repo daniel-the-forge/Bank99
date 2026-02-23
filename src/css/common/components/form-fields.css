@@ -87,7 +87,7 @@
   /* Box Model declarations */
   border: var(--input-border-width) solid var(--color-border);
   /* Color declarations */
-  background-color: var(--color-border);
+  background-color: var(--color-border-70);
 
   /* Miscellaneous declarations */
   opacity: 1;

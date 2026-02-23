@@ -60,10 +60,18 @@
   width: 100%;
 }
 
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:hover,
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:focus {
-  /* Box Model declarations */
-  border: var(--input-border-width) solid var(--color-primary);
+/* Only apply hover/focus border when the device supports hover; avoids sticky hover in responsive/touch simulation (e.g. Arc below ~1239px) */
+@media (hover: hover) {
+  .b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:hover,
+  .b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:focus {
+    /* Box Model declarations */
+    border: var(--input-border-width) solid var(--color-primary);
+  }
+}
+
+.b99-style.fonds .econ-fragment-radio-group .econ-form-label {
+  /* Display declarations */
+  flex: 0 0 calc(100% - 3px);
 }
 
 /* Clickable overlay - covers entire .col-12 container */

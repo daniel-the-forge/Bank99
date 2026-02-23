@@ -29,6 +29,7 @@
 
     /* Box Model declarations */
     margin-bottom: var(--spacing-28);
+    margin-inline: 0;
     margin-top: 0;
     padding: 0;
 
@@ -46,6 +47,7 @@
     font-size: var(--font-size-16);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
+    text-align: left;
 
     /* Color declarations */
     color: #197ECA;
@@ -296,4 +298,10 @@
 .b99-style.anlegerprofil .econ-input-group .econ-control-icon {
   /* Display declarations */
   align-items: center;
+}
+
+/* Tooltips */
+.b99-style.anlegerprofil .econ-sliding-tooltip.econ-tooltip {
+  /* Positioning declarations */
+  position: relative;
 }

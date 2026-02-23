@@ -1,0 +1,194 @@
+/**
+ * Contact nav – help panel below the footer
+ * Same container width and visual style as footer; 14px typography
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Contact nav container ========== */
+#contact-nav.contact-nav {
+  background-color: var(--footer-background);
+  box-sizing: border-box;
+  padding-left: var(--header-padding-left);
+  padding-right: var(--header-padding-right);
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+  width: 100%;
+}
+
+/* Reset row/column inside contact-nav */
+#contact-nav .row {
+  margin: 0;
+  max-width: 100%;
+}
+
+#contact-nav .row > * {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* ========== Panel wrapper (same max-width as footer) ========== */
+.contact-nav__panel {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 576px) {
+  .contact-nav__panel {
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
+  }
+}
+
+/* ========== Headline ========== */
+.contact-nav__panel__headline {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  margin: 0 0 var(--spacing-20);
+}
+
+/* ========== Panel content (pro-box grid) ========== */
+.contact-nav__panel__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-24);
+  justify-content: flex-start;
+}
+
+/* ========== Pro box (icon + content) ========== */
+.contact-nav .pro-box {
+  min-width: 0;
+  flex: 1 1 280px;
+  max-width: 100%;
+}
+
+.contact-nav .pro-box__icon {
+  flex-shrink: 0;
+  color: var(--color-text);
+}
+
+.contact-nav .pro-box__icon .icon {
+  font-size: var(--icon-size-lg);
+  line-height: 1;
+}
+
+.contact-nav .pro-box__content {
+  min-width: 0;
+}
+
+.contact-nav .pro-box__content__header {
+  margin: 0 0 var(--spacing-8);
+}
+
+.contact-nav .pro-box__content__header h3 {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+.contact-nav .pro-box__content p {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.contact-nav .pro-box__content a {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.contact-nav .pro-box__content a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact-nav .pro-box__content a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.contact-nav .pro-box__content a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.contact-nav .pro-box__content a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+/* ========== Open / close toggle buttons ========== */
+.contact-nav .open-contact-nav-button,
+.contact-nav .close-contact-nav-button {
+  display: none;
+}
+
+.contact-nav .open-contact-nav-button a,
+.contact-nav .close-contact-nav-button a {
+  align-items: center;
+  background-color: var(--footer-sm-icon-bg);
+  border-radius: var(--b99-master-radius);
+  color: var(--color-text);
+  display: inline-flex;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  gap: var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-16);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast), outline-offset var(--transition-fast);
+}
+
+.contact-nav .open-contact-nav-button a:hover,
+.contact-nav .close-contact-nav-button a:hover {
+  background-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.contact-nav .open-contact-nav-button a:focus,
+.contact-nav .close-contact-nav-button a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.contact-nav .open-contact-nav-button a:focus:not(:focus-visible),
+.contact-nav .close-contact-nav-button a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.contact-nav .open-contact-nav-button a:focus-visible,
+.contact-nav .close-contact-nav-button a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.contact-nav .open-contact-nav-button .icon,
+.contact-nav .close-contact-nav-button .icon {
+  font-size: var(--icon-size-md);
+}
+
+/* Visually hidden utility (for "Zurück zum Hauptinhalt") */
+.contact-nav .visuallyhidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 575px) {
+  .contact-nav .pro-box {
+    flex: 1 1 100%;
+  }
+}

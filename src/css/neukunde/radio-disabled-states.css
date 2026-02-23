@@ -9,10 +9,22 @@
 /* Remove pointer cursor from disabled radio buttons */
 .b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
 .b99-style.page-rechtliches .col-6.econ-radio-value-false:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
 .b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit2-ansaessig"]) {
   /* Display declarations */
   display: none;
+}
+
+/* Hide only the non-active col-6 (active one is shown by the rule below); :not() avoids relying on specificity */
+.b99-style.page-rechtliches .col-6:not(.econ-radio--active):has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) {
+  /* Display declarations */
+  display: none;
+}
+
+.b99-style.page-rechtliches .econ-form-control-outer > .row > .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
+.b99-style.page-rechtliches .econ-form-control-outer > .row > .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) {
+  /* Display declarations */
+  display: block;
 }
 
 .b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),

@@ -124,9 +124,11 @@
   --header-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   /* ========== Footer ========== */
-  /* Footer spacing */
+  /* Footer spacing and site footer (meta bar) */
   --footer-margin-bottom: 26px;
   --footer-padding-horizontal: 12px;
+  --footer-background: #DFE3EC;
+  --footer-sm-icon-bg: var(--color-background-secondary);
 
   /* ========== Cards ========== */
   --card-border-radius: 15px;
@@ -1221,7 +1223,7 @@ body {
   /* Box Model declarations */
   border: var(--input-border-width) solid var(--color-border);
   /* Color declarations */
-  background-color: var(--color-border);
+  background-color: var(--color-border-70);
 
   /* Miscellaneous declarations */
   opacity: 1;
@@ -1239,7 +1241,7 @@ body {
   /* Box Model declarations */
   border: var(--input-border-width) solid var(--color-border);
   /* Color declarations */
-  background-color: var(--color-border);
+  background-color: var(--color-border-70);
 
   /* Miscellaneous declarations */
   opacity: 1;
@@ -1759,6 +1761,7 @@ form.b99-style .econ-form-group.pb-3 {
 
     /* Box Model declarations */
     margin-bottom: var(--form-section-header-margin-bottom);
+    margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
     padding-bottom: var(--form-section-header-padding-bottom);
     padding-top: var(--form-section-header-padding-top);
     
@@ -2573,12 +2576,251 @@ form.b99-style .econ-form-group.pb-3 {
 }
 
 /**
- * Form footer layout styles
- * Form footer navigation bar and button row
+ * Footer layout styles
+ * 1. Site footer (#footer): meta bar with logo, legal links, social icons
+ * 2. Form footer: navigation bar and button row
  * Uses design tokens – requires design-system.css
  */
 
-/* ========== Footer button row container ========== */
+/* ========== Site footer (#footer) ========== */
+
+/* Meta bar: same container width as header, two-column grid */
+
+#footer.footer {
+  background-color: var(--footer-background);
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+}
+
+.footer__meta {
+  box-sizing: border-box;
+  padding-left: var(--header-padding-left);
+  padding-right: var(--header-padding-right);
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+  width: 100%;
+}
+
+/* Reset Foundation/Bootstrap row and column inside footer */
+
+#footer .footer__meta .row {
+  margin: 0;
+  max-width: 100%;
+}
+
+#footer .footer__meta .row > * {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* Inner container: two-column layout – left group (logo + links), right group (social) */
+
+.footer__meta__container.footer__meta__container--b99 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== Left column: logo + legal links ========== */
+
+/* Two-column flex: logo left, list right, 16px gap */
+
+.footer__meta__container__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footer__meta__container__logo .b99-logo-img,
+.footer__meta__container__logo .logo-b99 {
+  display: block;
+  height: auto;
+  width: auto;
+}
+
+.footer__meta__container__logo svg {
+  display: block;
+  height: 60px;
+  width: 116px;
+}
+
+.footer__meta__container__content {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex-shrink: 0;
+  position: relative;
+  left: calc(var(--spacing-16) * -1);
+}
+
+.footer__meta__container__content__impressum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-20);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__meta__container__content__impressum a {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.footer__meta__container__content__impressum a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer__meta__container__content__impressum a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.footer__meta__container__content__impressum a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.footer__meta__container__content__impressum a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+/* ========== Right column: "Folge uns auf" + social icons ========== */
+
+.footer__meta__container__sm {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.footer__meta__container__sm > p {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  margin: 0;
+}
+
+.footer__meta__container__sm > ul {
+  display: flex;
+  gap: var(--spacing-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Social icon buttons: circle, token background, text color */
+
+.sm-button {
+  align-items: center;
+  background-color: var(--footer-sm-icon-bg);
+  border: none;
+  border-radius: var(--border-radius-full);
+  color: var(--color-text);
+  display: inline-flex;
+  justify-content: center;
+  padding: var(--spacing-8);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast), outline-offset var(--transition-fast);
+}
+
+.sm-button .svg-icon {
+  display: block;
+  height: var(--icon-size-md);
+  width: var(--icon-size-md);
+}
+
+.sm-button .svg-icon svg {
+  display: block;
+  fill: currentColor;
+  height: 100%;
+  width: 100%;
+}
+
+.sm-button:hover {
+  background-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.sm-button:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.sm-button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sm-button:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+/* ========== Site footer: container width (match header) ========== */
+
+@media (min-width: 576px) {
+  .footer__meta__container.footer__meta__container--b99 {
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
+  }
+}
+
+/* ========== Site footer: responsive ========== */
+
+@media (max-width: 767px) {
+  .footer__meta__container.footer__meta__container--b99 {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-20);
+    text-align: center;
+  }
+
+  .footer__meta__container__content {
+    justify-content: center;
+    left: 0;
+  }
+
+  .footer__meta__container__content__impressum {
+    justify-content: center;
+  }
+
+  .footer__meta__container__sm {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer__meta__container__sm > ul {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Stack logo and links vertically in left column on very small screens */
+  .footer__meta__container__logo {
+    justify-content: center;
+  }
+
+  .footer__meta__container__content__impressum {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-12);
+  }
+}
+
+/* ========== Form footer: button row container ========== */
 
 /* Negative margin to extend footer to form edges, accounting for Bootstrap gutter and form margin */
 
@@ -2644,6 +2886,7 @@ form.b99-style .econ-form-group.pb-3 {
     margin-left: auto;
     margin-right: auto;
     max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
+    width: 100%;
   }
 }
 
@@ -2659,6 +2902,210 @@ form.b99-style .econ-form-group.pb-3 {
 
 @media (min-width: 992px) {
   /* No additional changes needed - clamp() maintains 710px */
+}
+
+/**
+ * Contact nav – help panel below the footer
+ * Same container width and visual style as footer; 14px typography
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Contact nav container ========== */
+
+#contact-nav.contact-nav {
+  background-color: var(--footer-background);
+  box-sizing: border-box;
+  padding-left: var(--header-padding-left);
+  padding-right: var(--header-padding-right);
+  padding-top: var(--spacing-16);
+  padding-bottom: var(--spacing-16);
+  width: 100%;
+}
+
+/* Reset row/column inside contact-nav */
+
+#contact-nav .row {
+  margin: 0;
+  max-width: 100%;
+}
+
+#contact-nav .row > * {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0;
+}
+
+/* ========== Panel wrapper (same max-width as footer) ========== */
+
+.contact-nav__panel {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 576px) {
+  .contact-nav__panel {
+    max-width: clamp(540px, calc(540px + (100vw - 576px) * 0.885416), 710px);
+  }
+}
+
+/* ========== Headline ========== */
+
+.contact-nav__panel__headline {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  margin: 0 0 var(--spacing-20);
+}
+
+/* ========== Panel content (pro-box grid) ========== */
+
+.contact-nav__panel__content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-24);
+  justify-content: flex-start;
+}
+
+/* ========== Pro box (icon + content) ========== */
+
+.contact-nav .pro-box {
+  min-width: 0;
+  flex: 1 1 280px;
+  max-width: 100%;
+}
+
+.contact-nav .pro-box__icon {
+  flex-shrink: 0;
+  color: var(--color-text);
+}
+
+.contact-nav .pro-box__icon .icon {
+  font-size: var(--icon-size-lg);
+  line-height: 1;
+}
+
+.contact-nav .pro-box__content {
+  min-width: 0;
+}
+
+.contact-nav .pro-box__content__header {
+  margin: 0 0 var(--spacing-8);
+}
+
+.contact-nav .pro-box__content__header h3 {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+.contact-nav .pro-box__content p {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+.contact-nav .pro-box__content a {
+  color: var(--color-text);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.contact-nav .pro-box__content a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact-nav .pro-box__content a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.contact-nav .pro-box__content a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.contact-nav .pro-box__content a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+/* ========== Open / close toggle buttons ========== */
+
+.contact-nav .open-contact-nav-button,
+.contact-nav .close-contact-nav-button {
+  display: none;
+}
+
+.contact-nav .open-contact-nav-button a,
+.contact-nav .close-contact-nav-button a {
+  align-items: center;
+  background-color: var(--footer-sm-icon-bg);
+  border-radius: var(--b99-master-radius);
+  color: var(--color-text);
+  display: inline-flex;
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  gap: var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-16);
+  text-decoration: none;
+  transition: background-color var(--transition-fast), color var(--transition-fast), outline-offset var(--transition-fast);
+}
+
+.contact-nav .open-contact-nav-button a:hover,
+.contact-nav .close-contact-nav-button a:hover {
+  background-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.contact-nav .open-contact-nav-button a:focus,
+.contact-nav .close-contact-nav-button a:focus {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.contact-nav .open-contact-nav-button a:focus:not(:focus-visible),
+.contact-nav .close-contact-nav-button a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.contact-nav .open-contact-nav-button a:focus-visible,
+.contact-nav .close-contact-nav-button a:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+.contact-nav .open-contact-nav-button .icon,
+.contact-nav .close-contact-nav-button .icon {
+  font-size: var(--icon-size-md);
+}
+
+/* Visually hidden utility (for "Zurück zum Hauptinhalt") */
+
+.contact-nav .visuallyhidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* ========== Responsive ========== */
+
+@media (max-width: 575px) {
+  .contact-nav .pro-box {
+    flex: 1 1 100%;
+  }
 }
 
 /* ========== Process-specific styles ========== */
@@ -2884,7 +3331,7 @@ form.b99-style .econ-form-group.pb-3 {
   padding-top: var(--spacing-16);
 }
 
-/* ========== Info box typography ========== */
+/* ========== Info box ========== */
 
 .b99-style .econ-section.abcschluss-info-box-fix p {
   /* Box Model declarations */
@@ -2903,6 +3350,22 @@ form.b99-style .econ-form-group.pb-3 {
   /* Typography declarations */
   font-size: var(--font-size-12);
   line-height: var(--line-height-20);
+  text-align: center;
+}
+
+.b99-style.dokumente .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row {
+  justify-content: center;
+}
+
+.b99-style.dokumente .b99-gray-info-box {
+  /* Box Model declarations */
+  margin-top: var(--spacing-28);
+  width: 100%;
+}
+
+.b99-style.dokumente .b99-gray-info-box ul li::marker {
+  /* Color declarations */
+  color: var(--color-link);
 }
 
 /* ========== Speichern box ========== */
@@ -2915,6 +3378,94 @@ form.b99-style .econ-form-group.pb-3 {
 .b99-style .econ-section.speichern-box p {
   /* Box Model declarations */
   margin-left: 0;
+}
+
+.b99-style.dokumente .econ-button-wrapper {
+  /* Box Model declarations */
+  padding-left: var(--form-margin-horizontal);
+}
+
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button {
+  /* Box Model declarations */
+  border: none;
+  padding: var(--input-padding);
+
+  /* Color declarations */
+  background-color: transparent;
+  border: var(--input-border-width) solid transparent;
+
+  /* Display declarations */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+
+  /* Transition declarations */
+  transition: background-color 0.3s ease, border 0.3s ease;
+
+  /* Miscellaneous declarations */
+  border-radius: var(--b99-master-radius);
+
+  /* Positioning declarations */
+  position: relative;
+  left: calc(var(--input-padding) * -1);
+}
+
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button:hover,
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button:focus {
+  /* Color declarations */
+  background-color: var(--color-primary-100);
+  border: var(--input-border-width) solid var(--color-primary-100);
+}
+
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button::before {
+  /* Content declarations */
+  content: "";
+  
+  /* Display declarations */
+  display: inline-block;
+
+  /* Box Model declarations */
+  height: var(--btn-icon-size);  
+  width: var(--btn-icon-size);
+    
+  /* Background declarations */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'%3E%3Cpath d='M18.375 0H2.625C1.17525 0 0 1.17525 0 2.625V18.375C0 19.8247 1.17525 21 2.625 21H18.375C19.8247 21 21 19.8247 21 18.375V2.625C21 1.17525 19.8247 0 18.375 0ZM6.5625 1.3125H14.4375V5.25H6.5625V1.3125ZM19.6875 18.375C19.6875 19.0994 19.0994 19.6875 18.375 19.6875H2.625C1.90062 19.6875 1.3125 19.0994 1.3125 18.375V2.625C1.3125 1.90062 1.90062 1.3125 2.625 1.3125H5.25V5.90625C5.25 6.26869 5.54381 6.5625 5.90625 6.5625H15.0938C15.4562 6.5625 15.75 6.26869 15.75 5.90625V1.3125H18.375C19.0994 1.3125 19.6875 1.90062 19.6875 2.625V18.375Z' fill='black'/%3E%3Cpath d='M10.5 9.1875C8.32687 9.1875 6.5625 10.9519 6.5625 13.125C6.5625 15.2981 8.32687 17.0625 10.5 17.0625C12.6731 17.0625 14.4375 15.2981 14.4375 13.125C14.4375 10.9519 12.6731 9.1875 10.5 9.1875ZM10.5 15.75C9.05175 15.75 7.875 14.5733 7.875 13.125C7.875 11.6767 9.05175 10.5 10.5 10.5C11.9483 10.5 13.125 11.6767 13.125 13.125C13.125 14.5733 11.9483 15.75 10.5 15.75Z' fill='black'/%3E%3Crect x='11.8125' y='2.625' width='1.3125' height='2.625' fill='black'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* ========== Dokumente section ========== */
+
+.b99-style.dokumente {
+  /* Display declarations */
+  display: grid;
+}
+
+.b99-style.dokumente .econ-fragment:has(.abcschluss-info-box-fix) {
+  /* Display declarations */
+  order: 1;
+}
+
+.b99-style.dokumente .econ-fragment:has(.b99-gray-info-box) {
+  /* Display declarations */
+  order: 2;
+}
+
+.b99-style.dokumente .econ-fragment-button-row {
+  /* Display declarations */
+  order: 3;
+}
+
+/* ========== Media queries ========== */
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+  .b99-style.dokumente .econ-button-wrapper {
+    /* Box Model declarations */
+    padding-left: 0;
+  }
 }
 
 /**
@@ -3748,6 +4299,9 @@ form.b99-style .econ-form-group.pb-3 {
   margin-bottom: 0;
   margin-left: 0;
   padding-right: var(--spacing-12);
+
+  /* Typography declarations */
+  line-height: var(--line-height-relaxed);
 }
 
 /* ========== Checkbox input ========== */
@@ -3798,6 +4352,7 @@ form.b99-style .econ-form-group.pb-3 {
 
     /* Box Model declarations */
     margin-bottom: var(--spacing-28);
+    margin-inline: 0;
     margin-top: 0;
     padding: 0;
 
@@ -3815,6 +4370,7 @@ form.b99-style .econ-form-group.pb-3 {
     font-size: var(--font-size-16);
     font-weight: var(--font-weight-bold);
     line-height: var(--line-height-normal);
+    text-align: left;
 
     /* Color declarations */
     color: #197ECA;
@@ -4097,6 +4653,13 @@ form.b99-style .econ-form-group.pb-3 {
   align-items: center;
 }
 
+/* Tooltips */
+
+.b99-style.anlegerprofil .econ-sliding-tooltip.econ-tooltip {
+  /* Positioning declarations */
+  position: relative;
+}
+
 /**
  * Fonds styles
  * Uses design tokens – requires design-system.css
@@ -4165,10 +4728,19 @@ form.b99-style .econ-form-group.pb-3 {
   width: 100%;
 }
 
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:hover,
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:focus {
-  /* Box Model declarations */
-  border: var(--input-border-width) solid var(--color-primary);
+/* Only apply hover/focus border when the device supports hover; avoids sticky hover in responsive/touch simulation (e.g. Arc below ~1239px) */
+
+@media (hover: hover) {
+  .b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:hover,
+  .b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12:focus {
+    /* Box Model declarations */
+    border: var(--input-border-width) solid var(--color-primary);
+  }
+}
+
+.b99-style.fonds .econ-fragment-radio-group .econ-form-label {
+  /* Display declarations */
+  flex: 0 0 calc(100% - 3px);
 }
 
 /* Clickable overlay - covers entire .col-12 container */
@@ -4224,6 +4796,11 @@ form.b99-style .econ-form-group.pb-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
+/**
+ * Autorisierung styles
+ * Uses design tokens – requires design-system.css
+ */
 
 /**
  * Mittelherkunft (Source of Funds) checkbox icons
@@ -4450,10 +5027,23 @@ form.b99-style .econ-form-group.pb-3 {
 
 .b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
 .b99-style.page-rechtliches .col-6.econ-radio-value-false:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
 .b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit2-ansaessig"]) {
   /* Display declarations */
   display: none;
+}
+
+/* Hide only the non-active col-6 (active one is shown by the rule below); :not() avoids relying on specificity */
+
+.b99-style.page-rechtliches .col-6:not(.econ-radio--active):has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) {
+  /* Display declarations */
+  display: none;
+}
+
+.b99-style.page-rechtliches .econ-form-control-outer > .row > .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
+.b99-style.page-rechtliches .econ-form-control-outer > .row > .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) {
+  /* Display declarations */
+  display: block;
 }
 
 .b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
@@ -4600,6 +5190,19 @@ form.b99-style .econ-form-group.pb-3 {
   line-height: var(--line-height-tight);
 }
 
+.b99-style.page-rechtliches .econ-collapse .form-label {
+  /* Box Model declarations */
+  margin-left: 0;
+}
+
+/* ========== Input styles ========== */
+
+.b99-style.page-rechtliches .econ-collapse .form-select,
+.b99-style.page-rechtliches .econ-collapse .form-control {
+  /* Box Model declarations */
+  padding-left: 0;
+}
+
 /* ========== Readonly form controls ========== */
 
 /* Style inputs/selects as readonly within collapsed sections */
@@ -4737,6 +5340,13 @@ form.b99-style .econ-form-group.pb-3 {
   margin-bottom: var(--input-padding);
   padding-bottom: var(--input-padding);
   padding-top: 0;
+}
+
+/* ========== Lists ========== */
+
+.b99-style.page-rechtliches ul li::marker {
+  /* Color declarations */
+  color: var(--color-link);
 }
 
 /* ========== Media queries ========== */

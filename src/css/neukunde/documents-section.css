@@ -20,7 +20,7 @@
   padding-top: var(--spacing-16);
 }
 
-/* ========== Info box typography ========== */
+/* ========== Info box ========== */
 .b99-style .econ-section.abcschluss-info-box-fix p {
   /* Box Model declarations */
   margin-left: 0;
@@ -38,6 +38,22 @@
   /* Typography declarations */
   font-size: var(--font-size-12);
   line-height: var(--line-height-20);
+  text-align: center;
+}
+
+.b99-style.dokumente .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row {
+  justify-content: center;
+}
+
+.b99-style.dokumente .b99-gray-info-box {
+  /* Box Model declarations */
+  margin-top: var(--spacing-28);
+  width: 100%;
+}
+
+.b99-style.dokumente .b99-gray-info-box ul li::marker {
+  /* Color declarations */
+  color: var(--color-link);
 }
 
 /* ========== Speichern box ========== */
@@ -49,4 +65,88 @@
 .b99-style .econ-section.speichern-box p {
   /* Box Model declarations */
   margin-left: 0;
+}
+
+.b99-style.dokumente .econ-button-wrapper {
+  /* Box Model declarations */
+  padding-left: var(--form-margin-horizontal);
+}
+
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button {
+  /* Box Model declarations */
+  border: none;
+  padding: var(--input-padding);
+
+  /* Color declarations */
+  background-color: transparent;
+  border: var(--input-border-width) solid transparent;
+
+  /* Display declarations */
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+
+  /* Transition declarations */
+  transition: background-color 0.3s ease, border 0.3s ease;
+
+  /* Miscellaneous declarations */
+  border-radius: var(--b99-master-radius);
+
+  /* Positioning declarations */
+  position: relative;
+  left: calc(var(--input-padding) * -1);
+}
+
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button:hover,
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button:focus {
+  /* Color declarations */
+  background-color: var(--color-primary-100);
+  border: var(--input-border-width) solid var(--color-primary-100);
+}
+
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button::before {
+  /* Content declarations */
+  content: "";
+  
+  /* Display declarations */
+  display: inline-block;
+
+  /* Box Model declarations */
+  height: var(--btn-icon-size);  
+  width: var(--btn-icon-size);
+    
+  /* Background declarations */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'%3E%3Cpath d='M18.375 0H2.625C1.17525 0 0 1.17525 0 2.625V18.375C0 19.8247 1.17525 21 2.625 21H18.375C19.8247 21 21 19.8247 21 18.375V2.625C21 1.17525 19.8247 0 18.375 0ZM6.5625 1.3125H14.4375V5.25H6.5625V1.3125ZM19.6875 18.375C19.6875 19.0994 19.0994 19.6875 18.375 19.6875H2.625C1.90062 19.6875 1.3125 19.0994 1.3125 18.375V2.625C1.3125 1.90062 1.90062 1.3125 2.625 1.3125H5.25V5.90625C5.25 6.26869 5.54381 6.5625 5.90625 6.5625H15.0938C15.4562 6.5625 15.75 6.26869 15.75 5.90625V1.3125H18.375C19.0994 1.3125 19.6875 1.90062 19.6875 2.625V18.375Z' fill='black'/%3E%3Cpath d='M10.5 9.1875C8.32687 9.1875 6.5625 10.9519 6.5625 13.125C6.5625 15.2981 8.32687 17.0625 10.5 17.0625C12.6731 17.0625 14.4375 15.2981 14.4375 13.125C14.4375 10.9519 12.6731 9.1875 10.5 9.1875ZM10.5 15.75C9.05175 15.75 7.875 14.5733 7.875 13.125C7.875 11.6767 9.05175 10.5 10.5 10.5C11.9483 10.5 13.125 11.6767 13.125 13.125C13.125 14.5733 11.9483 15.75 10.5 15.75Z' fill='black'/%3E%3Crect x='11.8125' y='2.625' width='1.3125' height='2.625' fill='black'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* ========== Dokumente section ========== */
+.b99-style.dokumente {
+  /* Display declarations */
+  display: grid;
+}
+.b99-style.dokumente .econ-fragment:has(.abcschluss-info-box-fix) {
+  /* Display declarations */
+  order: 1;
+}
+
+.b99-style.dokumente .econ-fragment:has(.b99-gray-info-box) {
+  /* Display declarations */
+  order: 2;
+}
+
+.b99-style.dokumente .econ-fragment-button-row {
+  /* Display declarations */
+  order: 3;
+}
+
+/* ========== Media queries ========== */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .b99-style.dokumente .econ-button-wrapper {
+    /* Box Model declarations */
+    padding-left: 0;
+  }
 }

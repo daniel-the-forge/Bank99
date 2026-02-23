@@ -29,6 +29,7 @@
 /* ========== Layout ========== */
 @import "common/layout/header.css";
 @import "common/layout/footer.css";
+@import "common/layout/contact-nav.css";
 
 /* ========== Process-specific styles ========== */
 @import "neukunde/main.css";

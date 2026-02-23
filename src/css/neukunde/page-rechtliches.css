@@ -43,6 +43,19 @@
   line-height: var(--line-height-tight);
 }
 
+.b99-style.page-rechtliches .econ-collapse .form-label {
+  /* Box Model declarations */
+  margin-left: 0;
+}
+
+/* ========== Input styles ========== */
+.b99-style.page-rechtliches .econ-collapse .form-select,
+.b99-style.page-rechtliches .econ-collapse .form-control {
+  /* Box Model declarations */
+  padding-left: 0;
+}
+
+
 /* ========== Readonly form controls ========== */
 /* Style inputs/selects as readonly within collapsed sections */
 .b99-style.page-rechtliches .econ-section-content.collapse.show select,
@@ -169,6 +182,12 @@
   margin-bottom: var(--input-padding);
   padding-bottom: var(--input-padding);
   padding-top: 0;
+}
+
+/* ========== Lists ========== */
+.b99-style.page-rechtliches ul li::marker {
+  /* Color declarations */
+  color: var(--color-link);
 }
 
 /* ========== Media queries ========== */
