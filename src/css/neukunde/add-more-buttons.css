@@ -164,11 +164,7 @@
   padding-top: var(--spacing-8);
 }
 
-/* Hide both radio buttons - we handle clicks via JavaScript */
-.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio .col-6 {
-  /* Display declarations */
-  display: none; 
-}
+
 
 /* Plus icon in circle with yellow border via ::before */
 .b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before {

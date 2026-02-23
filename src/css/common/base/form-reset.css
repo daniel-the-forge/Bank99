@@ -94,6 +94,10 @@ body {
   text-decoration: underline;
 }
 
+.hidden {
+  display: none;
+}
+
 
 /* ========== Media queries ========== */
 /* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */

@@ -23,11 +23,17 @@
 
   /* Box Model declarations */
   border: none;
-  padding: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: var(--spacing-8);
 
   /* Miscellaneous declarations */
   cursor: auto;
   box-shadow: none;
+
+  /* Typography declarations */
+  font-size: var(--input-font-size);
 }
 
 

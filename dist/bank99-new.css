@@ -421,6 +421,10 @@ body {
   text-decoration: underline;
 }
 
+.hidden {
+  display: none;
+}
+
 /* ========== Media queries ========== */
 
 /* Responsive breakpoints - Bootstrap-compatible breakpoints for larger screens */
@@ -3325,13 +3329,6 @@ form.b99-style .econ-form-group.pb-3 {
   padding-top: var(--spacing-8);
 }
 
-/* Hide both radio buttons - we handle clicks via JavaScript */
-
-.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio .col-6 {
-  /* Display declarations */
-  display: none; 
-}
-
 /* Plus icon in circle with yellow border via ::before */
 
 .b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before {
@@ -4467,11 +4464,17 @@ form.b99-style .econ-form-group.pb-3 {
 
   /* Box Model declarations */
   border: none;
-  padding: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: var(--spacing-8);
 
   /* Miscellaneous declarations */
   cursor: auto;
   box-shadow: none;
+
+  /* Typography declarations */
+  font-size: var(--input-font-size);
 }
 
 .b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) .form-check,
@@ -4644,7 +4647,7 @@ form.b99-style .econ-form-group.pb-3 {
   display: none !important;
 }
 
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"])
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio .col-6,
 .b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::after,
 .b99-style.page-rechtliches .econ-fragment.econ-fragment-static-module,
 .b99-style.page-rechtliches .econ-section-content .econ-section-header,
@@ -4654,9 +4657,52 @@ form.b99-style .econ-form-group.pb-3 {
   display: none !important;
 }
 
-.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden1"]) {
+/* Show only the col-6 that has .econ-radio--active when it contains weiterNationalitaetVorhanden (1, 2, …) */
+
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden"]) {
   /* Display declarations */
   display: block !important;
+
+  /* Box Model declarations */
+  border: none;
+  padding: 0;
+
+  /* Miscellaneous declarations */
+  box-shadow: none;
+  cursor: auto;
+
+  /* Typography declarations */
+  font-size: var(--input-font-size);
+}
+
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row {
+  /* Miscellaneous declarations */
+  cursor: auto;
+}
+
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden"]) {
+  /* Box Model declarations */
+  display: none;
+}
+
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden"]) .form-check-input:hover,
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden"]) .form-check-input:focus {
+  /* Miscellaneous declarations */
+  box-shadow: none;
+}
+
+.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden"]) .econ-radio-label::after {
+  /* Display declarations */
+  display: none;
+}
+
+.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-personenDaten-weitereNationalitaetVorhanden"]) .form-check {
+  /* Display declarations */
+  justify-content: flex-start;
+
+  /* Box Model declarations */
+  -moz-column-gap: var(--spacing-8);
+       column-gap: var(--spacing-8);
 }
 
 /* ========== Currency fragment ========== */
