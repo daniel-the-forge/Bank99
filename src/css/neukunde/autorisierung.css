@@ -2,3 +2,103 @@
  * Autorisierung styles
  * Uses design tokens – requires design-system.css
  */
+
+/* Fragment: column layout, heading first */
+.b99-style .econ-fragment:has(.so-funktioniert-es) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* First div: flatten so we can order heading, okay block, so-funktioniert-es */
+.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type {
+    display: contents;
+}
+
+/* "Schnell und einfach zu Ihrem Wunschprodukt" – same position as "Jetzt unterschreiben mit" */
+.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p {
+    order: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p strong {
+    display: block;
+    font-size: var(--font-size-lg, 1.125rem);
+    font-weight: 700;
+}
+
+/* Block that contains okay99 App label + icon (below heading) */
+.b99-style .econ-fragment .col-12 div:has(.okay-lable, .okay-icon, .mtan-lable, .mtan-icon) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    order: 1;
+}
+
+/* okay-lable: label above icon; hidden on small screens */
+.b99-style .econ-fragment .col-12:has(.okay-icon) .okay-lable,
+.b99-style .econ-fragment .col-12:has(.mtan-icon) .mtan-lable {
+    float: none;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    display: block;
+    order: 2;
+}
+
+.b99-style .econ-fragment .col-12:has(.okay-icon) .okay-lable p,
+.b99-style .econ-fragment .col-12:has(.mtan-icon) .mtan-lable p {
+    display: block !important;
+}
+
+/* okay-icon: image below "okay99 App" */
+.b99-style .econ-fragment .col-12:has(.okay-lable) .okay-icon,
+.b99-style .econ-fragment .col-12:has(.mtan-lable) .mtan-icon {
+    float: none;
+    width: 100%;
+    text-align: center;
+    height: auto;
+    padding: 0;
+}
+
+/* so-funktioniert-es: below okay99 App block */
+.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 .so-funktioniert-es {
+    order: 2;
+}
+
+.b99-style .econ-fragment .col-12 .so-funktioniert-es {
+    padding: 10px 20px 0 20px;
+}
+
+.b99-style .econ-fragment .col-12 .so-funktioniert-es ol {
+    padding: 0 0 0 15px;
+}
+
+@media (max-width: 600px) {
+    .b99-style .econ-fragment .col-12:has(.okay-icon) .okay-lable {
+        display: none;
+    }
+
+    .b99-style .econ-fragment .col-12:has(.okay-lable) .okay-icon {
+        float: left;
+        width: 100%;
+        text-align: center;
+        height: 200px;
+        padding-top: 50px;
+        padding-left: 30px;
+    }
+
+    .b99-style .econ-fragment .col-12 .so-funktioniert-es {
+        padding: 5px 10px 0 10px;
+    }
+}
+
