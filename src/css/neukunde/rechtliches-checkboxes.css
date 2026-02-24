@@ -15,6 +15,7 @@
 .page-rechtliches.b99-style p {
   /* Box Model declarations */
   margin-left: 0;
+  max-width: 90%;
 
   /* Typography declarations */
   font-size: var(--font-size-14);
