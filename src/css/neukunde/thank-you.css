@@ -1,0 +1,26 @@
+/**
+ * Thank you styles
+ * Uses design tokens – requires design-system.css
+ */
+
+/* ========== Thank you page ========== */
+.b99-style.thank #client1,
+.b99-style.thank .client-1 {
+    /* Typography declarations */
+    font-weight: var(--font-weight-bold);
+}
+
+
+.b99-style.thank .client-1 {
+    /* Typography declarations */
+    font-size: var(--font-size-18);
+    text-align: center;
+
+    /* Box Model declarations */
+    margin-bottom: var(--spacing-40);
+}
+
+.b99-style.thank p {
+    /* Typography declarations */
+    line-height: var(--line-height-relaxed);
+}

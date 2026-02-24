@@ -23,7 +23,7 @@
 .footer__meta {
   /* Box Model declarations */
   box-sizing: border-box;
-  padding-bottom: calc(var(--spacing-24) * 2);
+  padding-top: calc(var(--spacing-24) * 2);
   padding-right: var(--header-padding-right);
   width: 100%;
 }

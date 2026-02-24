@@ -3,102 +3,255 @@
  * Uses design tokens – requires design-system.css
  */
 
+ /* Input fields */
+ .b99-style.autorisierung .econ-input-group .econ-form-control-outer {
+    flex: 0 0 100%;
+ }
+
+ .b99-style.autorisierung .econ-control-icon {
+    display: none;
+ }
+
 /* Fragment: column layout, heading first */
-.b99-style .econ-fragment:has(.so-funktioniert-es) {
-    align-items: center;
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) {
+    /* Display declarations */
     display: flex;
     flex-direction: column;
 }
 
-.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 {
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 {
+    /* Display declarations */
     align-items: center;
     display: flex;
     flex-direction: column;
+
+    /* Box Model declarations */
     width: 100%;
 }
 
+
+.b99-style.autorisierung .econ-section-content .econ-section-content .econ-section-content  {
+    /* Display declarations */
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+}
+
+.b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content {
+    /* Display declarations */
+    display: block;
+
+    /* Box Model declarations */
+    margin-top: calc(var(--spacing-24) * 2);
+}
+
 /* First div: flatten so we can order heading, okay block, so-funktioniert-es */
-.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type {
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type {
+    /* Display declarations */
     display: contents;
 }
 
 /* "Schnell und einfach zu Ihrem Wunschprodukt" – same position as "Jetzt unterschreiben mit" */
-.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p {
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p {
+    /* Display declarations */
     order: 0;
+
+    /* Typography declarations */
     text-align: center;
+
+    /* Box Model declarations */
+    margin-bottom: 0;
     width: 100%;
 }
 
-.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p strong {
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p strong {
+    /* Display declarations */
     display: block;
+
+    /* Typography declarations */
     font-size: var(--font-size-lg, 1.125rem);
     font-weight: 700;
 }
 
 /* Block that contains okay99 App label + icon (below heading) */
-.b99-style .econ-fragment .col-12 div:has(.okay-lable, .okay-icon, .mtan-lable, .mtan-icon) {
+.b99-style.autorisierung .econ-fragment .col-12 div:has(.okay-lable, .okay-icon, .mtan-lable, .mtan-icon) {
+    /* Display declarations */
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-8);
+    gap: var(--spacing-4);
     order: 1;
 }
 
 /* okay-lable: label above icon; hidden on small screens */
-.b99-style .econ-fragment .col-12:has(.okay-icon) .okay-lable,
-.b99-style .econ-fragment .col-12:has(.mtan-icon) .mtan-lable {
-    float: none;
-    width: 100%;
-    text-align: center;
-    height: auto;
+.b99-style.autorisierung .econ-fragment .col-12:has(.okay-icon) .okay-lable,
+.b99-style.autorisierung .econ-fragment .col-12:has(.mtan-icon) .mtan-lable {
+    /* Display declarations */
     display: block;
+    float: none;
     order: 2;
+
+    /* Box Model declarations */
+    height: auto;
+    width: 100%;
+
+    /* Typography declarations */
+    text-align: center;
 }
 
-.b99-style .econ-fragment .col-12:has(.okay-icon) .okay-lable p,
-.b99-style .econ-fragment .col-12:has(.mtan-icon) .mtan-lable p {
+.b99-style.autorisierung .econ-fragment .col-12:has(.okay-icon) .okay-lable p,
+.b99-style.autorisierung .econ-fragment .col-12:has(.mtan-icon) .mtan-lable p {
+    /* Display declarations */
     display: block !important;
 }
 
 /* okay-icon: image below "okay99 App" */
-.b99-style .econ-fragment .col-12:has(.okay-lable) .okay-icon,
-.b99-style .econ-fragment .col-12:has(.mtan-lable) .mtan-icon {
+.b99-style.autorisierung .econ-fragment .col-12:has(.okay-lable) .okay-icon,
+.b99-style.autorisierung .econ-fragment .col-12:has(.mtan-lable) .mtan-icon {
+    /* Display declarations */
     float: none;
-    width: 100%;
-    text-align: center;
+    
+    /* Box Model declarations */
     height: auto;
     padding: 0;
+    width: 100%;
+
+    /* Typography declarations */
+    text-align: center;
+}
+
+.b99-style.autorisierung .econ-fragment .col-12:has(.mtan-lable) .mtan-icon svg {
+    /* Box Model declarations */
+    height: 150px;
 }
 
 /* so-funktioniert-es: below okay99 App block */
-.b99-style .econ-fragment:has(.so-funktioniert-es) .col-12 .so-funktioniert-es {
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 .so-funktioniert-es {
+    /* Display declarations */
     order: 2;
 }
 
-.b99-style .econ-fragment .col-12 .so-funktioniert-es {
+.b99-style.autorisierung .econ-fragment .col-12 .so-funktioniert-es {
+    /* Box Model declarations */
     padding: 10px 20px 0 20px;
 }
 
-.b99-style .econ-fragment .col-12 .so-funktioniert-es ol {
+.b99-style.autorisierung .econ-fragment .col-12 .so-funktioniert-es ol {
+    /* Box Model declarations */
     padding: 0 0 0 15px;
+
+    /* Display declarations */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
 }
 
+/* SMS TAN / okap99 App results */
+.b99-style.autorisierung .econ-fragment .col-xs-12 {
+    /* Box Model declarations */
+    padding: 0 !important;
+}
+
+.b99-style.autorisierung .col-xs-12 div {
+    /* Box Model declarations */
+    height: 150px !important;
+    min-width: 150px !important;
+    width: 150px !important;
+    
+    /* Miscellaneous declarations */
+    border-radius: 50% !important;
+}
+
+.b99-style.autorisierung .econ-fragment-static-module:has(.text-center) {
+    /* Box Model declarations */
+    margin-bottom: var(--spacing-16);
+    margin-top: var(--spacing-16);
+}
+
+.b99-style.autorisierung .b99-check-status-button .econ-button.btn-secondary {
+    /* Box Model declarations */
+    margin-bottom: var(--footer-margin-bottom);
+}
+
+.b99-style .econ-button-bar .b99-back-btn .econ-button {
+    border-radius: var(--btn-primary-border-radius);
+    padding: var(--spacing-8) var(--spacing-16); 
+    transition: background-color 0.3s ease;
+}
+
+.b99-style .econ-button-bar .b99-back-btn .econ-button:hover,
+.b99-style .econ-button-bar .b99-back-btn .econ-button:focus {
+    background-color: var(--color-primary);
+}
+
+/* ======================
+    Media queries
+========================== */
 @media (max-width: 600px) {
-    .b99-style .econ-fragment .col-12:has(.okay-icon) .okay-lable {
-        display: none;
+    .b99-style.autorisierung .econ-fragment .col-12:has(.okay-icon) .okay-lable,
+    .b99-style.autorisierung .econ-fragment .col-12:has(.mtan-lable) .mtan-lable {
+        /* Box Model declarations */
+        margin-bottom: calc(var(--spacing-16) * 2);
     }
 
-    .b99-style .econ-fragment .col-12:has(.okay-lable) .okay-icon {
-        float: left;
+    .b99-style.autorisierung .econ-fragment .col-12:has(.okay-lable) .okay-icon,
+    .b99-style.autorisierung .econ-fragment .col-12:has(.mtan-lable) .mtan-icon {
+        /* Box Model declarations */
+        padding-top: calc(var(--spacing-16) * 2);
         width: 100%;
+
+        /* Typography declarations */
         text-align: center;
-        height: 200px;
-        padding-top: 50px;
-        padding-left: 30px;
     }
 
-    .b99-style .econ-fragment .col-12 .so-funktioniert-es {
+    .b99-style.autorisierung .econ-fragment .col-12:has(.mtan-lable) .mtan-icon {
+        /* Box Model declarations */
+        padding-top: var(--spacing-16);
+    }
+
+    .b99-style.autorisierung .econ-fragment .col-12 .so-funktioniert-es {
+        /* Box Model declarations */
         padding: 5px 10px 0 10px;
     }
 }
+@media (min-width: 768px) {
+    .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) {
+        /* Display declarations */
+        flex: 0 0 50%;
+    }
 
+    .b99-style.autorisierung .econ-section-content .econ-section-content .econ-section-content  {
+        /* Display declarations */
+        flex-direction: row;
+    }
+
+    .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p {
+        /* Box Model declarations */
+        margin-bottom: calc(var(--spacing-24) * 2);
+    }
+
+    .b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content:has(.col-xs-12) {
+        /* Display declarations */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content:has(.col-xs-12) .econ-section-content {
+        /* Display declarations */
+        display: block;
+
+        /* Box Model declarations */
+        margin-top: 0;
+    }
+
+    .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12.text-center {
+        /* Typography declarations */
+        text-align: center;
+    }
+
+    .b99-style.autorisierung .b99-page-nav-btns .b99-next-btn.col-6 {
+        /* Display declarations */
+        justify-content: flex-end;
+    }
+}

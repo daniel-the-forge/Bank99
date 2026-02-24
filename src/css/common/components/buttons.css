@@ -175,6 +175,25 @@
   padding: var(--btn-primary-padding-vertical) var(--btn-primary-padding-horizontal);  
 }
 
+.econ-button.btn-secondary {
+  /* Color declarations */
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  /* Box Model declarations */
+  border: 1px solid var(--color-text);
+  padding: var(--btn-primary-padding-vertical) var(--btn-primary-padding-horizontal);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--btn-primary-border-radius);
+  cursor: pointer;
+
+  /* Typography declarations */
+  font-family: var(--font-family);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+}
+
 /* ========== Button spinner ========== */
 /* Hide spinner icons by default (shown via JS when loading) */
 .b99-style .econ-button-bar .econ-button-spinner {
