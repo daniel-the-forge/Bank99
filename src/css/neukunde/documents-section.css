@@ -68,8 +68,12 @@
 }
 
 .b99-style.dokumente .econ-button-wrapper {
+  padding-left: 0;
+}
+
+.b99-style.dokumente .econ-button-wrapper.b99-yellow-btn {
   /* Box Model declarations */
-  padding-left: var(--form-margin-horizontal);
+  margin-left: var(--form-margin-horizontal);
 }
 
 .b99-style.dokumente .econ-button-wrapper.b99-yellow-btn .econ-button {
@@ -142,9 +146,7 @@
   order: 3;
 }
 
-.b99-style.dokumente .econ-button-wrapper {
-  padding-left: 0;
-}
+
 
 /* ========== Media queries ========== */
 /* Small devices (landscape phones, 576px and up) */
@@ -152,5 +154,10 @@
   .b99-style.dokumente .econ-button-wrapper {
     /* Box Model declarations */
     padding-left: 0;
+  }
+
+  .b99-style.dokumente .econ-button-wrapper.b99-yellow-btn {
+    /* Box Model declarations */
+    margin-left: 0;
   }
 }

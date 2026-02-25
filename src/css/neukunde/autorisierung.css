@@ -34,9 +34,6 @@
 .b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content {
     /* Display declarations */
     display: block;
-
-    /* Box Model declarations */
-    margin-top: calc(var(--spacing-24) * 2);
 }
 
 /* First div: flatten so we can order heading, okay block, so-funktioniert-es */
@@ -127,6 +124,7 @@
 
 .b99-style.autorisierung .econ-fragment .col-12 .so-funktioniert-es {
     /* Box Model declarations */
+    margin-bottom: calc(var(--spacing-24) * 2);
     padding: 10px 20px 0 20px;
 }
 
@@ -178,6 +176,16 @@
     background-color: var(--color-primary);
 }
 
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12.text-center {
+    /* Typography declarations */
+    text-align: center;
+}
+
+.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12.text-center #b99-expiration-seconds {
+    /* Box Model declarations */
+    margin-top: var(--spacing-8);
+}
+
 /* ======================
     Media queries
 ========================== */
@@ -225,11 +233,6 @@
 
         /* Box Model declarations */
         margin-top: 0;
-    }
-
-    .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12.text-center {
-        /* Typography declarations */
-        text-align: center;
     }
 
     .b99-style.autorisierung .b99-page-nav-btns .b99-next-btn.col-6 {

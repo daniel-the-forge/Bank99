@@ -31,6 +31,8 @@
     /* Negative margin to extend header to form edges, accounting for Bootstrap gutter */
     margin-inline: calc((var(--bs-gutter-x, 1.5rem) * -0.5) - var(--form-margin-horizontal));
     padding-bottom: var(--form-section-header-padding-bottom);
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-8);
     padding-top: var(--form-section-header-padding-top);
   }
   

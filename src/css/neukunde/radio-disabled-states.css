@@ -5,125 +5,64 @@
  * Uses design tokens – requires design-system.css
  */
 
-/* ========== Disabled cursor ========== */
-/* Remove pointer cursor from disabled radio buttons */
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
-.b99-style.page-rechtliches .col-6.econ-radio-value-false:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit2-ansaessig"]) {
-  /* Display declarations */
+/* 1. Hide all non-selected radio options on the summary page */
+.b99-style.page-rechtliches .econ-radio .col-6:not(.econ-radio--active) {
   display: none;
 }
 
-/* Hide only the non-active col-6 (active one is shown by the rule below); :not() avoids relying on specificity */
-.b99-style.page-rechtliches .col-6:not(.econ-radio--active):has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) {
-  /* Display declarations */
-  display: none;
-}
-
-.b99-style.page-rechtliches .econ-form-control-outer > .row > .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]),
-.b99-style.page-rechtliches .econ-form-control-outer > .row > .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) {
-  /* Display declarations */
+/* 2. Style the selected option as read-only text */
+.b99-style.page-rechtliches .econ-radio .col-6.econ-radio--active {
   display: block;
-}
-
-.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
-.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
-  /* Display declarations */
-  display: block;
-
-  /* Box Model declarations */
   border: none;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: var(--spacing-8);
-
-  /* Miscellaneous declarations */
+  padding: var(--spacing-8) 0 0 0;
   cursor: auto;
   box-shadow: none;
-
-  /* Typography declarations */
   font-size: var(--input-font-size);
 }
 
-
-.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) .form-check,
-.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .form-check,
-.b99-style.page-rechtliches .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .form-check {
-  /* Display declarations */
+/* 3. Align form-check content inside active radio */
+.b99-style.page-rechtliches .econ-radio .col-6.econ-radio--active .form-check {
   justify-content: flex-start;
-
-  /* Box Model declarations */
   column-gap: var(--spacing-8);
-}
-
-/* ========== Disabled hover/focus states ========== */
-/* Maintain border on hover/focus for disabled radio buttons */
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
-  /* Box Model declarations */
-  border: var(--input-border-width) solid var(--input-border-color);
-}
-
-/* ========== Active disabled hover/focus states ========== */
-/* Maintain focus border color for active disabled radio buttons */
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus {
-  /* Box Model declarations */
-  border: none;
-}
-
-/* ========== Steueransässigkeit disabled hover/focus ========== */
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover,
-.b99-style.page-rechtliches .econ-fragment-radio-group .econ-radio .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus {
-  /* Box Model declarations */
-  border-color: var(--input-border-color);
-}
-
-/* ========== Remove label overlay border ========== */
-/* Prevent border on label ::after pseudo-element for disabled radio buttons */
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):focus .econ-radio-label::after,
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]):hover .econ-radio-label::after,
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):focus .econ-radio-label::after,
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]):hover .econ-radio-label::after,
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):hover .econ-radio-label::after,
-.b99-style.page-rechtliches .col-6:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]):focus .econ-radio-label::after {
-  /* Box Model declarations */
-  border: none;
-}
-
-/* ========== Form check disabled cursor ========== */
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]),
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]),
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) {
-  /* Miscellaneous declarations */
   cursor: auto;
 }
 
-/* ========== Disable label pointer events ========== */
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) .econ-radio-label::after,
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) .econ-radio-label::after,
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) .econ-radio-label::after {
-  /* Miscellaneous declarations */
+/* 4. Remove hover/focus border on active radios in summary sections */
+.b99-style.page-rechtliches .collapse.show .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:hover,
+.b99-style.page-rechtliches .collapse.show .econ-fragment-radio-group .econ-radio .col-6.econ-radio--active:focus {
+  border: none;
+}
+
+/* 5. Disable label overlay + pointer events in summary sections */
+.b99-style.page-rechtliches .collapse.show .econ-fragment-radio-group .econ-radio .col-6 .econ-radio-label::after,
+.b99-style.page-rechtliches .collapse.show .econ-fragment-radio-group .econ-radio .col-6:hover .econ-radio-label::after,
+.b99-style.page-rechtliches .collapse.show .econ-fragment-radio-group .econ-radio .col-6:focus .econ-radio-label::after {
+  border: none;
   cursor: auto;
   pointer-events: none;
 }
 
-/* ========== Remove input box-shadow on hover/focus ========== */
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:hover,
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="antrag-antragsteller1-personenDaten-buergerEu"]) input:focus,
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:hover,
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-steueransaessigkeit1-ansaessig"]) input:focus,
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:hover,
-.b99-style.page-rechtliches .form-check:has([data-econ-property^="bank99-antrag-antragssteller1-rechtliches-usaBezug"]) input:focus {
-  /* Miscellaneous declarations */
+/* 6. Remove input box-shadow on hover/focus in summary sections */
+.b99-style.page-rechtliches .collapse.show .econ-radio .form-check input:hover,
+.b99-style.page-rechtliches .collapse.show .econ-radio .form-check input:focus {
   box-shadow: none;
+}
+
+/* 7. Full width for radio options in collapsed sections */
+.b99-style.page-rechtliches .econ-collapse .row .col-6 {
+  width: 100%;
+}
+
+/* Hide "add more" trigger radio groups entirely on summary page */
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]),
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaetVorhanden"]),
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit"][data-econ-property*="-ansaessig"]):not(:has([data-econ-property*="steueransaessigkeit1"])),
+.b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="bestaetigungUploadDokumente"]) {
+  display: none !important;
+}
+
+/* ========== 100% width for displayed checkboxes ========== */
+.b99-style.page-rechtliches .econ-collapse .row .col-6 {
+  /* Box Model declarations */
+  width: 100%;
 }
