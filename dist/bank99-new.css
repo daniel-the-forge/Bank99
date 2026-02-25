@@ -153,7 +153,7 @@
   /* Section header (yellow title bar) spacing and styling */
   --form-section-header-padding-top: 7px;
   --form-section-header-padding-bottom: 7px;
-  --form-section-header-margin-top: 22px;
+  --form-section-header-margin-top: 46px;
   --form-section-header-margin-bottom: 40px;
   --form-section-header-radius: 3px;
   
@@ -324,6 +324,30 @@ html {
   font-size: var(--font-size-16);
 }
 
+/* ========== HTML and body element styles for full height========== */
+
+html, body {
+  /* Box Model declarations */
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Footer sticks to bottom */
+
+.footer {
+  /* Display declarations */
+  flex-shrink: 0;
+  
+  /* Box Model declarations */
+  margin-top: auto; /* This pushes it to the bottom */
+}
+
+.contact-nav {
+  /* Display declarations */
+  flex-shrink: 0;
+}
+
 /* ========== Body element ========== */
 
 /* Apply base typography and remove default margins */
@@ -338,6 +362,10 @@ body {
   /* Box Model declarations */
   margin: 0;
   min-height: 100vh;
+
+  /* Display declarations */
+  display: flex;
+  flex-direction: column;
 }
 
 /* ========== Main container reset ========== */
@@ -358,6 +386,12 @@ body {
   /* Box Model declarations */
   line-height: var(--bs-body-line-height);
   text-align: var(--bs-body-text-align);
+  width: 100%;
+
+  /* Display declarations */
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Paragraph spacing within econ-container */
@@ -366,6 +400,9 @@ body {
   /* Box Model declarations */
   margin-bottom: var(--spacing-16);
   margin-top: 0;
+
+  /* Typography declarations */
+  line-height: var(--line-height-relaxed);
 }
 
 /* ========== Content main container ========== */
@@ -377,10 +414,11 @@ body {
   background: var(--body-background);
   
   /* Box Model declarations */
-  margin-left: auto;
-  margin-right: auto;
   padding-right: calc(var(--bs-gutter-x) * .5);
   padding-left: calc(var(--bs-gutter-x) * .5);
+
+  /* Display declarations */
+  flex: 1 0 auto;
 }
 
 /* ========== Page content container ========== */
@@ -405,23 +443,31 @@ body {
 
 /* Set link color to primary color */
 
-.b99-style a {
+.b99-style a,
+.mehr-info-link  {
   /* Color declarations */
   color: var(--color-link);
 }
 
 .b99-style a:hover,
-.b99-style a:focus {
+.b99-style a:focus,
+.mehr-info-link:hover,
+.mehr-info-link:focus {
   /* Color declarations */
   color: var(--color-link-hover);
   text-decoration: underline
 }
 
-.b99-style a:active {
+.b99-style a:active,
+.mehr-info-link:active {
   /* Color declarations */
   color: var(--color-link-active);
   text-decoration: underline;
 }
+
+/* ========== Hidden elements ========== */
+
+/* Ensure elements with hidden class are not displayed */
 
 .hidden {
   display: none;
@@ -793,7 +839,7 @@ body {
 
   /* Box Model declarations */
   border: none;
-  padding: 0;
+  padding: var(--spacing-8) var(--spacing-16);
   
   /* Color declarations */
   background: none;
@@ -803,6 +849,12 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-regular);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--b99-master-radius);
+
+  /* Transition declarations */
+  transition: background-color var(--transition-default);
 }
 
 /* Zurück icon (arrow left) - SVG embedded as background image */
@@ -845,6 +897,14 @@ body {
   background-size: contain;
 }
 
+.b99-style .econ-button-bar .b99-back-btn .econ-button:hover,
+.b99-style .econ-button-bar .b99-save-btn .econ-button:hover,
+.b99-style .econ-button-bar .b99-back-btn .econ-button:focus,
+.b99-style .econ-button-bar .b99-save-btn .econ-button:focus {
+  /* Color declarations */
+  background-color: var(--color-primary);
+}
+
 /* ========== Primary Button (Weiter) ========== */
 
 /* Yellow primary button with rounded corners and opacity */
@@ -870,8 +930,21 @@ body {
   font-weight: var(--font-weight-regular);
 
   /* Box Model declarations */
-  border: none;
-  padding: var(--btn-primary-padding-vertical) var(--btn-primary-padding-horizontal);  
+  border: 1px solid transparent;
+  padding: var(--btn-primary-padding-vertical) var(--btn-primary-padding-horizontal);
+  
+  /* Transition declarations */
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.b99-style .econ-button-bar .b99-next-btn .econ-button:hover,
+.b99-style .econ-button-bar .b99-next-btn .econ-button:focus {
+  /* Color declarations */
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  /* Box Model declarations */
+  border: 1px solid var(--color-text);
 }
 
 .econ-button.btn-secondary {
@@ -2203,7 +2276,6 @@ form.b99-style .econ-form-group.pb-3 {
   
   /* Box Model declarations */
   margin-bottom: calc(var(--form-section-header-margin-top) / 2 + var(--card-margin-top));
-  margin-top: var(--card-margin-top);
   padding: 0;
 }
 
@@ -2684,7 +2756,8 @@ form.b99-style .econ-form-group.pb-3 {
 .footer__meta {
   /* Box Model declarations */
   box-sizing: border-box;
-  padding-top: calc(var(--spacing-24) * 2);
+  padding-bottom: var(--spacing-20);
+  padding-top: var(--spacing-20);
   padding-right: var(--header-padding-right);
   width: 100%;
 }
@@ -2829,7 +2902,6 @@ form.b99-style .econ-form-group.pb-3 {
 
   /* Typography declarations */
   font-size: var(--font-size-12);
-  font-weight: var(--font-weight-bold);
 
   /* Box Model declarations */
   margin: 0;
@@ -2928,7 +3000,7 @@ form.b99-style .econ-form-group.pb-3 {
 @media (max-width: 767px) {
   .footer__meta__container.footer__meta__container--b99 {
     /* Display declarations */
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: var(--spacing-24);
 
@@ -2951,7 +3023,7 @@ form.b99-style .econ-form-group.pb-3 {
 
   .footer__meta__container__sm {
     /* Display declarations */
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
 
@@ -2972,11 +3044,13 @@ form.b99-style .econ-form-group.pb-3 {
     justify-content: center;
   }
 
-  .footer__meta__container__content__impressum {
-    /* Display declarations */
-    align-items: flex-start;
-    flex-direction: column;
-    gap: var(--spacing-20);
+  .footer__meta__container__content__impressum a {
+    /* Typography declarations */
+    font-size: var(--font-size-12);
+  }
+
+  .footer__meta {
+    padding-bottom: var(--spacing-40);
   }
 }
 
@@ -3083,6 +3157,9 @@ form.b99-style .econ-form-group.pb-3 {
   padding-right: var(--header-padding-right);
   padding-top: calc(var(--spacing-24) * 2);
   width: 100%;
+
+  /* Display declarations */
+  display: none;
 }
 
 /* Reset row/column inside contact-nav */
@@ -3689,6 +3766,10 @@ form.b99-style .econ-form-group.pb-3 {
   order: 3;
 }
 
+.b99-style.dokumente .econ-button-wrapper {
+  padding-left: 0;
+}
+
 /* ========== Media queries ========== */
 
 /* Small devices (landscape phones, 576px and up) */
@@ -3815,9 +3896,10 @@ form.b99-style .econ-form-group.pb-3 {
 
 /* ========== Hover state ========== */
 
-.b99-style .econ-file-drop-area:hover {
+.b99-style .econ-file-drop-area:hover,
+.b99-style .econ-file-drop-area:focus {
   /* Color declarations */
-  background-color: rgba(255, 255, 255, 1);
+  background-color: var(--color-background);
 }
 
 /* ========== Hidden file input ========== */
@@ -4002,6 +4084,14 @@ form.b99-style .econ-form-group.pb-3 {
   /* Positioning declarations */
   position: relative;
   
+  /* Transition declarations */
+  transition: background-color var(--transition-default);
+}
+
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row:focus::before {
+  /* Color declarations */
+  background-color: var(--color-primary);
 }
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
@@ -4112,6 +4202,11 @@ form.b99-style .econ-form-group.pb-3 {
   padding-top: var(--spacing-8);
 }
 
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row:focus::before {
+  background-color: var(--color-primary);
+}
+
 /* Plus icon in circle with yellow border via ::before */
 
 .b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row::before {
@@ -4141,6 +4236,9 @@ form.b99-style .econ-form-group.pb-3 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: var(--icon-size-md) var(--icon-size-md);
+
+  /* Transition declarations */
+  transition: background-color var(--transition-default);
 }
 
 /* Text via ::after */
@@ -5047,12 +5145,6 @@ form.b99-style .econ-form-group.pb-3 {
 
 /* Fragment: column layout, heading first */
 
-.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) {
-    /* Display declarations */
-    display: flex;
-    flex-direction: column;
-}
-
 .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 {
     /* Display declarations */
     align-items: center;
@@ -5065,7 +5157,6 @@ form.b99-style .econ-form-group.pb-3 {
 
 .b99-style.autorisierung .econ-section-content .econ-section-content .econ-section-content  {
     /* Display declarations */
-    align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-24);
@@ -5214,14 +5305,14 @@ form.b99-style .econ-form-group.pb-3 {
     margin-bottom: var(--footer-margin-bottom);
 }
 
-.b99-style .econ-button-bar .b99-back-btn .econ-button {
+.b99-style.autorisierung .econ-button-bar .b99-back-btn .econ-button {
     border-radius: var(--btn-primary-border-radius);
     padding: var(--spacing-8) var(--spacing-16); 
     transition: background-color 0.3s ease;
 }
 
-.b99-style .econ-button-bar .b99-back-btn .econ-button:hover,
-.b99-style .econ-button-bar .b99-back-btn .econ-button:focus {
+.b99-style.autorisierung .econ-button-bar .b99-back-btn .econ-button:hover,
+.b99-style.autorisierung .econ-button-bar .b99-back-btn .econ-button:focus {
     background-color: var(--color-primary);
 }
 
@@ -5258,25 +5349,14 @@ form.b99-style .econ-form-group.pb-3 {
 }
 
 @media (min-width: 768px) {
-    .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) {
-        /* Display declarations */
-        flex: 0 0 50%;
-    }
-
-    .b99-style.autorisierung .econ-section-content .econ-section-content .econ-section-content  {
-        /* Display declarations */
-        flex-direction: row;
-    }
-
     .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p {
         /* Box Model declarations */
         margin-bottom: calc(var(--spacing-24) * 2);
     }
 
-    .b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content:has(.col-xs-12) {
-        /* Display declarations */
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    .b99-style.autorisierung .econ-fragment:has(mtan-icon) .col-12 > div:first-of-type > p {
+        /* Box Model declarations */
+        margin-bottom: calc(var(--spacing-24) * 1);
     }
 
     .b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content:has(.col-xs-12) .econ-section-content {
@@ -5305,13 +5385,13 @@ form.b99-style .econ-form-group.pb-3 {
 
 /* ========== Thank you page ========== */
 
-.b99-style.thank #client1,
-.b99-style.thank .client-1 {
+.b99-style.thank-you #client1,
+.b99-style.thank-you .client-1 {
     /* Typography declarations */
     font-weight: var(--font-weight-bold);
 }
 
-.b99-style.thank .client-1 {
+.b99-style.thank-you .client-1 {
     /* Typography declarations */
     font-size: var(--font-size-18);
     text-align: center;
@@ -5320,7 +5400,7 @@ form.b99-style .econ-form-group.pb-3 {
     margin-bottom: var(--spacing-40);
 }
 
-.b99-style.thank p {
+.b99-style.thank-you p {
     /* Typography declarations */
     line-height: var(--line-height-relaxed);
 }

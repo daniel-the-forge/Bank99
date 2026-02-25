@@ -9,6 +9,28 @@ html {
   font-size: var(--font-size-16);
 }
 
+/* ========== HTML and body element styles for full height========== */
+html, body {
+  /* Box Model declarations */
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Footer sticks to bottom */
+.footer {
+  /* Display declarations */
+  flex-shrink: 0;
+  
+  /* Box Model declarations */
+  margin-top: auto; /* This pushes it to the bottom */
+}
+
+.contact-nav {
+  /* Display declarations */
+  flex-shrink: 0;
+}
+
 /* ========== Body element ========== */
 /* Apply base typography and remove default margins */
 body {
@@ -21,6 +43,10 @@ body {
   /* Box Model declarations */
   margin: 0;
   min-height: 100vh;
+
+  /* Display declarations */
+  display: flex;
+  flex-direction: column;
 }
 
 /* ========== Main container reset ========== */
@@ -39,6 +65,12 @@ body {
   /* Box Model declarations */
   line-height: var(--bs-body-line-height);
   text-align: var(--bs-body-text-align);
+  width: 100%;
+
+  /* Display declarations */
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Paragraph spacing within econ-container */
@@ -46,6 +78,9 @@ body {
   /* Box Model declarations */
   margin-bottom: var(--spacing-16);
   margin-top: 0;
+
+  /* Typography declarations */
+  line-height: var(--line-height-relaxed);
 }
 
 /* ========== Content main container ========== */
@@ -55,10 +90,11 @@ body {
   background: var(--body-background);
   
   /* Box Model declarations */
-  margin-left: auto;
-  margin-right: auto;
   padding-right: calc(var(--bs-gutter-x) * .5);
   padding-left: calc(var(--bs-gutter-x) * .5);
+
+  /* Display declarations */
+  flex: 1 0 auto;
 }
 
 /* ========== Page content container ========== */
@@ -77,23 +113,29 @@ body {
 
 /* ========== Links ========== */
 /* Set link color to primary color */
-.b99-style a {
+.b99-style a,
+.mehr-info-link  {
   /* Color declarations */
   color: var(--color-link);
 }
 
 .b99-style a:hover,
-.b99-style a:focus {
+.b99-style a:focus,
+.mehr-info-link:hover,
+.mehr-info-link:focus {
   /* Color declarations */
   color: var(--color-link-hover);
   text-decoration: underline
 }
-.b99-style a:active {
+.b99-style a:active,
+.mehr-info-link:active {
   /* Color declarations */
   color: var(--color-link-active);
   text-decoration: underline;
 }
 
+/* ========== Hidden elements ========== */
+/* Ensure elements with hidden class are not displayed */
 .hidden {
   display: none;
 }

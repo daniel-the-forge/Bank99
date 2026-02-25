@@ -17,7 +17,6 @@
   
   /* Box Model declarations */
   margin-bottom: calc(var(--form-section-header-margin-top) / 2 + var(--card-margin-top));
-  margin-top: var(--card-margin-top);
   padding: 0;
 }
 

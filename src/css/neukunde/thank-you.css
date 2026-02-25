@@ -4,14 +4,14 @@
  */
 
 /* ========== Thank you page ========== */
-.b99-style.thank #client1,
-.b99-style.thank .client-1 {
+.b99-style.thank-you #client1,
+.b99-style.thank-you .client-1 {
     /* Typography declarations */
     font-weight: var(--font-weight-bold);
 }
 
 
-.b99-style.thank .client-1 {
+.b99-style.thank-you .client-1 {
     /* Typography declarations */
     font-size: var(--font-size-18);
     text-align: center;
@@ -20,7 +20,7 @@
     margin-bottom: var(--spacing-40);
 }
 
-.b99-style.thank p {
+.b99-style.thank-you p {
     /* Typography declarations */
     line-height: var(--line-height-relaxed);
 }

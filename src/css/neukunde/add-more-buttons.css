@@ -60,6 +60,14 @@
   /* Positioning declarations */
   position: relative;
   
+  /* Transition declarations */
+  transition: background-color var(--transition-default);
+}
+
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row:focus::before {
+  /* Color declarations */
+  background-color: var(--color-primary);
 }
 
 /* Hide both radio buttons - we handle clicks via JavaScript */
@@ -164,6 +172,11 @@
   padding-top: var(--spacing-8);
 }
 
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaet"]) .econ-radio.row:focus::before {
+  background-color: var(--color-primary);
+}
+
 
 
 /* Plus icon in circle with yellow border via ::before */
@@ -194,6 +207,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: var(--icon-size-md) var(--icon-size-md);
+
+  /* Transition declarations */
+  transition: background-color var(--transition-default);
 }
 
 /* Text via ::after */

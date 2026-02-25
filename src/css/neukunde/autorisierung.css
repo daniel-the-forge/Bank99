@@ -13,12 +13,6 @@
  }
 
 /* Fragment: column layout, heading first */
-.b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) {
-    /* Display declarations */
-    display: flex;
-    flex-direction: column;
-}
-
 .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 {
     /* Display declarations */
     align-items: center;
@@ -32,7 +26,6 @@
 
 .b99-style.autorisierung .econ-section-content .econ-section-content .econ-section-content  {
     /* Display declarations */
-    align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-24);
@@ -174,14 +167,14 @@
     margin-bottom: var(--footer-margin-bottom);
 }
 
-.b99-style .econ-button-bar .b99-back-btn .econ-button {
+.b99-style.autorisierung .econ-button-bar .b99-back-btn .econ-button {
     border-radius: var(--btn-primary-border-radius);
     padding: var(--spacing-8) var(--spacing-16); 
     transition: background-color 0.3s ease;
 }
 
-.b99-style .econ-button-bar .b99-back-btn .econ-button:hover,
-.b99-style .econ-button-bar .b99-back-btn .econ-button:focus {
+.b99-style.autorisierung .econ-button-bar .b99-back-btn .econ-button:hover,
+.b99-style.autorisierung .econ-button-bar .b99-back-btn .econ-button:focus {
     background-color: var(--color-primary);
 }
 
@@ -216,25 +209,14 @@
     }
 }
 @media (min-width: 768px) {
-    .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) {
-        /* Display declarations */
-        flex: 0 0 50%;
-    }
-
-    .b99-style.autorisierung .econ-section-content .econ-section-content .econ-section-content  {
-        /* Display declarations */
-        flex-direction: row;
-    }
-
     .b99-style.autorisierung .econ-fragment:has(.so-funktioniert-es) .col-12 > div:first-of-type > p {
         /* Box Model declarations */
         margin-bottom: calc(var(--spacing-24) * 2);
     }
 
-    .b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content:has(.col-xs-12) {
-        /* Display declarations */
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
+    .b99-style.autorisierung .econ-fragment:has(mtan-icon) .col-12 > div:first-of-type > p {
+        /* Box Model declarations */
+        margin-bottom: calc(var(--spacing-24) * 1);
     }
 
     .b99-style.autorisierung .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content > .econ-fragment-container > .econ-section > .econ-section-content:has(.col-xs-12) .econ-section-content {

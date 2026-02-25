@@ -16,6 +16,9 @@
   padding-right: var(--header-padding-right);
   padding-top: calc(var(--spacing-24) * 2);
   width: 100%;
+
+  /* Display declarations */
+  display: none;
 }
 
 /* Reset row/column inside contact-nav */
