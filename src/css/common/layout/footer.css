@@ -263,9 +263,6 @@
     flex-direction: column;
     gap: var(--spacing-24);
 
-    /* Box Model declarations */
-    padding-left: var(--header-padding-left);
-
     /* Typography declarations */
     text-align: center;
   }
