@@ -95,10 +95,18 @@
 }
 
 /* Date input with specific data attribute */
+/* Default (Android & others) */
 .econ-container .b99-style input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"],
 .econ-container .b99-style input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"] {
-  /* Box Model declarations */
-  width: 93%;
+  width: 100%;
+}
+
+/* iOS only — targets WebKit on iOS specifically */
+@supports (-webkit-touch-callout: none) {
+  .econ-container .b99-style input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"],
+  .econ-container .b99-style input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"] {
+    width: 93%;
+  }
 }
 
 /* Calendar icon for date/month inputs - parent pseudo-element */
@@ -122,8 +130,8 @@
 
   /* Positioning declarations */
   position: absolute;
-  right: var(--input-padding);
-  top: 35%;
+  right: calc(var(--input-padding) * 2);
+  top: 50%;
   transform: translateY(-50%);
 
   /* Color declarations */

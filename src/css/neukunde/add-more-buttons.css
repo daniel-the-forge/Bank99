@@ -379,6 +379,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: var(--icon-size-md) var(--icon-size-md);
+
+  /* Transition declarations */
+  transition: background-color var(--transition-default);
 }
 
 /* Text via ::after */
@@ -403,6 +406,26 @@
 
   /* Miscellaneous declarations */
   pointer-events: none; /* Allow clicks to pass through */
+}
+
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:hover::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit2"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before, 
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit3"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit4"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit5"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit6"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit7"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit8"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before,
+.b99-style .econ-fragment-radio-group:has([data-econ-property*="steueransaessigkeit9"]):has([data-econ-property*="-ansaessig"]) .econ-radio.row:focus::before {
+  /* Color declarations */
+  background-color: var(--color-primary);
 }
 
 /* ========== "Dokumente später nachreichen" checkbox ========== */

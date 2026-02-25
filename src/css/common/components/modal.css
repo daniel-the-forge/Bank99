@@ -1,0 +1,172 @@
+/**
+ * Modal styles
+ * Modal components including modal header, modal body, and modal footer
+ * Uses design tokens – requires design-system.css
+ */
+
+
+/* ========== Modal display ========== */
+.b99-style .econ-modal.modal {
+    /* Positioning declarations */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    /* Display declarations */
+    display: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: 1050;    
+
+    /* Miscellaneous declarations */
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+
+    /* Transition declarations */
+    transition: opacity var(--transition-default);
+}
+
+.b99-style .econ-modal.modal.fade {
+    /* Display declarations */
+    opacity: 0;
+
+    /* Transition declarations */
+    transition: opacity var(--transition-default);
+}
+
+.b99-style .econ-modal.modal.fade.show {
+    /* Display declarations */
+    opacity: 1;
+}
+
+.b99-style .modal-dialog {
+    /* Transform declarations */
+    -webkit-transform: translate(0, -25%);
+    -ms-transform: translate(0,-25%);
+    -o-transform: translate(0,-25%);
+    transform: translate(0, -25%);
+    -webkit-transition: -webkit-transform .3s ease-out;
+    -o-transition: -o-transform .3s ease-out;
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out, -webkit-transform .3s ease-out, -o-transform .3s ease-out;
+
+    /* Box Model declarations */
+    margin: 10px;
+}
+
+.b99-style .econ-modal.modal.fade.show .modal-dialog  {
+    /* Transform declarations */
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0, 0);
+}
+
+/* ========== Modal content ========== */
+.b99-style .econ-modal.modal.fade.show .modal-content {
+    /* Box Model declarations */
+    border: 1px solid var(--color-border);
+    outline: 0;
+
+    /* Positioning declarations */
+    position: relative;
+
+    /* Color declarations */
+    background-color: var(--color-background);
+    background-clip: padding-box;
+    
+    /* Miscellaneous declarations */
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    border-radius: 6px;
+}
+
+/* ========== Modal header ========== */
+.b99-style .econ-modal.modal.fade.show .modal-header {
+    /* Box Model declarations */
+    border-bottom: 1px solid #e5e5e5;
+    padding: 18px 30px;
+
+    /* Miscellaneous declarations */
+    -webkit-box-shadow: 0 5px 10px rgba(111, 112, 114, .2);
+    box-shadow: 0 5px 10px rgba(111, 112, 114, .2);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    /* Color declarations */
+    background-color: #f8f8f8;
+
+    /* Display declarations */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.b99-style .modal-header .modal-title {
+    /* Typography declarations */
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    color: var(--color-text);
+}
+
+.b99-style .modal-header .btn-close {
+    /* Box Model declarations */
+    border: 0;
+    padding: 0;
+
+    /* Positioning declarations */
+    position: relative;
+    
+    /* Miscellaneous declarations */
+    cursor: pointer;
+
+    /* Color declarations */
+    background-color: transparent;
+ }
+    
+ .b99-style .modal-header .btn-close::after {
+    /* Content declarations */
+    content: "\00d7";
+    
+    /* Typography declarations */
+    font-size: calc(var(--font-size-18) * 1.75);
+    text-indent: initial;
+
+    /* Color declarations */
+    color: var(--color-text);
+    
+    /* Box Model declarations */
+    padding: var(--spacing-10);
+
+    /* Miscellaneous declarations */
+    transition: color .3s ease;
+ }
+
+ /* ========== Modal body ========== */
+ .b99-style .econ-modal.modal.fade.show .modal-body {
+    /* Box Model declarations */
+    padding: 30px;
+
+    /* Color declarations */
+    background-color: var(--color-background);
+    background-clip: padding-box;
+
+    /* Miscellaneous declarations */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    /* Positioning declarations */
+    position: relative;
+ }
+
+ /* ========== Media queries ========== */
+ @media (min-width: 768px) {
+    .b99-style .modal-dialog {
+        width: 600px;
+        margin: 30px auto;
+    }
+ }

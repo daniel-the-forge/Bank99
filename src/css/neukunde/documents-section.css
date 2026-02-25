@@ -18,6 +18,14 @@
   padding-left: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-right: calc((var(--bs-gutter-x, 1.5rem) * 0.5) + var(--form-margin-horizontal));
   padding-top: var(--spacing-16);
+
+  /* Miscellaneous declarations */
+  border-radius: var(--b99-master-radius);
+}
+
+.b99-style.dokumente .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]) .econ-radio.row {
+  /* Miscellaneous declarations */
+  border-radius: var(--b99-master-radius);
 }
 
 /* ========== Info box ========== */
@@ -159,5 +167,12 @@
   .b99-style.dokumente .econ-button-wrapper.b99-yellow-btn {
     /* Box Model declarations */
     margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .b99-style .econ-section.abcschluss-info-box-fix {
+    /* Box Model declarations */
+    margin-inline: 0;
   }
 }

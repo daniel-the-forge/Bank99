@@ -25,6 +25,7 @@
 @import "common/components/alerts.css";
 @import "common/components/cards.css";
 @import "common/components/tables.css";
+@import "common/components/modal.css";
 
 /* ========== Layout ========== */
 @import "common/layout/header.css";

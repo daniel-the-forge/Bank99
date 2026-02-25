@@ -76,6 +76,11 @@
   order: 2;
 }
 
+.b99-style .econ-button-wrapper.btn-antrag-abschliessen {
+  /* Positioning declarations */
+  justify-content: flex-end;
+}
+
 /* Speichern (save) - third in visual order, right aligned */
 .b99-style .econ-button-bar .b99-save-btn {
   /* Positioning declarations */
@@ -110,7 +115,7 @@
   font-weight: var(--font-weight-regular);
 
   /* Miscellaneous declarations */
-  border-radius: var(--b99-master-radius);
+  border-radius: var(--btn-primary-border-radius);
 
   /* Transition declarations */
   transition: background-color var(--transition-default);
@@ -220,6 +225,16 @@
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   font-weight: var(--font-weight-bold);
+
+  /* Transition declarations */
+  transition: background-color var(--transition-default), color var(--transition-default);
+}
+
+.econ-button.btn-secondary:hover,
+.econ-button.btn-secondary:focus {
+  /* Color declarations */
+  background-color: var(--color-primary);
+  color: var(--color-text);
 }
 
 /* ========== Button spinner ========== */
