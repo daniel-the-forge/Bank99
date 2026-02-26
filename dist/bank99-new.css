@@ -272,46 +272,6 @@
 /* ========== Base styles ========== */
 
 /**
- * Post Sans font faces
- * Local fonts for development (src/fonts/)
- * Path is relative to built CSS at dist/bank99-new.css
- */
-
-@font-face {
-  font-family: "Post Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local("Post Sans Regular"),
-    url("../src/fonts/PostSans-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Post Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local("Post Sans Bold"),
-    url("../src/fonts/PostSans-Bold.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: local("Open Sans"),
-    url("../src/fonts/open-sans-v18-latin-700.woff2") format("woff2");
-}
-
-@font-face {
-  font-display: block;
-  font-family: bootstrap-icons;
-  src: local("bootstrap-icons"),
-    url("../src/fonts/bootstrap-icons.woff") format("woff");
-}
-
-/**
  * Base reset and body styles
  * Uses design tokens – requires design-system.css and font-faces.css
  */
