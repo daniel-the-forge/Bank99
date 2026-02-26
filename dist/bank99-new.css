@@ -3100,6 +3100,7 @@ form.b99-style .econ-form-group.pb-3 {
 
   /* Typography declarations */
   font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
 
   /* Box Model declarations */
   margin: 0;
