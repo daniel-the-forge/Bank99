@@ -53,6 +53,11 @@
   width: 100%;
 }
 
+.econ-container .b99-style.page-rechtliches .collapse.show .econ-form-control-inner.econ-form-control-input-text:has(input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"])::before, 
+.econ-container .b99-style.page-rechtliches .collapse.show .econ-form-control-inner.econ-form-control-input-text:has(input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"])::before {
+  display: none;
+}
+
 /* Hide "add more" trigger radio groups entirely on summary page */
 .b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereDokumente"]),
 .b99-style.page-rechtliches .econ-fragment-radio-group:has([data-econ-property*="weitereNationalitaetVorhanden"]),

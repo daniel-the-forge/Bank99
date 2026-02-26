@@ -109,6 +109,10 @@
   }
 }
 
+input::-webkit-date-and-time-value {
+  text-align: left;
+}
+
 /* Calendar icon for date/month inputs - parent pseudo-element */
 .econ-container .b99-style .econ-form-control-inner.econ-form-control-input-text:has(input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"]),
 .econ-container .b99-style .econ-form-control-inner.econ-form-control-input-text:has(input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"]) {

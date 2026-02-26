@@ -1443,6 +1443,10 @@ body {
   }
 }
 
+input::-webkit-date-and-time-value {
+  text-align: left;
+}
+
 /* Calendar icon for date/month inputs - parent pseudo-element */
 
 .econ-container .b99-style .econ-form-control-inner.econ-form-control-input-text:has(input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"]),
@@ -4073,6 +4077,10 @@ form.b99-style .econ-form-group.pb-3 {
   order: 3;
 }
 
+.b99-style.dokumente .econ-fragment-file-input:last-child {
+  padding-bottom: var(--spacing-28)
+}
+
 /* ========== Media queries ========== */
 
 /* Small devices (landscape phones, 576px and up) */
@@ -6019,6 +6027,11 @@ form.b99-style .econ-form-group.pb-3 {
 
 .b99-style.page-rechtliches .econ-collapse .row .col-6 {
   width: 100%;
+}
+
+.econ-container .b99-style.page-rechtliches .collapse.show .econ-form-control-inner.econ-form-control-input-text:has(input[type="date"][data-econ-property="antrag-antragsteller1-personenDaten-geburtsdatum"])::before, 
+.econ-container .b99-style.page-rechtliches .collapse.show .econ-form-control-inner.econ-form-control-input-text:has(input[type="month"][data-econ-property="antrag-antragsteller1-personenDaten-adresse-wohnhaftSeit"])::before {
+  display: none;
 }
 
 /* Hide "add more" trigger radio groups entirely on summary page */

@@ -154,7 +154,9 @@
   order: 3;
 }
 
-
+.b99-style.dokumente .econ-fragment-file-input:last-child {
+  padding-bottom: var(--spacing-28)
+}
 
 /* ========== Media queries ========== */
 /* Small devices (landscape phones, 576px and up) */
