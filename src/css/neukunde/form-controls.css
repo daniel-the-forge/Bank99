@@ -149,6 +149,7 @@
   display: block;
 
   /* Typography declarations */
+  font-size: var(--font-size-14);
   text-align: center;
 }
 
@@ -161,7 +162,7 @@
 
   /* Box Model declarations */
   width: 111px;
-  height: 77px;
+  height: 57px;
   margin: 0 auto var(--spacing-24);
 
   /* Background declarations */
@@ -180,7 +181,7 @@
 
   /* Box Model declarations */
   width: 49px;
-  height: 78px;
+  height: 58px;
   margin: 0 auto var(--spacing-24);
 
   /* Background declarations */
@@ -188,6 +189,41 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.page-legitimation .econ-control-icon,
+.page-legitimation .econ-tooltip-info,
+.page-legitimation .econ-sliding-tooltip {
+  display: none !important;
+}
+
+.page-legitimation .econ-input-group:has(.idaustria) {
+  justify-content: center;
+}
+
+.page-legitimation .econ-radio:has(.idaustria) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(8px, 6vw, 24px);
+}
+
+.page-legitimation .econ-radio:has(.idaustria) .col-6 {
+  width: 100% !important;
+  height: 220px; /* let aspect-ratio control the height */
+  aspect-ratio: 1 / 1;
+  max-height: 250px; /* desktop cap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevent content blowout */
+}
+
+.page-legitimation .econ-radio:has(.idaustria) .form-check {
+  max-width: 75%;
+}
+
+.page-legitimation .econ-radio:has(.idaustria) .form-check label {
+  line-height: 1.4;
 }
 
 /* ========== Media queries ========== */
@@ -200,6 +236,11 @@
 }
 
 @media (min-width: 768px) {
+
+  .page-legitimation .econ-radio:has(.idaustria) .col-6 { 
+    height: 250px;
+  }
+
   .b99-style .econ-fragment-radio-group .col-6.idaustria,
   .b99-style .econ-fragment-radio-group .col-6.selfident {
     /* Box Model declarations */

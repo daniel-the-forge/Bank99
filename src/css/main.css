@@ -8,6 +8,7 @@
 @import "common/tokens/design-system.css";
 
 /* ========== Base styles ========== */
+@import "common/base/font-faces.css";
 @import "common/base/form-reset.css";
 
 /* ========== Bootstrap overrides ========== */

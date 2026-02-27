@@ -13,7 +13,8 @@
   padding: 0;
 }
 
-.b99-style.fonds .econ-fragment-radio-group .econ-form-control-outer {
+.b99-style.fonds .econ-fragment-radio-group .econ-form-control-outer,
+.b99-style .b99__3-grid.econ-fragment-radio-group .econ-form-control-outer {
   /* Display declarations */
   flex: 0 0 calc(100% - var(--spacing-43));
 }
@@ -24,7 +25,8 @@
 }
 
 /* Radio button container box - bordered box with padding */
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 {
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12,
+.b99-style .b99__3-grid.econ-fragment-radio-group .econ-radio .col-12 {
   /* Box Model declarations */
   box-sizing: border-box;
   border: var(--input-border-width) solid var(--input-border-color);
@@ -40,7 +42,8 @@
 }
 
 /* Form check container */
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .form-check {
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .form-check,
+.b99-style .b99__3-grid.econ-fragment-radio-group .econ-radio .col-12 .form-check {
   /* Display declarations */
   align-items: center;
   display: flex;
@@ -49,7 +52,8 @@
 
 /* Radio button label - stretched to cover entire container */
 /* This makes the entire .col-12 box clickable via the label */
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label {
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label,
+.b99-style .b99__3-grid.econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label {
   /* Display declarations */
   display: block;
 
@@ -76,7 +80,8 @@
 
 /* Clickable overlay - covers entire .col-12 container */
 /* Uses ::after pseudo-element to extend label's clickable area */
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label::after {
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label::after,
+.b99-style .b99__3-grid.econ-fragment-radio-group .econ-radio .col-12 .econ-radio-label::after {
   /* Content declarations */
   content: "";
 
@@ -96,7 +101,8 @@
 }
 
 /* Active/selected state - visual feedback for selected radio option */
-.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12.econ-radio--active {
+.b99-style.fonds .econ-fragment-radio-group .econ-radio .col-12.econ-radio--active,
+.b99-style .b99__3-grid.econ-fragment-radio-group .econ-radio .col-12.econ-radio--active {
   /* Color declarations */
   background-color: var(--color-background);
 
@@ -107,7 +113,8 @@
   box-shadow: var(--input-box-shadow-focus);
 }
 
-.b99-style.fonds .econ-fragment-radio-group > .econ-form-group {
+.b99-style.fonds .econ-fragment-radio-group > .econ-form-group,
+.b99-style .b99__3-grid.econ-fragment-radio-group > .econ-form-group {
   /* Positioning declarations */
   position: relative;
 }
@@ -119,7 +126,8 @@
 }
 
 
-.b99-style.fonds .econ-fragment-radio-group:not(.econ-fragment-multiple) .econ-radio.row {
+.b99-style.fonds .econ-fragment-radio-group:not(.econ-fragment-multiple) .econ-radio.row,
+.b99-style .b99__3-grid.econ-fragment-radio-group:not(.econ-fragment-multiple) .econ-radio.row {
   /* Display declarations */
   display: grid;
   grid-template-columns: repeat(3, 1fr);

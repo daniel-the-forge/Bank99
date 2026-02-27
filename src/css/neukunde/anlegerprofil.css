@@ -21,7 +21,8 @@
   /* ========== Collapsible header - "Angaben nach dem Wertpapieraufsichtsgesetz 2018" ========== */
   /* Blue link style header with caret icon */
   /* Only applies to the first collapsible header inside .econ-section.econ-collapse */
-  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) {
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3),
+  .b99-style .anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) {
     /* Display declarations */
     align-items: center;
     display: flex;
@@ -41,7 +42,8 @@
   }
 
   /* Header text styling - blue link */
-  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) h3 {
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) h3,
+  .b99-style .anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) h3 {
     /* Typography declarations */
     font-family: var(--font-family);
     font-size: var(--font-size-16);
@@ -60,7 +62,8 @@
   }
 
   /* Span wrapper for clickable area */
-  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span {
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span,
+  .b99-style .anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span {
     /* Display declarations */
     align-items: center;
     display: flex;
@@ -71,7 +74,8 @@
   }
 
   /* Chevron/caret icon - positioned on the right, inside the span */
-  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span::after {
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span::after,
+  .b99-style .anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span::after {
     /* Content declarations */
     content: '';
 
@@ -94,21 +98,24 @@
   }
 
   /* Rotate caret when expanded (span doesn't have .collapsed class) */
-  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span:not(.collapsed)::after {
+  .b99-style.anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span:not(.collapsed)::after,
+  .b99-style .anlegerprofil .econ-section.econ-collapse .econ-section-header.econ-collapse-header:has(h3) span:not(.collapsed)::after {
     /* Manipulations declarations */
     transform: rotate(180deg);
   }
 
   /* Collapsible section content - smooth expand/collapse animation */
   /* Base state - always has transition for smooth animations */
-  .b99-style.anlegerprofil .econ-section-content {
+  .b99-style.anlegerprofil .econ-section-content,
+  .b99-style .anlegerprofil .econ-section-content {
     /* Manipulations declarations */
     overflow: hidden;
     transition: max-height var(--transition-default), opacity var(--transition-default);
   }
 
   /* Collapsed state - hidden */
-  .b99-style.anlegerprofil .econ-section-content.collapse {
+  .b99-style.anlegerprofil .econ-section-content.collapse,
+  .b99-style .anlegerprofil .econ-section-content.collapse {
     /* Box Model declarations */
     max-height: 0;
 
@@ -117,7 +124,8 @@
   }
 
   /* Expanded state - visible */
-  .b99-style.anlegerprofil .econ-section-content.collapse.show {
+  .b99-style.anlegerprofil .econ-section-content.collapse.show,
+  .b99-style .anlegerprofil .econ-section-content.collapse.show {
     /* Manipulations declarations */
     max-height: var(--collapse-max-height);
 
@@ -126,14 +134,16 @@
   }
 
   /* Collapsing state - intermediate state during animation */
-  .b99-style.anlegerprofil .econ-section-content.collapsing {
+  .b99-style.anlegerprofil .econ-section-content.collapsing,
+  .b99-style .anlegerprofil .econ-section-content.collapsing {
     /* Manipulations declarations */
     overflow: hidden;
     transition: max-height var(--transition-default), opacity var(--transition-default);
   }
 
   /* When collapsing (closing), animate to collapsed state */
-  .b99-style.anlegerprofil .econ-section-content.collapsing:not(.show) {
+  .b99-style.anlegerprofil .econ-section-content.collapsing:not(.show),
+  .b99-style .anlegerprofil .econ-section-content.collapsing:not(.show) {
     /* Manipulations declarations */
     max-height: 0;
 
@@ -142,7 +152,8 @@
   }
 
   /* When collapsing (opening), animate to expanded state */
-  .b99-style.anlegerprofil .econ-section-content.collapsing.show {
+  .b99-style.anlegerprofil .econ-section-content.collapsing.show,
+  .b99-style .anlegerprofil .econ-section-content.collapsing.show {
     /* Manipulations declarations */
     max-height: var(--collapse-max-height);
 
@@ -152,7 +163,8 @@
 }
 
 /* ========== Input group ========== */
-.b99-style.anlegerprofil .econ-fragment-multiple .form-check {
+.b99-style.anlegerprofil .econ-fragment-multiple .form-check,
+.b99-style .anlegerprofil .econ-fragment-multiple .form-check {
   /* Display declarations */
   flex-direction: row-reverse;
 }

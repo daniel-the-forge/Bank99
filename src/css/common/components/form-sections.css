@@ -168,6 +168,7 @@
   .page-rechtliches.b99-style .econ-section-content.collapsing:not(.show) {
     /* Manipulations declarations */
     max-height: 0;
+    visibility: hidden;
 
     /* Color declarations */
     opacity: 0;
@@ -216,7 +217,8 @@
   padding: calc(var(--form-margin-horizontal) / 2) var(--form-margin-horizontal);
 }
 
-.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check {
+.b99-style .econ-fragment-multiple.econ-fragment-checkbox .form-check,
+.b99-style .checkbox-group .form-check {
   /* Display declarations */
   align-items: center;
   display: flex;
@@ -224,6 +226,16 @@
 
   /* Box Model declarations */
   padding: var(--spacing-8) 0;
+}
+
+.b99-style .checkbox-group .form-check .form-check-input {
+  order: 1;
+}
+
+.b99-style .checkbox-group .form-check .form-check-label {
+  flex: 1;
+  order: 0;
+  font-size: var(--font-size-14);
 }
 
 .b99-style .econ-fragment-multiple.econ-fragment-checkbox .econ-control-icon {

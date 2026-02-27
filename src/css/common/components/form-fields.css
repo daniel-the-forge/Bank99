@@ -482,3 +482,19 @@ form.b99-style .econ-form-group.pb-3 {
   /* Miscellaneous declarations */
   box-shadow: var(--input-box-shadow-focus);
 }
+
+.b99-style .b99-gray-option-box .form-check {
+  display: flex;
+  flex-direction: row-reverse;
+  column-gap: var(--spacing-8);
+}
+
+.b99-style .b99-gray-option-box .form-check label {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-relaxed);
+}
+
+.b99-style .b99-gray-option-box .econ-control-icon {
+  top: -6px;
+  position: relative;
+}
